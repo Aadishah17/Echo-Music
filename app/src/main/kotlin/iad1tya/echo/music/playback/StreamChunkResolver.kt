@@ -8,7 +8,7 @@ internal fun resolveStreamChunkLength(
     knownContentLength: Long?,
     chunkLength: Long,
 ): Long? {
-    if ((chunkLength <= 0L) || (position < 0L)) return null
+    if (chunkLength <= 0L || position < 0L) return null
 
     val remainingLength = knownContentLength?.let { it - position }
     if (remainingLength != null && remainingLength <= 0L) return null

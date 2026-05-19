@@ -519,7 +519,7 @@ object Updater {
         while (true) {
             validateDownloadUrl(url)
             val connection =
-                (url.openConnection() as? HttpURLConnection)
+                url.openConnection() as? HttpURLConnection
                     ?: throw IllegalStateException("Unsupported download connection")
             connection.instanceFollowRedirects = false
             connection.connectTimeout = 15_000
