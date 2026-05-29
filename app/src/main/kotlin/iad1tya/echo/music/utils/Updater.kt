@@ -141,13 +141,13 @@ object Updater {
     }
 
     private val semVerRegex =
-        Regex("""(?i)\bv?(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?(?:\+[0-9A-Za-z.-]+)?\b""")
+        Regex("""(?i)\bv?(\d+)\.(\d+)(?:\.(\d+))?(?:-([0-9A-Za-z.-]+))?(?:\+[0-9A-Za-z.-]+)?\b""")
 
     private fun parseSemVerOrNull(text: String): SemVer? {
         val match = semVerRegex.find(text) ?: return null
         val major = match.groupValues.getOrNull(1)?.toIntOrNull() ?: return null
         val minor = match.groupValues.getOrNull(2)?.toIntOrNull() ?: return null
-        val patch = match.groupValues.getOrNull(3)?.toIntOrNull() ?: return null
+        val patch = match.groupValues.getOrNull(3)?.takeIf { it.isNotBlank() }?.toIntOrNull() ?: 0
         val preReleaseText = match.groupValues.getOrNull(4)?.takeIf { it.isNotBlank() }
         val preRelease =
             preReleaseText
