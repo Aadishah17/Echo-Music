@@ -87,7 +87,7 @@ fun PlayerSettings(
 ) {
     val (audioQuality, onAudioQualityChange) = rememberEnumPreference(
         AudioQualityKey,
-        defaultValue = AudioQuality.AUTO
+        defaultValue = AudioQuality.OPUS
     )
     val (crossfadeEnabled, onCrossfadeEnabledChange) = rememberPreference(
         CrossfadeEnabledKey,
@@ -277,9 +277,8 @@ fun PlayerSettings(
             values = AudioQuality.values().toList(),
             valueText = {
                 when (it) {
-                    AudioQuality.AUTO -> stringResource(R.string.audio_quality_auto)
-                    AudioQuality.OPUS -> stringResource(R.string.audio_quality_high)
-                    AudioQuality.LOSSLESS -> stringResource(R.string.audio_quality_lossless)
+                    AudioQuality.OPUS -> "Opus"
+                    AudioQuality.LOSSLESS -> "Lossless"
                 }
             }
         )
@@ -334,9 +333,8 @@ fun PlayerSettings(
                     description = {
                         Text(
                             when (audioQuality) {
-                                AudioQuality.AUTO -> stringResource(R.string.audio_quality_auto)
-                                AudioQuality.OPUS -> stringResource(R.string.audio_quality_high)
-                                AudioQuality.LOSSLESS -> stringResource(R.string.audio_quality_lossless)
+                                AudioQuality.OPUS -> "Opus"
+                                AudioQuality.LOSSLESS -> "Lossless"
                             }
                         )
                     },
@@ -358,7 +356,7 @@ fun PlayerSettings(
                 add(Material3SettingsItem(
                     icon = painterResource(R.drawable.download),
                     title = { Text("Local Download") },
-                    description = { Text("Enable downloading songs directly to local storage") },
+                    description = { Text("Enable downloading songs directly to local storage (Only Supports FLAC)") },
                     trailingContent = {
                         Switch(
                             checked = localDownloadEnabled,
@@ -378,22 +376,27 @@ fun PlayerSettings(
                 add(Material3SettingsItem(
                     icon = painterResource(R.drawable.linear_scale),
                     title = { Text(stringResource(R.string.crossfade)) },
-                    description = { Text(stringResource(R.string.crossfade_desc)) },
+                    description = { 
+                        Text(if (audioQuality == AudioQuality.LOSSLESS) "Disabled for Lossless audio" else stringResource(R.string.crossfade_desc)) 
+                    },
                     showBadge = true,
                     trailingContent = {
                         Switch(
-                            checked = crossfadeEnabled,
+                            checked = if (audioQuality == AudioQuality.LOSSLESS) false else crossfadeEnabled,
+                            enabled = audioQuality != AudioQuality.LOSSLESS,
                             onCheckedChange = {
-                                if (!crossfadeEnabled) {
-                                    showCrossfadeBetaDialog = true
-                                } else {
-                                    onCrossfadeEnabledChange(false)
+                                if (audioQuality != AudioQuality.LOSSLESS) {
+                                    if (!crossfadeEnabled) {
+                                        showCrossfadeBetaDialog = true
+                                    } else {
+                                        onCrossfadeEnabledChange(false)
+                                    }
                                 }
                             },
                             thumbContent = {
                                 Icon(
                                     painter = painterResource(
-                                        id = if (crossfadeEnabled) R.drawable.check else R.drawable.close
+                                        id = if (crossfadeEnabled && audioQuality != AudioQuality.LOSSLESS) R.drawable.check else R.drawable.close
                                     ),
                                     contentDescription = null,
                                     modifier = Modifier.size(SwitchDefaults.IconSize)
@@ -402,14 +405,16 @@ fun PlayerSettings(
                         )
                     },
                     onClick = {
-                        if (!crossfadeEnabled) {
-                            showCrossfadeBetaDialog = true
-                        } else {
-                            onCrossfadeEnabledChange(false)
+                        if (audioQuality != AudioQuality.LOSSLESS) {
+                            if (!crossfadeEnabled) {
+                                showCrossfadeBetaDialog = true
+                            } else {
+                                onCrossfadeEnabledChange(false)
+                            }
                         }
                     }
                 ))
-                if (crossfadeEnabled) {
+                if (crossfadeEnabled && audioQuality != AudioQuality.LOSSLESS) {
                     add(Material3SettingsItem(
                         icon = painterResource(R.drawable.timer),
                         title = { Text(stringResource(R.string.crossfade_duration)) },

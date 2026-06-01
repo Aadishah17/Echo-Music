@@ -360,7 +360,7 @@ fun BottomSheetPlayer(
 
     val (audioQuality) = rememberEnumPreference(
         AudioQualityKey,
-        defaultValue = AudioQuality.AUTO
+        defaultValue = AudioQuality.OPUS
     )
     val sliderStyle by rememberEnumPreference(SliderStyleKey, SliderStyle.DEFAULT)
     val squigglySlider by rememberPreference(SquigglySliderKey, defaultValue = false)
@@ -1862,7 +1862,7 @@ fun BottomSheetPlayer(
                 }
             }
 
-            Spacer(Modifier.height(if (useNewPlayerDesign) 24.dp else 8.dp))
+            Spacer(Modifier.height(if (useNewPlayerDesign) 24.dp else 4.dp))
 
             when (sliderStyle) {
                 SliderStyle.DEFAULT -> {
@@ -2136,9 +2136,8 @@ fun BottomSheetPlayer(
                                     )
                                     Text(
                                         text = when (audioQuality) {
-                                            AudioQuality.AUTO -> stringResource(R.string.audio_quality_auto)
-                                            AudioQuality.OPUS -> stringResource(R.string.audio_quality_high)
-                                            AudioQuality.LOSSLESS -> stringResource(R.string.audio_quality_lossless)
+                                            AudioQuality.OPUS -> "Opus"
+                                            AudioQuality.LOSSLESS -> "Lossless"
                                         }.uppercase(),
                                         style = MaterialTheme.typography.labelSmall.copy(
                                             fontSize = 10.sp,
@@ -2163,7 +2162,7 @@ fun BottomSheetPlayer(
                 )
             }
 
-            Spacer(Modifier.height(if (useNewPlayerDesign) 24.dp else 8.dp))
+            Spacer(Modifier.height(if (useNewPlayerDesign) 24.dp else 4.dp))
 
             AnimatedVisibility(
                 visible = !isFullScreen,
@@ -2368,7 +2367,10 @@ fun BottomSheetPlayer(
                                 Modifier
                                     .size(100.dp) 
                                     .clip(RoundedCornerShape(playPauseRoundness))
-                                    .clickable {
+                                    .clickable(
+                                        interactionSource = remember { MutableInteractionSource() },
+                                        indication = null
+                                    ) {
                                         if (isListenTogetherGuest) {
                                             playerConnection.toggleMute()
                                             return@clickable

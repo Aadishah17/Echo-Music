@@ -85,8 +85,8 @@ fun LocalDownloadBottomSheet(
                             if (url != null) {
                                 availableFormats.add(
                                     DownloadableFormat(
-                                        title = "FLAC Lossless",
-                                        subtitle = "Qobuz",
+                                        title = "Lossless (FLAC)",
+                                        subtitle = "Lossless Hi-Res music files may be larger in size.",
                                         url = url,
                                         mimeType = "audio/flac",
                                         fileExtension = "flac"
@@ -146,13 +146,14 @@ fun LocalDownloadBottomSheet(
                                     if (localDownloadDirectory.isEmpty()) {
                                         Toast.makeText(context, "Please configure Download Destination in Settings first.", Toast.LENGTH_LONG).show()
                                     } else {
-                                        coroutineScope.launch(Dispatchers.IO) {
+                                        val appContext = context.applicationContext
+                                        kotlinx.coroutines.GlobalScope.launch(Dispatchers.IO) {
                                             val cleanTitle = mediaMetadata.title.replace(Regex("[\\\\/:*?\"<>|]"), "")
                                             val cleanArtist = mediaMetadata.artists.firstOrNull()?.name?.replace(Regex("[\\\\/:*?\"<>|]"), "") ?: "Unknown"
                                             val fileName = "$cleanTitle - $cleanArtist.${format.fileExtension}"
 
                                             LocalFileDownloader.download(
-                                                context = context,
+                                                context = appContext,
                                                 url = format.url,
                                                 destinationDirUriString = localDownloadDirectory,
                                                 fileName = fileName,
