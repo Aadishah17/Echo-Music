@@ -391,7 +391,7 @@ fun SongMenu(
                             Icon(
                                 painter = painterResource(R.drawable.share),
                                 contentDescription = null,
-                                modifier = Modifier.size(28.dp),
+                                modifier = Modifier.size(22.dp),
                                 tint = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         },
@@ -401,7 +401,7 @@ fun SongMenu(
                             val intent = Intent().apply {
                                 action = Intent.ACTION_SEND
                                 type = "text/plain"
-                                putExtra(Intent.EXTRA_TEXT, "https://music.youtube.com/watch?v=${song.id}")
+                                putExtra(Intent.EXTRA_TEXT, "https://share.echomusic.fun/watch?v=${song.id}")
                             }
                             context.startActivity(Intent.createChooser(intent, null))
                         }
@@ -718,7 +718,7 @@ fun SongMenu(
                 ).let { list ->
                     if (localDownloadEnabled) {
                         list + Material3MenuItemData(
-                            title = { Text(text = "Local Download") },
+                            title = { Text(text = "Local Download (Beta)") },
                             description = { Text(text = "Download song to device storage") },
                             icon = {
                                 Icon(

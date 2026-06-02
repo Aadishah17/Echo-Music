@@ -173,7 +173,7 @@ import iad1tya.echo.music.utils.YTPlayerUtils
 import iad1tya.echo.music.utils.dataStore
 import iad1tya.echo.music.utils.get
 import iad1tya.echo.music.utils.reportException
-import iad1tya.echo.music.widget.echomusicWidgetManager
+import iad1tya.echo.music.widget.EchoMusicWidgetManager
 import iad1tya.echo.music.widget.MusicWidgetReceiver
 import dagger.hilt.android.AndroidEntryPoint
 import iad1tya.echo.music.utils.isLocalMediaId
@@ -238,7 +238,7 @@ class MusicService :
     lateinit var eqProfileRepository: EQProfileRepository
 
     @Inject
-    lateinit var widgetManager: echomusicWidgetManager
+    lateinit var widgetManager: EchoMusicWidgetManager
 
     @Inject
     lateinit var listenTogetherManager: iad1tya.echo.music.listentogether.ListenTogetherManager
@@ -491,12 +491,11 @@ class MusicService :
         player.addListener(this@MusicService)
         sleepTimer = SleepTimer(scope, player)
         player.addListener(sleepTimer)
-
-        
         playerInitialized.value = true
         Timber.tag(TAG).d("Player successfully initialized")
 
         audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        abandonAudioFocus()
         setupAudioFocusRequest()
 
         mediaLibrarySessionCallback.apply {
@@ -2250,6 +2249,7 @@ class MusicService :
         retryJob = scope.launch {
             try {
                 
+                val wasPlaying = player.playWhenReady
                 player.pause()
                 Timber.tag(TAG).d("Paused playback due to AudioTrack error")
 
@@ -2273,7 +2273,7 @@ class MusicService :
                     Timber.tag(TAG).d("Retrying playback for $mediaId after AudioTrack error")
 
                     
-                    if (wasPlayingBeforeAudioFocusLoss) {
+                    if (wasPlaying) {
                         delay(500) 
                         if (hasAudioFocus && playerInitialized.value) {
                             if (castConnectionHandler?.isCasting?.value != true) {
@@ -2641,12 +2641,7 @@ class MusicService :
                 songUrlCache[mediaId] =
                     streamUrl to System.currentTimeMillis() + (nonNullPlayback.streamExpiresInSeconds * 1000L)
                 
-                val isLossless = format.audioQuality == "LOSSLESS"
-                return@Factory if (isLossless) {
-                    dataSpec.withUri(streamUrl.toUri())
-                } else {
-                    dataSpec.withUri(streamUrl.toUri()).subrange(dataSpec.uriPositionOffset, CHUNK_LENGTH)
-                }
+                return@Factory dataSpec.withUri(streamUrl.toUri())
             }
         }
     }
@@ -2913,7 +2908,7 @@ class MusicService :
 
         val shareIntent = Intent(Intent.ACTION_SEND).apply {
             type = "text/plain"
-            putExtra(Intent.EXTRA_TEXT, "https://music.youtube.com/watch?v=$songId")
+            putExtra(Intent.EXTRA_TEXT, "https://share.echomusic.fun/watch?v=$songId")
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
         startActivity(Intent.createChooser(shareIntent, null).apply {

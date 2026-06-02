@@ -125,7 +125,6 @@ import iad1tya.echo.music.constants.LyricsGlowEffectKey
 import iad1tya.echo.music.constants.LyricsLineSpacingKey
 import iad1tya.echo.music.constants.LyricsScrollKey
 import iad1tya.echo.music.constants.MiniPlayerBackgroundStyleKey
-import iad1tya.echo.music.constants.ShowAudioQualityBadgeKey
 import iad1tya.echo.music.constants.ShowCommentButtonKey
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -147,10 +146,6 @@ fun AppearanceSettings(
     val (enableHighRefreshRate, onEnableHighRefreshRateChange) = rememberPreference(
         EnableHighRefreshRateKey,
         defaultValue = true
-    )
-    val (showAudioQualityBadge, onShowAudioQualityBadgeChange) = rememberPreference(
-        ShowAudioQualityBadgeKey,
-        defaultValue = false
     )
     val (selectedThemeColorInt) = rememberPreference(
         SelectedThemeColorKey,
@@ -609,7 +604,7 @@ fun AppearanceSettings(
                     PlayerBackgroundStyle.BLUR -> stringResource(R.string.player_background_blur)
                     PlayerBackgroundStyle.GLOW_ANIMATED -> stringResource(R.string.glow_animated)
                     PlayerBackgroundStyle.LIVE_MESH -> stringResource(R.string.live_mesh)
-                    else -> ""
+                    else -> "Unknown"
                 }
             }
         )
@@ -1098,15 +1093,20 @@ fun AppearanceSettings(
             items = listOfNotNull(
                 Material3SettingsItem(
                     icon = painterResource(R.drawable.palette),
-                    title = { Text(stringResource(R.string.new_player_design)) },
+                    title = { Text("Apple Music Inspired") },
                     trailingContent = {
                         Switch(
-                            checked = useNewPlayerDesign,
-                            onCheckedChange = onUseNewPlayerDesignChange,
+                            checked = !useNewPlayerDesign,
+                            onCheckedChange = { isChecked ->
+                                onUseNewPlayerDesignChange(!isChecked)
+                                if (isChecked) {
+                                    onPlayerBackgroundChange(PlayerBackgroundStyle.APPLE_MUSIC)
+                                }
+                            },
                             thumbContent = {
                                 Icon(
                                     painter = painterResource(
-                                        id = if (useNewPlayerDesign) R.drawable.check else R.drawable.close
+                                        id = if (!useNewPlayerDesign) R.drawable.check else R.drawable.close
                                     ),
                                     contentDescription = null,
                                     modifier = Modifier.size(SwitchDefaults.IconSize)
@@ -1114,36 +1114,20 @@ fun AppearanceSettings(
                             }
                         )
                     },
-                    onClick = { onUseNewPlayerDesignChange(!useNewPlayerDesign) }
+                    onClick = { 
+                        val newAppleMusicInspired = useNewPlayerDesign
+                        onUseNewPlayerDesignChange(!newAppleMusicInspired)
+                        if (newAppleMusicInspired) {
+                            onPlayerBackgroundChange(PlayerBackgroundStyle.APPLE_MUSIC)
+                        }
+                    }
                 ),
-                if (!useNewPlayerDesign) {
-                    Material3SettingsItem(
-                        icon = painterResource(R.drawable.tune),
-                        title = { Text(stringResource(R.string.show_audio_quality_badge)) },
-                        trailingContent = {
-                            Switch(
-                                checked = showAudioQualityBadge,
-                                onCheckedChange = onShowAudioQualityBadgeChange,
-                                thumbContent = {
-                                    Icon(
-                                        painter = painterResource(
-                                            id = if (showAudioQualityBadge) R.drawable.check else R.drawable.close
-                                        ),
-                                        contentDescription = null,
-                                        modifier = Modifier.size(SwitchDefaults.IconSize)
-                                    )
-                                }
-                            )
-                        },
-                        onClick = { onShowAudioQualityBadgeChange(!showAudioQualityBadge) }
-                    )
-                } else null,
                 Material3SettingsItem(
                     icon = painterResource(R.drawable.gradient),
                     title = { Text(stringResource(R.string.player_background_style)) },
                     description = {
                         Text(
-                            when (playerBackground) {
+                            when (if (!useNewPlayerDesign) PlayerBackgroundStyle.APPLE_MUSIC else playerBackground) {
                                 PlayerBackgroundStyle.DEFAULT -> stringResource(R.string.follow_theme)
                                 PlayerBackgroundStyle.GRADIENT -> stringResource(R.string.gradient)
                                 PlayerBackgroundStyle.BLUR -> stringResource(R.string.player_background_blur)
@@ -1153,7 +1137,11 @@ fun AppearanceSettings(
                             }
                         )
                     },
-                    onClick = { showPlayerBackgroundDialog = true }
+                    onClick = { 
+                        if (useNewPlayerDesign) {
+                            showPlayerBackgroundDialog = true 
+                        }
+                    }
                 ),
                 Material3SettingsItem(
                     icon = painterResource(R.drawable.hide_image),
