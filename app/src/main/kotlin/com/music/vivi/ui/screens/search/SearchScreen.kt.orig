@@ -135,15 +135,15 @@ fun SearchScreen(
     }
     val pauseSearchHistory by rememberPreference(PauseSearchHistoryKey, defaultValue = false)
     var isFirstLaunch by rememberSaveable { mutableStateOf(true) }
-    
+
     var selectedTabIndex by rememberSaveable { mutableStateOf(0) }
     var searchActive by rememberSaveable { mutableStateOf(false) }
     var showSearchContent by remember { mutableStateOf(false) }
 
     LaunchedEffect(searchActive) {
         if (searchActive) {
-            
-            
+
+
             kotlinx.coroutines.delay(100)
             showSearchContent = true
         } else {
@@ -167,7 +167,7 @@ fun SearchScreen(
             if (searchQuery.isNotEmpty()) {
                 focusManager.clearFocus()
                 println("[LINK_PARSE_DEBUG] onSearch initiated for: $searchQuery")
-                
+
                 when (val parsedUrl = YouTubeUrlParser.parse(searchQuery)) {
                     is YouTubeUrlParser.ParsedUrl.Video -> {
                         println("[LINK_PARSE_DEBUG] Performing direct playback for Video ID: ${parsedUrl.id}")
@@ -205,7 +205,7 @@ fun SearchScreen(
             if (searchQuery.isNotEmpty()) {
                 focusManager.clearFocus()
                 println("[LINK_PARSE_DEBUG] onSearchFromSuggestion initiated for: $searchQuery")
-                
+
                 when (val parsedUrl = YouTubeUrlParser.parse(searchQuery)) {
                     is YouTubeUrlParser.ParsedUrl.Video -> {
                         println("[LINK_PARSE_DEBUG] Performing direct playback from suggestion for Video ID: ${parsedUrl.id}")
@@ -247,7 +247,7 @@ fun SearchScreen(
                 SearchBar(
                     query = query.text,
                     onQueryChange = { query = TextFieldValue(it) },
-                    onSearch = { 
+                    onSearch = {
                         onSearch(it)
                         searchActive = false
                     },
@@ -271,9 +271,9 @@ fun SearchScreen(
                         IconButton(onClick = {
                             if (searchActive) {
                                 searchActive = false
-                                query = TextFieldValue("") 
+                                query = TextFieldValue("")
                             } else {
-                                searchActive = true 
+                                searchActive = true
                             }
                         }) {
                             Icon(
@@ -296,7 +296,7 @@ fun SearchScreen(
                             }
                             IconButton(
                                 onClick = {
-                                    searchSource = if (searchSource == SearchSource.ONLINE) 
+                                    searchSource = if (searchSource == SearchSource.ONLINE)
                                         SearchSource.LOCAL else SearchSource.ONLINE
                                 }
                             ) {
@@ -400,7 +400,7 @@ fun SearchScreen(
         containerColor = if (pureBlack) Color.Black else MaterialTheme.colorScheme.background
     ) { paddingValues ->
         val bottomPadding = LocalPlayerAwareWindowInsets.current.asPaddingValues().calculateBottomPadding()
-        
+
         Box(
             modifier = Modifier
                 .padding(top = paddingValues.calculateTopPadding())
@@ -417,27 +417,27 @@ fun SearchScreen(
         }
     }
 
-    
+
     DisposableEffect(lifecycleOwner, isPlayerExpanded) {
         val observer = LifecycleEventObserver { _, event ->
             when (event) {
                 Lifecycle.Event.ON_RESUME -> {
-                    
+
                     if (isPlayerExpanded) {
                         keyboardController?.hide()
                         focusManager.clearFocus()
                     } else if (isFirstLaunch) {
-                        
+
                         try {
                             focusRequester.requestFocus()
                         } catch (e: Exception) {
-                            
+
                         }
                         isFirstLaunch = false
                     }
                 }
                 Lifecycle.Event.ON_PAUSE -> {
-                    
+
                     focusManager.clearFocus()
                     keyboardController?.hide()
                 }
@@ -445,13 +445,13 @@ fun SearchScreen(
             }
         }
         lifecycleOwner.lifecycle.addObserver(observer)
-        
-        
+
+
         if (isPlayerExpanded) {
             keyboardController?.hide()
             focusManager.clearFocus()
         }
-        
+
         onDispose {
             lifecycleOwner.lifecycle.removeObserver(observer)
         }
@@ -474,7 +474,7 @@ fun ExploreTabContent(
             item {
                 NavigationTitle(title = section.title)
             }
-            
+
             val rows = section.items.chunked(2)
             items(rows) { row ->
                 Row(
@@ -506,7 +506,7 @@ fun ExploreTabContent(
                             )
                         }
                     }
-                    
+
                     repeat(2 - row.size) {
                         Spacer(modifier = Modifier.weight(1f))
                     }
@@ -543,10 +543,9 @@ fun AlbumsTabContent(
     val mediaMetadata by (playerConnection?.mediaMetadata?.collectAsState() ?: remember { mutableStateOf(null) })
     val isPlaying by (playerConnection?.isEffectivelyPlaying?.collectAsState() ?: remember { mutableStateOf(false) })
     val coroutineScope = rememberCoroutineScope()
-    
+
     val explorePage by viewModel.explorePage.collectAsState()
     val newReleaseAlbums = explorePage?.newReleaseAlbums
-    val distinctNewReleaseAlbums = remember(newReleaseAlbums) { newReleaseAlbums?.distinctBy { it.id } }
 
     val gridItemSize by rememberEnumPreference(GridItemsSizeKey, GridItemSize.BIG)
 
@@ -569,7 +568,7 @@ fun AlbumsTabContent(
             modifier = Modifier.fillMaxSize()
         ) {
             items(
-                items = distinctNewReleaseAlbums ?: emptyList(),
+                items = newReleaseAlbums.distinctBy { it.id },
                 key = { it.id }
             ) { album ->
                 YouTubeGridItem(
