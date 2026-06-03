@@ -1,0 +1,21 @@
+---
+source_file: "app/src/main/assets/solver/meriyah.js"
+type: "code"
+community: "Community None"
+location: "L6708"
+tags:
+  - graphify/code
+  - graphify/EXTRACTED
+  - community/Community_None
+---
+
+# parseBigIntLiteral()
+
+## Connections
+- [[.finishNode()]] - `calls` [EXTRACTED]
+- [[meriyah.js]] - `contains` [EXTRACTED]
+- [[nextToken()]] - `calls` [EXTRACTED]
+- [[parseLiteral()]] - `calls` [EXTRACTED]
+- [[parsePrimaryExpression()]] - `calls` [EXTRACTED]
+
+#graphify/code #graphify/EXTRACTED #community/Community_None

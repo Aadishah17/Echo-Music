@@ -1,0 +1,3054 @@
+{
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\build.gradle.kts": {
+    "mtime": 1780303471.6805694,
+    "hash": "468897f0d808d3c228cadca081e61c36"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\gradlew": {
+    "mtime": 1780303471.6915708,
+    "hash": "b60a94c7e112b22b5f03b88ba3566178"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\graphify_ast_v2.py": {
+    "mtime": 1780459178.799677,
+    "hash": "a0c2cf10fc9007d35d0d2ae10810fcdf"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\graphify_cache_check.py": {
+    "mtime": 1780459237.941266,
+    "hash": "5064778a497f2493ca6d2be9c8dd9bc1"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\graphify_chunker.py": {
+    "mtime": 1780459280.8166313,
+    "hash": "5989b2eebf709ea6384fb572c62b6574"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\graphify_detect_v2.py": {
+    "mtime": 1780458594.360228,
+    "hash": "29e5a67f29123b03b084c446cc52e3a6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\graphify_prep.py": {
+    "mtime": 1780420396.8446608,
+    "hash": "49f934f9d7c1cd12043ce723efa4b659"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\graphify_setup.py": {
+    "mtime": 1780419943.1649659,
+    "hash": "311b1b8fff3748b5d0e69c04f53128fe"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\graphify_setup_v2.py": {
+    "mtime": 1780458573.7892127,
+    "hash": "012ffddb68bd44ca06de4a3fe13fdb4c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\graphify_subdir_counts.py": {
+    "mtime": 1780458651.4709237,
+    "hash": "74fa59e580fe8eb2d5b33039ca103a86"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\graphify_subdir_counts_v2.py": {
+    "mtime": 1780458689.5525029,
+    "hash": "a8af73c6ef9182ba61c97ba30e518004"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\graphify_summary.py": {
+    "mtime": 1780420224.7622073,
+    "hash": "9c12ea54ef76c9d572a5012430a79d5f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\settings.gradle.kts": {
+    "mtime": 1780303471.7481499,
+    "hash": "eb7a02d6aa618d8ae8e0fcb54b86b736"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\test_compile.kt": {
+    "mtime": 1780303471.7557602,
+    "hash": "c2431b4ceaafaed1c857ac32741a45a1"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\build.gradle.kts": {
+    "mtime": 1780419104.2947588,
+    "hash": "b286028f1715262d458a8b4067ffad43"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\foss\\kotlin\\com\\music\\vivi\\cast\\CastOptionsProvider.kt": {
+    "mtime": 1780303471.1324587,
+    "hash": "feee49a2485aa560941db2097b786a67"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\foss\\kotlin\\com\\music\\vivi\\playback\\CastConnectionHandler.kt": {
+    "mtime": 1780303471.1324587,
+    "hash": "3c308cab0112b947de3f910a75c41e01"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\foss\\kotlin\\com\\music\\vivi\\ui\\component\\CastButton.kt": {
+    "mtime": 1780303471.1334581,
+    "hash": "320feb24f7951908792b73dc89e2fe7a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\gms\\kotlin\\com\\music\\vivi\\cast\\CastManager.kt": {
+    "mtime": 1780303471.1344593,
+    "hash": "d9933db23fe4cf7c94fce7921dfb57b8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\gms\\kotlin\\com\\music\\vivi\\cast\\CastOptionsProvider.kt": {
+    "mtime": 1780303471.1354582,
+    "hash": "8f502d228b31c67ec308fb9270f049dc"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\gms\\kotlin\\com\\music\\vivi\\playback\\CastConnectionHandler.kt": {
+    "mtime": 1780303471.1354582,
+    "hash": "f334fab40649a97fd06b8b0e814f0767"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\gms\\kotlin\\com\\music\\vivi\\ui\\component\\CastButton.kt": {
+    "mtime": 1780303471.1364582,
+    "hash": "75868fd429911a27f7fa89d63517d742"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\gms\\kotlin\\com\\music\\vivi\\ui\\component\\CastPickerSheet.kt": {
+    "mtime": 1780303471.1374583,
+    "hash": "c7ebbcbe6b63a2f4e910c93bb724b920"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\assets\\solver\\astring.js": {
+    "mtime": 1780303471.1384592,
+    "hash": "a5ecb2fc04a005713bbe2f8cd35a8604"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\assets\\solver\\meriyah.js": {
+    "mtime": 1780303471.1404583,
+    "hash": "f1dca8c779180c3a14c00723c1583907"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\assets\\solver\\yt.solver.core.js": {
+    "mtime": 1780303471.1404583,
+    "hash": "c1d5f09035bf3ec2a0600cd5212d0562"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\include\\vibra.h": {
+    "mtime": 1780303471.141458,
+    "hash": "34f0ab5064ac27bab2e7147715e7f5c8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\vibra.cpp": {
+    "mtime": 1780303471.148966,
+    "hash": "c68f203ab21b72ce1960cc70d117fc5e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\vibra_jni.cpp": {
+    "mtime": 1780303471.148966,
+    "hash": "4c8c413707f215adb89d79245600462b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\algorithm\\frequency.cpp": {
+    "mtime": 1780303471.1429615,
+    "hash": "5cfaa8805b81b6cf488d53d06dc350f9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\algorithm\\frequency.h": {
+    "mtime": 1780303471.1429615,
+    "hash": "52625ed743d05cfe0bd4ff2a1cc0a006"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\algorithm\\signature.cpp": {
+    "mtime": 1780303471.1439662,
+    "hash": "c2ab2fe6e839a580d487f2e0877de1e6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\algorithm\\signature.h": {
+    "mtime": 1780303471.1439662,
+    "hash": "9aaeb6954ae31313963859f414a160cb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\algorithm\\signature_generator.cpp": {
+    "mtime": 1780303471.1439662,
+    "hash": "f30e577261e88d0e688f73c5de251224"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\algorithm\\signature_generator.h": {
+    "mtime": 1780303471.144967,
+    "hash": "0a5c83b86f1aba78436428b0cc0100a5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\audio\\byte_control.h": {
+    "mtime": 1780303471.144967,
+    "hash": "dfb0bf81ace6910f26bb80385bd87e7f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\audio\\downsampler.cpp": {
+    "mtime": 1780303471.144967,
+    "hash": "771bd77da52cf625930fd97f15e2e052"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\audio\\downsampler.h": {
+    "mtime": 1780303471.145967,
+    "hash": "cb6cf6af191ceecea60c9a04a4476df7"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\audio\\wav.cpp": {
+    "mtime": 1780303471.145967,
+    "hash": "b00c775c9d6cdedca0412dd1f6e393c8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\audio\\wav.h": {
+    "mtime": 1780303471.145967,
+    "hash": "bcf709465b3fef4b1f5e5ee5071d312f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\utils\\base64.h": {
+    "mtime": 1780303471.1469667,
+    "hash": "67c8b5ed05b8403d4d53292598ff62ad"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\utils\\crc32.h": {
+    "mtime": 1780303471.1469667,
+    "hash": "23eaec98f7c8b23cb2553f2bb305a1b4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\utils\\fft.h": {
+    "mtime": 1780303471.1479664,
+    "hash": "50b88b657edf88bfb1dfa8fe2e48633a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\utils\\hanning.h": {
+    "mtime": 1780303471.1479664,
+    "hash": "4497509334effa0e529ee62ccaf636bc"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\utils\\ring_buffer.h": {
+    "mtime": 1780303471.1479664,
+    "hash": "91bbfca9648bc814e6358d5444ba9250"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\dpi\\ActivityLifecycleManager.kt": {
+    "mtime": 1780303471.1720643,
+    "hash": "50b89629ce0f119893bfa78923689ee6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\dpi\\BaseLifecycleContentProvider.kt": {
+    "mtime": 1780303471.1720643,
+    "hash": "21b0773b086445b319d49af9d107766f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\dpi\\DensityConfiguration.kt": {
+    "mtime": 1780303471.173064,
+    "hash": "0c68548d48008a0d6fde0d0eaaa19e0a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\dpi\\DensityScaler.kt": {
+    "mtime": 1780303471.173064,
+    "hash": "7cbe82b74c230a9714562539c5643286"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\App.kt": {
+    "mtime": 1780303471.1740634,
+    "hash": "5b549eb6ae0ed234b36080743e8bcd7f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\MainActivity.kt": {
+    "mtime": 1780419104.3036819,
+    "hash": "e88abc7f8a926bbec1f1ecd9e69969fc"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\api\\DeepLService.kt": {
+    "mtime": 1780303471.1750631,
+    "hash": "614627ce5ed163cc69b5c2cdb1665812"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\api\\MistralService.kt": {
+    "mtime": 1780303471.1750631,
+    "hash": "4bf5b903408d073fd24b3f2d41f397d0"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\api\\OpenRouterService.kt": {
+    "mtime": 1780303471.1750631,
+    "hash": "08526585563416ab32427511e8d7c7e3"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\api\\OpenRouterStreamingService.kt": {
+    "mtime": 1780303471.1765678,
+    "hash": "1b46048ae32d58919a11a95aa0459506"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\constants\\Dimensions.kt": {
+    "mtime": 1780303471.1765678,
+    "hash": "82ca3be98dfc64bb4943c4a889ff0b05"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\constants\\HistorySource.kt": {
+    "mtime": 1780303471.1765678,
+    "hash": "125352ac7ab09ecb3f80b33dde96c5fb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\constants\\LibraryFilter.kt": {
+    "mtime": 1780303471.1775737,
+    "hash": "92a6b09389bd632a8fa052a23b157bb0"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\constants\\MediaSessionConstants.kt": {
+    "mtime": 1780303471.1775737,
+    "hash": "7ab80d8df16fad9b801f25181e64269d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\constants\\PreferenceKeys.kt": {
+    "mtime": 1780419104.3040102,
+    "hash": "681a107d01ef8f5d8d13a7769c64832c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\constants\\StatPeriod.kt": {
+    "mtime": 1780303471.178658,
+    "hash": "a4adf793bfbc8b75c718b8e5927f3fb6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\Converters.kt": {
+    "mtime": 1780303471.178658,
+    "hash": "1b44d984a79816a66bde6e01c3385d06"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\DatabaseDao.kt": {
+    "mtime": 1780303471.1796632,
+    "hash": "17c1c4b96f583c915f13cdb404f9c46d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\MusicDatabase.kt": {
+    "mtime": 1780306116.4018068,
+    "hash": "45632cd1e61b7a9f330de92403d92aa9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\daos\\SpeedDialDao.kt": {
+    "mtime": 1780303471.1806629,
+    "hash": "7ac046c907ee3f8cca49e445e5b257c6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\Album.kt": {
+    "mtime": 1780303471.1806629,
+    "hash": "510142ed7c8a589f061dce7a73c3b16c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\AlbumArtistMap.kt": {
+    "mtime": 1780303471.1806629,
+    "hash": "92c04021c205fe74987a4ea134303bc4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\AlbumEntity.kt": {
+    "mtime": 1780303471.181663,
+    "hash": "0bd3a0c0be6ca8597e0b920eaa402102"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\AlbumWithSongs.kt": {
+    "mtime": 1780303471.181663,
+    "hash": "56d1a6b91b9442d7880f7e152e357be9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\Artist.kt": {
+    "mtime": 1780303471.181663,
+    "hash": "3f801c358513d295de060618f3daf77b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\ArtistEntity.kt": {
+    "mtime": 1780303471.182665,
+    "hash": "9f9c2be675a295643c4bb060fc810875"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\Event.kt": {
+    "mtime": 1780303471.182665,
+    "hash": "ced9f96403b410601e11a299ed2562f9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\EventWithSong.kt": {
+    "mtime": 1780303471.182665,
+    "hash": "8be8a694f865bcc3fee5fe643166deb5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\FormatEntity.kt": {
+    "mtime": 1780303471.182665,
+    "hash": "4d49bf0514b9dfa8f8c45722a7446080"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\LocalItem.kt": {
+    "mtime": 1780303471.1839113,
+    "hash": "feb2ee46f2313f55aa187f691aa047d9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\LyricsEntity.kt": {
+    "mtime": 1780303471.1839113,
+    "hash": "989bd3142f9fe4befa5664300fa26d4f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\PlayCountEntity.kt": {
+    "mtime": 1780303471.1839113,
+    "hash": "d23c618b3b52085ee900ed14c926dc34"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\Playlist.kt": {
+    "mtime": 1780303471.1839113,
+    "hash": "81c38716529e6a052ae87de74cd2f3ac"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\PlaylistEntity.kt": {
+    "mtime": 1780419104.3040102,
+    "hash": "73fe94e7259dd3d9c6ba1586a573c463"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\PlaylistSong.kt": {
+    "mtime": 1780303471.1849167,
+    "hash": "591ae0feb1ee80f0b4f2689c3a19b7bb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\PlaylistSongMap.kt": {
+    "mtime": 1780303471.1849167,
+    "hash": "8673b93edd916d72e0516c0164d6cffc"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\PlaylistSongMapPreview.kt": {
+    "mtime": 1780303471.1849167,
+    "hash": "e1e9c2394ac6f6a2b57b0fdb60baa390"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\RecognitionHistory.kt": {
+    "mtime": 1780303471.1859305,
+    "hash": "068fd4d0a39cfa5d9e199b91ef32aa82"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\RelatedSongMap.kt": {
+    "mtime": 1780303471.1859305,
+    "hash": "c5509f1b5d7095c45d3cf5e7020ef192"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\SearchHistory.kt": {
+    "mtime": 1780303471.1859305,
+    "hash": "f4fc0b3563c84f979df601f3b5df01fa"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\SetVideoIdEntity.kt": {
+    "mtime": 1780303471.1859305,
+    "hash": "7c5beea1d7f95bfd9f89f4fa8ed97a91"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\Song.kt": {
+    "mtime": 1780303471.1869302,
+    "hash": "c4811d319bc5f6d25d819aa118bdbabf"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\SongAlbumMap.kt": {
+    "mtime": 1780303471.1869302,
+    "hash": "d63bec800cb0d5ebe79f779c3160c9d8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\SongArtistMap.kt": {
+    "mtime": 1780303471.1869302,
+    "hash": "a70b8c07bdd4aaddd57cdf3aa58a1e42"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\SongEntity.kt": {
+    "mtime": 1780303471.1879294,
+    "hash": "16d8a15cc9c33e2047f9c2d1e25366a0"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\SongWithStats.kt": {
+    "mtime": 1780303471.1879294,
+    "hash": "3237708afa7875abf3bea9088233e6a7"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\SortedSongAlbumMap.kt": {
+    "mtime": 1780303471.1879294,
+    "hash": "d2d478a187a8bb8212c4e38f7bb28fee"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\SortedSongArtistMap.kt": {
+    "mtime": 1780303471.1879294,
+    "hash": "9be13d3708efd477158a5a1399aaaf3c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\db\\entities\\SpeedDialItem.kt": {
+    "mtime": 1780303471.1889296,
+    "hash": "b08b2419d6aac0e8a13f6bcf904a6de8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\di\\AppModule.kt": {
+    "mtime": 1780306116.4034157,
+    "hash": "7eb74627f11691e2a056ab0e5eef1733"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\di\\LyricsHelperEntryPoint.kt": {
+    "mtime": 1780303471.1899297,
+    "hash": "8f3a283bdc8bcfe0be849dda260ca9c2"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\di\\NetworkModule.kt": {
+    "mtime": 1780303471.1899297,
+    "hash": "64edb189a696975f5b684e6001bc10f1"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\di\\Qualifiers.kt": {
+    "mtime": 1780303471.1899297,
+    "hash": "42e6458c65f62b7ef5ba5b058459b75f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\di\\WrappedModule.kt": {
+    "mtime": 1780303471.1909297,
+    "hash": "824103418ff838ca3c5c8917f9b4c224"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\echomusic\\AudioDeviceBottomSheet.kt": {
+    "mtime": 1780306116.404487,
+    "hash": "e07aedf33f7814e0dc0ea45967b10c10"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\echomusic\\BluetoothUtils.kt": {
+    "mtime": 1780303471.1909297,
+    "hash": "dc0503aa6c95f58654b850e1073f12e7"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\echomusic\\UpdateNotificationHelper.kt": {
+    "mtime": 1780303471.1919303,
+    "hash": "d1130197a942845ddf7d9402656f3fc4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\echomusic\\changelog\\changelogscreen.kt": {
+    "mtime": 1780303471.1919303,
+    "hash": "a00a69709410dc6a873e84ac1ca0689f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\echomusic\\commitscreen\\commiitem.kt": {
+    "mtime": 1780303471.1929295,
+    "hash": "66876a2eba19042acc7952d6dff0dd82"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\echomusic\\commitscreen\\commitscreen.kt": {
+    "mtime": 1780303471.1929295,
+    "hash": "9b44b3fbeb157eb55e2cb076fc8783a0"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\echomusic\\component\\UpdateInfoDialog.kt": {
+    "mtime": 1780303471.1942465,
+    "hash": "6ef0fedd464c7532f3022f0c209c19b4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\echomusic\\shapes\\RoundedStarShape.kt": {
+    "mtime": 1780303471.1942465,
+    "hash": "1192ddc925f251cec0d718df01333e3d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\echomusic\\updater\\echomusicupdater.kt": {
+    "mtime": 1780306116.4060843,
+    "hash": "ae7bb7d2a530dff96a9aab778eadcb42"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\echomusic\\updater\\UpdateStorageUtils.kt": {
+    "mtime": 1780303471.1952498,
+    "hash": "dbbc86b2355244bf7a6fa2ed53b69aa9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\echomusic\\updater\\downloadmanager\\downloadmanager.kt": {
+    "mtime": 1780303471.1962507,
+    "hash": "538aa92ed8300be4f764021138c6ac2b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\echomusic\\updater\\downloadmanager\\downloadnotificationmanager.kt": {
+    "mtime": 1780303471.1962507,
+    "hash": "2c053cd7862f11ba1b2a8ff8d8c02ed2"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\echomusic\\updater\\downloadmanager\\EchoNotificationProvider.kt": {
+    "mtime": 1780303471.1952498,
+    "hash": "11be6ad15a5427bef2b66d09dfbd9534"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\echomusic\\updater\\downloadmanager\\UpdateDownloadWorker.kt": {
+    "mtime": 1780303471.1952498,
+    "hash": "4ed26649dc3009b9a8e01cc3c3d1d6c5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\eq\\EqualizerService.kt": {
+    "mtime": 1780303471.197252,
+    "hash": "4131d9b4a1fc9f4525db8ec30f42cffd"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\eq\\audio\\BiquadFilter.kt": {
+    "mtime": 1780303471.197252,
+    "hash": "11157896448bb3438ccb614daa049e1d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\eq\\audio\\CustomEqualizerAudioProcessor.kt": {
+    "mtime": 1780303471.1982508,
+    "hash": "ab97b7407b8db48f0ad6ed8a924c4e6f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\eq\\data\\EQProfileRepository.kt": {
+    "mtime": 1780303471.1982508,
+    "hash": "29b8f58cbea7e2e3bce21c1ac61b3ffc"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\eq\\data\\FilterType.kt": {
+    "mtime": 1780303471.1992507,
+    "hash": "4720e0cad273cde3d9b410323f6843f5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\eq\\data\\ParametricEQ.kt": {
+    "mtime": 1780303471.1992507,
+    "hash": "f5d5690d4c08e60e3c4af49e173aa64b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\eq\\data\\ParametricEQParser.kt": {
+    "mtime": 1780303471.1992507,
+    "hash": "ad6ac547822cfb7350d03b6388997d6d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\extensions\\ContextExt.kt": {
+    "mtime": 1780303471.2002506,
+    "hash": "162c181b9d5c0a172190d5499f921938"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\extensions\\CoroutineExt.kt": {
+    "mtime": 1780303471.2002506,
+    "hash": "cc8547f72f1eccba88890788a575b34c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\extensions\\FileExt.kt": {
+    "mtime": 1780303471.2012508,
+    "hash": "93ce701c0b705b1e62aeaa6e01735b5a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\extensions\\ListExt.kt": {
+    "mtime": 1780303471.2012508,
+    "hash": "0e83b0d2f7f5f6a7d7063088f64f1915"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\extensions\\MediaItemExt.kt": {
+    "mtime": 1780419104.306811,
+    "hash": "ffce197ed4babbb1ed4dc0d4fc087d27"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\extensions\\ModifierExt.kt": {
+    "mtime": 1780303471.2022505,
+    "hash": "9b44dcd7f24b4db1c75c24256b8e9df5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\extensions\\PlayerExt.kt": {
+    "mtime": 1780303471.2022505,
+    "hash": "d7b69ebaef7871886365a48021f65d95"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\extensions\\QueueExt.kt": {
+    "mtime": 1780303471.203251,
+    "hash": "145766a45400ddb0285d4e303bdec0cf"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\extensions\\StringExt.kt": {
+    "mtime": 1780303471.203251,
+    "hash": "a897af2f89a4f95ab9b445785f5fa2a5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\extensions\\UtilExt.kt": {
+    "mtime": 1780303471.203251,
+    "hash": "ee1b050c80abc6973f25aab1b6d51bd6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\listentogether\\ListenTogetherActionReceiver.kt": {
+    "mtime": 1780303471.20425,
+    "hash": "3613e27bcd5004ecc86dc1ba0998668d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\listentogether\\ListenTogetherClient.kt": {
+    "mtime": 1780303471.20425,
+    "hash": "0a2beef687df0c47c4ff526dbcf1a038"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\listentogether\\ListenTogetherManager.kt": {
+    "mtime": 1780303471.2052512,
+    "hash": "82834b3bfc637d2ed99ef0e06cea2add"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\listentogether\\ListenTogetherServers.kt": {
+    "mtime": 1780419104.306811,
+    "hash": "8f9e3d49d971299f34a056c2df6005eb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\listentogether\\MessageCodec.kt": {
+    "mtime": 1780303471.2062516,
+    "hash": "cea4dbfd8cd807367fbd17d5eccf60d8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\listentogether\\Protocol.kt": {
+    "mtime": 1780303471.2062516,
+    "hash": "26a0c407f6a334babecd9567656f7109"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\localmedia\\LocalSongScanner.kt": {
+    "mtime": 1780303471.2072506,
+    "hash": "9640493c278b2648dfb555fe99bffafe"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\localmedia\\SupportedLocalAudio.kt": {
+    "mtime": 1780303471.2072506,
+    "hash": "d9ef4cbcd77b6c29cdae10eafa2506b2"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\lyrics\\BetterLyricsProvider.kt": {
+    "mtime": 1780303471.2072506,
+    "hash": "cc0e62df869f81d9fe3719902a406bc4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\lyrics\\KuGouLyricsProvider.kt": {
+    "mtime": 1780303471.2072506,
+    "hash": "c285fa718c3a71e840d1380f892729d4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\lyrics\\LrcLibLyricsProvider.kt": {
+    "mtime": 1780303471.2085173,
+    "hash": "d0e63a0d0aee191bd19f8760b7036feb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\lyrics\\LyricsEntry.kt": {
+    "mtime": 1780303471.2085173,
+    "hash": "b8b95f743d540a58ca2f3a97aac867ba"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\lyrics\\LyricsHelper.kt": {
+    "mtime": 1780303471.2085173,
+    "hash": "76414b736badfb56449eba284932108d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\lyrics\\LyricsProvider.kt": {
+    "mtime": 1780303471.2095213,
+    "hash": "ebcb03966d6a48d82a4c93af7261751f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\lyrics\\LyricsProviderRegistry.kt": {
+    "mtime": 1780303471.2095213,
+    "hash": "76c4a60283d99cea929b3255d31b974d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\lyrics\\LyricsTranslationHelper.kt": {
+    "mtime": 1780303471.2095213,
+    "hash": "9ba0c5cd51c53156cccc1da2c1f6fd2d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\lyrics\\LyricsUtils.kt": {
+    "mtime": 1780303471.210526,
+    "hash": "a3499d6a08d63de8444a5bd13b3c982a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\lyrics\\PaxSenixLyricsProvider.kt": {
+    "mtime": 1780303471.210526,
+    "hash": "633170cafda531c660dfac124ad96b82"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\lyrics\\SimpMusicLyricsProvider.kt": {
+    "mtime": 1780303471.210526,
+    "hash": "601f48058c22e15b14a96e80b94a8454"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\lyrics\\YouLyPlusLyricsProvider.kt": {
+    "mtime": 1780303471.2115264,
+    "hash": "e7fc7ffe2af475377d4923448408900d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\lyrics\\YouTubeLyricsProvider.kt": {
+    "mtime": 1780303471.2115264,
+    "hash": "ae8da64661f09604414c6409cb6dcb39"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\lyrics\\YouTubeSubtitleLyricsProvider.kt": {
+    "mtime": 1780303471.2115264,
+    "hash": "00dd1b026b1047d5354716a5d3d69ab3"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\models\\ItemsPage.kt": {
+    "mtime": 1780303471.2125316,
+    "hash": "3faba757782cc4f5eec7d04be976924e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\models\\MediaMetadata.kt": {
+    "mtime": 1780303471.2125316,
+    "hash": "49fb3d39a031a888129277ebca9f8ebf"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\models\\PersistPlayerState.kt": {
+    "mtime": 1780303471.2125316,
+    "hash": "2606bf1f664bc35a07740721686c9906"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\models\\PersistQueue.kt": {
+    "mtime": 1780303471.2135313,
+    "hash": "d9aa0d0c7a7b9783204ef13370be25eb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\models\\SimilarRecommendation.kt": {
+    "mtime": 1780303471.2135313,
+    "hash": "b7d5936f243f5013cb1a5872555116a4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\playback\\DownloadUtil.kt": {
+    "mtime": 1780303471.2145312,
+    "hash": "de6da516b0a636a19294057253519ac9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\playback\\ExoDownloadService.kt": {
+    "mtime": 1780303471.2145312,
+    "hash": "5c5ca2518912566112592155a12bbdfe"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\playback\\MediaLibrarySessionCallback.kt": {
+    "mtime": 1780303471.2145312,
+    "hash": "98fc4e42ce185b9d653f3896cab10610"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\playback\\MusicService.kt": {
+    "mtime": 1780419104.306811,
+    "hash": "1dea85110a295579f07fd60b20f48b42"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\playback\\PlayerConnection.kt": {
+    "mtime": 1780303471.2155304,
+    "hash": "73a09e5882a0ddd172ad6ce7078ad71e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\playback\\SleepTimer.kt": {
+    "mtime": 1780303471.21653,
+    "hash": "6616ddfad7302c87d181413f56336533"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\playback\\audio\\SilenceDetectorAudioProcessor.kt": {
+    "mtime": 1780303471.21653,
+    "hash": "2def26543211a94e227ab47c72ef4c12"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\playback\\queues\\EmptyQueue.kt": {
+    "mtime": 1780303471.2175303,
+    "hash": "3cd3fc41c0a5bf521002863fd689a733"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\playback\\queues\\ListQueue.kt": {
+    "mtime": 1780303471.2175303,
+    "hash": "58e43a67d68fd8a99c771274a0ed4efa"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\playback\\queues\\LocalAlbumRadio.kt": {
+    "mtime": 1780303471.2175303,
+    "hash": "d4da802db3a8e44032e9704728e3175c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\playback\\queues\\LocalMixQueue.kt": {
+    "mtime": 1780303471.2185297,
+    "hash": "25b9984191a070756da33daa94615691"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\playback\\queues\\Queue.kt": {
+    "mtime": 1780303471.2185297,
+    "hash": "b5a85a34508cbd6172b35fc8c9d0e8a1"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\playback\\queues\\YouTubeAlbumRadio.kt": {
+    "mtime": 1780303471.2185297,
+    "hash": "9584c68b93bf1f6bc4971c45e8303572"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\playback\\queues\\YouTubePlaylistQueue.kt": {
+    "mtime": 1780303471.2185297,
+    "hash": "b24a178f798753dddeb154847a19f05f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\playback\\queues\\YouTubeQueue.kt": {
+    "mtime": 1780303471.2195306,
+    "hash": "111b01b69408512c12a70490029313ed"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\recognition\\AudioResampler.kt": {
+    "mtime": 1780303471.2195306,
+    "hash": "b19b954069019fb11ae9e35db00c3d6d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\recognition\\MusicRecognitionService.kt": {
+    "mtime": 1780303471.2195306,
+    "hash": "9d6301ceafcdcd8da7da06ef4311adb7"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\recognition\\ShazamSignatureGenerator.kt": {
+    "mtime": 1780303471.2205303,
+    "hash": "e9652716b586efabb09f0d9ef1aed5d5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\recognition\\VibraSignature.kt": {
+    "mtime": 1780303471.2205303,
+    "hash": "5806b725a5cd9586a9341e633fdb0b66"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\spotify\\Spotify.kt": {
+    "mtime": 1780303471.22153,
+    "hash": "6c1b03a36a3baded8787b537a49427fc"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\spotify\\SpotifyAuth.kt": {
+    "mtime": 1780303471.22153,
+    "hash": "2414815dcbd2c6ff59fda1f306fec059"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\spotify\\SpotifyHashProvider.kt": {
+    "mtime": 1780303471.2225304,
+    "hash": "68b5c04b9b643cb033cdda8f7e13f932"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\spotify\\SpotifyMapper.kt": {
+    "mtime": 1780303471.2225304,
+    "hash": "e8d0c5d816f868cfe894327a97128511"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\spotify\\models\\SpotifyAlbum.kt": {
+    "mtime": 1780303471.2225304,
+    "hash": "397441ca6348164f444fb8238e9cc4b6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\spotify\\models\\SpotifyArtist.kt": {
+    "mtime": 1780303471.2235322,
+    "hash": "25355003d342b168f7b96371f64ec6e3"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\spotify\\models\\SpotifyHomeFeed.kt": {
+    "mtime": 1780303471.2235322,
+    "hash": "94b8eb14bd1754a4f5906c59c250670e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\spotify\\models\\SpotifyLibraryItem.kt": {
+    "mtime": 1780303471.2240622,
+    "hash": "073e2c051f00223dd36ccfba37b2b817"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\spotify\\models\\SpotifyPaging.kt": {
+    "mtime": 1780303471.2240622,
+    "hash": "32df8682dce77bf36dbf3d49adf87444"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\spotify\\models\\SpotifyPlaylist.kt": {
+    "mtime": 1780303471.2250667,
+    "hash": "d95a30dc4e06c72aaae6930afd2c7131"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\spotify\\models\\SpotifyRecommendations.kt": {
+    "mtime": 1780303471.2250667,
+    "hash": "11a379a862c6806dde5cf09059b0b7c9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\spotify\\models\\SpotifySearchResult.kt": {
+    "mtime": 1780303471.2250667,
+    "hash": "d74fa4874244d7b860d6f7d1598159f9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\spotify\\models\\SpotifyToken.kt": {
+    "mtime": 1780303471.2250667,
+    "hash": "b0b75c7aa980c066ec798a0faf606351"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\spotify\\models\\SpotifyTrack.kt": {
+    "mtime": 1780303471.2250667,
+    "hash": "59cd3220c25a40953690591c376948e7"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\spotify\\models\\SpotifyUser.kt": {
+    "mtime": 1780303471.226571,
+    "hash": "d09b54966e28fcc9bb8874438bd7673b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\spotifyimport\\SpotifyImportModels.kt": {
+    "mtime": 1780303471.226571,
+    "hash": "67f9e1c134b5ee808c2f2c941695a1fe"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\spotifyimport\\SpotifyImportRepository.kt": {
+    "mtime": 1780303471.2275765,
+    "hash": "d6acbf219e9e9d0fd3ac9c9fd532454a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\spotifyimport\\SpotifyImportViewModel.kt": {
+    "mtime": 1780303471.2275765,
+    "hash": "926c6cbd219d3627f0c4f12df5777dac"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\AlbumGradient.kt": {
+    "mtime": 1780303471.2275765,
+    "hash": "f5ab392cabb7fd8c75c9b61b40aad283"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\AppNavigation.kt": {
+    "mtime": 1780303471.228576,
+    "hash": "3ddc82377dad31105d9d177e93acc0ae"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\AutoPlaylistButton.kt": {
+    "mtime": 1780303471.228576,
+    "hash": "85cc97f2a80d2c4f239123d2a21cbe68"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\AutoResizeText.kt": {
+    "mtime": 1780303471.228576,
+    "hash": "bc7157c522e479c3a546132ff5f47241"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\BigSeekBar.kt": {
+    "mtime": 1780303471.2295759,
+    "hash": "74f22d181ce3db5c2f3ab1475fe63a6e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\BottomSheet.kt": {
+    "mtime": 1780303471.2295759,
+    "hash": "d11605be0c1be9eb2709e2a7698deaa0"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\BottomSheetMenu.kt": {
+    "mtime": 1780303471.2295759,
+    "hash": "4499e679d878cd3ebdede81be7b9ceff"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\BottomSheetPage.kt": {
+    "mtime": 1780303471.2295759,
+    "hash": "8eb82b8cdff05d02286e34f3a93459db"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\ChipsRow.kt": {
+    "mtime": 1780419104.3110104,
+    "hash": "ee1bdea647ca67de97ac5bf5493357c3"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\CreatePlaylistDialog.kt": {
+    "mtime": 1780303471.2310798,
+    "hash": "0ebfe256db87a7ec07348e943c079f83"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\Dialog.kt": {
+    "mtime": 1780303471.231995,
+    "hash": "2fe21b46bef4e881994202d68e97358e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\DraggableLyricsProviderList.kt": {
+    "mtime": 1780303471.2324994,
+    "hash": "57ffd0b8f9c00cae9c483845ecf46087"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\DraggableScrollBarOverlay.kt": {
+    "mtime": 1780303471.2324994,
+    "hash": "76e126a943aa907200613ae0caf2cf9d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\EchoMusicLyrics.kt": {
+    "mtime": 1780303471.2324994,
+    "hash": "998761ef739449970ed97d44e3154ffb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\EmptyPlaceholder.kt": {
+    "mtime": 1780303471.233505,
+    "hash": "bd30b3c66efac4e91f7fa3ec1b5ebebd"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\EnumDialog.kt": {
+    "mtime": 1780303471.233505,
+    "hash": "3077dbde719de77aa2f9ed9e3c7e952d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\ExpandableText.kt": {
+    "mtime": 1780303471.233505,
+    "hash": "34979726e59ae5894de4bcd764faeefd"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\FloatingNavigationToolbar.kt": {
+    "mtime": 1780303471.234589,
+    "hash": "3ab2291a5e8fc74f33e01152c7d12d5f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\GridMenu.kt": {
+    "mtime": 1780303471.234589,
+    "hash": "0163d4e69dc53267769e891fc91fac5b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\HideOnScrollFAB.kt": {
+    "mtime": 1780419104.3123393,
+    "hash": "695bb9296b9542d4d501b32162126747"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\IconButton.kt": {
+    "mtime": 1780303471.235594,
+    "hash": "8eb4ce19486e02fd261470e463a0d9aa"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\IntegrationCard.kt": {
+    "mtime": 1780303471.235594,
+    "hash": "49484536896b82b86e82596d91e29b2a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\Items.kt": {
+    "mtime": 1780419104.3123393,
+    "hash": "da84928d9de10aa3fd7bf35bc904e532"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\Library.kt": {
+    "mtime": 1780303471.2365937,
+    "hash": "c5fa78e90c5962ffe310bcc63446a027"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\LocalDownloadBottomSheet.kt": {
+    "mtime": 1780306116.4099798,
+    "hash": "81b118c60d0f98340c75c470895289c4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\Lyrics.kt": {
+    "mtime": 1780419104.3151748,
+    "hash": "f134c7004181e39e02267fb49772f267"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\LyricsImageCard.kt": {
+    "mtime": 1780303471.2385933,
+    "hash": "29cff3a2cf56c892548d15a2306a7448"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\LyricsV2.kt": {
+    "mtime": 1780303471.2385933,
+    "hash": "b4d5ee94dc642ae4f3d8425d2ebfaba5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\Material3SettingsGroup.kt": {
+    "mtime": 1780303471.2395935,
+    "hash": "0e4669258ac173142b76a33febd54fab"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\Menu.kt": {
+    "mtime": 1780303471.2395935,
+    "hash": "6638a65f21693c7f51643bb20296a2e6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\MetroLyrics.kt": {
+    "mtime": 1780303471.240193,
+    "hash": "6d6c3d90892213d0016cd8ad21d6faac"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\NavigationTile.kt": {
+    "mtime": 1780303471.240193,
+    "hash": "fbfc15a390e27e3ad95ca2fa105f0305"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\NavigationTitle.kt": {
+    "mtime": 1780303471.240193,
+    "hash": "fae1a9ff7176d52c64393ac4632fbbf9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\NewMenuComponents.kt": {
+    "mtime": 1780419104.3155174,
+    "hash": "b3c3bf4801721746e863e6b0197a114b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\OnlineBlur.kt": {
+    "mtime": 1780303471.241196,
+    "hash": "4630f7580fac87f2fc05f3cad27e686c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\PlaybackLogsDialog.kt": {
+    "mtime": 1780303471.241196,
+    "hash": "4f31bd8bb860e2801201486bfff369ed"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\PlayerSlider.kt": {
+    "mtime": 1780303471.2421956,
+    "hash": "691d0a76f0279a17094492c961b17d61"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\PlayingIndicator.kt": {
+    "mtime": 1780303471.2421956,
+    "hash": "5a7d0e63f304924128c0163ce046efbe"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\Preference.kt": {
+    "mtime": 1780303471.243196,
+    "hash": "0faf6a37f56ad6f0bfab1a6212d32e29"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\RandomizeGridItem.kt": {
+    "mtime": 1780303471.243196,
+    "hash": "2b1d4a07f6605abfd40655653b273001"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\RingtoneProgressDialog.kt": {
+    "mtime": 1780303471.2447007,
+    "hash": "c1848bd135b848598d411f5b0cbf73be"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\RingtoneTrimmerDialog.kt": {
+    "mtime": 1780303471.2447007,
+    "hash": "17b9baae2a041ac8b9009b912c01a4b2"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\SearchBar.kt": {
+    "mtime": 1780303471.2457006,
+    "hash": "3f3090c06ce7d67d19d795e8f7e9b89d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\SortHeader.kt": {
+    "mtime": 1780303471.2457006,
+    "hash": "6a5504b723de40bead09cf81206fd92a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\SpeedDialGridItem.kt": {
+    "mtime": 1780303471.2457006,
+    "hash": "4f6bf78eecef4ee1ca1b936cb9db7fce"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\SquigglySlider.kt": {
+    "mtime": 1780303471.2467008,
+    "hash": "6094ef1972ace08a8b94c951b82a83fa"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\ThumbnailCornerRadiusSelector.kt": {
+    "mtime": 1780303471.2467008,
+    "hash": "128ed4f246c1bc8fcb266da9dcb932cd"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\UpdaterComponents.kt": {
+    "mtime": 1780303471.2477012,
+    "hash": "cc5f70f95da7735a220052b0fa9cffe1"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\VolumeSlider.kt": {
+    "mtime": 1780303471.2477012,
+    "hash": "ee3234ad8f270218a00c73cec39c8656"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\WavySlider.kt": {
+    "mtime": 1780303471.2477012,
+    "hash": "c6a0d664681705d90d27d2d5b1feb061"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\shimmer\\ButtonPlaceholder.kt": {
+    "mtime": 1780303471.2487013,
+    "hash": "f6dbdd6ed996654a89bb2c5b2092a5a4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\shimmer\\GridItemPlaceholder.kt": {
+    "mtime": 1780303471.2487013,
+    "hash": "a57f25486ba4efa63744f39c3047f766"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\shimmer\\ListItemPlaceholder.kt": {
+    "mtime": 1780303471.2487013,
+    "hash": "9ad28fdca4c30d79f3a6162c9346f438"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\shimmer\\ShimmerHost.kt": {
+    "mtime": 1780303471.2497022,
+    "hash": "ab62a310f19792f4b5b572531a22b81a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\component\\shimmer\\TextPlaceholder.kt": {
+    "mtime": 1780303471.2497022,
+    "hash": "79b9912b856cc34dfd6f0032627e6cf4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\AddToPlaylistDialog.kt": {
+    "mtime": 1780303471.2507026,
+    "hash": "2998da3b3663423e1aa561d6705ac846"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\AddToPlaylistDialogOnline.kt": {
+    "mtime": 1780303471.2507026,
+    "hash": "6631e9736261f6e4d30d33c5f9756ad8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\AlbumMenu.kt": {
+    "mtime": 1780419104.3155174,
+    "hash": "5a81b48176ffc23818dc7fbab2e58f1c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\ArtistMenu.kt": {
+    "mtime": 1780419104.3155174,
+    "hash": "cc2c16a5a8fc1a5efa9df8ea35c71567"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\CsvColumnMappingDialog.kt": {
+    "mtime": 1780303471.251703,
+    "hash": "bcd3b59895ab119fd0a73e47ec8d708f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\CustomThumbnailMenu.kt": {
+    "mtime": 1780303471.251703,
+    "hash": "f4c87be441ca4210c9c453bae425e8aa"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\ImportPlaylistDialog.kt": {
+    "mtime": 1780303471.251703,
+    "hash": "6c6821ca329792330dee509182b9d79e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\LoadingScreen.kt": {
+    "mtime": 1780303471.251703,
+    "hash": "089e69ea4a80c51c4d9f03b04bda46cc"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\LyricsMenu.kt": {
+    "mtime": 1780303471.2531726,
+    "hash": "c69ba53c80c0d4218c526ab23e92699b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\OldPlayerMenu.kt": {
+    "mtime": 1780419104.3193357,
+    "hash": "a2eed11aab3378b8f69e986ddf0c0236"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\PlayerMenu.kt": {
+    "mtime": 1780419104.3193357,
+    "hash": "3d44b7c437a1ef778adb7b4d0ade9bb9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\PlaylistMenu.kt": {
+    "mtime": 1780419104.3193357,
+    "hash": "7758e4bb1225773ebb9e8a687ee0e0ce"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\PlaylistScreenMenus.kt": {
+    "mtime": 1780419104.3238618,
+    "hash": "135bed4d5cd0482889d0041183bfae0d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\QueueMenu.kt": {
+    "mtime": 1780419104.3238618,
+    "hash": "6f38515db83332222942c304df91c31c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\SelectionSongsMenu.kt": {
+    "mtime": 1780303471.2561731,
+    "hash": "5ec180a82c00033cf0aea3da398ad31a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\SongMenu.kt": {
+    "mtime": 1780419104.3238618,
+    "hash": "f2ca8b44e801a0eb376541dd90a1c0a4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\YouTubeAlbumMenu.kt": {
+    "mtime": 1780303471.2561731,
+    "hash": "895873933a2469ff6135173451f2dc6d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\YouTubeArtistMenu.kt": {
+    "mtime": 1780303471.2571726,
+    "hash": "d6a09803b79d4387c482cc690ab7da3b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\YouTubePlaylistMenu.kt": {
+    "mtime": 1780303471.2571726,
+    "hash": "f2ee772d1ab8b624754af45cf69d83d4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\YouTubeSelectionSongMenu.kt": {
+    "mtime": 1780303471.2581723,
+    "hash": "f8fac2b81ab5f95b93e1d06eb0c7c256"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\menu\\YouTubeSongMenu.kt": {
+    "mtime": 1780303471.2581723,
+    "hash": "6d4202f7175c9e8fc9bfc492a3df0ced"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\player\\CanvasArtworkPlayer.kt": {
+    "mtime": 1780303471.2581723,
+    "hash": "e04edd31d8b2cbe002d4a2683955ed9b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\player\\MiniPlayer.kt": {
+    "mtime": 1780303471.2581723,
+    "hash": "142af0c8a98035fa3a377377694e75c1"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\player\\PlaybackError.kt": {
+    "mtime": 1780303471.2596762,
+    "hash": "8c23f075526a4ed74dbf57be84ee6f94"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\player\\Player.kt": {
+    "mtime": 1780419104.328078,
+    "hash": "3b4e41ecb3b7a98fb0482fd5de56c78d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\player\\Queue.kt": {
+    "mtime": 1780303471.260681,
+    "hash": "ade346292a246d8748f8068040f915e5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\player\\Thumbnail.kt": {
+    "mtime": 1780419104.328078,
+    "hash": "2bf17573b236bb651af0b10f7b45cc40"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\player\\ThumbnailSnapUtils.kt": {
+    "mtime": 1780303471.2616851,
+    "hash": "316b51fa209e33cffc16eeb91fde8d39"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\AccountScreen.kt": {
+    "mtime": 1780303471.2626855,
+    "hash": "243d5bcc5ee94fc902f3c51fd95dffb8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\AlbumScreen.kt": {
+    "mtime": 1780419104.328078,
+    "hash": "d75ce0a623af9d0f507e9a683245a22a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\BrowseScreen.kt": {
+    "mtime": 1780303471.2626855,
+    "hash": "5bc3872e2c655d013dce9b316e68c2a7"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\CanvasAlbum.kt": {
+    "mtime": 1780303471.2636857,
+    "hash": "550dd4ffc416d98f6201f450cfad3d72"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\ChartsScreen.kt": {
+    "mtime": 1780303471.2636857,
+    "hash": "7bfd21be8cf19982dc67ee1762037487"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\CommentSheet.kt": {
+    "mtime": 1780303471.2636857,
+    "hash": "286e65f181b7c597882fde1751d4efc4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\CommentTogether.kt": {
+    "mtime": 1780303471.2646852,
+    "hash": "bb5d26f3c6a734b548f4148644a9b8c5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\CrashActivity.kt": {
+    "mtime": 1780303471.2646852,
+    "hash": "6c0f5f03ad0925014b294898c45da7f5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\ExploreScreen.kt": {
+    "mtime": 1780303471.2646852,
+    "hash": "07d86e284e72d92bdb575f91e58f1d37"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\HistoryScreen.kt": {
+    "mtime": 1780303471.265685,
+    "hash": "baab70ffdca6047e4b0ffd5725ae7ca7"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\HomeScreen.kt": {
+    "mtime": 1780419104.332791,
+    "hash": "99ddbe8cff48592dd66960f0566b4488"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\ListenTogetherScreen.kt": {
+    "mtime": 1780303471.266685,
+    "hash": "10015eddd4d0281c7d35b13e904bcda4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\LoginScreen.kt": {
+    "mtime": 1780303471.266685,
+    "hash": "41dda9826f32eeb13b07e47bf2ba9ef5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\MoodAndGenresScreen.kt": {
+    "mtime": 1780303471.266685,
+    "hash": "de1471a5f29aa28c874388be44e041e3"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\NavigationBuilder.kt": {
+    "mtime": 1780303471.2676857,
+    "hash": "4400c82ce57eac375dfcad067d812ae4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\NetworkReload.kt": {
+    "mtime": 1780303471.2676857,
+    "hash": "ca37e1431c6a6110d75e677f9b217091"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\NewReleaseScreen.kt": {
+    "mtime": 1780303471.2676857,
+    "hash": "cf4324773d2d6b8624f525d790d59afe"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\Screens.kt": {
+    "mtime": 1780303471.2676857,
+    "hash": "ce38d58b5d756b7e733b78bc51b58e0e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\SettingDialoge.kt": {
+    "mtime": 1780419104.332791,
+    "hash": "538df786bf47b6e444f8d32464cbc71a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\SpotifyImportScreen.kt": {
+    "mtime": 1780303471.2691426,
+    "hash": "3c815eff2b4406dedade2f4c3470ca87"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\StatsScreen.kt": {
+    "mtime": 1780419104.332791,
+    "hash": "8bb459d116d8755d0ee8f9810f5d6ace"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\WelcomeDialog.kt": {
+    "mtime": 1780303471.2691426,
+    "hash": "c5f938c5cfa4d4eb4dfb2291ee7ed7e1"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\YouTubeBrowseScreen.kt": {
+    "mtime": 1780303471.270147,
+    "hash": "c7b6c850ee1efaa23b598e2fd2e70f26"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\artist\\ArtistAlbumsScreen.kt": {
+    "mtime": 1780303471.270728,
+    "hash": "28fb7f4425f06e988317f31bc91abf27"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\artist\\ArtistItemsScreen.kt": {
+    "mtime": 1780303471.270728,
+    "hash": "5f6cec5353a2705562c9e2c444dc69cb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\artist\\ArtistScreen.kt": {
+    "mtime": 1780303471.2717335,
+    "hash": "e2859ca5f141c2e229fff92e43bec597"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\artist\\ArtistSongsScreen.kt": {
+    "mtime": 1780303471.2717335,
+    "hash": "ab032e2104f60d96e07018c8342d33a2"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\equalizer\\EqScreen.kt": {
+    "mtime": 1780303471.2727332,
+    "hash": "db13aff9ada6943e67869a091fea5c3b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\equalizer\\EQState.kt": {
+    "mtime": 1780303471.2717335,
+    "hash": "fd8b519585f6ad8b55ed064141dd8a2a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\equalizer\\EQViewModel.kt": {
+    "mtime": 1780303471.2727332,
+    "hash": "cf8ac4637291048e012a04b2aaf8c115"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\equalizer\\axion\\AxionEqScreen.kt": {
+    "mtime": 1780303471.2737336,
+    "hash": "1fde0d2bcaff95fab91639985f7d84ba"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\equalizer\\axion\\AxionEqViewModel.kt": {
+    "mtime": 1780303471.2737336,
+    "hash": "3ef16ac40664e62106b202013e71ba3d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\equalizer\\axion\\CircularEqControl.kt": {
+    "mtime": 1780303471.2737336,
+    "hash": "6d6bf040c95403f908f82a6f989a2cb7"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\library\\LibraryAlbumsScreen.kt": {
+    "mtime": 1780419104.3359497,
+    "hash": "7e435884c0e346840f280312dcbd1f4e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\library\\LibraryArtistsScreen.kt": {
+    "mtime": 1780419104.3359497,
+    "hash": "cdf0be3195027064dc786f3a446e945b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\library\\LibraryMixScreen.kt": {
+    "mtime": 1780419104.3359497,
+    "hash": "33fe74f2a1ceaf13247c03f43a45792a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\library\\LibraryPlaylistsScreen.kt": {
+    "mtime": 1780419104.3359497,
+    "hash": "32dddb9703e5ff54f3e169699af009c6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\library\\LibraryScreen.kt": {
+    "mtime": 1780303471.2762377,
+    "hash": "ab500899d86647d33e218b9cd36421fd"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\library\\LibrarySongsScreen.kt": {
+    "mtime": 1780419104.3401556,
+    "hash": "735aa067ef26389b0a192996fc5f8982"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\library\\LocalSongScreen.kt": {
+    "mtime": 1780303471.2762377,
+    "hash": "f4c1aa2ed2fccafbdcb680f1d9518a6a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\playlist\\AutoPlaylistScreen.kt": {
+    "mtime": 1780303471.2772436,
+    "hash": "9b8e3ede6d2c617804832c95f4ab8b3b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\playlist\\CachePlaylistScreen.kt": {
+    "mtime": 1780303471.2772436,
+    "hash": "350dd31154a985005a6995303c6dd3c8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\playlist\\LocalPlaylistScreen.kt": {
+    "mtime": 1780303471.2782488,
+    "hash": "e96f81bf40ef79fa4443ae3da737b20c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\playlist\\OnlinePlaylistScreen.kt": {
+    "mtime": 1780303471.2782488,
+    "hash": "4834f6c0966389a4c2fd802bf786a915"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\playlist\\TopPlaylistScreen.kt": {
+    "mtime": 1780303471.279248,
+    "hash": "432108639fa9812265376122d16b75a3"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\recognition\\RecognitionHistoryScreen.kt": {
+    "mtime": 1780303471.279248,
+    "hash": "d7cfdf1fe81c72db63c90fd73338a9ad"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\recognition\\RecognitionScreen.kt": {
+    "mtime": 1780303471.2802489,
+    "hash": "dadf6704133f0060517f5f81f52ffdab"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\search\\LocalSearchScreen.kt": {
+    "mtime": 1780303471.2802489,
+    "hash": "e5ec1847063212b8f062cc001a765758"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\search\\OnlineSearchResult.kt": {
+    "mtime": 1780303471.2812488,
+    "hash": "bcfc925acb7ccf19e805739b9fe3cc62"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\search\\OnlineSearchScreen.kt": {
+    "mtime": 1780303471.2812488,
+    "hash": "a7faa6bded769326ac42eed4a032a9db"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\search\\SearchScreen.kt": {
+    "mtime": 1780303471.2812488,
+    "hash": "40f4b50e7d7b1f6e748d395249368485"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\search\\suggestions\\AppleMusicScraper.kt": {
+    "mtime": 1780303471.2822478,
+    "hash": "030bdf327995abbd419e288932f6d25c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\search\\suggestions\\SuggestionModels.kt": {
+    "mtime": 1780303471.2822478,
+    "hash": "369d2b98773bffc174b0fdafd0152706"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\search\\suggestions\\SuggestionRegionSheet.kt": {
+    "mtime": 1780303471.2822478,
+    "hash": "c0ba4032e41a80b98a6c38c89a19d1c3"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\search\\suggestions\\SuggestionsViewModel.kt": {
+    "mtime": 1780303471.2822478,
+    "hash": "b51879896e25620605534c0b25189e2a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\search\\suggestions\\TabNewsSuggestion.kt": {
+    "mtime": 1780303471.2832472,
+    "hash": "839c3cd7208251bba7283a7399198d30"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\settings\\AboutScreen.kt": {
+    "mtime": 1780306116.4144194,
+    "hash": "f8b3e7b89a31a117927b11ea3dc11282"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\settings\\AccountSettingsScreen.kt": {
+    "mtime": 1780303471.2842474,
+    "hash": "5ce5a61617b6783c0b49e251892e5d0d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\settings\\AiSettings.kt": {
+    "mtime": 1780303471.2842474,
+    "hash": "c52ce99542200d35478709f8711200f0"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\settings\\AppearanceSettings.kt": {
+    "mtime": 1780419104.3401556,
+    "hash": "d415929e381d64edbaff7f6d248b8bfb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\settings\\BackupAndRestore.kt": {
+    "mtime": 1780303471.2852473,
+    "hash": "ba3ea2f369eba9be230fb21f4cdc9982"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\settings\\ContentSettings.kt": {
+    "mtime": 1780419104.3401556,
+    "hash": "86623704b003da26a0295d9671100b10"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\settings\\PlayerSettings.kt": {
+    "mtime": 1780419104.344644,
+    "hash": "5d2a3abc79326078f667349c524459e3"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\settings\\PrivacySettings.kt": {
+    "mtime": 1780303471.2862484,
+    "hash": "23f35c1a452521c2b83b068467f04b70"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\settings\\RingtoneViewModel.kt": {
+    "mtime": 1780303471.2862484,
+    "hash": "ab581b330aa31543d309bea0f5d8f3b4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\settings\\RomanizationSettings.kt": {
+    "mtime": 1780303471.2874024,
+    "hash": "c91c5dbe2333163f50ee0b83c2d2b3c5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\settings\\SettingsScreen.kt": {
+    "mtime": 1780306116.417435,
+    "hash": "f52e0c945f94e51108424942735c74ff"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\settings\\StorageSettings.kt": {
+    "mtime": 1780303471.2884088,
+    "hash": "7777467a8baf39e6d371740de98e171d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\settings\\ThemeScreen.kt": {
+    "mtime": 1780303471.2884088,
+    "hash": "ccf261260231006bc1f8096f7a744571"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\settings\\UpdateSettings.kt": {
+    "mtime": 1780419104.344644,
+    "hash": "ff178ef948f41ef234915d870abd53da"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\settings\\integrations\\IntegrationScreen.kt": {
+    "mtime": 1780303471.289427,
+    "hash": "343cc7428898a853e7c774ffa99d787e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\settings\\integrations\\ListenTogetherSettings.kt": {
+    "mtime": 1780419104.344644,
+    "hash": "7bfd1c5981e88aec0011a3dbc45f3cc9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\WrappedAudioService.kt": {
+    "mtime": 1780306116.4184513,
+    "hash": "cc51a6d87887c6c312851cbba7757bad"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\WrappedConstants.kt": {
+    "mtime": 1780303471.290432,
+    "hash": "7b9546c59b8107ea05a838976566c90d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\WrappedData.kt": {
+    "mtime": 1780303471.290432,
+    "hash": "15139bee2454e7a5d3e61d653e0d2d7f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\WrappedEntryPoint.kt": {
+    "mtime": 1780303471.290432,
+    "hash": "b4adc07734b83ed167bafb48d8b548ea"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\WrappedManager.kt": {
+    "mtime": 1780303471.2914312,
+    "hash": "6a5a327d15861d9a811d4f06aa295763"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\WrappedScreen.kt": {
+    "mtime": 1780303471.2914312,
+    "hash": "1e387a9579e1b4254c5d475f42b8f5bd"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\WrappedState.kt": {
+    "mtime": 1780303471.2914312,
+    "hash": "3c152e6e3254e3304ae125b49b3a4314"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\WrappedViewModel.kt": {
+    "mtime": 1780303471.2914312,
+    "hash": "4e5f1ce70930e6650649c30d13d8d807"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\components\\AnimatedBackground.kt": {
+    "mtime": 1780303471.2929354,
+    "hash": "7e1f4f935b8a0728fbef9e2a3251d733"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\components\\AnimatedDecorativeElement.kt": {
+    "mtime": 1780303471.2929354,
+    "hash": "91bf0410b83d343b81351af51db21d7c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\components\\AutoResizingText.kt": {
+    "mtime": 1780303471.2929354,
+    "hash": "ce160734025f1476a6f2ea55522a4096"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\components\\WrappedBackground.kt": {
+    "mtime": 1780303471.2939413,
+    "hash": "d35e88cc1e386c2ff89dd1b32145918a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\pages\\AlbumPages.kt": {
+    "mtime": 1780303471.2939413,
+    "hash": "9867f9ef06a872c5d9fa3db7de358e5c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\pages\\ConclusionPage.kt": {
+    "mtime": 1780303471.294946,
+    "hash": "7845791e9486220e9fe31f9944f092ed"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\pages\\PlaylistPage.kt": {
+    "mtime": 1780303471.294946,
+    "hash": "c40348cd526832353fe4eaf1b669fc6e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\pages\\WrappedIntro.kt": {
+    "mtime": 1780303471.294946,
+    "hash": "2ea2f1d260000124c65eef53a5c77c6e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\pages\\WrappedMinutesScreen.kt": {
+    "mtime": 1780303471.2959461,
+    "hash": "5a8d03882b70c73a4dd5c7b41283d66a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\pages\\WrappedMinutesTease.kt": {
+    "mtime": 1780303471.2959461,
+    "hash": "59ffd493c18fca2e7e56457f7aef63f6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\pages\\WrappedTop5ArtistsScreen.kt": {
+    "mtime": 1780303471.2969453,
+    "hash": "c53d56c58f52ab4d07b5716e85774af1"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\pages\\WrappedTop5SongsScreen.kt": {
+    "mtime": 1780303471.2969453,
+    "hash": "5de03b7405200b82dd400bad29d5f137"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\pages\\WrappedTopArtistScreen.kt": {
+    "mtime": 1780303471.2969453,
+    "hash": "d5c6be7f3ee278294b432dc202238e41"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\pages\\WrappedTopSongScreen.kt": {
+    "mtime": 1780303471.2969453,
+    "hash": "6f855f8a4cd1cdd653f535763bc1c983"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\pages\\WrappedTotalArtistsScreen.kt": {
+    "mtime": 1780303471.2979465,
+    "hash": "8238a1e55b7715cb6cf04b5ac71ff172"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\screens\\wrapped\\pages\\WrappedTotalSongsScreen.kt": {
+    "mtime": 1780303471.2979465,
+    "hash": "746d7f3d6532ed3ef88120739cabea77"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\theme\\bbh_bartle.kt": {
+    "mtime": 1780303471.2999463,
+    "hash": "c8bfc5eb7ae65415831df9c6a31756b8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\theme\\Font.kt": {
+    "mtime": 1780303471.2979465,
+    "hash": "d38ba45bfff10e0ee943ea6b8dce04c8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\theme\\PlayerColorExtractor.kt": {
+    "mtime": 1780303471.2989466,
+    "hash": "367ce23b54c16bf1624262f6da60d170"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\theme\\PlayerSliderColors.kt": {
+    "mtime": 1780303471.2989466,
+    "hash": "4e3339a4c321923f29138e5c411cd752"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\theme\\Theme.kt": {
+    "mtime": 1780303471.2989466,
+    "hash": "024754b981084d3cb5eaef4729581e77"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\theme\\Type.kt": {
+    "mtime": 1780303471.2989466,
+    "hash": "0488ca5be4643288be10db258088d2ba"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\utils\\AppBar.kt": {
+    "mtime": 1780303471.2999463,
+    "hash": "7513f97776bbbf802b7bb34d151abdd5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\utils\\FadingEdge.kt": {
+    "mtime": 1780303471.2999463,
+    "hash": "0e094d7abb2316afca08960e218fa434"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\utils\\ItemWrapper.kt": {
+    "mtime": 1780303471.2999463,
+    "hash": "23e29b23af77d9f716a3b7676b659260"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\utils\\KeyUtils.kt": {
+    "mtime": 1780303471.2999463,
+    "hash": "63d680c7261ab8f40b867923e4398b72"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\utils\\LazyGridSnapLayoutInfoProvider.kt": {
+    "mtime": 1780303471.3013668,
+    "hash": "0a3276c1fd44ab7de1a591384f558127"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\utils\\NavControllerUtils.kt": {
+    "mtime": 1780303471.3013668,
+    "hash": "9c7860b286dc44c5648ce442da318d5c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\utils\\ScrollUtils.kt": {
+    "mtime": 1780303471.3023715,
+    "hash": "1b686dadf222334c9699677f6e4bf74f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\utils\\ShapeUtils.kt": {
+    "mtime": 1780303471.3023715,
+    "hash": "94ad983d654429701e53cf50ae342900"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\utils\\ShowMediaInfo.kt": {
+    "mtime": 1780303471.3023715,
+    "hash": "3a3511c913a9c6b73b865bde1745fb6c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\utils\\ShowOffsetDialog.kt": {
+    "mtime": 1780303471.3033721,
+    "hash": "1244d4522622b15c5be6d13de94a47ce"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\utils\\StringUtils.kt": {
+    "mtime": 1780303471.3033721,
+    "hash": "7e3d5278fc7bbd0f548f92f81fa341e1"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\utils\\UriUtils.kt": {
+    "mtime": 1780303471.3033721,
+    "hash": "13a63a1d74e5039d4f3d079db65072ae"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\ui\\utils\\YouTubeUtils.kt": {
+    "mtime": 1780303471.3033721,
+    "hash": "77458550d731bda1c92f6e25152e78a8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\AppleMusicAboutAlbum.kt": {
+    "mtime": 1780303471.3043723,
+    "hash": "69bf703fca30d4724db5a2c508d2558e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\BotDetectionMitigator.kt": {
+    "mtime": 1780303471.3043723,
+    "hash": "a9a6b5de398950b52f97ddfe549b93e8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\CoilBitmapLoader.kt": {
+    "mtime": 1780303471.3053725,
+    "hash": "81f63ec75946dcdd6f1f11a023cb9dc0"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\ComposeDebugUtils.kt": {
+    "mtime": 1780303471.3053725,
+    "hash": "7902427a9f48072954fc19e1b86a83bf"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\ComposeToImage.kt": {
+    "mtime": 1780303471.3053725,
+    "hash": "6c4194bed453b8307d28e232c2b0b7af"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\CrashHandler.kt": {
+    "mtime": 1780303471.3068366,
+    "hash": "6446137437e69330b8c65e382512bd32"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\DataStore.kt": {
+    "mtime": 1780303471.3068366,
+    "hash": "d18f6460fbeda0b62953b4f57cc239c6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\DiscordRPC.kt": {
+    "mtime": 1780303471.3068366,
+    "hash": "a80682ccae380db1a1f19bcbbc3bd4d1"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\IconUtils.kt": {
+    "mtime": 1780303471.307841,
+    "hash": "b1c834c0b5df2437b11bc86c3adf6bbb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\LocalFileDownloader.kt": {
+    "mtime": 1780306116.41945,
+    "hash": "a0f905b9ec59609fba7c68d5b0a69dc6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\LocalMediaIntents.kt": {
+    "mtime": 1780303471.307841,
+    "hash": "c7fa2f29dc96efa1dceaf5da00a15087"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\LocalYouTubeDownloader.kt": {
+    "mtime": 1780303471.3088417,
+    "hash": "d9bace238d9b06b54d19a2c3efa2c7a3"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\NetworkConnectivityObserver.kt": {
+    "mtime": 1780303471.3088417,
+    "hash": "7a0ee3066d57cc616154b9583a0a830d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\NetworkUtils.kt": {
+    "mtime": 1780303471.3098412,
+    "hash": "1c7d4ffa57906c0925bd09d524c3739c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\PlaybackLogManager.kt": {
+    "mtime": 1780303471.3098412,
+    "hash": "a7b28eecbf2269dcc639e71f46feb611"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\RingtoneHelper.kt": {
+    "mtime": 1780303471.3098412,
+    "hash": "b4a50f89f325e76951a1b614d9528ed1"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\ScrobbleManager.kt": {
+    "mtime": 1780303471.3108747,
+    "hash": "3ce149086e6aa3bf7939418de0e92122"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\ShapesCurve.kt": {
+    "mtime": 1780303471.3108747,
+    "hash": "2e489feb6a0e70e9a87b25291c0a4714"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\StringUtils.kt": {
+    "mtime": 1780303471.3108747,
+    "hash": "da1d63e6779b9d788d234f9bc08c316f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\SuperProperties.kt": {
+    "mtime": 1780303471.3118792,
+    "hash": "22d9b9c3fc2f593e8fc37122b94db523"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\SyncUtils.kt": {
+    "mtime": 1780303471.3118792,
+    "hash": "7c7fb8de31d7d671fec360920ae4d0bc"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\Utils.kt": {
+    "mtime": 1780303471.312879,
+    "hash": "b0014c4dca3d9c5ddfb8fa9b03d26769"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\WebAuthSessionCleaner.kt": {
+    "mtime": 1780303471.312879,
+    "hash": "9294960aa3a150344152b3532a07ce14"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\Wikipedia.kt": {
+    "mtime": 1780303471.312879,
+    "hash": "a7259901ea82eb78b693ac50dc3f2e6f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\YTPlayerUtils.kt": {
+    "mtime": 1780306116.4204497,
+    "hash": "26c7b0efdda81b70974cdd59c0772ba6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\cipher\\CipherDeobfuscator.kt": {
+    "mtime": 1780303471.313879,
+    "hash": "8fe30fa4ef6277d2c7d22082acf9d4d5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\cipher\\CipherWebView.kt": {
+    "mtime": 1780303471.31488,
+    "hash": "ef217714dc679c61e6a3b4f47c64b010"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\cipher\\FunctionNameExtractor.kt": {
+    "mtime": 1780303471.31488,
+    "hash": "8014ba841a26e76bc9ba0fd066a3c915"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\cipher\\PlayerJsFetcher.kt": {
+    "mtime": 1780303471.31488,
+    "hash": "565553d022e57fea65085ee0ef11e993"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\potoken\\JavaScriptUtil.kt": {
+    "mtime": 1780303471.3158803,
+    "hash": "22a5849ab5a0088b84cb7c3d569c057c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\potoken\\PoTokenException.kt": {
+    "mtime": 1780303471.3158803,
+    "hash": "581fcc4d5d4030908eee568f38dc3517"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\potoken\\PoTokenGenerator.kt": {
+    "mtime": 1780303471.3158803,
+    "hash": "ef8b18572df10564ec2dd9b182911a5d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\potoken\\PoTokenResult.kt": {
+    "mtime": 1780303471.3158803,
+    "hash": "c65b554ae9876357e77b64029b3f97fb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\potoken\\PoTokenWebView.kt": {
+    "mtime": 1780303471.3168797,
+    "hash": "a8938e447c416b9db04227e76030463c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\qobuz\\QobuzApiClient.kt": {
+    "mtime": 1780303471.3168797,
+    "hash": "68cc4e4fdcc05e6b8b4f1be9c2b8b811"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\sabr\\EjsNTransformSolver.kt": {
+    "mtime": 1780303471.3178787,
+    "hash": "106426efc9dab3f19033cb67182d2b85"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\utils\\sabr\\SabrException.kt": {
+    "mtime": 1780303471.3185,
+    "hash": "5d3ff279e5778a1e387c46c29ae30090"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\AccountSettingsViewModel.kt": {
+    "mtime": 1780303471.3185,
+    "hash": "985bde141fb2ad1317639e309fe16643"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\AccountViewModel.kt": {
+    "mtime": 1780303471.3185,
+    "hash": "241351f82dc289de09996fe76aa7d317"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\AlbumViewModel.kt": {
+    "mtime": 1780303471.3195057,
+    "hash": "29d061d0aad75d81fadeac0fdd871c5b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\ArtistAlbumsViewModel.kt": {
+    "mtime": 1780303471.3195057,
+    "hash": "453eb97a26c5949e772342ecf5b16211"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\ArtistItemsViewModel.kt": {
+    "mtime": 1780303471.3205047,
+    "hash": "8d7dd6df493a1f835a67e8912aae5e3e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\ArtistViewModel.kt": {
+    "mtime": 1780303471.3205047,
+    "hash": "4867535c3f6bc7631b4897620e902f19"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\AutoPlaylistViewModel.kt": {
+    "mtime": 1780303471.321505,
+    "hash": "12675ba49123afcff2cc34c7cdddddd3"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\BackupRestoreViewModel.kt": {
+    "mtime": 1780419104.3484497,
+    "hash": "7d4da3b3665e36f8b4f032b226aaf0e4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\BrowseViewModel.kt": {
+    "mtime": 1780303471.3225048,
+    "hash": "c2371764216dd5abe03bfb21e1445587"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\CachePlaylistViewModel.kt": {
+    "mtime": 1780303471.3225048,
+    "hash": "12ab5131f9b17efc1e5d17de141960af"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\ChartsViewModel.kt": {
+    "mtime": 1780303471.3225048,
+    "hash": "fba244e5561ad5f70522a2389e3af8b8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\ExploreViewModel.kt": {
+    "mtime": 1780303471.3235054,
+    "hash": "b94f6ee28438c2b143c3dccd6d7b7432"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\HistoryViewModel.kt": {
+    "mtime": 1780303471.3235054,
+    "hash": "119788a69904bd7fa139e32c8719b2eb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\HomeViewModel.kt": {
+    "mtime": 1780303471.3245049,
+    "hash": "e73a6c48f7f1ab7380076b40569ba2bd"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\LibraryViewModels.kt": {
+    "mtime": 1780303471.3245049,
+    "hash": "235e159d994534f3d885ade1135e073b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\ListenTogetherViewModel.kt": {
+    "mtime": 1780303471.3245049,
+    "hash": "b571fcd47f53f631fec8ca1d7d358a81"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\LocalPlaylistViewModel.kt": {
+    "mtime": 1780303471.325505,
+    "hash": "e50fed2a9cf85abca77085681b7743c5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\LocalSearchViewModel.kt": {
+    "mtime": 1780303471.325505,
+    "hash": "5c34c549fdef2e49752cd11091955d7f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\LocalSongsViewModel.kt": {
+    "mtime": 1780303471.325505,
+    "hash": "b36bc5a5cec5a78d8b147dd8c32fbcb5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\LyricsMenuViewModel.kt": {
+    "mtime": 1780303471.326507,
+    "hash": "1b0a395ceca065e054fced3faacb689b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\MoodAndGenresViewModel.kt": {
+    "mtime": 1780303471.326507,
+    "hash": "f7150d235edf02974bfddf991263ea84"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\NewReleaseViewModel.kt": {
+    "mtime": 1780303471.326507,
+    "hash": "880d09445458f64d357388d242073cd8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\OnlinePlaylistViewModel.kt": {
+    "mtime": 1780419104.3484497,
+    "hash": "22c891f0988bda4b54b6e5c937611f65"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\OnlineSearchSuggestionViewModel.kt": {
+    "mtime": 1780303471.3277414,
+    "hash": "cf9c83b0c217fa93f3f55a99e6482a3d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\OnlineSearchViewModel.kt": {
+    "mtime": 1780419104.3484497,
+    "hash": "548e14061ebaf7fbcc7742d7f7cb3f87"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\PlaylistsViewModel.kt": {
+    "mtime": 1780303471.3287463,
+    "hash": "ae2189ff8123917419a06f90be54922e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\StatsViewModel.kt": {
+    "mtime": 1780303471.3287463,
+    "hash": "4a1a5d98a052089b9f3d3d1766aea58d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\ThemeViewModel.kt": {
+    "mtime": 1780303471.3287463,
+    "hash": "6044fd2f8b462f31968959e60c8fda05"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\TopPlaylistViewModel.kt": {
+    "mtime": 1780303471.3297484,
+    "hash": "d47c4a7cbc5a4c3523b86af1acaaa974"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\viewmodels\\YouTubeBrowseViewModel.kt": {
+    "mtime": 1780303471.3297484,
+    "hash": "e9d796618c9566e213ea7b7366566306"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\widget\\EchoMusicWidgetManager.kt": {
+    "mtime": 1780419104.3484497,
+    "hash": "f4a19589e5bfe392214a230873bac11a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\widget\\MusicRecognizerWidgetReceiver.kt": {
+    "mtime": 1780419104.3484497,
+    "hash": "def27f6ce3058f253bc2b86d275596fa"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\widget\\MusicRecognizerWidgetService.kt": {
+    "mtime": 1780419104.3526464,
+    "hash": "93a4c73bdc6575e39f4ec929f8907d91"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\widget\\MusicWidgetReceiver.kt": {
+    "mtime": 1780419104.3526464,
+    "hash": "dced7f10e7d06bdaf6a657ddd9b777ec"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\widget\\PlaylistWidgetManager.kt": {
+    "mtime": 1780419104.3526464,
+    "hash": "27058423fbc65e7994a0c97f341b440a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\widget\\PlaylistWidgetReceiver.kt": {
+    "mtime": 1780419104.3526464,
+    "hash": "c7d95091dcaf455bdc5eb52a7b2aa854"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\kotlin\\com\\music\\vivi\\widget\\TurntableWidgetReceiver.kt": {
+    "mtime": 1780419104.3526464,
+    "hash": "fead6fdc5dec86ed8d3fc12aa2c5450c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\applecanvas\\build.gradle.kts": {
+    "mtime": 1780303471.656195,
+    "hash": "6d099fe71b1880d4f30d39cf07ecfbe2"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\applecanvas\\bin\\main\\com\\music\\vivi\\applecanvas\\AppleMusicCanvasProvider.kt": {
+    "mtime": 1780303471.657,
+    "hash": "d150ad615dd5539c2737f5618e95e9a8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\applecanvas\\src\\main\\kotlin\\com\\music\\vivi\\applecanvas\\AppleMusicCanvasProvider.kt": {
+    "mtime": 1780303471.6571944,
+    "hash": "d150ad615dd5539c2737f5618e95e9a8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\artistvideo\\build.gradle.kts": {
+    "mtime": 1780303471.6581945,
+    "hash": "8b059d456435b8390d293929765aa0d8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\artistvideo\\src\\main\\kotlin\\com\\music\\vivi\\artistvideo\\ArtistVideo.kt": {
+    "mtime": 1780303471.6596992,
+    "hash": "7fbb51f11757617ba97fb7459704b8d6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\artistvideo\\src\\main\\kotlin\\com\\music\\vivi\\artistvideo\\ArtistVideoCanvasProvider.kt": {
+    "mtime": 1780303471.6607056,
+    "hash": "a51a2a45cb814f254c6dbfc1ecbd159a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\betterlyrics\\build.gradle.kts": {
+    "mtime": 1780303471.6762495,
+    "hash": "040f0a2ecf196773392a9e6c44de13c4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\betterlyrics\\src\\main\\kotlin\\com\\music\\vivi\\betterlyrics\\BetterLyrics.kt": {
+    "mtime": 1780303471.679569,
+    "hash": "a2a5cdfe899fe70e05603ce0ff91f714"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\betterlyrics\\src\\main\\kotlin\\com\\music\\vivi\\betterlyrics\\TTMLParser.kt": {
+    "mtime": 1780303471.679569,
+    "hash": "4883ff29b81a9bddc87be91a4cafe270"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\betterlyrics\\src\\main\\kotlin\\com\\music\\vivi\\betterlyrics\\models\\Track.kt": {
+    "mtime": 1780303471.6805694,
+    "hash": "441b8b1a78627717c46252a19d800c5b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\canvas\\build.gradle.kts": {
+    "mtime": 1780303471.6815703,
+    "hash": "5b2d5971f0f94d57e629a9471fb64130"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\canvas\\bin\\main\\com\\music\\vivi\\canvas\\AppleMusicArtistBackgroundProvider.kt": {
+    "mtime": 1780303471.682,
+    "hash": "aa7390fbcf44795f6423a8c37c1e51ba"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\canvas\\bin\\main\\com\\music\\vivi\\canvas\\CanvasArtwork.kt": {
+    "mtime": 1780303471.683,
+    "hash": "b5f1451f095473e5b2fa5d3a3020b0a7"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\canvas\\bin\\main\\com\\music\\vivi\\canvas\\MonochromeAlbumCanvas.kt": {
+    "mtime": 1780303471.683,
+    "hash": "dc31f3e0a9400d9b9503ab5c654fd158"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\canvas\\bin\\main\\com\\music\\vivi\\canvas\\MonochromeApiCanvas.kt": {
+    "mtime": 1780303471.683,
+    "hash": "832b629390377db5fb9dacd7c861be43"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\canvas\\bin\\test\\com\\music\\vivi\\canvas\\MonochromeApiCanvasTest.kt": {
+    "mtime": 1780303471.685,
+    "hash": "e0d7f9cc4d91b321fb89681f12d04e3d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\canvas\\src\\main\\kotlin\\com\\music\\vivi\\canvas\\AppleMusicArtistBackgroundProvider.kt": {
+    "mtime": 1780303471.6825712,
+    "hash": "aa7390fbcf44795f6423a8c37c1e51ba"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\canvas\\src\\main\\kotlin\\com\\music\\vivi\\canvas\\CanvasArtwork.kt": {
+    "mtime": 1780303471.6835706,
+    "hash": "b5f1451f095473e5b2fa5d3a3020b0a7"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\canvas\\src\\main\\kotlin\\com\\music\\vivi\\canvas\\MonochromeAlbumCanvas.kt": {
+    "mtime": 1780303471.6835706,
+    "hash": "dc31f3e0a9400d9b9503ab5c654fd158"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\canvas\\src\\main\\kotlin\\com\\music\\vivi\\canvas\\MonochromeApiCanvas.kt": {
+    "mtime": 1780303471.6835706,
+    "hash": "832b629390377db5fb9dacd7c861be43"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\canvas\\src\\test\\kotlin\\com\\music\\vivi\\canvas\\MonochromeApiCanvasTest.kt": {
+    "mtime": 1780303471.6855707,
+    "hash": "e0d7f9cc4d91b321fb89681f12d04e3d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\echomusiccanvas\\build.gradle.kts": {
+    "mtime": 1780303471.686571,
+    "hash": "6d099fe71b1880d4f30d39cf07ecfbe2"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\echomusiccanvas\\bin\\main\\com\\music\\vivi\\vivimusiccanvas\\ViviMusicCanvasProvider.kt": {
+    "mtime": 1780303471.688,
+    "hash": "5d266443ac8727a49e69d19aa776cdce"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\echomusiccanvas\\src\\main\\kotlin\\com\\music\\vivi\\vivimusiccanvas\\ViviMusicCanvasProvider.kt": {
+    "mtime": 1780303471.6885715,
+    "hash": "5d266443ac8727a49e69d19aa776cdce"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\build.gradle.kts": {
+    "mtime": 1780303471.6915708,
+    "hash": "e69a571fbccf6aa21eb3e8c8830d4c37"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\InnerTube.kt": {
+    "mtime": 1780303471.6950848,
+    "hash": "81ddb11c3eaf9d13557fbe4451d1f321"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\NetworkConfig.kt": {
+    "mtime": 1780303471.6950848,
+    "hash": "d0148776841821298a5ebf05336410ca"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\YouTube.kt": {
+    "mtime": 1780303471.6950848,
+    "hash": "db13665d3126d2e1addb3ae26ffa3b54"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\YouTubeConstants.kt": {
+    "mtime": 1780303471.6960847,
+    "hash": "88c4e5f320caabdcc6a19d42523c45cf"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\AccountInfo.kt": {
+    "mtime": 1780303471.6960847,
+    "hash": "f1cd02a1b91c5dbdf66c1b1ff8ecf1bd"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\AutomixPreviewVideoRenderer.kt": {
+    "mtime": 1780303471.6970892,
+    "hash": "39155346c78505afc3ee25fcf5db4237"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\Badges.kt": {
+    "mtime": 1780303471.6970892,
+    "hash": "f6bed889284d092cf1b36608c67d8a5f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\Button.kt": {
+    "mtime": 1780303471.698089,
+    "hash": "b6e5d9b7c3917f7834b3c8b48e032429"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\Context.kt": {
+    "mtime": 1780303471.6990895,
+    "hash": "6ab19794933edb2008efbe8c35f4b623"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\Continuation.kt": {
+    "mtime": 1780303471.6990895,
+    "hash": "5ad82e4ed58ecf731cb0292ce2b3e319"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\ContinuationItemRenderer.kt": {
+    "mtime": 1780303471.7000866,
+    "hash": "3c772183fc96732fac02589ec1f56588"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\Endpoint.kt": {
+    "mtime": 1780303471.7000866,
+    "hash": "f41c9c89a6b77dd3271a1e750e3a7927"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\GridRenderer.kt": {
+    "mtime": 1780303471.7010858,
+    "hash": "0fdcb91a15e6beb4a4114b982dac86b2"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\Icon.kt": {
+    "mtime": 1780303471.7010858,
+    "hash": "54f391517f645d790fa3c508985d4b1f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\IpVersion.kt": {
+    "mtime": 1780303471.7010858,
+    "hash": "a6b5a779f696fa1c00de7943796569ac"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\MediaInfo.kt": {
+    "mtime": 1780303471.7020857,
+    "hash": "e92793ce092d81be8c5255a3405a8f72"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\Menu.kt": {
+    "mtime": 1780303471.7020857,
+    "hash": "2577e2a585a3e4121b9cd788a4e8475f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\MusicCardShelfRenderer.kt": {
+    "mtime": 1780303471.7030864,
+    "hash": "7352eed25bde4b3a60c863764081f913"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\MusicCarouselShelfRenderer.kt": {
+    "mtime": 1780303471.7030864,
+    "hash": "2d3a98330a8a76e7456d02caeff68dd7"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\MusicDescriptionShelfRenderer.kt": {
+    "mtime": 1780303471.7030864,
+    "hash": "7340f8930cde51b60ac938cbd54a982b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\MusicEditablePlaylistDetailHeaderRenderer.kt": {
+    "mtime": 1780303471.7040844,
+    "hash": "ad6e9a7d8a4e5c2f51ce840fa15784bf"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\MusicMultiRowImageItemRenderer.kt": {
+    "mtime": 1780303471.7040844,
+    "hash": "74a527ee1506b08497784305e7973ece"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\MusicNavigationButtonRenderer.kt": {
+    "mtime": 1780303471.7040844,
+    "hash": "4438de138d0616e85a694fa652f57cc0"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\MusicPlaylistShelfRenderer.kt": {
+    "mtime": 1780303471.705085,
+    "hash": "3f786afa2ea44a1bac3f62592b2d394f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\MusicQueueRenderer.kt": {
+    "mtime": 1780303471.705085,
+    "hash": "76fba1f00cb3bb487fa3a7254652e9dc"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\MusicResponsiveHeaderRenderer.kt": {
+    "mtime": 1780303471.705085,
+    "hash": "dadd95975710116dfc5487f3c8b7cf24"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\MusicResponsiveListItemRenderer.kt": {
+    "mtime": 1780303471.7060845,
+    "hash": "c237bab26d3448c91cb08dd136e57817"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\MusicShelfRenderer.kt": {
+    "mtime": 1780303471.7060845,
+    "hash": "4389f77c3a57adce9ccf52140516ebd4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\MusicTwoRowItemRenderer.kt": {
+    "mtime": 1780303471.7060845,
+    "hash": "8ddb61e80a170a4b03db97893ae4e6b6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\NavigationEndpoint.kt": {
+    "mtime": 1780303471.7060845,
+    "hash": "5f255fae7186a699e6d46ccf1a4c9e71"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\PlaylistDeleteBody.kt": {
+    "mtime": 1780303471.7070847,
+    "hash": "20e36d06fc67a4ca640867cf6df81fa4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\PlaylistPanelRenderer.kt": {
+    "mtime": 1780303471.7070847,
+    "hash": "4667e8e8d4f381bed5610d7444873354"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\PlaylistPanelVideoRenderer.kt": {
+    "mtime": 1780303471.7080853,
+    "hash": "c4ed140d9bf85752a13db7d1527cc968"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\ResponseContext.kt": {
+    "mtime": 1780303471.7080853,
+    "hash": "8669d0ad91c282f4f9c89f43a9049aaa"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\ReturnYouTubeDislikeResponse.kt": {
+    "mtime": 1780303471.7080853,
+    "hash": "8e5046930001d81fd3aa37089a7b6fec"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\Runs.kt": {
+    "mtime": 1780303471.7080853,
+    "hash": "c47fde19ef7df74f309ae0643d6ed013"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\SearchSuggestions.kt": {
+    "mtime": 1780303471.70959,
+    "hash": "d67ea670e43aa4b6433a1fb599f9a365"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\SearchSuggestionsSectionRenderer.kt": {
+    "mtime": 1780303471.70959,
+    "hash": "f696adcef297b472c771f0038489f5e6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\SectionListRenderer.kt": {
+    "mtime": 1780303471.70959,
+    "hash": "91c84f199f567d2a0299bcffd7720e8a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\SubscriptionButton.kt": {
+    "mtime": 1780303471.7105947,
+    "hash": "b77a61ba62a0163b99bf3739d0b2ed63"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\Tabs.kt": {
+    "mtime": 1780303471.7105947,
+    "hash": "0b7781a1d6ac02ce2aeb6b8979662c6e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\ThumbnailRenderer.kt": {
+    "mtime": 1780303471.7105947,
+    "hash": "2c1b694425b9ac75ba7951dff04bb8e6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\Thumbnails.kt": {
+    "mtime": 1780303471.7116003,
+    "hash": "ad3680e291c9edc4c38379f766977902"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\TwoColumnBrowseResultsRenderer.kt": {
+    "mtime": 1780303471.7116003,
+    "hash": "a103b2d91e15944010ff9eca3fc3fe62"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\UrlEndpoint.kt": {
+    "mtime": 1780303471.7116003,
+    "hash": "0f08d41c6b2d74afb38437aadb0fe8ee"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\YouTubeClient.kt": {
+    "mtime": 1780303471.7126005,
+    "hash": "3c7630d170dabe210dac478380a3e5ae"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\YouTubeDataPage.kt": {
+    "mtime": 1780303471.7126005,
+    "hash": "6ba988c887174dd525fbf0b11996c8e5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\YouTubeLocale.kt": {
+    "mtime": 1780303471.713601,
+    "hash": "7d00849013265b31a0aa14c8a775e0fa"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\YTItem.kt": {
+    "mtime": 1780419104.3817818,
+    "hash": "8039f84542578fa4d74f3e142d3a1cb8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\body\\AccountMenuBody.kt": {
+    "mtime": 1780303471.713601,
+    "hash": "42a4f1481eb965505a0efd057b48741b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\body\\BrowseBody.kt": {
+    "mtime": 1780303471.7146,
+    "hash": "123dc515623b540dd25acf57da8c210a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\body\\CreatePlaylistBody.kt": {
+    "mtime": 1780303471.7146,
+    "hash": "1935c39b61f68d1e808f204d7178e168"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\body\\EditPlaylistBody.kt": {
+    "mtime": 1780303471.7146,
+    "hash": "b287d90108e0e412f6c04c9b2f4b8eeb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\body\\FeedbackBody.kt": {
+    "mtime": 1780303471.7156007,
+    "hash": "3d5f8e6ada72ea5d3f19153c72fbfd7b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\body\\GetQueueBody.kt": {
+    "mtime": 1780303471.7156007,
+    "hash": "c8aaf4019b3f3b90a6c7b52d2103402f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\body\\GetSearchSuggestionsBody.kt": {
+    "mtime": 1780303471.7156007,
+    "hash": "fc2ad095a4b798cfb6c84b8a0bfb0d46"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\body\\GetTranscriptBody.kt": {
+    "mtime": 1780303471.7156007,
+    "hash": "38b8a003e19d5a0f439932ed3feaa3f4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\body\\LikeBody.kt": {
+    "mtime": 1780303471.7166004,
+    "hash": "f40c8d1d1ee4c0eceb4bbfe970625353"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\body\\NextBody.kt": {
+    "mtime": 1780303471.7166004,
+    "hash": "09a08675a50ecb0afe7a7997856fd3c4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\body\\PlayerBody.kt": {
+    "mtime": 1780303471.7166004,
+    "hash": "2d2cdf4e152c67a2eccd805d94d85397"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\body\\SearchBody.kt": {
+    "mtime": 1780303471.7175999,
+    "hash": "ede5598ea92b3ea6335466918870cac3"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\body\\SubscribeBody.kt": {
+    "mtime": 1780303471.7175999,
+    "hash": "efc2fdcd105f2e7616f2386f3aa9622f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\comment\\CommentRenderer.kt": {
+    "mtime": 1780303471.7175999,
+    "hash": "d2f79ba444011bc40f6a059c3c13f088"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\comment\\CommentResponse.kt": {
+    "mtime": 1780303471.7186005,
+    "hash": "924d37fe627181d24ec31b4e08f1eb3d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\response\\AccountMenuResponse.kt": {
+    "mtime": 1780303471.7186005,
+    "hash": "3a71b23377ea1f4e167303ea43aaaf6b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\response\\AddItemYouTubePlaylistResponse.kt": {
+    "mtime": 1780303471.7196002,
+    "hash": "5a18b03891036ff090914bffa420da11"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\response\\BrowseResponse.kt": {
+    "mtime": 1780303471.7196002,
+    "hash": "9ead776c7c77c2f4b4c7a453ff62aaa2"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\response\\ContinuationResponse.kt": {
+    "mtime": 1780303471.7196002,
+    "hash": "755bde879a3b5b7bafd9c9cb0def51f8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\response\\CreatePlaylistResponse.kt": {
+    "mtime": 1780303471.7196002,
+    "hash": "18d034eee19fb82fe7941a07a26d34b3"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\response\\EditPlaylistResponse.kt": {
+    "mtime": 1780303471.7205997,
+    "hash": "3114b72c4f0b3cc486b2f3e1abc4a04d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\response\\FeedbackResponse.kt": {
+    "mtime": 1780303471.7205997,
+    "hash": "114fc4f8aa64aada23e3e6fde51273e8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\response\\GetQueueResponse.kt": {
+    "mtime": 1780303471.7215986,
+    "hash": "23bd23f4befbcffd16be839ed7f3de66"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\response\\GetSearchSuggestionsResponse.kt": {
+    "mtime": 1780303471.7215986,
+    "hash": "ade4ad911e8f829f3eff7c82e36fd6d2"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\response\\GetTranscriptResponse.kt": {
+    "mtime": 1780303471.7215986,
+    "hash": "9088402b3567e4fe2d986b827a4e3dc2"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\response\\ImageUploadResponse.kt": {
+    "mtime": 1780303471.7225988,
+    "hash": "5e37893a071faf7e1cbca3337fe89a32"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\response\\NextResponse.kt": {
+    "mtime": 1780303471.7225988,
+    "hash": "02ae72d742532fb39b4036a486887147"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\response\\PlayerResponse.kt": {
+    "mtime": 1780303471.7225988,
+    "hash": "49c082abaefea0840775dcf83321de86"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\models\\response\\SearchResponse.kt": {
+    "mtime": 1780303471.7231574,
+    "hash": "a0fa741de761e5abc3fa11b68695e2c2"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\AlbumPage.kt": {
+    "mtime": 1780419104.3817818,
+    "hash": "21ad79d905ab827c81dd097cd48b6383"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\ArtistItemsContinuationPage.kt": {
+    "mtime": 1780303471.7241611,
+    "hash": "2f3060c0b2343a44e024acf556913d14"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\ArtistItemsPage.kt": {
+    "mtime": 1780419104.3817818,
+    "hash": "cd1bc56594b7a9087eb199008e8e62c9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\ArtistPage.kt": {
+    "mtime": 1780419104.3863204,
+    "hash": "5965627d7a077496d7501dff78bb0461"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\BrowseResult.kt": {
+    "mtime": 1780303471.725161,
+    "hash": "65da137744677c41d88a4d5548a10496"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\ChartsPage.kt": {
+    "mtime": 1780303471.725161,
+    "hash": "8fd437091415b65547a8870a3d0c9364"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\ExplorePage.kt": {
+    "mtime": 1780303471.725161,
+    "hash": "b37927e62adf5b8da4debefed349e237"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\HistoryPage.kt": {
+    "mtime": 1780419104.3863204,
+    "hash": "66512b58ba8d12cfe886fad1383ba57c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\HomePage.kt": {
+    "mtime": 1780303471.7266648,
+    "hash": "d7dedfbd39e469952a4f7bf98c923995"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\LibraryAlbumsPage.kt": {
+    "mtime": 1780303471.7276711,
+    "hash": "f0fdb663aea61ad583bfbc35e34312dd"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\LibraryContinuationPage.kt": {
+    "mtime": 1780303471.7276711,
+    "hash": "f89debc719e6da4ccdb3697281932fab"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\LibraryPage.kt": {
+    "mtime": 1780419104.3863204,
+    "hash": "0ff30cd250edf2f48d26c8d38744d8e0"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\MoodAndGenres.kt": {
+    "mtime": 1780303471.7286768,
+    "hash": "6f7adf27cfd91e5692f8e2110859a714"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\NewPipe.kt": {
+    "mtime": 1780303471.7286768,
+    "hash": "85eec51b40c5bc107f485ec68982bdbc"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\NewReleaseAlbumPage.kt": {
+    "mtime": 1780303471.7296762,
+    "hash": "862203941af5630ac9315ff5f49600c1"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\NextPage.kt": {
+    "mtime": 1780303471.7296762,
+    "hash": "483aafa44aff04164e6d7fa7809b5006"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\PageHelper.kt": {
+    "mtime": 1780303471.7306762,
+    "hash": "cba8a96a430ba352d6ffeb30a329f966"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\PlaylistContinuationPage.kt": {
+    "mtime": 1780303471.7306762,
+    "hash": "2677a40ce838d2869980ad9953eeabaf"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\PlaylistPage.kt": {
+    "mtime": 1780419104.3901238,
+    "hash": "25fac2dca2c5df3bb4813595193d7d56"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\RelatedPage.kt": {
+    "mtime": 1780419104.3904536,
+    "hash": "f136f8cf11dd66256d6bd41b60bcf204"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\SearchPage.kt": {
+    "mtime": 1780419104.3904536,
+    "hash": "cce1ab75a83cca6da5237413a9b1665a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\SearchSuggestionPage.kt": {
+    "mtime": 1780419104.3904536,
+    "hash": "8ab9ac439fa6945eba63ede4bdc2f81e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\pages\\SearchSummaryPage.kt": {
+    "mtime": 1780419104.3904536,
+    "hash": "d29e1bce7cea0d818003dd168cbf2039"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\utils\\Utils.kt": {
+    "mtime": 1780303471.732689,
+    "hash": "2246b9fa796fce8cafe048b2460c2710"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\main\\kotlin\\com\\music\\innertube\\utils\\YouTubeUrlParser.kt": {
+    "mtime": 1780303471.733688,
+    "hash": "4a1d0b155443d706ca5e3daafa3f7d88"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\test\\kotlin\\com\\music\\innertube\\MainTest.kt": {
+    "mtime": 1780419104.39517,
+    "hash": "8d962f6f3d6ebb7ba0f387ed08edd52a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\innertube\\src\\test\\kotlin\\com\\music\\innertube\\SearchVideoTest.kt": {
+    "mtime": 1780419104.3984263,
+    "hash": "10e4f8118b22482bd7b0b05ef2458be3"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\kugou\\build.gradle.kts": {
+    "mtime": 1780303471.733688,
+    "hash": "f878dd1d2cc7e4786319254f90c583da"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\kugou\\src\\main\\kotlin\\com\\music\\kugou\\KuGou.kt": {
+    "mtime": 1780303471.7356884,
+    "hash": "eab706e550939ad5ace5c1c50179b998"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\kugou\\src\\main\\kotlin\\com\\music\\kugou\\models\\DownloadLyricsResponse.kt": {
+    "mtime": 1780303471.736688,
+    "hash": "8ee5c344e1b1a82f12c531a18017fc63"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\kugou\\src\\main\\kotlin\\com\\music\\kugou\\models\\Keyword.kt": {
+    "mtime": 1780303471.736688,
+    "hash": "cbd4f71a42c2961a9fed610e50a98444"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\kugou\\src\\main\\kotlin\\com\\music\\kugou\\models\\SearchLyricsResponse.kt": {
+    "mtime": 1780303471.736688,
+    "hash": "a21f07f522ef5f0e98e77d743966a528"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\kugou\\src\\main\\kotlin\\com\\music\\kugou\\models\\SearchSongResponse.kt": {
+    "mtime": 1780303471.7376876,
+    "hash": "9d58220379974580180cffe4caa5d9c0"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\lrclib\\build.gradle.kts": {
+    "mtime": 1780303471.7376876,
+    "hash": "a370ac05704f78b43d6b161604eb5dd5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\lrclib\\src\\main\\kotlin\\com\\music\\lrclib\\LrcLib.kt": {
+    "mtime": 1780303471.7406886,
+    "hash": "ad60b6808b3b5a92d7f91e5026018db4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\lrclib\\src\\main\\kotlin\\com\\music\\lrclib\\models\\Track.kt": {
+    "mtime": 1780303471.7406886,
+    "hash": "7455b7d986a382c31fbb0483e3a110d9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\paxsenixlyrics\\build.gradle.kts": {
+    "mtime": 1780303471.7416897,
+    "hash": "16de4a65781436f1aa36f481c41cf472"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\paxsenixlyrics\\src\\main\\kotlin\\com\\music\\paxsenix\\Paxsenix.kt": {
+    "mtime": 1780303471.744147,
+    "hash": "3a40b7d822c828e7d263fa61e5052ec6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\paxsenixlyrics\\src\\main\\kotlin\\com\\music\\paxsenix\\models\\PaxsenixModels.kt": {
+    "mtime": 1780303471.745147,
+    "hash": "da83bd07937e63c5f21f729733296d1d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\scripts\\compose_svg_drawable.py": {
+    "mtime": 1780303471.74715,
+    "hash": "b7dba0251172abde3249774ba3498482"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\scripts\\download_material_icons.py": {
+    "mtime": 1780303471.7481499,
+    "hash": "5a854e2e77bcf414f0dce4e6c4b61707"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\shazamkit\\build.gradle.kts": {
+    "mtime": 1780303471.7491477,
+    "hash": "a47af212e7cbd1dc736f877da004de97"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\shazamkit\\src\\main\\kotlin\\com\\music\\shazamkit\\Shazam.kt": {
+    "mtime": 1780303471.751148,
+    "hash": "67213c99b9b7da5ae1388137f58d66ba"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\shazamkit\\src\\main\\kotlin\\com\\music\\shazamkit\\models\\ShazamModels.kt": {
+    "mtime": 1780303471.751148,
+    "hash": "aff5e72607fb9bd2a162d05adc982ea7"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\simpmusic\\build.gradle.kts": {
+    "mtime": 1780303471.7521465,
+    "hash": "79a44baf7487e710adcdca0e84f36681"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\simpmusic\\src\\main\\kotlin\\com\\music\\simpmusic\\SimpMusicLyrics.kt": {
+    "mtime": 1780303471.7545047,
+    "hash": "064b44cc09b2e0b36e5dcdc4b4399be9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\simpmusic\\src\\main\\kotlin\\com\\music\\simpmusic\\models\\LyricsResponse.kt": {
+    "mtime": 1780303471.7545047,
+    "hash": "f7873480a60da8b9ed714ab12e3dad7d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\youlyplus\\build.gradle.kts": {
+    "mtime": 1780303471.7567656,
+    "hash": "44f1558e7df11c31fb048cd4e761099d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\youlyplus\\src\\main\\kotlin\\com\\music\\youlyplus\\YouLyPlus.kt": {
+    "mtime": 1780303471.758765,
+    "hash": "fd0d0dcc4d515aabfda3e355311020f4"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\youlyplus\\src\\main\\kotlin\\com\\music\\youlyplus\\models\\LyricsResponse.kt": {
+    "mtime": 1780303471.759766,
+    "hash": "82706b4f68411d049392f5e5a0ab6e3a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\ARCHITECTURE.md": {
+    "mtime": 1780039568.8243396,
+    "hash": "1a3bd6217bee4b03d7c0def39c783740"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\BUILD_INSTRUCTIONS.md": {
+    "mtime": 1780039568.8243396,
+    "hash": "749b6f571cd04b4e015312b21f01068c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\CHANGELOG.md": {
+    "mtime": 1780419104.2947588,
+    "hash": "b0b4cf9700c9c5cc683c59d1be058607"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\CODE_OF_CONDUCT.md": {
+    "mtime": 1780039568.8258488,
+    "hash": "69c8af36e5f96699cd9973f53ffb2a9b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\CONTRIBUTING.md": {
+    "mtime": 1780039568.8258488,
+    "hash": "ef6ede25ad352977fa2dc6cece10068a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\crowdin.yml": {
+    "mtime": 1780039569.3643453,
+    "hash": "8795ad95091b25d83387e8b2dfcba9d0"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\FEATURES.md": {
+    "mtime": 1780039568.8258488,
+    "hash": "aa94d3c509edd3e600a08d94f2019d99"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\preload_snippet.txt": {
+    "mtime": 1780303471.745147,
+    "hash": "d561759f9551683b1ef42cb34b55c513"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\PRIVACY_POLICY.md": {
+    "mtime": 1780039568.8275094,
+    "hash": "b126f807f6232153a7ac8aabbd55b408"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\README.md": {
+    "mtime": 1780303471.083942,
+    "hash": "358b879f8209b483b35fc832ecd32d9e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\ROADMAP.md": {
+    "mtime": 1780039568.8285162,
+    "hash": "b8aa5f0ad832cb5a780c53c5f0b69d92"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\SECURITY.md": {
+    "mtime": 1780039568.8285162,
+    "hash": "70830038e2bc5b538d9bf1b562b6286d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\SETUP.md": {
+    "mtime": 1780039568.8285162,
+    "hash": "8e388aeb0d1b27df2463fc74cd1718a7"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\cpp\\vibrafp\\lib\\CMakeLists.txt": {
+    "mtime": 1780303471.1429615,
+    "hash": "29fe8d816e632d64fce3c0215522ada2"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable\\apple_airpods.png": {
+    "mtime": 1780303471.3474238,
+    "hash": "a41310bf3b25ccc37a8fb6af20c1c2af"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable\\apple_headset.png": {
+    "mtime": 1780303471.3484242,
+    "hash": "15a01e5c0c147e82a5891adc9250c0d3"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable\\apple_lyrics.png": {
+    "mtime": 1780303471.3484242,
+    "hash": "3e198756f2bdba92e341efb0cb210d50"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable\\collab.jpg": {
+    "mtime": 1780303471.3640673,
+    "hash": "66536a887e3bea0fb924f186683ec4ed"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable\\dev.jpg": {
+    "mtime": 1780303471.3695083,
+    "hash": "df4911e07e998d99fb7af8d4863a000f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable\\echomusicnotification.png": {
+    "mtime": 1780303471.3731194,
+    "hash": "e4b5c36bd46966569b2fc23d564e3deb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable\\icon.png": {
+    "mtime": 1780303471.397604,
+    "hash": "e4b5c36bd46966569b2fc23d564e3deb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable\\ic_launcher_foreground.png": {
+    "mtime": 1780303471.3898592,
+    "hash": "926aa52675ae327180cae7ec15f26663"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable\\ic_launcher_monochrome.png": {
+    "mtime": 1780303471.3898592,
+    "hash": "7ca1793a6e363283bde5239dbae716ce"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable\\ic_launcher_nobg.png": {
+    "mtime": 1780039569.1489234,
+    "hash": "b6a546e3e12d27d12159aac5f3c19eb9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable\\ic_ringtone.png": {
+    "mtime": 1780039569.1509252,
+    "hash": "d8dbd8c21762557840b5a54bcf2063be"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable\\speaker_applemusic.png": {
+    "mtime": 1780303471.4251094,
+    "hash": "ff9894ad39d8bc1fef24d0630bba27ee"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable\\upi_new.png": {
+    "mtime": 1780039569.1964815,
+    "hash": "4d0b0f9f45475cbad35e5a1d9b8243c5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable\\viviwrapped_v1.png": {
+    "mtime": 1780303471.4494393,
+    "hash": "1237e6c36741e3d4cdfa7cb3873b6a6e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable\\viviwrapped_v2.png": {
+    "mtime": 1780303471.4577348,
+    "hash": "1237e6c36741e3d4cdfa7cb3873b6a6e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable\\weeknd.webp": {
+    "mtime": 1780303471.4622538,
+    "hash": "97ff7039acb90ab122d77f487069505d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable-hdpi\\ic_stat_name.png": {
+    "mtime": 1780303471.331813,
+    "hash": "66f45411e96ff1116f42b7b684220618"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable-mdpi\\ic_stat_name.png": {
+    "mtime": 1780303471.3328128,
+    "hash": "75ce3768ebb38453fd1768d4dc8c310e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable-xhdpi\\ic_stat_name.png": {
+    "mtime": 1780303471.3428583,
+    "hash": "ae722f9743c753b08d8b0680c1441303"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable-xxhdpi\\ic_stat_name.png": {
+    "mtime": 1780303471.3443103,
+    "hash": "72c0915a0a4eb579dfaa1d5a6a412abe"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_stat_name.png": {
+    "mtime": 1780303471.3443103,
+    "hash": "7b27183788da1ed9777b64b1f1f32ad5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png": {
+    "mtime": 1780303471.5626166,
+    "hash": "a02a1b379eb979fbfe9d8c4384d19794"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png": {
+    "mtime": 1780303471.563625,
+    "hash": "d2c98c0caacd4f139f4a80757122d38f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_monochrome.png": {
+    "mtime": 1780303471.5646408,
+    "hash": "69074d6198f49db2801d23924ac2e6a0"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png": {
+    "mtime": 1780303471.5646408,
+    "hash": "00123ecb005d1bacde603994dbdb8aec"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_static.png": {
+    "mtime": 1780303471.567255,
+    "hash": "e4b5c36bd46966569b2fc23d564e3deb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-ldpi\\ic_launcher.png": {
+    "mtime": 1780303471.5682645,
+    "hash": "c068a43150d2054ba0f2a85ef6b6cce5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-ldpi\\ic_launcher_round.png": {
+    "mtime": 1780303471.5682645,
+    "hash": "20c570c05e8a6d0f013e0e3c9bacb4e6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png": {
+    "mtime": 1780303471.5693839,
+    "hash": "88cecba2ce0283eb42ed729563e2ea7b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png": {
+    "mtime": 1780303471.5698905,
+    "hash": "20ddee5124df6bfcd5cc2867c97fda9c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_monochrome.png": {
+    "mtime": 1780303471.570897,
+    "hash": "2e844cec1e71dcbf7cd940e2b2265fc3"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png": {
+    "mtime": 1780303471.570897,
+    "hash": "2ae710dde787d04ecd5df6d2fe5e1902"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_static.png": {
+    "mtime": 1780303471.5730872,
+    "hash": "e4b5c36bd46966569b2fc23d564e3deb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png": {
+    "mtime": 1780303471.574095,
+    "hash": "44306e1cf8edd30c7ad0ba75304ddf6f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foreground.png": {
+    "mtime": 1780303471.5753787,
+    "hash": "4abfb7fbbdb4ed200440c77582bdfd40"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_monochrome.png": {
+    "mtime": 1780303471.576384,
+    "hash": "0c82e2a73a4f700a747a43ee679b84f8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png": {
+    "mtime": 1780303471.576384,
+    "hash": "8aeef178d1facdccccb3d7cdea71c2a8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-xhdpi\\tv_banner.png": {
+    "mtime": 1780303471.5777583,
+    "hash": "9bc9665f3fc9342328bc0a2c49c7fb44"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png": {
+    "mtime": 1780303471.5783913,
+    "hash": "b9478f3e56239a73e138d14a1abe4687"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png": {
+    "mtime": 1780303471.5803921,
+    "hash": "6539e954139d514c8ed978e8944e1b49"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_monochrome.png": {
+    "mtime": 1780303471.5813916,
+    "hash": "9d5a73e79e8a7483f4637fd8b134094a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png": {
+    "mtime": 1780303471.5813916,
+    "hash": "90d9eb99b7e23512e51774abaa0ffd71"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_static.png": {
+    "mtime": 1780303471.583389,
+    "hash": "e4b5c36bd46966569b2fc23d564e3deb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png": {
+    "mtime": 1780303471.5843909,
+    "hash": "00e2f5849a4af3e9c06b894881b9b3fe"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png": {
+    "mtime": 1780303471.5853908,
+    "hash": "926aa52675ae327180cae7ec15f26663"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_monochrome.png": {
+    "mtime": 1780303471.5863893,
+    "hash": "7ca1793a6e363283bde5239dbae716ce"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png": {
+    "mtime": 1780303471.587389,
+    "hash": "bf09e8fdb63b493305bcbca18f24649f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_static.png": {
+    "mtime": 1780303471.588389,
+    "hash": "e4b5c36bd46966569b2fc23d564e3deb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\Ai.png": {
+    "mtime": 1780039569.274839,
+    "hash": "c3ad9dff6d370a4a1322348558af2024"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\appicon.png": {
+    "mtime": 1780039569.331743,
+    "hash": "2ff36f9b7c79bd66819c4bacd5ab32cc"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\Bitcoin.jpeg": {
+    "mtime": 1780039569.2768397,
+    "hash": "9b2ef8c36d5b64652db0454c948d7a62"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\bmac.png": {
+    "mtime": 1780039569.331743,
+    "hash": "812e9287a8bc839df980e69f6385a5d7"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\buymeacoffee.png": {
+    "mtime": 1780039569.331743,
+    "hash": "27356d4ad9844625179eea69512c6110"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\cloudflare.png": {
+    "mtime": 1780039569.331743,
+    "hash": "1115cc0f94f2e446a3aea5497ba00e07"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\discord.png": {
+    "mtime": 1780039569.3353162,
+    "hash": "4a29ded85004aafea047ef730a392c96"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\discord.svg": {
+    "mtime": 1780039569.3353162,
+    "hash": "55e3faa2a12b6f7a80ecc33dbef53ef3"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\download.png": {
+    "mtime": 1780039569.3363268,
+    "hash": "07d555e968d7b793053059b9e50db299"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\Echo-new.png": {
+    "mtime": 1780039569.2778397,
+    "hash": "354f3e24fa98a2560ad9bbcd157c49e2"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\Echo_github.png": {
+    "mtime": 1780039569.2788386,
+    "hash": "f2e0f6e0f4055b54012db5657cfba78a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\Ethereum.jpeg": {
+    "mtime": 1780039569.2808392,
+    "hash": "7b02466caf6584c0bfeca7cc18ab5d7a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\github.png": {
+    "mtime": 1780039569.3363268,
+    "hash": "d3031711c3ce7ff4311a6dd0d892a44e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\icon-nobg.png": {
+    "mtime": 1780039569.3363268,
+    "hash": "b6a546e3e12d27d12159aac5f3c19eb9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\icon.png": {
+    "mtime": 1780039569.339471,
+    "hash": "354f3e24fa98a2560ad9bbcd157c49e2"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\instagram.png": {
+    "mtime": 1780039569.3399546,
+    "hash": "0634a5babf36db50e415356b348e3f30"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\instagram.svg": {
+    "mtime": 1780039569.3399546,
+    "hash": "cec523f0015b22380ef8bd0a59402e83"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\LMEB.gif": {
+    "mtime": 1780039569.2943141,
+    "hash": "a578d9db5e1a48b61fb645081e2abefe"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\mac-button.png": {
+    "mtime": 1780039569.3399546,
+    "hash": "342dd4c37cb88f7667003c2a7645a9c7"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\obtainium.png": {
+    "mtime": 1780039569.3399546,
+    "hash": "b26c89ec4883693f4125aa8500dd5449"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\patreon.png": {
+    "mtime": 1780039569.3399546,
+    "hash": "c5487bc32788a9fd096ec45cdb2d2672"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\patreon.svg": {
+    "mtime": 1780039569.3399546,
+    "hash": "a8649e88de5f8a9526754bea18b59cf7"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\patreon2.png": {
+    "mtime": 1780039569.3399546,
+    "hash": "8497ecb54fd74d89c49aacdeaea23f99"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\patreon3.png": {
+    "mtime": 1780039569.343634,
+    "hash": "066dc7cbcc52198a16756518c791a72d"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\ringtone.png": {
+    "mtime": 1780039569.3443313,
+    "hash": "d8dbd8c21762557840b5a54bcf2063be"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\Solana.jpeg": {
+    "mtime": 1780039569.2963142,
+    "hash": "8f8985da61d86c2edd67a2d0b8ade42b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\spotify.svg": {
+    "mtime": 1780039569.3443313,
+    "hash": "79e9f02c501e47918a740712ad20343e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\telegram.png": {
+    "mtime": 1780039569.3443313,
+    "hash": "89794bfedb82c3b469de025bdd6b041f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\telegram.svg": {
+    "mtime": 1780039569.3443313,
+    "hash": "10e3cc32438c05590722b4eb0ced74c5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\twitter.png": {
+    "mtime": 1780039569.3443313,
+    "hash": "3e8e7ee8666a9f4e2946f39ff2f806e3"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\upi.png": {
+    "mtime": 1780039569.3443313,
+    "hash": "4d0b0f9f45475cbad35e5a1d9b8243c5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\upi.svg": {
+    "mtime": 1780039569.347862,
+    "hash": "b4ee16270f121b8b6857afa09139c27f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\Windows-button.png": {
+    "mtime": 1780039569.2963142,
+    "hash": "4bc700314db1783c5daaa40c60836f64"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\x.svg": {
+    "mtime": 1780039569.347862,
+    "hash": "b0c855d684565cc1bf6b34d09f7c45e8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\ic_launcher-web.png": {
+    "mtime": 1780303471.6622503,
+    "hash": "e4b5c36bd46966569b2fc23d564e3deb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\playstore-icon.png": {
+    "mtime": 1780303471.6762495,
+    "hash": "5f6c6c3e8eaa38910883b59b34c78c3f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-hdpi\\ic_launcher.png": {
+    "mtime": 1780303471.6632495,
+    "hash": "a02a1b379eb979fbfe9d8c4384d19794"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-hdpi\\ic_launcher_foreground.png": {
+    "mtime": 1780303471.6642501,
+    "hash": "d2c98c0caacd4f139f4a80757122d38f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-hdpi\\ic_launcher_monochrome.png": {
+    "mtime": 1780303471.6642501,
+    "hash": "69074d6198f49db2801d23924ac2e6a0"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-hdpi\\ic_launcher_round.png": {
+    "mtime": 1780303471.6652503,
+    "hash": "00123ecb005d1bacde603994dbdb8aec"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-ldpi\\ic_launcher.png": {
+    "mtime": 1780303471.6652503,
+    "hash": "c068a43150d2054ba0f2a85ef6b6cce5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-ldpi\\ic_launcher_round.png": {
+    "mtime": 1780303471.6662495,
+    "hash": "20c570c05e8a6d0f013e0e3c9bacb4e6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-mdpi\\ic_launcher.png": {
+    "mtime": 1780303471.6662495,
+    "hash": "88cecba2ce0283eb42ed729563e2ea7b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-mdpi\\ic_launcher_foreground.png": {
+    "mtime": 1780303471.66725,
+    "hash": "20ddee5124df6bfcd5cc2867c97fda9c"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-mdpi\\ic_launcher_monochrome.png": {
+    "mtime": 1780303471.66725,
+    "hash": "2e844cec1e71dcbf7cd940e2b2265fc3"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-mdpi\\ic_launcher_round.png": {
+    "mtime": 1780303471.66725,
+    "hash": "2ae710dde787d04ecd5df6d2fe5e1902"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-xhdpi\\ic_launcher.png": {
+    "mtime": 1780303471.6682498,
+    "hash": "44306e1cf8edd30c7ad0ba75304ddf6f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-xhdpi\\ic_launcher_foreground.png": {
+    "mtime": 1780303471.6682498,
+    "hash": "4abfb7fbbdb4ed200440c77582bdfd40"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-xhdpi\\ic_launcher_monochrome.png": {
+    "mtime": 1780303471.6692495,
+    "hash": "0c82e2a73a4f700a747a43ee679b84f8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-xhdpi\\ic_launcher_round.png": {
+    "mtime": 1780303471.6692495,
+    "hash": "8aeef178d1facdccccb3d7cdea71c2a8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-xxhdpi\\ic_launcher.png": {
+    "mtime": 1780303471.6702492,
+    "hash": "b9478f3e56239a73e138d14a1abe4687"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-xxhdpi\\ic_launcher_foreground.png": {
+    "mtime": 1780303471.6702492,
+    "hash": "6539e954139d514c8ed978e8944e1b49"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-xxhdpi\\ic_launcher_monochrome.png": {
+    "mtime": 1780303471.6712506,
+    "hash": "9d5a73e79e8a7483f4637fd8b134094a"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-xxhdpi\\ic_launcher_round.png": {
+    "mtime": 1780303471.6712506,
+    "hash": "90d9eb99b7e23512e51774abaa0ffd71"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-xxxhdpi\\ic_launcher.png": {
+    "mtime": 1780303471.6722505,
+    "hash": "00e2f5849a4af3e9c06b894881b9b3fe"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-xxxhdpi\\ic_launcher_foreground.png": {
+    "mtime": 1780303471.673249,
+    "hash": "926aa52675ae327180cae7ec15f26663"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-xxxhdpi\\ic_launcher_monochrome.png": {
+    "mtime": 1780303471.673249,
+    "hash": "7ca1793a6e363283bde5239dbae716ce"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\android\\mipmap-xxxhdpi\\ic_launcher_round.png": {
+    "mtime": 1780303471.6742496,
+    "hash": "bf09e8fdb63b493305bcbca18f24649f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\app\\AdamPoy.png": {
+    "mtime": 1780039569.2973144,
+    "hash": "5f8c5caa5c45d2d8297887dfde704204"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\app\\bmac.png": {
+    "mtime": 1780039569.3271804,
+    "hash": "681ec841416351ab6b1c366c7298a458"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\app\\BTC.png": {
+    "mtime": 1780039569.2983143,
+    "hash": "1804f0ea8c89b4023b256df1c2e0c188"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\app\\cache.png": {
+    "mtime": 1780039569.327737,
+    "hash": "bd4e10cd253b98cc96acf97a3ca5d59b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\app\\discord.png": {
+    "mtime": 1780039569.328743,
+    "hash": "c0d5e877b85fb8e70c867a5038c0360e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\app\\google.png": {
+    "mtime": 1780039569.328743,
+    "hash": "390c163df5609f805c9e8b27afc24eb2"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\app\\liked.png": {
+    "mtime": 1780039569.3297496,
+    "hash": "264f257d620024bdeb966a6ee399c4cb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\app\\Sponsorblock.png": {
+    "mtime": 1780039569.2993143,
+    "hash": "2190b8dd66c9e760a732842073d0a087"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\app\\stats.png": {
+    "mtime": 1780039569.3297496,
+    "hash": "7e705e02f7be099be1657e10b80b07a6"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\app\\supporter.png": {
+    "mtime": 1780039569.3297496,
+    "hash": "9fd6adaf1ba1151865fdbabe458c0ecc"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\app\\telegram.png": {
+    "mtime": 1780039569.3307414,
+    "hash": "ae748fc07075540d4f4c5e62de9ddee9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\app\\translate.png": {
+    "mtime": 1780039569.3307414,
+    "hash": "c0783f524671d30f3979625d2f6b67d9"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\app\\upi.png": {
+    "mtime": 1780039569.331743,
+    "hash": "d3232ce32debcf2e05c62ebfc2ccdbcd"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\Screenshots\\Desktop-1.png": {
+    "mtime": 1780039568.84932,
+    "hash": "d2115a3467039a367472bde8f0bc48d8"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\Screenshots\\Desktop-2.png": {
+    "mtime": 1780039568.8763905,
+    "hash": "6c3e669f4d0cb6a1bf8a10ec8c0054cb"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\Screenshots\\Desktop-3.png": {
+    "mtime": 1780039568.8900342,
+    "hash": "ff3675366e00ed5a10f99f6dc1ddfbb5"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\Screenshots\\Desktop-4.png": {
+    "mtime": 1780039568.9005537,
+    "hash": "0e03a72d0cd025c7f732849098cb3488"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\Screenshots\\sc_1.png": {
+    "mtime": 1780303471.0932336,
+    "hash": "7f4e221ae1b2c5e281b93070c092a2ec"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\Screenshots\\sc_2.png": {
+    "mtime": 1780303471.1042411,
+    "hash": "40e4e546e761a7f9add990fc20361423"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\Screenshots\\sc_3.png": {
+    "mtime": 1780039568.914997,
+    "hash": "e2ec57e294c020173ab9c1ce8372599b"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\Screenshots\\sc_4.png": {
+    "mtime": 1780303471.10725,
+    "hash": "822fc3dd0a7e81231a2aa375238f392f"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\Screenshots\\sc_5.png": {
+    "mtime": 1780303471.1097476,
+    "hash": "40375ed4d3b4d4a98145c3322e27b437"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\app\\src\\main\\res\\raw\\wrapped_theme.mp3": {
+    "mtime": 1780303471.59039,
+    "hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "C:\\Users\\shaha\\OneDrive\\Desktop\\projects\\Echo-Music-1\\assets\\app\\Wrapped\\Echo-Wrapped.mp3": {
+    "mtime": 1780039569.3258543,
+    "hash": "6fd629c7a4ea767f12c1a14da52693e4"
+  }
+}

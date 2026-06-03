@@ -1,0 +1,18 @@
+---
+source_file: "app/src/main/kotlin/com/music/vivi/listentogether/Protocol.kt"
+type: "code"
+community: "Community None"
+location: "L252"
+tags:
+  - graphify/code
+  - graphify/INFERRED
+  - community/Community_None
+---
+
+# BufferWaitPayload
+
+## Connections
+- [[.decodeProtobufPayload()]] - `calls` [INFERRED]
+- [[Protocol.kt]] - `contains` [EXTRACTED]
+
+#graphify/code #graphify/INFERRED #community/Community_None

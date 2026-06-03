@@ -1,0 +1,10 @@
+---
+id: db_internaldatabase
+type: code
+source: app/src/main/kotlin/com/music/vivi/db/MusicDatabase.kt
+community: 139
+---
+
+# InternalDatabase
+
+**Source File:** `app/src/main/kotlin/com/music/vivi/db/MusicDatabase.kt`

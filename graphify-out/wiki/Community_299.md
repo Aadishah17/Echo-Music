@@ -1,0 +1,27 @@
+# Community 299
+
+> 3 nodes · cohesion 0.67
+
+## Key Concepts
+
+- **LyricsResponse.kt** (2 connections) — `simpmusic/src/main/kotlin/com/music/simpmusic/models/LyricsResponse.kt`
+- **LyricsData** (1 connections) — `simpmusic/src/main/kotlin/com/music/simpmusic/models/LyricsResponse.kt`
+- **SimpMusicApiResponse** (1 connections) — `simpmusic/src/main/kotlin/com/music/simpmusic/models/LyricsResponse.kt`
+
+## Relationships
+
+- [[Community 301]] (4 shared connections)
+
+## Source Files
+
+- `simpmusic/src/main/kotlin/com/music/simpmusic/models/LyricsResponse.kt`
+
+## Audit Trail
+
+- EXTRACTED: 4 (100%)
+- INFERRED: 0 (0%)
+- AMBIGUOUS: 0 (0%)
+
+---
+
+*Part of the graphify knowledge wiki. See [[index]] to navigate.*

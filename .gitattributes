@@ -1,2 +1,10 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Keep GitHub language stats 100% Kotlin
+*.js linguist-detectable=false
+*.cpp linguist-detectable=false
+*.h linguist-detectable=false
+*.c linguist-detectable=false
+*.html linguist-detectable=false
+*.css linguist-detectable=false

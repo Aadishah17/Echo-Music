@@ -1,0 +1,1 @@
+{"nodes": [{"id": "wrapped_module_kt", "label": "WrappedModule.kt", "file_type": "code", "source_file": "app/src/main/kotlin/com/music/vivi/di/WrappedModule.kt"}, {"id": "wrapped_module", "label": "WrappedModule", "file_type": "code", "source_file": "app/src/main/kotlin/com/music/vivi/di/WrappedModule.kt"}], "edges": [], "hyperedges": []}

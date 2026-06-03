@@ -1,0 +1,20 @@
+---
+source_file: "app/src/main/kotlin/com/music/vivi/eq/data/EQProfileRepository.kt"
+type: "code"
+community: "Community None"
+location: "L18"
+tags:
+  - graphify/code
+  - graphify/EXTRACTED
+  - community/Community_None
+---
+
+# SavedEQProfile
+
+## Connections
+- [[.applyToService()]] - `calls` [INFERRED]
+- [[.importCustomProfile()]] - `calls` [EXTRACTED]
+- [[.saveCustomProfile()]] - `calls` [INFERRED]
+- [[EQProfileRepository.kt]] - `contains` [EXTRACTED]
+
+#graphify/code #graphify/EXTRACTED #community/Community_None

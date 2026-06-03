@@ -1,0 +1,18 @@
+---
+source_file: "app/src/main/kotlin/com/music/vivi/listentogether/ListenTogetherClient.kt"
+type: "code"
+community: "Community None"
+location: "L105"
+tags:
+  - graphify/code
+  - graphify/EXTRACTED
+  - community/Community_None
+---
+
+# JoinApproved
+
+## Connections
+- [[.handleMessage()]] - `calls` [EXTRACTED]
+- [[ListenTogetherClient.kt]] - `contains` [EXTRACTED]
+
+#graphify/code #graphify/EXTRACTED #community/Community_None
