@@ -4,4 +4,4 @@ This vault contains the exported Knowledge Graph of the Echo Music codebase.
 
 Use the **Graph View** in Obsidian to explore the relationships between files and classes.
 
-Total Nodes: 4185
+Total Nodes: 4573

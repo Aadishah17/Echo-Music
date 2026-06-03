@@ -251,3 +251,5 @@ node_modules/
 # Graphify
 graphify*.py
 graph.html
+graphify-out/
+

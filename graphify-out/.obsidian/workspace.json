@@ -179,6 +179,8 @@
   },
   "active": "34d22ff054fb2859",
   "lastOpenFiles": [
+    "obsidian_vault/build.gradle.kts_1.md",
+    "cache/ast/c049519c75f44f5f72c586b33c33fe7adefe67d7edff45f9e1a61877a223e1a6.json",
     "GRAPH_REPORT.md",
     "obsidian_vault/app/src/main/res/drawable-hdpi/Status Bar Icon (hdpi).md",
     "obsidian_vault/app/src/main/res/mipmap-hdpi/App Launcher Icon.md",
@@ -208,12 +210,10 @@
     "obsidian_vault/innertube/src/main/kotlin/com/music/innertube/models/response/Buttons.md",
     "obsidian_vault/innertube/src/main/kotlin/com/music/innertube/models/response/MusicVisualHeaderRenderer.md",
     "obsidian_vault/innertube/src/main/kotlin/com/music/innertube/models/response/BrowseResponse.kt.md",
-    "obsidian_vault/innertube/src/main/kotlin/com/music/innertube/models/response/PlaylistEditVideoAddedResultData.md",
     "obsidian_vault/betterlyrics/src/main/kotlin/com/music/vivi/betterlyrics/models",
     "obsidian_vault/betterlyrics/src/main/kotlin/com/music/vivi/betterlyrics",
     "obsidian_vault/betterlyrics/src/main/kotlin/com/music/vivi",
     "obsidian_vault/betterlyrics/src/main/kotlin/com/music",
-    "obsidian_vault/betterlyrics/src/main/kotlin/com",
-    "obsidian_vault/betterlyrics/src/main/kotlin"
+    "obsidian_vault/betterlyrics/src/main/kotlin/com"
   ]
 }

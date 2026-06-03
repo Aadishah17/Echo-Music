@@ -1,12 +1,18 @@
-# Graph Report - .  (2026-06-03)
+# Graph Report - Echo-Music-1  (2026-06-03)
 
 ## Corpus Check
-- Large corpus: 763 files · ~1,596,140 words. Semantic extraction will be expensive (many Claude tokens). Consider running on a subfolder, or use --no-semantic to run AST-only.
+- 631 files · ~1,596,642 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 4185 nodes · 7688 edges · 481 communities (262 shown, 219 thin omitted)
-- Extraction: 81% EXTRACTED · 19% INFERRED · 0% AMBIGUOUS · INFERRED: 1426 edges (avg confidence: 0.8)
+- 4573 nodes · 8065 edges · 527 communities (301 shown, 226 thin omitted)
+- Extraction: 82% EXTRACTED · 18% INFERRED · 0% AMBIGUOUS · INFERRED: 1426 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `f5f82680`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - [[_COMMUNITY_AI Translation Services|AI Translation Services]]
@@ -154,6 +160,7 @@
 - [[_COMMUNITY_Community 144|Community 144]]
 - [[_COMMUNITY_Community 145|Community 145]]
 - [[_COMMUNITY_Community 146|Community 146]]
+- [[_COMMUNITY_Community 147|Community 147]]
 - [[_COMMUNITY_Community 148|Community 148]]
 - [[_COMMUNITY_Community 149|Community 149]]
 - [[_COMMUNITY_Community 150|Community 150]]
@@ -203,6 +210,7 @@
 - [[_COMMUNITY_Community 197|Community 197]]
 - [[_COMMUNITY_Community 198|Community 198]]
 - [[_COMMUNITY_Community 199|Community 199]]
+- [[_COMMUNITY_Community 201|Community 201]]
 - [[_COMMUNITY_Community 206|Community 206]]
 - [[_COMMUNITY_Community 207|Community 207]]
 - [[_COMMUNITY_Community 208|Community 208]]
@@ -396,6 +404,50 @@
 - [[_COMMUNITY_Community 469|Community 469]]
 - [[_COMMUNITY_Community 472|Community 472]]
 - [[_COMMUNITY_Community 479|Community 479]]
+- [[_COMMUNITY_Community 481|Community 481]]
+- [[_COMMUNITY_Community 482|Community 482]]
+- [[_COMMUNITY_Community 483|Community 483]]
+- [[_COMMUNITY_Community 484|Community 484]]
+- [[_COMMUNITY_Community 485|Community 485]]
+- [[_COMMUNITY_Community 486|Community 486]]
+- [[_COMMUNITY_Community 487|Community 487]]
+- [[_COMMUNITY_Community 488|Community 488]]
+- [[_COMMUNITY_Community 489|Community 489]]
+- [[_COMMUNITY_Community 490|Community 490]]
+- [[_COMMUNITY_Community 491|Community 491]]
+- [[_COMMUNITY_Community 492|Community 492]]
+- [[_COMMUNITY_Community 493|Community 493]]
+- [[_COMMUNITY_Community 495|Community 495]]
+- [[_COMMUNITY_Community 496|Community 496]]
+- [[_COMMUNITY_Community 497|Community 497]]
+- [[_COMMUNITY_Community 498|Community 498]]
+- [[_COMMUNITY_Community 499|Community 499]]
+- [[_COMMUNITY_Community 500|Community 500]]
+- [[_COMMUNITY_Community 501|Community 501]]
+- [[_COMMUNITY_Community 502|Community 502]]
+- [[_COMMUNITY_Community 503|Community 503]]
+- [[_COMMUNITY_Community 504|Community 504]]
+- [[_COMMUNITY_Community 506|Community 506]]
+- [[_COMMUNITY_Community 507|Community 507]]
+- [[_COMMUNITY_Community 508|Community 508]]
+- [[_COMMUNITY_Community 509|Community 509]]
+- [[_COMMUNITY_Community 510|Community 510]]
+- [[_COMMUNITY_Community 511|Community 511]]
+- [[_COMMUNITY_Community 512|Community 512]]
+- [[_COMMUNITY_Community 513|Community 513]]
+- [[_COMMUNITY_Community 514|Community 514]]
+- [[_COMMUNITY_Community 515|Community 515]]
+- [[_COMMUNITY_Community 516|Community 516]]
+- [[_COMMUNITY_Community 517|Community 517]]
+- [[_COMMUNITY_Community 518|Community 518]]
+- [[_COMMUNITY_Community 519|Community 519]]
+- [[_COMMUNITY_Community 520|Community 520]]
+- [[_COMMUNITY_Community 521|Community 521]]
+- [[_COMMUNITY_Community 522|Community 522]]
+- [[_COMMUNITY_Community 523|Community 523]]
+- [[_COMMUNITY_Community 524|Community 524]]
+- [[_COMMUNITY_Community 525|Community 525]]
+- [[_COMMUNITY_Community 526|Community 526]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `DatabaseDao` - 153 edges
@@ -412,12 +464,12 @@
 ## Surprising Connections (you probably didn't know these)
 - `DefaultDialog()` --calls--> `Buttons`  [INFERRED]
   app/src/main/kotlin/com/music/vivi/ui/component/Dialog.kt → innertube/src/main/kotlin/com/music/innertube/models/response/BrowseResponse.kt
-- `InlineLyricsView()` --calls--> `LyricsContent`  [INFERRED]
-  app/src/main/kotlin/com/music/vivi/ui/player/Player.kt → paxsenixlyrics/src/main/kotlin/com/music/paxsenix/models/PaxsenixModels.kt
 - `SearchScreen()` --calls--> `Tab`  [INFERRED]
   app/src/main/kotlin/com/music/vivi/ui/screens/search/SearchScreen.kt → innertube/src/main/kotlin/com/music/innertube/models/Tabs.kt
 - `isUserLoggedIn()` --calls--> `parseCookieString()`  [INFERRED]
   app/src/main/kotlin/com/music/vivi/extensions/ContextExt.kt → innertube/src/main/kotlin/com/music/innertube/utils/Utils.kt
+- `DefaultDialog()` --calls--> `Title`  [INFERRED]
+  app/src/main/kotlin/com/music/vivi/ui/component/Dialog.kt → innertube/src/main/kotlin/com/music/innertube/models/YouTubeDataPage.kt
 - `GridItem()` --calls--> `Title`  [INFERRED]
   app/src/main/kotlin/com/music/vivi/ui/component/Items.kt → innertube/src/main/kotlin/com/music/innertube/models/YouTubeDataPage.kt
 
@@ -435,15 +487,15 @@
 - **Spotify Data Models** — models_spotifypaging_spotifypaging, models_spotifyplaylist_spotifyplaylist, models_spotifytrack_spotifytrack, models_spotifyuser_spotifyuser [EXTRACTED 1.00]
 - **Spotify Import System** — spotifyimport_spotifyimportrepository_spotifyimportrepository, spotifyimport_spotifyimportviewmodel_spotifyimportviewmodel, spotifyimport_spotifyimportmodels_spotifyimportuistate [INFERRED 0.95]
 
-## Communities (481 total, 219 thin omitted)
+## Communities (527 total, 226 thin omitted)
 
 ### Community 0 - "AI Translation Services"
 Cohesion: 0.06
 Nodes (32): DeepLService, MistralService, OpenRouterService, Complete, Content, Error, OpenRouterStreamingService, StreamChunk (+24 more)
 
 ### Community 1 - "UI List & Queue Components"
-Cohesion: 0.05
-Nodes (54): ArtistAlbumsScreen(), ArtistItemsScreen(), ArtistScreen(), ArtistSongsScreen(), ArtistVideo(), ChipsRow(), DraggableScrollbar(), EmptyPlaceholder() (+46 more)
+Cohesion: 0.08
+Nodes (35): ArtistScreen(), ArtistSongsScreen(), ArtistVideo(), ChipsRow(), DraggableScrollbar(), EmptyPlaceholder(), ExpandableText(), LinkSegment (+27 more)
 
 ### Community 2 - "JS Parser Utility (Meriyah)"
 Cohesion: 0.07
@@ -458,16 +510,12 @@ Cohesion: 0.06
 Nodes (21): ArtistsSubscriptions, AutoSyncPlaylists, CleanupDuplicates, ClearAllSynced, Completed, Error, FullSync, Idle (+13 more)
 
 ### Community 6 - "UI Items & Chips"
-Cohesion: 0.07
-Nodes (45): AutoPlaylistButton(), ChoiceChipsRow(), AlbumGridItem(), AlbumListItem(), AlbumPlayButton(), ArtistGridItem(), ArtistListItem(), currentGridThumbnailHeight() (+37 more)
-
-### Community 7 - "YouTube API Client"
-Cohesion: 0.05
-Nodes (8): YouTube, AlbumPage, ArtistItemsContinuationPage, ArtistPage, ExplorePage, LibraryContinuationPage, LibraryPage, PlaylistContinuationPage
+Cohesion: 0.09
+Nodes (35): ChoiceChipsRow(), AlbumGridItem(), AlbumListItem(), AlbumPlayButton(), ArtistGridItem(), currentGridThumbnailHeight(), GridItem(), Icon (+27 more)
 
 ### Community 8 - "Settings & Common UI Dialogs"
-Cohesion: 0.06
-Nodes (33): DraggableLyricsProviderItem, DraggableLyricsProviderList(), EnumDialog(), Material3SettingsGroup(), Material3SettingsItem, Material3SettingsItemRow(), SquigglySlider(), LoadingScreen() (+25 more)
+Cohesion: 0.05
+Nodes (49): CommitItem(), CommitData, CommitScreen(), CreatePlaylistDialog(), ActionPromptDialog(), DefaultDialog(), InfoLabel(), TextFieldDialog() (+41 more)
 
 ### Community 9 - "Shazam Integration"
 Cohesion: 0.05
@@ -494,12 +542,12 @@ Cohesion: 0.11
 Nodes (7): ConnectionError, ListenTogetherClient, LocalSuggestionApproved, Reconnecting, ApproveSuggestionPayload, CreateRoomPayload, JoinRoomPayload
 
 ### Community 15 - "Community 15"
-Cohesion: 0.1
-Nodes (28): CreatePlaylistDialog(), ListDialog(), Material3MenuGroup(), Material3MenuItemData, Material3MenuItemRow(), NewAction, NewActionGrid(), drawVolumeIcon() (+20 more)
+Cohesion: 0.09
+Nodes (26): ListDialog(), Material3MenuGroup(), Material3MenuItemData, Material3MenuItemRow(), NewAction, NewActionGrid(), drawVolumeIcon(), VolumeSlider() (+18 more)
 
 ### Community 16 - "Community 16"
-Cohesion: 0.07
-Nodes (15): RingtoneProgressDialog(), RingtoneTrimmerDialog(), YouTubeArtistMenu(), WatchEndpoint, radio(), YouTubeQueue, OnlineSearchResult(), OnlineSearchScreen() (+7 more)
+Cohesion: 0.06
+Nodes (20): ArtistItemsScreen(), OnlineBlur(), migrate(), PlaylistEntity, PlaylistSongMap, ImportPlaylistDialog(), YouTubePlaylistMenu(), WatchEndpoint (+12 more)
 
 ### Community 17 - "Community 17"
 Cohesion: 0.07
@@ -534,8 +582,8 @@ Cohesion: 0.13
 Nodes (9): CardSlot, FallbackArtworkKey, PlaylistSnapshot, PlaylistWidgetManager, QuickPick, QuickPickSnapshot, SongSnapshot, SpeedDialSnapshot (+1 more)
 
 ### Community 26 - "Community 26"
-Cohesion: 0.11
-Nodes (25): ActionPromptDialog(), DefaultDialog(), InfoLabel(), TextFieldDialog(), IntegrationCard(), IntegrationCardItem, IntegrationCardItemRow(), PlaybackLogEntryItem() (+17 more)
+Cohesion: 0.36
+Nodes (9): readSpotifyCookies(), SpotifyErrorDialog(), SpotifyImportScreen(), SpotifyImportSummaryDialog(), SpotifyLoginSheet(), SpotifySourcePickerSheet(), SpotifySourceRow(), SpotifySourceThumbnail() (+1 more)
 
 ### Community 27 - "Community 27"
 Cohesion: 0.13
@@ -550,20 +598,20 @@ Cohesion: 0.12
 Nodes (14): createArrowHeadParsingScope(), optionalBit(), parseArrowFunctionExpression(), parseAwaitExpressionOrIdentifier(), parseClassElementList(), parseFunctionBody(), parseFunctionDeclaration(), parseFunctionExpression() (+6 more)
 
 ### Community 31 - "Community 31"
-Cohesion: 0.1
-Nodes (21): BottomSheet(), BottomSheetState, ResizableIconButton(), WavySlider(), getConnectedBluetoothDeviceName(), isBluetoothHeadphoneConnected(), isBuds(), isSpeaker() (+13 more)
+Cohesion: 0.23
+Nodes (10): MoreActionsButton(), PlayerMoreMenuButton(), PlayerQueueButton(), Queue(), CommentDetailPane(), CommentItem(), CommentSheet(), InfoItem() (+2 more)
 
 ### Community 32 - "Community 32"
-Cohesion: 0.15
-Nodes (17): Album, AlbumItem, Artist, ArtistItem, PlaylistItem, SongItem, YTItem, fromMusicTwoRowItemRenderer() (+9 more)
+Cohesion: 0.14
+Nodes (18): Album, AlbumItem, Artist, ArtistItem, PlaylistItem, SongItem, YTItem, fromMusicTwoRowItemRenderer() (+10 more)
 
 ### Community 33 - "Community 33"
-Cohesion: 0.1
-Nodes (11): OnlineBlur(), migrate(), PlaylistEntity, PlaylistSongMap, CustomThumbnailMenu(), YouTubePlaylistMenu(), LocalPlaylistHeader(), uriToByteArray() (+3 more)
+Cohesion: 0.06
+Nodes (32): 1. App Functionality, 1. Data Access, 1. Local Storage, 1. Personal Information, 1. Third-Party Services, 1. YouTube Music, 2. Analytics and Improvement, 2. Cloud Storage (+24 more)
 
 ### Community 35 - "Community 35"
-Cohesion: 0.11
-Nodes (6): SpotifyImportUiState, SpotifyImportViewModel, reportException(), ArtistViewModel, ExploreViewModel, OnlinePlaylistViewModel
+Cohesion: 0.1
+Nodes (8): Event, SpotifyImportSourceUi, SpotifyImportUiState, SpotifyImportViewModel, toUi(), reportException(), ArtistViewModel, ExploreViewModel
 
 ### Community 36 - "Community 36"
 Cohesion: 0.1
@@ -578,16 +626,16 @@ Cohesion: 0.08
 Nodes (24): AlbumFilter, AlbumSortType, ArtistFilter, ArtistSongSortType, ArtistSortType, AudioQuality, AutoPlaylistSongSortType, DensityScale (+16 more)
 
 ### Community 39 - "Community 39"
-Cohesion: 0.22
-Nodes (4): EditPlaylistBody, LikeBody, SubscribeBody, InnerTube
+Cohesion: 0.28
+Nodes (3): EditPlaylistBody, LikeBody, InnerTube
 
 ### Community 40 - "Community 40"
 Cohesion: 0.14
 Nodes (9): ErrorState(), ListeningState(), NoMatchState(), ProcessingState(), ReadyState(), RecognitionScreen(), SuccessState(), MusicRecognizerWidgetService (+1 more)
 
 ### Community 42 - "Community 42"
-Cohesion: 0.19
-Nodes (8): SpotifyImportProgressUi, LikedSongs, MatchedTrack, Playlist, SpotifyImportRepository, SpotifyImportSession, SpotifyImportSource, SpotifyTrackPage
+Cohesion: 0.16
+Nodes (11): SpotifyImportProgressUi, SpotifyImportSourceSummaryUi, SpotifyImportSourceType, SpotifyImportSummaryUi, LikedSongs, MatchedTrack, Playlist, SpotifyImportRepository (+3 more)
 
 ### Community 43 - "Community 43"
 Cohesion: 0.16
@@ -598,8 +646,8 @@ Cohesion: 0.09
 Nodes (21): BrowseResponse, Buttons, Contents, ContinuationContents, ContinuationItems, GridContinuation, Header, Microformat (+13 more)
 
 ### Community 45 - "Community 45"
-Cohesion: 0.11
-Nodes (17): RandomizeGridItem(), SpeedDialGridItem(), AccountPlaylists, CommunityPlaylistCard(), DailyDiscover, DailyDiscoverCard(), ForgottenFavorites, FromTheCommunity (+9 more)
+Cohesion: 0.06
+Nodes (30): NavigationTitle(), RandomizeGridItem(), SpeedDialGridItem(), YouTubeSongMenu(), AccountScreen(), BrowseScreen(), ExploreScreen(), AccountPlaylists (+22 more)
 
 ### Community 46 - "Community 46"
 Cohesion: 0.14
@@ -610,8 +658,8 @@ Cohesion: 0.21
 Nodes (19): bbox_scale(), bbox_translate(), bbox_union(), build_vector_xml(), download_material_icon(), fmt_number(), main(), parse_length() (+11 more)
 
 ### Community 48 - "Community 48"
-Cohesion: 0.1
-Nodes (20): AttributedDescription, Content, Contents, ContinuationCommand, ContinuationEndpoint, ContinuationItemRenderer, DateText, ItemSectionRenderer (+12 more)
+Cohesion: 0.08
+Nodes (27): EditTextPreference(), EnumListPreference(), ListPreference(), PreferenceEntry(), SliderPreference(), SwitchPreference(), AttributedDescription, Content (+19 more)
 
 ### Community 50 - "Community 50"
 Cohesion: 0.17
@@ -626,12 +674,12 @@ Cohesion: 0.15
 Nodes (4): create(), EjsNTransformSolver, SolverWebView, SabrException
 
 ### Community 53 - "Community 53"
-Cohesion: 0.12
+Cohesion: 0.14
 Nodes (3): LyricsEntity, ShowOffsetDialog(), LyricsMenuViewModel
 
 ### Community 55 - "Community 55"
-Cohesion: 0.19
-Nodes (13): applyAudioQuality(), AudioDevice, AudioDeviceBottomSheet(), AudioDeviceRow(), AudioDeviceType, AudioQualitySelector(), checkBluetoothPermission(), determineActiveDevice() (+5 more)
+Cohesion: 0.05
+Nodes (44): BottomSheet(), BottomSheetState, ResizableIconButton(), calcFraction(), drawTrack(), PlayerSliderTrack(), stepsToTickFractions(), SquigglySlider() (+36 more)
 
 ### Community 56 - "Community 56"
 Cohesion: 0.2
@@ -720,10 +768,6 @@ Nodes (12): Action, Body, Content, Cue, CueGroup, GetTranscriptResponse, SimpleT
 ### Community 84 - "Community 84"
 Cohesion: 0.15
 Nodes (12): AtrUrl, AudioConfig, AudioTrack, Format, PlayabilityStatus, PlaybackTracking, PlayerConfig, PlayerResponse (+4 more)
-
-### Community 85 - "Community 85"
-Cohesion: 0.19
-Nodes (3): CommentThreadRenderer, NextPage, NextResult
 
 ### Community 86 - "Community 86"
 Cohesion: 0.15
@@ -854,8 +898,8 @@ Cohesion: 0.39
 Nodes (7): CachedChangelogData, ChangelogScreen(), ChangelogSection, cleanupOldChangelogCache(), loadChangelogFromCache(), ReleaseMetadata, saveChangelogToCache()
 
 ### Community 132 - "Community 132"
-Cohesion: 0.43
-Nodes (6): EditTextPreference(), EnumListPreference(), ListPreference(), PreferenceEntry(), SliderPreference(), SwitchPreference()
+Cohesion: 0.07
+Nodes (30): [3.2.0] - 2025-12-06, [3.2.1] - 2025-12-09, [3.2.2] - 2025-12-14, [3.3.0] - 2025-12-19, [3.3.1] - 2025-12-22, [3.3.2] - 2026-01-04, [3.3.3] - 2026-01-20, [3.3.5] - 2026-01-23 (+22 more)
 
 ### Community 134 - "Community 134"
 Cohesion: 0.43
@@ -889,9 +933,13 @@ Nodes (3): ItemsPage, ArtistItemsViewModel, OnlineSearchViewModel
 Cohesion: 0.29
 Nodes (6): Album, Artist, Playlist, SpotifyHomeFeed, SpotifyHomeFeedItem, SpotifyHomeFeedSection
 
+### Community 147 - "Community 147"
+Cohesion: 0.07
+Nodes (28): 1. Clone the Repository, 2. Configure Local Properties, 3. Configure Firebase (Optional), 4. Configure Release Signing (Optional), 5. Build the Project, 6. Configure AI Translation (Optional), Build Fails with "SDK location not found", code:bash (git clone https://github.com/iad1tya/Echo-Music.git) (+20 more)
+
 ### Community 158 - "Community 158"
-Cohesion: 0.29
-Nodes (5): SpotifyImportSourceSummaryUi, SpotifyImportSourceType, SpotifyImportSourceUi, SpotifyImportSummaryUi, toUi()
+Cohesion: 0.12
+Nodes (17): ArtistAlbumsScreen(), AutoPlaylistButton(), ArtistListItem(), PlaylistGridItem(), PlaylistListItem(), PlaylistThumbnail(), LibraryAlbumGridItem(), LibraryAlbumListItem() (+9 more)
 
 ### Community 159 - "Community 159"
 Cohesion: 0.29
@@ -917,10 +965,6 @@ Nodes (3): ArtistVideoCanvasProvider, ArtistVideoResponse, CacheEntry
 Cohesion: 0.33
 Nodes (4): ContentPlaybackContext, PlaybackContext, PlayerBody, ServiceIntegrityDimensions
 
-### Community 171 - "Community 171"
-Cohesion: 0.4
-Nodes (3): completed(), sha1(), toHex()
-
 ### Community 172 - "Community 172"
 Cohesion: 0.47
 Nodes (3): FunctionNameExtractor, NFunctionInfo, SigFunctionInfo
@@ -942,8 +986,8 @@ Cohesion: 0.47
 Nodes (4): fromMusicResponsiveListItemRenderer(), fromMusicShelfRenderer(), HistoryPage, HistorySection
 
 ### Community 182 - "Community 182"
-Cohesion: 0.33
-Nodes (5): LyricsContent, LyricsMetadata, LyricsResponse, LyricText, SearchResult
+Cohesion: 0.08
+Nodes (23): Build and Install in One Command, Build ARM64 Optimized APK, Build Instructions for Echo Music on M30s, Build Universal Debug APK (Recommended), Build Variants, Check Connected Devices, Check Device Architecture, Clean Build (+15 more)
 
 ### Community 183 - "Community 183"
 Cohesion: 0.6
@@ -970,8 +1014,8 @@ Cohesion: 0.4
 Nodes (4): Folder, Playlist, SpotifyLibraryFolder, SpotifyLibraryItem
 
 ### Community 190 - "Community 190"
-Cohesion: 0.7
-Nodes (4): calcFraction(), drawTrack(), PlayerSliderTrack(), stepsToTickFractions()
+Cohesion: 0.09
+Nodes (21): Android, Build from Source, code:bash (git clone https://github.com/iad1tya/Echo-Music.git), code:bash (echo "sdk.dir=/path/to/your/android/sdk" > local.properties), code:bash (./gradlew assembleFossDebug), Community & Support, Cryptocurrency, Customization (+13 more)
 
 ### Community 191 - "Community 191"
 Cohesion: 0.4
@@ -988,6 +1032,10 @@ Nodes (4): AppNavigationBar(), AppNavigationRail(), isRouteSelected(), NavItemSt
 ### Community 199 - "Community 199"
 Cohesion: 0.5
 Nodes (3): DownloadGridMenu(), GridMenuItem(), SleepTimerGridMenu()
+
+### Community 201 - "Community 201"
+Cohesion: 0.17
+Nodes (4): RingtoneProgressDialog(), RingtoneTrimmerDialog(), setAppLocale(), MainActivity
 
 ### Community 206 - "Community 206"
 Cohesion: 0.4
@@ -1026,16 +1074,16 @@ Cohesion: 0.6
 Nodes (4): fromMusicNavigationButtonRenderer(), fromSectionListRendererContent(), Item, MoodAndGenres
 
 ### Community 221 - "Community 221"
-Cohesion: 0.4
-Nodes (3): CommitItem(), CommitData, CommitScreen()
+Cohesion: 0.14
+Nodes (13): 1. Correction, 2. Warning, 3. Temporary Ban, 4. Permanent Ban, Attribution, Contact, Contributor Covenant Code of Conduct, Enforcement (+5 more)
 
 ### Community 222 - "Community 222"
-Cohesion: 0.7
-Nodes (4): EQProfileItem(), EqScreen(), EqScreenContent(), NoEqualizationItem()
+Cohesion: 0.2
+Nodes (9): Before You Start, Contributing Guidelines, Contributing to Echo Music, Questions?, Release Checklist, Release Process, Table of Contents, Types of Contributions (+1 more)
 
 ### Community 223 - "Community 223"
-Cohesion: 0.6
-Nodes (4): PaletteItem(), ThemeModeCard(), ThemePalette, ThemeScreen()
+Cohesion: 0.2
+Nodes (10): 1. Create a Branch, 2. Make Your Changes, 3. Test Your Changes, 4. Commit Your Changes, 5. Push and Create PR, code:bash (git push origin feature/your-feature-name), code:bash (git checkout -b feature/your-feature-name), code:bash (# Run unit tests) (+2 more)
 
 ### Community 230 - "Community 230"
 Cohesion: 0.83
@@ -1085,6 +1133,10 @@ Nodes (3): Content, SearchSuggestionRenderer, SearchSuggestionsSectionRenderer
 Cohesion: 0.5
 Nodes (3): ChartSection, ChartsPage, ChartType
 
+### Community 252 - "Community 252"
+Cohesion: 0.08
+Nodes (9): AlbumPage, ArtistItemsContinuationPage, ArtistPage, ExplorePage, LibraryContinuationPage, LibraryPage, PlaylistContinuationPage, RelatedPage (+1 more)
+
 ### Community 253 - "Community 253"
 Cohesion: 0.5
 Nodes (3): Data, Info, SearchSongResponse
@@ -1096,6 +1148,10 @@ Nodes (3): ContinuationCommand, ContinuationEndpoint, ContinuationItemRenderer
 ### Community 259 - "Community 259"
 Cohesion: 0.5
 Nodes (3): ContinuationItems, ContinuationResponse, ResponseAction
+
+### Community 260 - "Community 260"
+Cohesion: 0.2
+Nodes (9): Contact, Data Privacy, For Developers, For Users, Reporting a Vulnerability, Security Best Practices, Security Policy, Sensitive Information (+1 more)
 
 ### Community 263 - "Community 263"
 Cohesion: 0.5
@@ -1109,25 +1165,177 @@ Nodes (3): Modular Architecture, MVVM Pattern, Repository Pattern
 Cohesion: 0.67
 Nodes (3): Echo Music Notification Icon, Launcher Foreground Logo, Echo Music Logo
 
+### Community 481 - "Community 481"
+Cohesion: 0.22
+Nodes (8): 1. Scalability, 2. Performance, 3. Maintainability, Core Principles, Echo Music - Architecture Documentation, Future Architecture Considerations, Overview, Table of Contents
+
+### Community 482 - "Community 482"
+Cohesion: 0.22
+Nodes (8): [4.2.2] - 2026-04-16, [4.3.0] - 2026-05-14, Changelog, Local Media Enhancements, New & Redesigned, Performance & Optimization, Playback & Audio Improvements, Settings Changes
+
+### Community 483 - "Community 483"
+Cohesion: 0.22
+Nodes (8): 1. Music Player Service, 2. Repository Layer, 3. ViewModel Layer, 4. Compose UI, code:kotlin (class SimpleMediaService : MediaSessionService() {), code:kotlin (interface MusicRepository {), code:kotlin (@Composable), Key Components
+
+### Community 484 - "Community 484"
+Cohesion: 0.22
+Nodes (8): 1. Observer Pattern, 2. Factory Pattern, 3. Strategy Pattern, 4. Repository Pattern, code:kotlin (// ViewModel observes repository changes), code:kotlin (class MediaItemFactory {), code:kotlin (interface MusicProvider {), Design Patterns
+
+### Community 485 - "Community 485"
+Cohesion: 0.22
+Nodes (9): AI Service Module, App Module (`app/`), code:block3 (app/src/main/java/com/maxrave/echo/), code:block4 (kotlinYtmusicScraper/src/main/java/com/), code:block5 (spotify/src/main/java/com/), code:block6 (aiService/src/main/java/org/simpmusic/), KotlinYtmusicScraper Module, Module Structure (+1 more)
+
+### Community 487 - "Community 487"
+Cohesion: 0.25
+Nodes (8): [3.0.0] - 2025-11-11, [3.1.1] - 2025-11-22, [3.1] - 2025-11-21, [3.1.2] - 2025-11-22, [3.1.3] - 2025-11-22, [3.1.4] - 2025-12-02, Acknowledgements, Change Log
+
+### Community 488 - "Community 488"
+Cohesion: 0.29
+Nodes (7): 1. User Interaction Flow, 2. Data Fetching Flow, 3. State Management, code:block7 (User Action → View → ViewModel → UseCase → Repository → Data), code:block8 (Repository → Cache Check → API Call → Data Processing → Stat), code:kotlin (// ViewModel State), Data Flow
+
+### Community 489 - "Community 489"
+Cohesion: 0.33
+Nodes (6): 1. Environment Setup, 2. Firebase Setup (Optional), code:bash (cp local.properties.template local.properties), code:properties (sdk.dir=/path/to/your/Android/sdk), code:bash (cp app/google-services.json.template app/google-services.jso), Development Setup
+
+### Community 490 - "Community 490"
+Cohesion: 0.33
+Nodes (6): 3. Build the Project, 4. Security Considerations, Best Practices, code:bash (./gradlew assembleDebug), Files That Should Never Be Committed, Handling Sensitive Information
+
+### Community 491 - "Community 491"
+Cohesion: 0.33
+Nodes (6): Android Best Practices, Code Organization, code:block11 (app/src/main/java/com/maxrave/echo/), Coding Standards, Kotlin Style, Naming Conventions
+
+### Community 492 - "Community 492"
+Cohesion: 0.33
+Nodes (6): Advanced Features, Lyrics Support, Notifications, Sleep Timer, Streaming & Casting, Widget Support
+
+### Community 493 - "Community 493"
+Cohesion: 0.33
+Nodes (5): Echo Music - Features Documentation, Music Streaming, Table of Contents, YouTube Music Features, YouTube Music Integration
+
+### Community 495 - "Community 495"
+Cohesion: 0.4
+Nodes (5): 1. Memory Management, 2. Network Optimization, 3. UI Performance, 4. Background Processing, Performance Considerations
+
+### Community 496 - "Community 496"
+Cohesion: 0.4
+Nodes (5): Architecture Patterns, code:block1 (┌─────────────────┐    ┌──────────────────┐    ┌────────────), code:block2 (┌─────────────────┐    ┌──────────────────┐    ┌────────────), MVVM (Model-View-ViewModel), Repository Pattern
+
+### Community 497 - "Community 497"
+Cohesion: 0.4
+Nodes (5): Background Processing, Core Technologies, Data Layer, Technology Stack, UI/UX
+
+### Community 498 - "Community 498"
+Cohesion: 0.4
+Nodes (5): [4.1.0] - 2026-04-05, Core Enhancements, Fixes, Highlights, User Interface Improvements
+
+### Community 499 - "Community 499"
+Cohesion: 0.4
+Nodes (5): [4.1.1] - 2026-04-05, Bug Fixes, Improvements, New Features, Updates
+
+### Community 500 - "Community 500"
+Cohesion: 0.4
+Nodes (5): [4.2.0] - 2026-04-08, Changes, Enhancements, New Features, UI & UX Improvements
+
+### Community 501 - "Community 501"
+Cohesion: 0.4
+Nodes (5): code:bash (git clone https://github.com/YOUR_USERNAME/Echo-Music.git), code:bash (git remote add upstream https://github.com/iad1tya/Echo-Musi), Fork and Clone, Getting Started, Prerequisites
+
+### Community 502 - "Community 502"
+Cohesion: 0.4
+Nodes (5): code:bash (# Run all tests), Running Tests, Testing, UI Tests, Unit Tests
+
+### Community 503 - "Community 503"
+Cohesion: 0.4
+Nodes (5): Advanced Playback, Background Playback, Basic Playback Controls, Core Features, Music Playback
+
+### Community 504 - "Community 504"
+Cohesion: 0.4
+Nodes (5): Material Design 3, Navigation, Responsive Design, Theme Support, User Interface
+
+### Community 507 - "Community 507"
+Cohesion: 0.5
+Nodes (4): 1. Data Protection, 2. Authentication, 3. Privacy, Security Architecture
+
+### Community 508 - "Community 508"
+Cohesion: 0.5
+Nodes (4): [3.3.4] - 2026-01-23, General, Improvements, Known Issues
+
+### Community 509 - "Community 509"
+Cohesion: 0.5
+Nodes (4): [4.2.1] - 2026-04-16, Features, Fixes, UI / UX Improvements
+
+### Community 510 - "Community 510"
+Cohesion: 0.5
+Nodes (4): Bug Reports, Feature Requests, Issue Guidelines, Issue Templates
+
+### Community 511 - "Community 511"
+Cohesion: 0.5
+Nodes (4): Code Documentation, code:block13 (feat: add playlist sharing functionality), Commit Messages, Documentation
+
+### Community 512 - "Community 512"
+Cohesion: 0.5
+Nodes (4): Code of Conduct, Expected Behavior, Our Pledge, Unacceptable Behavior
+
+### Community 513 - "Community 513"
+Cohesion: 0.5
+Nodes (4): Communication Channels, Community Guidelines, Getting Help, Recognition
+
+### Community 514 - "Community 514"
+Cohesion: 0.5
+Nodes (4): Accessibility Features, Cognitive Accessibility, Motor Accessibility, Visual Accessibility
+
+### Community 515 - "Community 515"
+Cohesion: 0.5
+Nodes (4): Account Management, Integration Features, Social Features, System Integration
+
+### Community 516 - "Community 516"
+Cohesion: 0.5
+Nodes (4): Browse Categories, Content Discovery, Discovery & Search, Smart Search
+
+### Community 517 - "Community 517"
+Cohesion: 0.5
+Nodes (4): Caching, Network Optimization, Optimization, Performance Features
+
+### Community 518 - "Community 518"
+Cohesion: 0.5
+Nodes (4): Download Management, Offline Features, Offline Playback, Storage Management
+
+### Community 519 - "Community 519"
+Cohesion: 0.5
+Nodes (4): Local Playlists, Playlist Features, Playlist Management, YouTube Music Playlists
+
+### Community 522 - "Community 522"
+Cohesion: 0.67
+Nodes (3): Changelog – Echo Music, Thank You, What’s New
+
+### Community 523 - "Community 523"
+Cohesion: 0.67
+Nodes (3): Experimental Features, Future Features, Planned Features
+
+### Community 524 - "Community 524"
+Cohesion: 0.67
+Nodes (3): Feature Comparison, FOSS vs Full Version, Platform Support
+
 ## Knowledge Gaps
-- **614 isolated node(s):** `unicodeLookup`, `CharTypes`, `isIdPart`, `CommentTypes`, `errorMessages` (+609 more)
+- **872 isolated node(s):** `unicodeLookup`, `CharTypes`, `isIdPart`, `CommentTypes`, `errorMessages` (+867 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **219 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **226 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `IconButton()` connect `UI List & Queue Components` to `Community 131`, `UI Items & Chips`, `Settings & Common UI Dialogs`, `Community 137`, `Community 15`, `Community 16`, `Community 17`, `Community 26`, `Community 31`, `Community 33`, `Community 166`, `Community 40`, `Community 45`, `Community 46`, `Community 53`, `Community 185`, `Community 88`, `Community 91`, `Community 221`, `Community 222`, `Community 223`, `Community 104`?**
-  _High betweenness centrality (0.067) - this node is a cross-community bridge._
-- **Why does `rememberPreference()` connect `Settings & Common UI Dialogs` to `Community 161`, `UI List & Queue Components`, `Lyrics Management & Translation`, `Community 33`, `Community 37`, `UI Items & Chips`, `Community 223`, `Community 104`, `Community 45`, `Community 15`, `Community 16`, `Community 51`, `Community 185`, `Community 26`, `Community 91`, `Community 31`?**
-  _High betweenness centrality (0.067) - this node is a cross-community bridge._
-- **Why does `reportException()` connect `Community 35` to `Community 128`, `UI List & Queue Components`, `Community 260`, `Library Synchronization`, `UI Items & Chips`, `Community 261`, `Community 138`, `Community 142`, `Community 15`, `Community 16`, `Community 19`, `Community 28`, `Community 33`, `Community 34`, `Community 36`, `Community 42`, `Community 49`, `Community 50`, `Community 53`, `Community 63`, `Community 226`, `Community 106`, `Community 110`?**
+- **Why does `reportException()` connect `Community 35` to `Community 128`, `UI List & Queue Components`, `Library Synchronization`, `UI Items & Chips`, `Community 261`, `Settings & Common UI Dialogs`, `Community 138`, `Community 142`, `Community 15`, `Community 19`, `Community 28`, `Community 34`, `Community 36`, `Community 42`, `Community 49`, `Community 50`, `Community 53`, `Community 63`, `Community 201`, `Community 226`, `Community 486`, `Community 106`, `Community 110`?**
   _High betweenness centrality (0.065) - this node is a cross-community bridge._
+- **Why does `IconButton()` connect `Settings & Common UI Dialogs` to `UI List & Queue Components`, `Community 131`, `UI Items & Chips`, `Community 137`, `Community 15`, `Community 16`, `Community 17`, `Community 26`, `Community 158`, `Community 31`, `Community 166`, `Community 40`, `Community 45`, `Community 46`, `Community 53`, `Community 55`, `Community 185`, `Community 201`, `Community 88`, `Community 91`, `Community 104`?**
+  _High betweenness centrality (0.059) - this node is a cross-community bridge._
+- **Why does `rememberPreference()` connect `Settings & Common UI Dialogs` to `Community 161`, `UI List & Queue Components`, `Lyrics Management & Translation`, `Community 185`, `Community 37`, `UI Items & Chips`, `Community 104`, `Community 201`, `Community 45`, `Community 15`, `Community 16`, `Community 51`, `Community 55`, `Community 505`, `Community 91`, `Community 158`, `Community 31`?**
+  _High betweenness centrality (0.058) - this node is a cross-community bridge._
 - **Are the 81 inferred relationships involving `IconButton()` (e.g. with `.echomusicApp()` and `ChangelogScreen()`) actually correct?**
   _`IconButton()` has 81 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `unicodeLookup`, `CharTypes`, `isIdPart` to the rest of the system?**
-  _614 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _872 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `AI Translation Services` be split into smaller, more focused modules?**
   _Cohesion score 0.06 - nodes in this community are weakly interconnected._
 - **Should `UI List & Queue Components` be split into smaller, more focused modules?**
-  _Cohesion score 0.05 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08 - nodes in this community are weakly interconnected._
