@@ -686,7 +686,7 @@ suspend fun checkForUpdate(
                 for (j in 0 until assets.length()) {
                     val asset = assets.getJSONObject(j)
                     val assetName = asset.getString("name")
-                    if (assetName.endsWith(".apk", ignoreCase = true)) {
+                    if (assetName.endsWith(".apk", ignoreCase = true) && !assetName.lowercase().contains("debug")) {
                         val apkSizeInBytes = asset.getLong("size")
                         apkSizeInMB = String.format("%.1f", apkSizeInBytes / (1024.0 * 1024.0))
                         apkDownloadUrl = asset.getString("browser_download_url")
