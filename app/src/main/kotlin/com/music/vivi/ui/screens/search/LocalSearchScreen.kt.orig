@@ -105,10 +105,6 @@ fun LocalSearchScreen(
     val configuration = LocalWindowInfo.current
     val isLandscape = configuration.containerSize.width > configuration.containerSize.height
 
-    val distinctMap = remember(result.map) {
-        result.map.mapValues { (_, items) -> items.distinctBy { it.id } }
-    }
-
     LazyColumn(
         state = lazyListState,
         contentPadding = LocalPlayerAwareWindowInsets.current
@@ -145,7 +141,11 @@ fun LocalSearchScreen(
             }
         }
 
-        result.map.forEach { (filter, items) ->
+        val distinctMap = remember(result.map) {
+            result.map.mapValues { (_, items) -> items.distinctBy { it.id } }
+        }
+
+        distinctMap.forEach { (filter, items) ->
             if (result.filter == LocalFilter.ALL) {
                 item(key = filter) {
                     Row(
@@ -179,9 +179,8 @@ fun LocalSearchScreen(
                 }
             }
 
-            val distinctItems = distinctMap[filter] ?: emptyList()
             items(
-                items = distinctItems,
+                items = items,
                 key = { it.id },
                 contentType = { CONTENT_TYPE_LIST },
             ) { item ->
