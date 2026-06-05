@@ -2,3 +2,25 @@
 
 - Migrated default Listen Together server to Echo Music Server on Hugging Face (wss://iad1tya-echomusic.hf.space/ws). To modify or verify the URL, navigate to Listen Together > Settings > Server URL.
 - Configured single Universal GMS release APK outputs (Echo-5.1.6-Universal.apk) and streamlined update checker logic.
+- Removed the Local Download (Beta) feature completely.
+- Replaced Qobuz with JioSaavn (320kbps) for streaming and downloading.
+- Enabled Crossfade support specifically for Saavn (320kbps) streams.
+- Fixed random playback pauses by clearing ghost cache entries and removing unnecessary retry delays.
+- Removed FLAC codec information display (sample rate, bit depth) from the Now Playing screen.
+- Crossfade is now automatically disabled when Qobuz (Lossless) audio quality is selected; the toggle becomes unclickable with an explanatory message.
+- Added a new setting in Appearance Settings to show audio codec information centrally below the player timeline.
+- Added an option in Appearance Settings to hide the volume slider, specifically available when the Apple Music Inspired UI is active.
+- Updated the audio codec display to show codec name, bitrate in kbps, and lossless indicator.
+- The playback queue is now unlocked for rearrangement by default.
+- The Quick Picks carousel is now always pinned to the top of the Home Screen.
+- Adjusted the audio codec display to align horizontally with the music playback timestamps.
+- Updated the previous and next player buttons to maintain a consistent translucent white styling across all themes.
+- Prevented text overflow on the Subscribe, Radio, and Shuffle buttons within the Artist screen.
+- Removed the disc icon from the album title on the Album screen.
+- Repositioned the Listen Together connection controls to the top app bar.
+- Moved the Listen Together usage guide below the settings card.
+- Fixed an issue where restoring from a manual zip backup could cause database corruption and app crashes by explicitly clearing old WAL cache files during restore.
+- Prevented potential data wipes on future app updates by safely disabling destructive Room database migrations.
+- Implemented a custom Cloud Backup Agent to safely checkpoint the database before Android's Auto Backup syncs to Google Drive, ensuring 0% data loss on reinstall or device transfer.
+- Revamped the "How to use Listen Together" instructions with a clean, numbered list within a perfectly styled Material 3 card.
+- Relocated "Import from Spotify" to a new dedicated "Import" section in the Account popup window, and removed it from Backup & Restore settings.

@@ -788,10 +788,12 @@ fun AudioQualitySelector(context: Context) {
 
         val options = listOf(
             "Opus",
+            "320 kbps",
             "Lossless"
         )
         val selectedIndex = when (audioQuality) {
-            AudioQuality.LOSSLESS -> 1
+            AudioQuality.SAAVN -> 1
+            AudioQuality.LOSSLESS -> 2
             else -> 0
         }
 
@@ -808,7 +810,8 @@ fun AudioQualitySelector(context: Context) {
                     checked = selectedIndex == index,
                     onCheckedChange = {
                         val newQuality = when (index) {
-                            1 -> AudioQuality.LOSSLESS
+                            1 -> AudioQuality.SAAVN
+                            2 -> AudioQuality.LOSSLESS
                             else -> AudioQuality.OPUS
                         }
                         onAudioQualityChange(newQuality)
@@ -846,7 +849,7 @@ fun DownloadQualitySelector() {
         modifier = Modifier.fillMaxWidth()
     ) {
         Text(
-            text = "Download Quality",
+            text = stringResource(R.string.download_quality_title),
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier
@@ -855,12 +858,14 @@ fun DownloadQualitySelector() {
         )
 
         val options = listOf(
-            "YouTube Music (AAC/Default)",
+            "Opus",
+            "320 kbps",
             "Lossless"
         )
         val selectedIndex = when (downloadQuality) {
-            iad1tya.echo.music.constants.DownloadQuality.YOUTUBE -> 0
-            iad1tya.echo.music.constants.DownloadQuality.LOSSLESS -> 1
+            iad1tya.echo.music.constants.DownloadQuality.SAAVN -> 1
+            iad1tya.echo.music.constants.DownloadQuality.LOSSLESS -> 2
+            else -> 0
         }
 
         androidx.compose.foundation.layout.FlowRow(
@@ -876,8 +881,9 @@ fun DownloadQualitySelector() {
                     checked = selectedIndex == index,
                     onCheckedChange = {
                         val newQuality = when (index) {
-                            0 -> iad1tya.echo.music.constants.DownloadQuality.YOUTUBE
-                            else -> iad1tya.echo.music.constants.DownloadQuality.LOSSLESS
+                            1 -> iad1tya.echo.music.constants.DownloadQuality.SAAVN
+                            2 -> iad1tya.echo.music.constants.DownloadQuality.LOSSLESS
+                            else -> iad1tya.echo.music.constants.DownloadQuality.YOUTUBE
                         }
                         onDownloadQualityChange(newQuality)
                     },
@@ -900,6 +906,8 @@ fun DownloadQualitySelector() {
         }
     }
 }
+
+
 
 fun applyAudioQuality(context: Context, quality: AudioQuality) {
     

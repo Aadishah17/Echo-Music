@@ -20,6 +20,8 @@ val SpotifyAccountNameKey = stringPreferencesKey("spotify_account_name")
 val SpotifyAccountAvatarUrlKey = stringPreferencesKey("spotify_account_avatar_url")
 val SpotifyAccessTokenKey = stringPreferencesKey("spotify_access_token")
 val SpotifyAccessTokenExpiresAtKey = longPreferencesKey("spotify_access_token_expires_at")
+val LastCloudBackupTimeKey = longPreferencesKey("last_cloud_backup_time")
+val EnableCloudBackupKey = booleanPreferencesKey("enable_cloud_backup")
 val EnableDynamicIconKey = booleanPreferencesKey("enableDynamicIcon")
 val EnableHighRefreshRateKey = booleanPreferencesKey("enableHighRefreshRate")
 val DynamicThemeKey = booleanPreferencesKey("dynamicTheme")
@@ -52,6 +54,8 @@ val SwipeToSongKey = booleanPreferencesKey("SwipeToSong")
 val SwipeToRemoveSongKey = booleanPreferencesKey("SwipeToRemoveSong")
 val UseNewPlayerDesignKey= booleanPreferencesKey("useNewPlayerDesign")
 val UseNewMiniPlayerDesignKey = booleanPreferencesKey("useNewMiniPlayerDesign")
+val ShowCodecOnPlayerKey = booleanPreferencesKey("showCodecOnPlayer")
+val HidePlayerSliderKey = booleanPreferencesKey("hidePlayerSlider")
 val HidePlayerThumbnailKey = booleanPreferencesKey("hidePlayerThumbnail")
 val ThumbnailCornerRadiusKey = floatPreferencesKey("thumbnailCornerRadius")
 val CropAlbumArtKey = booleanPreferencesKey("cropAlbumArt")
@@ -94,11 +98,13 @@ val ProxyPasswordKey = stringPreferencesKey("proxyPassword")
 val YtmSyncKey = booleanPreferencesKey("ytmSync")
 val SelectedYtmPlaylistsKey = stringPreferencesKey("selectedYtmPlaylists")
 
+val ShowAudioFallbackToastKey = booleanPreferencesKey("show_audio_fallback_toast")
 val AudioQualityKey = stringPreferencesKey("audioQuality")
 val IpVersionKey = stringPreferencesKey("ipVersion")
 
 enum class AudioQuality {
     OPUS,
+    SAAVN,
     LOSSLESS,
 }
 
@@ -106,6 +112,7 @@ val DownloadQualityKey = stringPreferencesKey("downloadQuality")
 
 enum class DownloadQuality {
     YOUTUBE,
+    SAAVN,
     LOSSLESS,
 }
 
@@ -129,8 +136,7 @@ val PreventDuplicateTracksInQueueKey = booleanPreferencesKey("preventDuplicateTr
 val CrossfadeEnabledKey = booleanPreferencesKey("crossfadeEnabled")
 val CrossfadeDurationKey = floatPreferencesKey("crossfadeDuration")
 val CrossfadeGaplessKey = booleanPreferencesKey("crossfadeGapless")
-val LocalDownloadEnabledKey = booleanPreferencesKey("localDownloadEnabled")
-val LocalDownloadDirectoryKey = stringPreferencesKey("localDownloadDirectory")
+
 
 val MaxImageCacheSizeKey = intPreferencesKey("maxImageCacheSize")
 val MaxSongCacheSizeKey = intPreferencesKey("maxSongCacheSize")
@@ -232,9 +238,7 @@ val PlaylistEditLockKey = booleanPreferencesKey("playlistEditLock")
 val QuickPicksKey = stringPreferencesKey("discover")
 val PreferredLyricsProviderKey = stringPreferencesKey("lyricsProvider")
 val LyricsProviderOrderKey = stringPreferencesKey("lyricsProviderOrder")
-val QueueEditLockKey = booleanPreferencesKey("queueEditLock")
-val ShowWrappedCardKey = booleanPreferencesKey("show_wrapped_card")
-val WrappedSeenKey = booleanPreferencesKey("wrapped_seen")
+val QueueEditLockKey = booleanPreferencesKey("queueEditLockV2")
 val RandomizeHomeOrderKey = booleanPreferencesKey("randomizeHomeOrder")
 val AlbumCanvasEnabledKey = booleanPreferencesKey("albumCanvasEnabled")
 

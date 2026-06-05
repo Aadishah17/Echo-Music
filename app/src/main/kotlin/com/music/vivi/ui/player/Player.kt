@@ -256,6 +256,8 @@ fun BottomSheetPlayer(
         UseNewPlayerDesignKey,
         defaultValue = true
     )
+    val showCodecOnPlayer by rememberPreference(iad1tya.echo.music.constants.ShowCodecOnPlayerKey, false)
+    val hidePlayerSlider by rememberPreference(iad1tya.echo.music.constants.HidePlayerSliderKey, false)
     val (hidePlayerThumbnail, onHidePlayerThumbnailChange) = rememberPreference(HidePlayerThumbnailKey, false)
     val cropAlbumArt by rememberPreference(CropAlbumArtKey, false)
     val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
@@ -640,57 +642,19 @@ fun BottomSheetPlayer(
     }
 
     
-    val (sideButtonContainerColor, sideButtonContentColor) = when {
-        isLocalMedia ||
-        playerBackground == PlayerBackgroundStyle.BLUR || 
-        playerBackground == PlayerBackgroundStyle.GRADIENT -> {
-            when (playerButtonsStyle) {
-                PlayerButtonsStyle.DEFAULT -> Pair(
-                    Color.White.copy(alpha = 0.2f), 
-                    Color.White
-                )
-                PlayerButtonsStyle.PRIMARY -> Pair(
-                    MaterialTheme.colorScheme.primaryContainer,
-                    MaterialTheme.colorScheme.onPrimaryContainer
-                )
-                PlayerButtonsStyle.TERTIARY -> Pair(
-                    MaterialTheme.colorScheme.tertiaryContainer,
-                    MaterialTheme.colorScheme.onTertiaryContainer
-                )
-            }
-        }
-        !isLocalMedia && playerBackground == PlayerBackgroundStyle.GLOW_ANIMATED -> {
-            when (playerButtonsStyle) {
-                PlayerButtonsStyle.DEFAULT -> Pair(
-                    Color.White.copy(alpha = 0.2f), 
-                    Color.White
-                )
-                PlayerButtonsStyle.PRIMARY -> Pair(
-                    MaterialTheme.colorScheme.primaryContainer,
-                    MaterialTheme.colorScheme.onPrimaryContainer
-                )
-                PlayerButtonsStyle.TERTIARY -> Pair(
-                    MaterialTheme.colorScheme.tertiaryContainer,
-                    MaterialTheme.colorScheme.onTertiaryContainer
-                )
-            }
-        }
-        else -> {
-            when (playerButtonsStyle) {
-                PlayerButtonsStyle.DEFAULT -> Pair(
-                    MaterialTheme.colorScheme.surfaceContainerHighest,
-                    MaterialTheme.colorScheme.onSurface
-                )
-                PlayerButtonsStyle.PRIMARY -> Pair(
-                    MaterialTheme.colorScheme.primaryContainer,
-                    MaterialTheme.colorScheme.onPrimaryContainer
-                )
-                PlayerButtonsStyle.TERTIARY -> Pair(
-                    MaterialTheme.colorScheme.tertiaryContainer,
-                    MaterialTheme.colorScheme.onTertiaryContainer
-                )
-            }
-        }
+    val (sideButtonContainerColor, sideButtonContentColor) = when (playerButtonsStyle) {
+        PlayerButtonsStyle.DEFAULT -> Pair(
+            Color.White.copy(alpha = 0.2f),
+            Color.White
+        )
+        PlayerButtonsStyle.PRIMARY -> Pair(
+            MaterialTheme.colorScheme.primaryContainer,
+            MaterialTheme.colorScheme.onPrimaryContainer
+        )
+        PlayerButtonsStyle.TERTIARY -> Pair(
+            MaterialTheme.colorScheme.tertiaryContainer,
+            MaterialTheme.colorScheme.onTertiaryContainer
+        )
     }
 
     val download by LocalDownloadUtil.current.getDownload(mediaMetadata?.id ?: "")
@@ -1553,32 +1517,6 @@ fun BottomSheetPlayer(
                             }
                         }
                     }
-                    val isLossless = audioQuality == AudioQuality.LOSSLESS && mediaMetadata?.id?.isLocalMediaId() != true
-                    val isFlac = currentAudioFormat?.sampleMimeType == "audio/flac" || currentFormatEntity?.codecs == "flac"
-                    if (isLossless && isFlac) {
-                        val formatText = remember(currentAudioFormat, currentFormatEntity) {
-                            val sampleRate = currentAudioFormat?.sampleRate ?: currentFormatEntity?.sampleRate ?: 0
-                            val sampleRateKhz = if (sampleRate > 0) "${sampleRate / 1000f} kHz" else ""
-                            var bitDepthStr = ""
-                            if (currentFormatEntity?.bitrate != null && currentFormatEntity!!.bitrate > 0 && currentFormatEntity?.sampleRate != null && currentFormatEntity!!.sampleRate!! > 0) {
-                                val sr = currentFormatEntity!!.sampleRate!!
-                                val calcBitDepth = currentFormatEntity!!.bitrate / (sr * 2)
-                                if (calcBitDepth == 16 || calcBitDepth == 24) bitDepthStr = "$calcBitDepth-bit"
-                            }
-                            val text = listOf("FLAC", sampleRateKhz, bitDepthStr).filter { it.isNotEmpty() }.joinToString(" • ")
-                            if (text.isEmpty()) "LOSSLESS" else text
-                        }
-                        Text(
-                            text = formatText,
-                            style = MaterialTheme.typography.labelSmall.copy(
-                                fontWeight = FontWeight.Bold,
-                                letterSpacing = 1.sp,
-                                fontSize = 10.sp
-                            ),
-                            color = TextBackgroundColor.copy(alpha = 0.7f),
-                            modifier = Modifier.padding(top = 4.dp)
-                        )
-                    }
                 }
 
                 Spacer(modifier = Modifier.width(12.dp))
@@ -1857,7 +1795,7 @@ fun BottomSheetPlayer(
                 }
             }
 
-            Spacer(Modifier.height(if (useNewPlayerDesign) 24.dp else 4.dp))
+            Spacer(Modifier.height(if (useNewPlayerDesign) 24.dp else 20.dp))
 
             when (sliderStyle) {
                 SliderStyle.DEFAULT -> {
@@ -2006,7 +1944,6 @@ fun BottomSheetPlayer(
                     )
                 }
             }
-
             Spacer(Modifier.height(4.dp))
 
             Row(
@@ -2025,53 +1962,87 @@ fun BottomSheetPlayer(
                     overflow = TextOverflow.Ellipsis,
                 )
 
-                if (!useNewPlayerDesign && sleepTimerEnabled) {
-                    Box(
-                        contentAlignment = Alignment.Center,
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(4.dp))
-                            .background(TextBackgroundColor.copy(alpha = 0.08f))
-                            .border(
-                                width = 0.5.dp,
-                                color = TextBackgroundColor.copy(alpha = 0.12f),
-                                shape = RoundedCornerShape(4.dp)
-                            )
-                            .clickable {
-                                showSleepTimerDialog = true
-                            }
-                            .padding(horizontal = 6.dp, vertical = 2.dp)
-                    ) {
-                        AnimatedContent(
-                            targetState = sleepTimerEnabled,
-                            transitionSpec = {
-                                fadeIn(animationSpec = tween(300)) togetherWith
-                                        fadeOut(animationSpec = tween(300))
-                            },
-                            label = "QualityTimerSwitcher"
-                        ) { isTimerActive ->
-                            if (isTimerActive) {
-                                Row(
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.spacedBy(4.dp)
-                                ) {
-                                    Icon(
-                                        painter = painterResource(R.drawable.sleep_timer),
-                                        contentDescription = null,
-                                        tint = TextBackgroundColor.copy(alpha = 0.8f),
-                                        modifier = Modifier.size(12.dp)
-                                    )
-                                    Text(
-                                        text = makeTimeString(sleepTimerTimeLeft.coerceAtLeast(0)),
-                                        style = MaterialTheme.typography.labelSmall.copy(
-                                            fontSize = 10.sp,
-                                            fontWeight = FontWeight.Bold,
-                                            letterSpacing = 1.5.sp
-                                        ),
-                                        color = TextBackgroundColor.copy(alpha = 0.8f),
-                                        maxLines = 1,
-                                    )
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
+                    modifier = Modifier.weight(1f)
+                ) {
+                    if (!useNewPlayerDesign && sleepTimerEnabled) {
+                        Box(
+                            contentAlignment = Alignment.Center,
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(4.dp))
+                                .background(TextBackgroundColor.copy(alpha = 0.08f))
+                                .border(
+                                    width = 0.5.dp,
+                                    color = TextBackgroundColor.copy(alpha = 0.12f),
+                                    shape = RoundedCornerShape(4.dp)
+                                )
+                                .clickable {
+                                    showSleepTimerDialog = true
+                                }
+                                .padding(horizontal = 6.dp, vertical = 2.dp)
+                        ) {
+                            AnimatedContent(
+                                targetState = sleepTimerEnabled,
+                                transitionSpec = {
+                                    fadeIn(animationSpec = tween(300)) togetherWith
+                                            fadeOut(animationSpec = tween(300))
+                                },
+                                label = "QualityTimerSwitcher"
+                            ) { isTimerActive ->
+                                if (isTimerActive) {
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.spacedBy(4.dp)
+                                    ) {
+                                        Icon(
+                                            painter = painterResource(R.drawable.sleep_timer),
+                                            contentDescription = null,
+                                            tint = TextBackgroundColor.copy(alpha = 0.8f),
+                                            modifier = Modifier.size(12.dp)
+                                        )
+                                        Text(
+                                            text = makeTimeString(sleepTimerTimeLeft.coerceAtLeast(0)),
+                                            style = MaterialTheme.typography.labelSmall.copy(
+                                                fontSize = 10.sp,
+                                                fontWeight = FontWeight.Bold,
+                                                letterSpacing = 1.5.sp
+                                            ),
+                                            color = TextBackgroundColor.copy(alpha = 0.8f),
+                                            maxLines = 1,
+                                        )
+                                    }
                                 }
                             }
+                        }
+                    }
+
+                    if (showCodecOnPlayer) {
+                        val formatText = remember(currentAudioFormat, currentFormatEntity) {
+                            val localAudioFormat = currentAudioFormat
+                            val localFormatEntity = currentFormatEntity
+                            val codecStr = localAudioFormat?.sampleMimeType?.substringAfter("audio/")?.uppercase() ?: localFormatEntity?.codecs?.uppercase() ?: ""
+                            var bitrateStr = ""
+                            if (localFormatEntity?.bitrate != null && localFormatEntity.bitrate > 0) {
+                                bitrateStr = "${localFormatEntity.bitrate / 1000} kbps"
+                            } else if (localAudioFormat?.bitrate != null && localAudioFormat.bitrate > 0) {
+                                bitrateStr = "${localAudioFormat.bitrate / 1000} kbps"
+                            }
+                            val isLossless = codecStr.contains("FLAC") || codecStr.contains("ALAC") || codecStr.contains("WAV")
+                            val losslessStr = if (isLossless) "Lossless" else ""
+                            listOf(codecStr, bitrateStr, losslessStr).filter { it.isNotEmpty() }.joinToString(" • ")
+                        }
+                        if (formatText.isNotEmpty()) {
+                            Text(
+                                text = formatText,
+                                style = MaterialTheme.typography.labelSmall.copy(
+                                    fontWeight = FontWeight.Bold,
+                                    letterSpacing = 1.sp,
+                                    fontSize = 10.sp
+                                ),
+                                color = TextBackgroundColor.copy(alpha = 0.7f),
+                            )
                         }
                     }
                 }
@@ -2085,7 +2056,7 @@ fun BottomSheetPlayer(
                 )
             }
 
-            Spacer(Modifier.height(if (useNewPlayerDesign) 24.dp else 4.dp))
+            Spacer(Modifier.height(if (useNewPlayerDesign) 24.dp else 12.dp))
 
             AnimatedVisibility(
                 visible = !isFullScreen,
@@ -2357,108 +2328,110 @@ fun BottomSheetPlayer(
 
                         }
 
-                        Spacer(modifier = Modifier.height(8.dp)) 
+                        if (!hidePlayerSlider) {
+                            Spacer(modifier = Modifier.height(8.dp)) 
 
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = PlayerHorizontalPadding)
-                        ) {
-                            val volumeInteractionSource = remember { MutableInteractionSource() }
-                            val isVolumeDragged by volumeInteractionSource.collectIsDraggedAsState()
-                            val isVolumePressed by volumeInteractionSource.collectIsPressedAsState()
-                            val isVolumeActive = isVolumeDragged || isVolumePressed
-
-                            
-                            var dragVolume by remember { mutableFloatStateOf(systemVolume) }
-                            
-                            
-                            val scope = rememberCoroutineScope()
-                            
-                            LaunchedEffect(systemVolume) {
-                                if (!isVolumeActive) dragVolume = systemVolume
-                            }
-
-                            
-                            val animatedSystemVolume by animateFloatAsState(
-                                targetValue = systemVolume,
-                                animationSpec = tween(150, easing = LinearOutSlowInEasing),
-                                label = "animatedSystemVolume"
-                            )
-                            
-                            val volume = if (isCasting) castVolume else {
-                                if (isVolumeActive) dragVolume else animatedSystemVolume
-                            }
-                            
-                            val volumeTrackHeight by animateDpAsState(
-                                targetValue = if (isVolumeActive) 16.dp else 10.dp,
-                                animationSpec = spring(
-                                    dampingRatio = 0.7f, 
-                                    stiffness = 600f 
-                                ),
-                                label = "volumeTrackHeight"
-                            )
-
-                            val volumeIconScale by animateFloatAsState(
-                                targetValue = if (isVolumeActive) 1.15f else 1f,
-                                animationSpec = spring(
-                                    dampingRatio = 0.7f,
-                                    stiffness = 600f
-                                ),
-                                label = "volumeIconScale"
-                            )
-
-                            Icon(
-                                painter = painterResource(R.drawable.volume_mute),
-                                contentDescription = null,
-                                tint = textButtonColor,
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
                                 modifier = Modifier
-                                    .size(20.dp)
-                                    .graphicsLayer(scaleX = volumeIconScale, scaleY = volumeIconScale)
-                            )
+                                    .fillMaxWidth()
+                                    .padding(horizontal = PlayerHorizontalPadding)
+                            ) {
+                                val volumeInteractionSource = remember { MutableInteractionSource() }
+                                val isVolumeDragged by volumeInteractionSource.collectIsDraggedAsState()
+                                val isVolumePressed by volumeInteractionSource.collectIsPressedAsState()
+                                val isVolumeActive = isVolumeDragged || isVolumePressed
 
-                            Spacer(Modifier.width(12.dp))
-
-                            Slider(
-                                value = volume,
-                                onValueChange = { newVolume ->
-                                    dragVolume = newVolume
-                                    if (isCasting) {
-                                        castHandler?.setVolume(newVolume)
-                                    } else {
-                                        
-                                        scope.launch(Dispatchers.Default) {
-                                            val newStep = (newVolume * maxSystemVolume).roundToInt()
-                                            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, newStep, 0)
-                                        }
-                                    }
-                                },
-                                modifier = Modifier.weight(1f),
-                                interactionSource = volumeInteractionSource,
-                                thumb = {},
-                                track = { sliderState ->
-                                    PlayerSliderTrack(
-                                        sliderState = sliderState,
-                                        colors = SliderDefaults.colors(
-                                            activeTrackColor = textButtonColor.copy(alpha = 0.7f),
-                                            inactiveTrackColor = textButtonColor.copy(alpha = 0.15f)
-                                        ),
-                                        trackHeight = volumeTrackHeight
-                                    )
+                                
+                                var dragVolume by remember { mutableFloatStateOf(systemVolume) }
+                                
+                                
+                                val scope = rememberCoroutineScope()
+                                
+                                LaunchedEffect(systemVolume) {
+                                    if (!isVolumeActive) dragVolume = systemVolume
                                 }
-                            )
 
-                            Spacer(Modifier.width(12.dp))
+                                
+                                val animatedSystemVolume by animateFloatAsState(
+                                    targetValue = systemVolume,
+                                    animationSpec = tween(150, easing = LinearOutSlowInEasing),
+                                    label = "animatedSystemVolume"
+                                )
+                                
+                                val volume = if (isCasting) castVolume else {
+                                    if (isVolumeActive) dragVolume else animatedSystemVolume
+                                }
+                                
+                                val volumeTrackHeight by animateDpAsState(
+                                    targetValue = if (isVolumeActive) 16.dp else 10.dp,
+                                    animationSpec = spring(
+                                        dampingRatio = 0.7f, 
+                                        stiffness = 600f 
+                                    ),
+                                    label = "volumeTrackHeight"
+                                )
 
-                            Icon(
-                                painter = painterResource(R.drawable.volume_up),
-                                contentDescription = null,
-                                tint = textButtonColor,
-                                modifier = Modifier
-                                    .size(20.dp)
-                                    .graphicsLayer(scaleX = volumeIconScale, scaleY = volumeIconScale)
-                            )
+                                val volumeIconScale by animateFloatAsState(
+                                    targetValue = if (isVolumeActive) 1.15f else 1f,
+                                    animationSpec = spring(
+                                        dampingRatio = 0.7f,
+                                        stiffness = 600f
+                                    ),
+                                    label = "volumeIconScale"
+                                )
+
+                                Icon(
+                                    painter = painterResource(R.drawable.volume_mute),
+                                    contentDescription = null,
+                                    tint = textButtonColor,
+                                    modifier = Modifier
+                                        .size(20.dp)
+                                        .graphicsLayer(scaleX = volumeIconScale, scaleY = volumeIconScale)
+                                )
+
+                                Spacer(Modifier.width(12.dp))
+
+                                Slider(
+                                    value = volume,
+                                    onValueChange = { newVolume ->
+                                        dragVolume = newVolume
+                                        if (isCasting) {
+                                            castHandler?.setVolume(newVolume)
+                                        } else {
+                                            
+                                            scope.launch(Dispatchers.Default) {
+                                                val newStep = (newVolume * maxSystemVolume).roundToInt()
+                                                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, newStep, 0)
+                                            }
+                                        }
+                                    },
+                                    modifier = Modifier.weight(1f),
+                                    interactionSource = volumeInteractionSource,
+                                    thumb = {},
+                                    track = { sliderState ->
+                                        PlayerSliderTrack(
+                                            sliderState = sliderState,
+                                            colors = SliderDefaults.colors(
+                                                activeTrackColor = textButtonColor.copy(alpha = 0.7f),
+                                                inactiveTrackColor = textButtonColor.copy(alpha = 0.15f)
+                                            ),
+                                            trackHeight = volumeTrackHeight
+                                        )
+                                    }
+                                )
+
+                                Spacer(Modifier.width(12.dp))
+
+                                Icon(
+                                    painter = painterResource(R.drawable.volume_up),
+                                    contentDescription = null,
+                                    tint = textButtonColor,
+                                    modifier = Modifier
+                                        .size(20.dp)
+                                        .graphicsLayer(scaleX = volumeIconScale, scaleY = volumeIconScale)
+                                )
+                            }
                         }
 
                         val displayBluetoothName = remember(bluetoothDeviceName) {

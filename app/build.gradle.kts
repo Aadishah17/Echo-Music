@@ -119,6 +119,7 @@ android {
             isShrinkResources = true
             isCrunchPngs = false
             isDebuggable = false
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -224,6 +225,7 @@ dependencies {
     "gmsImplementation"("com.google.firebase:firebase-analytics")
     "gmsImplementation"("com.google.firebase:firebase-crashlytics")
     
+    implementation(libs.haze)
     implementation(libs.guava)
     implementation(libs.coroutines.guava)
     implementation(libs.concurrent.futures)
@@ -294,6 +296,7 @@ dependencies {
     implementation(project(":applecanvas"))
     implementation(project(":echomusiccanvas"))
     implementation(project(":paxsenixlyrics"))
+    implementation(project(":jiosaavn"))
 
 
     implementation(libs.ktor.client.core)

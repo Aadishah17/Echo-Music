@@ -931,7 +931,7 @@ class MainActivity : ComponentActivity() {
                                 }
                             }
 
-                            if (!showRail && currentRoute != "wrapped" && currentRoute != "update" && currentRoute != "listen_together/chat") {
+                            if (!showRail && currentRoute != "update" && currentRoute != "listen_together/chat") {
                                 Box {
                                     BottomSheetPlayer(
                                         state = playerBottomSheetState,
@@ -994,7 +994,7 @@ class MainActivity : ComponentActivity() {
                                     )
                                 }
                             } else {
-                                if (currentRoute != "wrapped" && currentRoute != "update" && currentRoute != "listen_together/chat") {
+                                if (currentRoute != "update" && currentRoute != "listen_together/chat") {
                                     BottomSheetPlayer(
                                         state = playerBottomSheetState,
                                         navController = navController,
@@ -1052,7 +1052,7 @@ class MainActivity : ComponentActivity() {
                                 }
                             }
 
-                            if (showRail && currentRoute != "wrapped" && currentRoute != "update") {
+                            if (showRail && currentRoute != "update") {
                                 AppNavigationRail(
                                     navigationItems = navigationItems,
                                     currentRoute = currentRoute,

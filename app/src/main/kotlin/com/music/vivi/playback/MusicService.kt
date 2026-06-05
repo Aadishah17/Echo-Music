@@ -2306,8 +2306,6 @@ class MusicService :
             
             performAggressiveCacheClear(mediaId)
 
-            
-            delay(RETRY_DELAY_MS)
 
             
             val currentIndex = player.currentMediaItemIndex
@@ -2333,10 +2331,6 @@ class MusicService :
 
             
             performAggressiveCacheClear(mediaId)
-
-            
-            
-            delay(RETRY_DELAY_MS)
 
             
             val currentPosition = player.currentPosition
@@ -2370,7 +2364,6 @@ class MusicService :
 
         retryJob?.cancel()
         retryJob = scope.launch {
-            delay(RETRY_DELAY_MS)
 
             
             val currentPosition = player.currentPosition
@@ -2394,7 +2387,7 @@ class MusicService :
         retryJob?.cancel()
         retryJob = scope.launch {
             performAggressiveCacheClear(mediaId)
-            delay(RETRY_DELAY_MS)
+
 
             val currentPosition = player.currentPosition
             val currentIndex = player.currentMediaItemIndex
@@ -2535,17 +2528,31 @@ class MusicService :
                     shouldBypassCache = true
                 }
             }
+            if (!shouldBypassCache && audioQuality == iad1tya.echo.music.constants.AudioQuality.SAAVN) {
+                val format = runBlocking(Dispatchers.IO) { database.format(mediaId).firstOrNull() }
+                if (format?.codecs != "mp4a.40.2") {
+                    shouldBypassCache = true
+                }
+            }
 
             if (!shouldBypassCache) {
                 if (downloadCache.isCached(
                         mediaId,
                         dataSpec.position,
                         if (dataSpec.length >= 0) dataSpec.length else 1
-                    ) ||
-                    playerCache.isCached(mediaId, dataSpec.position, CHUNK_LENGTH)
+                    )
                 ) {
                     scope.launch(Dispatchers.IO) { recoverSong(mediaId) }
                     return@Factory dataSpec
+                }
+
+                if (playerCache.isCached(mediaId, dataSpec.position, CHUNK_LENGTH)) {
+                    songUrlCache[mediaId]?.takeIf { it.second > System.currentTimeMillis() }?.let {
+                        scope.launch(Dispatchers.IO) { recoverSong(mediaId) }
+                        return@Factory dataSpec.withUri(it.first.toUri())
+                    }
+                    Timber.tag(TAG).w("Ghost cache entry for $mediaId, re-fetching")
+                    playerCache.removeResource(mediaId)
                 }
 
                 songUrlCache[mediaId]?.takeIf { it.second > System.currentTimeMillis() }?.let {
@@ -2649,7 +2656,14 @@ class MusicService :
     private fun createMediaSourceFactory() =
         DefaultMediaSourceFactory(
             createDataSourceFactory(),
-            androidx.media3.extractor.DefaultExtractorsFactory(),
+            ExtractorsFactory {
+                arrayOf(
+                    MatroskaExtractor(),
+                    FragmentedMp4Extractor(),
+                    androidx.media3.extractor.mp4.Mp4Extractor(),
+                    androidx.media3.extractor.flac.FlacExtractor()
+                )
+            }
         )
 
     private fun createRenderersFactory(
