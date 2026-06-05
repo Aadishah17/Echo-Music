@@ -92,6 +92,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.util.fastAny
 import androidx.core.content.ContextCompat
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -205,13 +206,14 @@ fun LocalSongScreen(
             val supportedSongs = songs.filter { song ->
                 SupportedLocalAudio.isSupportedMimeType(song.format?.mimeType)
             }
+            // ⚡ Bolt optimization: Use fastAny instead of any to prevent Iterator allocation during Compose recomposition
             val filteredSongs = if (normalizedQuery.isBlank()) {
                 supportedSongs
             } else {
                 supportedSongs.filter { song ->
                     song.song.title.contains(normalizedQuery, ignoreCase = true) ||
                         song.song.albumName.orEmpty().contains(normalizedQuery, ignoreCase = true) ||
-                        song.artists.any { artist -> artist.name.contains(normalizedQuery, ignoreCase = true) }
+                        song.artists.fastAny { artist -> artist.name.contains(normalizedQuery, ignoreCase = true) }
                 }
             }
 
