@@ -72,6 +72,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.util.fastAny
 import androidx.compose.ui.util.fastForEachReversed
 import androidx.compose.ui.util.fastSumBy
 import androidx.core.net.toUri
@@ -280,11 +281,12 @@ fun AutoPlaylistScreen(
         )
     }
 
+    // ⚡ Bolt optimization: Use fastAny instead of any to prevent Iterator allocation during Compose recomposition
     val filteredSongs = remember(songs, query) {
         if (query.text.isEmpty()) songs ?: emptyList()
         else songs?.filter { song ->
             song.song.title.contains(query.text, true) ||
-                song.artists.any { it.name.contains(query.text, true) }
+                song.artists.fastAny { it.name.contains(query.text, true) }
         } ?: emptyList()
     }
 
