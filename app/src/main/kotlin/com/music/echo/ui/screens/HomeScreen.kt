@@ -1437,6 +1437,7 @@ fun HomeScreen(
                                 }
 
                                 item(key = "account_playlists_list") {
+                                    val distinctAccountPlaylists = remember(accountPlaylists) { accountPlaylists.distinctBy { it.id } }
                                     LazyRow(
                                         contentPadding = WindowInsets.systemBars
                                             .only(WindowInsetsSides.Horizontal)
@@ -1444,7 +1445,7 @@ fun HomeScreen(
                                         modifier = Modifier.animateItem()
                                     ) {
                                         items(
-                                            items = accountPlaylists.distinctBy { it.id },
+                                            items = distinctAccountPlaylists,
                                             key = { it.id },
                                         ) { item ->
                                             ytGridItem(item)
@@ -1474,6 +1475,7 @@ fun HomeScreen(
                                 item(key = "forgotten_favorites_list") {
                                     
                                     val rows = min(4, forgottenFavorites.size)
+                                    val distinctForgottenFavorites = remember(forgottenFavorites) { forgottenFavorites.distinctBy { it.id } }
                                     LazyHorizontalGrid(
                                         state = forgottenFavoritesLazyGridState,
                                         rows = GridCells.Fixed(rows),
@@ -1488,7 +1490,7 @@ fun HomeScreen(
                                             .animateItem()
                                     ) {
                                         itemsIndexed(
-                                            items = forgottenFavorites.distinctBy { it.id },
+                                            items = distinctForgottenFavorites,
                                             key = { _, it -> it.id }
                                         ) { index, originalSong ->
                                             val song by database.song(originalSong.id)
@@ -1657,6 +1659,7 @@ fun HomeScreen(
                                 if (isSongsOnlySection) {
                                     
                                     item(key = "home_section_list_${section.index}") {
+                                        val distinctSectionSongs = remember(sectionSongs) { sectionSongs.distinctBy { it.id } }
                                         LazyHorizontalGrid(
                                             state = rememberLazyGridState(),
                                             rows = GridCells.Fixed(4),
@@ -1669,7 +1672,7 @@ fun HomeScreen(
                                                 .animateItem()
                                         ) {
                                             itemsIndexed(
-                                                items = sectionSongs.distinctBy { it.id },
+                                                items = distinctSectionSongs,
                                                 key = { _, it -> it.id }
                                             ) { index, song ->
                                                 YouTubeListItem(
