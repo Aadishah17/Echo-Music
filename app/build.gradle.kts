@@ -113,7 +113,7 @@ android {
             keyAlias = "androiddebugkey"
             keyPassword = "android"
             storePassword = "android"
-            storeFile = rootProject.file("app/persistent-debug.keystore")
+            storeFile = file("${System.getProperty("user.home")}/.android/debug.keystore")
         }
     }
 
