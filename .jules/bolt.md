@@ -1,0 +1,4 @@
+## Bolt's Journal
+## 2024-05-24 - ExoPlayer runBlocking ANRs
+**Learning:** Using `runBlocking` to read from Jetpack DataStore inside ExoPlayer callbacks (`onMediaItemTransition`, `onPlaybackStateChanged`) blocks the main thread during track transitions, causing UI stutters and potential ANRs. `ExoPlayer` properties like `player.repeatMode` and `player.shuffleModeEnabled` are already kept in sync with DataStore, so we can read them directly from the player instance. For async preferences like `preloadUpcomingItems`, the DataStore reads should be moved into a `scope.launch(Dispatchers.IO)` block, switching to `Dispatchers.Main` only briefly to read from the player.
+**Action:** Never use `runBlocking` on the main thread for DataStore reads in ExoPlayer callbacks. Either use cached player state or launch a coroutine.
