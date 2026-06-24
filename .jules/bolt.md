@@ -1,0 +1,3 @@
+## 2024-05-18 - Synchronous DataStore Reads in ExoPlayer Callbacks
+**Learning:** `dataStore.get()` uses `runBlocking(Dispatchers.IO)` under the hood in this codebase. Calling it directly within synchronous, main-thread callbacks like ExoPlayer's `onMediaItemTransition` or `onPlaybackStateChanged` can cause UI stutters, ANRs, and generally block the main thread.
+**Action:** When needing to access configuration values inside ExoPlayer callbacks or other main-thread handlers, check if the underlying components (like `player.repeatMode`) already expose that state in memory. If not, consider listening to DataStore flow changes and keeping a cached value in memory instead of reading it synchronously.
