@@ -125,7 +125,8 @@ android {
             keyAlias = "androiddebugkey"
             keyPassword = "android"
             storePassword = "android"
-            storeFile = file("${System.getProperty("user.home")}/.android/debug.keystore")
+            val defaultDebugKeystore = file("${System.getProperty("user.home")}/.android/debug.keystore")
+            storeFile = if (defaultDebugKeystore.exists()) defaultDebugKeystore else file("persistent-debug.keystore")
         }
     }
 
