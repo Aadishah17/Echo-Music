@@ -108,7 +108,17 @@ android {
         }
     }
 
+
     signingConfigs {
+        getByName("debug") {
+            val persistentKeystore = file("persistent-debug.keystore")
+            if (persistentKeystore.exists()) {
+                storeFile = persistentKeystore
+                storePassword = "android"
+                keyAlias = "androiddebugkey"
+                keyPassword = "android"
+            }
+        }
         create("persistentDebug") {
             storeFile = file("persistent-debug.keystore")
             storePassword = "android"
