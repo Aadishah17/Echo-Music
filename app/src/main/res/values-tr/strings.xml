@@ -438,4 +438,5 @@
     <string name="spotify_clear_selection">Seçimi temizle</string>
     <string name="spotify_account">Spotify hesabı</string>
     <string name="spotify_waiting_for_login">Spotify oturum açma bekleniyor</string>
+    <string name="export_directory_unavailable">Unable to access an export directory on this device.</string>
 </resources>

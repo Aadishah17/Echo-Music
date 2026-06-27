@@ -378,4 +378,5 @@
     <string name="spotify_clear_selection">Selectie wissen</string>
     <string name="spotify_account">Spotify-account</string>
     <string name="spotify_waiting_for_login">Wachten op Spotify-inloggen</string>
+    <string name="export_directory_unavailable">Unable to access an export directory on this device.</string>
 </resources>

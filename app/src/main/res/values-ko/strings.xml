@@ -370,4 +370,5 @@
     <string name="spotify_clear_selection">선택 해제</string>
     <string name="spotify_account">Spotify 계정</string>
     <string name="spotify_waiting_for_login">Spotify 로그인 대기 중</string>
+    <string name="export_directory_unavailable">Unable to access an export directory on this device.</string>
 </resources>

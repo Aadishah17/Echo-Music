@@ -420,4 +420,5 @@
     <string name="spotify_clear_selection">پاک کردن انتخاب‌ها</string>
     <string name="spotify_account">حساب کاربری اسپاتیفای</string>
     <string name="spotify_waiting_for_login">در انتظار ورود به حساب اسپاتیفای</string>
+    <string name="export_directory_unavailable">Unable to access an export directory on this device.</string>
 </resources>

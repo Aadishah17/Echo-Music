@@ -410,4 +410,5 @@
     <string name="keep_listening">Працягвайце слухаць</string>
     <string name="your_youtube_playlists">Вашы плэй-лісты YouTube</string>
     <string name="similar_to">Падобна да</string>
+    <string name="export_directory_unavailable">Unable to access an export directory on this device.</string>
 </resources>

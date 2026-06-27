@@ -378,4 +378,5 @@
     <string name="spotify_clear_selection">ఎంపికను క్లియర్ చేయండి</string>
     <string name="spotify_account">Spotify ఖాతా</string>
     <string name="spotify_waiting_for_login">Spotify లాగిన్ కోసం వేచి ఉంది</string>
+    <string name="export_directory_unavailable">Unable to access an export directory on this device.</string>
 </resources>

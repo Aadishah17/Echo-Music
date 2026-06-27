@@ -380,4 +380,5 @@
     <string name="spotify_clear_selection">Εκκαθάριση</string>
     <string name="spotify_account">Λογαριασμός Spotify</string>
     <string name="spotify_waiting_for_login">Αναμονή για σύνδεση Spotify</string>
+    <string name="export_directory_unavailable">Unable to access an export directory on this device.</string>
 </resources>

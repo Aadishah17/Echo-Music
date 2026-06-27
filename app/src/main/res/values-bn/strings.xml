@@ -377,4 +377,5 @@
     <string name="spotify_clear_selection">পরিষ্কার করুন</string>
     <string name="spotify_account">স্পটিফাই অ্যাকাউন্ট</string>
     <string name="spotify_waiting_for_login">স্পটিফাই লগইনের জন্য অপেক্ষা করছে</string>
+    <string name="export_directory_unavailable">Unable to access an export directory on this device.</string>
 </resources>

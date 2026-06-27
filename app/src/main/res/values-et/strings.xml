@@ -378,4 +378,5 @@
     <string name="spotify_clear_selection">Tühjenda valik</string>
     <string name="spotify_account">Spotify konto</string>
     <string name="spotify_waiting_for_login">Ootan Spotify sisselogimist</string>
+    <string name="export_directory_unavailable">Unable to access an export directory on this device.</string>
 </resources>

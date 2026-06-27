@@ -368,4 +368,5 @@
     <string name="spotify_clear_selection">Bersihkan</string>
     <string name="spotify_account">Akun Spotify</string>
     <string name="spotify_waiting_for_login">Menunggu masuk ke Spotify</string>
+    <string name="export_directory_unavailable">Unable to access an export directory on this device.</string>
 </resources>

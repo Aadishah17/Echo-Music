@@ -371,4 +371,5 @@
     <string name="spotify_clear_selection">選択をクリア</string>
     <string name="spotify_account">Spotifyアカウント</string>
     <string name="spotify_waiting_for_login">Spotifyのログインを待機中</string>
+    <string name="export_directory_unavailable">Unable to access an export directory on this device.</string>
 </resources>

@@ -368,6 +368,7 @@
     <string name="spotify_clear_selection">清除选择</string>
     <string name="spotify_account">Spotify 账户</string>
     <string name="spotify_waiting_for_login">正在等待 Spotify 登录</string>
+    <string name="export_directory_unavailable">Unable to access an export directory on this device.</string>
 
 
 </resources>

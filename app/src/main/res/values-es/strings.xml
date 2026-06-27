@@ -389,4 +389,5 @@
     <string name="spotify_clear_selection">Limpiar selección</string>
     <string name="spotify_account">Cuenta de Spotify</string>
     <string name="spotify_waiting_for_login">Esperando inicio de sesión en Spotify</string>
+    <string name="export_directory_unavailable">Unable to access an export directory on this device.</string>
 </resources>
