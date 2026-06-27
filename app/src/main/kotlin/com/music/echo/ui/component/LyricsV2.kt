@@ -2,6 +2,7 @@
 
 package iad1tya.echo.music.ui.component
 
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.FastOutSlowInEasing
@@ -14,7 +15,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -108,7 +108,7 @@ fun LyricsLineV2(
 
     
     if (showTranslated) {
-        val translatedText by entry.translatedTextFlow.collectAsState()
+        val translatedText by entry.translatedTextFlow.collectAsStateWithLifecycle()
         translatedText?.let { translated ->
             Text(
                 text = translated,

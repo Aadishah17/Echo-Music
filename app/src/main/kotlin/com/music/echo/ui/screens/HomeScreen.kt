@@ -63,7 +63,6 @@ import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.material3.Text
-import androidx.compose.runtime.collectAsState
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -207,7 +206,7 @@ fun CommunityPlaylistCard(
         MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
     }
 
-    val dbPlaylist by database.playlistByBrowseId(item.playlist.id).collectAsState(initial = null)
+    val dbPlaylist by database.playlistByBrowseId(item.playlist.id).collectAsStateWithLifecycle(initialValue = null)
     val isBookmarked = dbPlaylist?.playlist?.bookmarkedAt != null
 
     Card(
@@ -445,7 +444,7 @@ fun DailyDiscoverCard(
     modifier: Modifier = Modifier
 ) {
     val database = LocalDatabase.current
-    val playCount by database.getLifetimePlayCount(dailyDiscover.recommendation.id).collectAsState(initial = 0)
+    val playCount by database.getLifetimePlayCount(dailyDiscover.recommendation.id).collectAsStateWithLifecycle(initialValue = 0)
     val menuState = LocalMenuState.current
     val haptic = LocalHapticFeedback.current
 
@@ -588,7 +587,7 @@ fun HomeScreen(
     val speedDialItems by viewModel.speedDialItems.collectAsStateWithLifecycle()
     val selectedChip by viewModel.selectedChip.collectAsStateWithLifecycle()
 
-    val isLoading: Boolean by viewModel.isLoading.collectAsState()
+    val isLoading: Boolean by viewModel.isLoading.collectAsStateWithLifecycle()
     val isMoodAndGenresLoading = isLoading && explorePage?.moodAndGenres == null
     val isRefreshing by viewModel.isRefreshing.collectAsStateWithLifecycle()
     val isRandomizing by viewModel.isRandomizing.collectAsStateWithLifecycle()
@@ -618,7 +617,7 @@ fun HomeScreen(
     val currentGridHeight = if (gridItemSize == GridItemSize.BIG) GridThumbnailHeight else SmallGridThumbnailHeight
     val backStackEntry by navController.currentBackStackEntryAsState()
     val scrollToTop =
-        backStackEntry?.savedStateHandle?.getStateFlow("scrollToTop", false)?.collectAsState()
+        backStackEntry?.savedStateHandle?.getStateFlow("scrollToTop", false)?.collectAsStateWithLifecycle()
 
 
     var randomSeed by rememberSaveable { mutableLongStateOf(System.currentTimeMillis()) }
@@ -1064,7 +1063,7 @@ fun HomeScreen(
                                                                 }
                                                             } else if (itemIndex < pageItems.size) {
                                                                 val item = pageItems[itemIndex]
-                                                                val isPinned by database.speedDialDao.isPinned(item.id).collectAsState(initial = false)
+                                                                val isPinned by database.speedDialDao.isPinned(item.id).collectAsStateWithLifecycle(initialValue = false)
 
                                                                 Box(
                                                                     modifier = Modifier
@@ -1177,7 +1176,7 @@ fun HomeScreen(
                                     ) { index ->
                                         val originalSong = distinctQuickPicks[index]
                                         val song by database.song(originalSong.id)
-                                            .collectAsState(initial = originalSong)
+                                            .collectAsStateWithLifecycle(initialValue = originalSong)
                                         val isActive = song!!.id == mediaMetadata?.id
 
                                         Box(
@@ -1561,7 +1560,7 @@ fun HomeScreen(
                                             key = { _, it -> it.id }
                                         ) { index, originalSong ->
                                             val song by database.song(originalSong.id)
-                                                .collectAsState(initial = originalSong)
+                                                .collectAsStateWithLifecycle(initialValue = originalSong)
 
                                             SongListItem(
                                                 song = song!!,

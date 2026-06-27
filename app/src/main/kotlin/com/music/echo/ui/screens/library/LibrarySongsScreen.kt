@@ -2,6 +2,7 @@
 
 package iad1tya.echo.music.ui.screens.library
 
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -25,7 +26,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -73,8 +73,8 @@ fun LibrarySongsScreen(
     val context = LocalContext.current
     val menuState = LocalMenuState.current
     val playerConnection = LocalPlayerConnection.current ?: return
-    val isPlaying by playerConnection.isEffectivelyPlaying.collectAsState()
-    val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
+    val isPlaying by playerConnection.isEffectivelyPlaying.collectAsStateWithLifecycle()
+    val mediaMetadata by playerConnection.mediaMetadata.collectAsStateWithLifecycle()
 
     val (sortType, onSortTypeChange) = rememberEnumPreference(
         SongSortTypeKey,
@@ -85,7 +85,7 @@ fun LibrarySongsScreen(
     val (ytmSync) = rememberPreference(YtmSyncKey, true)
     val hideExplicit by rememberPreference(key = HideExplicitKey, defaultValue = false)
 
-    val songs by viewModel.allSongs.collectAsState()
+    val songs by viewModel.allSongs.collectAsStateWithLifecycle()
 
     var filter by rememberEnumPreference(SongFilterKey, SongFilter.LIKED)
 
@@ -104,7 +104,7 @@ fun LibrarySongsScreen(
 
     val backStackEntry by navController.currentBackStackEntryAsState()
     val scrollToTop =
-        backStackEntry?.savedStateHandle?.getStateFlow("scrollToTop", false)?.collectAsState()
+        backStackEntry?.savedStateHandle?.getStateFlow("scrollToTop", false)?.collectAsStateWithLifecycle()
 
     LaunchedEffect(scrollToTop?.value) {
         if (scrollToTop?.value == true) {

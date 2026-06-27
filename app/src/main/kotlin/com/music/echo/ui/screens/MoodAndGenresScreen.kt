@@ -2,6 +2,7 @@
 
 package iad1tya.echo.music.ui.screens
 
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import android.content.res.Configuration.ORIENTATION_LANDSCAPE
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -21,7 +22,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -52,7 +52,7 @@ fun MoodAndGenresScreen(
     val localConfiguration = LocalConfiguration.current
     val itemsPerRow = if (localConfiguration.orientation == ORIENTATION_LANDSCAPE) 3 else 2
 
-    val moodAndGenresList by viewModel.moodAndGenres.collectAsState()
+    val moodAndGenresList by viewModel.moodAndGenres.collectAsStateWithLifecycle()
 
     LazyColumn(
         contentPadding = LocalPlayerAwareWindowInsets.current.asPaddingValues(),

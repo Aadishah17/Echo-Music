@@ -2,6 +2,7 @@
 
 package iad1tya.echo.music.ui.component
 
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
@@ -67,7 +68,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableLongStateOf
@@ -244,9 +244,9 @@ fun Lyrics(
     
     val scope = rememberCoroutineScope()
 
-    val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
-    val lyricsEntity by playerConnection.currentLyrics.collectAsState(initial = null)
-    val currentSong by playerConnection.currentSong.collectAsState(initial = null)
+    val mediaMetadata by playerConnection.mediaMetadata.collectAsStateWithLifecycle()
+    val lyricsEntity by playerConnection.currentLyrics.collectAsStateWithLifecycle(initialValue = null)
+    val currentSong by playerConnection.currentSong.collectAsStateWithLifecycle(initialValue = null)
     val lyrics = remember(lyricsEntity) { lyricsEntity?.lyrics?.trim() }
 
     val playerBackground by rememberEnumPreference(
@@ -447,8 +447,8 @@ fun Lyrics(
         }
 
     
-    val translationStatus by LyricsTranslationHelper.status.collectAsState()
-    val hasActiveTranslations by LyricsTranslationHelper.hasActiveTranslations.collectAsState()
+    val translationStatus by LyricsTranslationHelper.status.collectAsStateWithLifecycle()
+    val hasActiveTranslations by LyricsTranslationHelper.hasActiveTranslations.collectAsStateWithLifecycle()
     
     
     DisposableEffect(Unit) {
@@ -1245,7 +1245,7 @@ fun Lyrics(
                         }
                         val alignment = agentTextAlign
                         
-                        val romanizedTextState by item.romanizedTextFlow.collectAsState()
+                        val romanizedTextState by item.romanizedTextFlow.collectAsStateWithLifecycle()
                         val romanizedText = romanizedTextState
                         val isRomanizedAvailable = romanizedText != null
                         
@@ -1671,7 +1671,7 @@ fun Lyrics(
                                 
                                 
                                 if (hasActiveTranslations) {
-                                    val translatedText by item.translatedTextFlow.collectAsState()
+                                    val translatedText by item.translatedTextFlow.collectAsStateWithLifecycle()
                                     translatedText?.let { translated ->
                                         Text(
                                             text = translated,
@@ -1837,7 +1837,7 @@ fun Lyrics(
                         if (hasActiveTranslations && 
                             lyricsAnimationStyle != LyricsAnimationStyle.LYRICS_V2 && 
                             lyricsAnimationStyle != LyricsAnimationStyle.APPLE_V2) {
-                            val translatedText by item.translatedTextFlow.collectAsState()
+                            val translatedText by item.translatedTextFlow.collectAsStateWithLifecycle()
                             translatedText?.let { translated ->
                                 Text(
                                     text = translated,

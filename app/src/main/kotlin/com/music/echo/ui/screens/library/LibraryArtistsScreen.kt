@@ -2,6 +2,7 @@
 
 package iad1tya.echo.music.ui.screens.library
 
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -32,7 +33,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.ToggleButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
@@ -134,13 +134,13 @@ fun LibraryArtistsScreen(
         }
     }
 
-    val artists by viewModel.allArtists.collectAsState()
+    val artists by viewModel.allArtists.collectAsStateWithLifecycle()
 
     val lazyListState = rememberLazyListState()
     val lazyGridState = rememberLazyGridState()
     val backStackEntry by navController.currentBackStackEntryAsState()
     val scrollToTop =
-        backStackEntry?.savedStateHandle?.getStateFlow("scrollToTop", false)?.collectAsState()
+        backStackEntry?.savedStateHandle?.getStateFlow("scrollToTop", false)?.collectAsStateWithLifecycle()
 
     LaunchedEffect(scrollToTop?.value) {
         if (scrollToTop?.value == true) {

@@ -2,6 +2,7 @@
 
 package iad1tya.echo.music.ui.screens.search
 
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -30,7 +31,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.snapshotFlow
@@ -99,11 +99,11 @@ fun OnlineSearchScreen(
     val scope = rememberCoroutineScope()
 
     val haptic = LocalHapticFeedback.current
-    val isPlaying by playerConnection.isEffectivelyPlaying.collectAsState()
-    val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
+    val isPlaying by playerConnection.isEffectivelyPlaying.collectAsStateWithLifecycle()
+    val mediaMetadata by playerConnection.mediaMetadata.collectAsStateWithLifecycle()
 
     val coroutineScope = rememberCoroutineScope()
-    val viewState by viewModel.viewState.collectAsState()
+    val viewState by viewModel.viewState.collectAsStateWithLifecycle()
 
     val lazyListState = rememberLazyListState()
 

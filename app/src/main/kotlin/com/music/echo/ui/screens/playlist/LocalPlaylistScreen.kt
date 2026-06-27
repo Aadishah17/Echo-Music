@@ -2,6 +2,7 @@
 
 package iad1tya.echo.music.ui.screens.playlist
 
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
@@ -63,7 +64,6 @@ import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -182,12 +182,12 @@ fun LocalPlaylistScreen(
     val database = LocalDatabase.current
     val haptic = LocalHapticFeedback.current
     val playerConnection = LocalPlayerConnection.current ?: return
-    val isPlaying by playerConnection.isEffectivelyPlaying.collectAsState()
-    val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
+    val isPlaying by playerConnection.isEffectivelyPlaying.collectAsStateWithLifecycle()
+    val mediaMetadata by playerConnection.mediaMetadata.collectAsStateWithLifecycle()
 
-    val playlist by viewModel.playlist.collectAsState()
-    val songs by viewModel.playlistSongs.collectAsState()
-    val suggestions by viewModel.suggestions.collectAsState()
+    val playlist by viewModel.playlist.collectAsStateWithLifecycle()
+    val songs by viewModel.playlistSongs.collectAsStateWithLifecycle()
+    val suggestions by viewModel.suggestions.collectAsStateWithLifecycle()
     val mutableSongs = remember { mutableStateListOf<PlaylistSong>() }
     val playlistLength =
         remember(songs) {

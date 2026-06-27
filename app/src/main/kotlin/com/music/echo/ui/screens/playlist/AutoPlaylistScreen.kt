@@ -2,6 +2,7 @@
 
 package iad1tya.echo.music.ui.screens.playlist
 
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.combinedClickable
@@ -43,7 +44,6 @@ import androidx.compose.material3.pulltorefresh.pullToRefresh
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateListOf
@@ -126,8 +126,8 @@ fun AutoPlaylistScreen(
     val haptic = LocalHapticFeedback.current
     val focusManager = LocalFocusManager.current
     val playerConnection = LocalPlayerConnection.current ?: return
-    val isPlaying by playerConnection.isEffectivelyPlaying.collectAsState()
-    val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
+    val isPlaying by playerConnection.isEffectivelyPlaying.collectAsStateWithLifecycle()
+    val mediaMetadata by playerConnection.mediaMetadata.collectAsStateWithLifecycle()
     val playlist = when (viewModel.playlist) {
         "liked" -> stringResource(R.string.liked)
         "uploaded" -> stringResource(R.string.uploaded_playlist)
@@ -135,7 +135,7 @@ fun AutoPlaylistScreen(
         else -> stringResource(R.string.offline)
     }
 
-    val songs by viewModel.likedSongs.collectAsState(null)
+    val songs by viewModel.likedSongs.collectAsStateWithLifecycle(initialValue = null)
     val mutableSongs =
         remember {
             mutableStateListOf<Song>()
@@ -295,7 +295,7 @@ fun AutoPlaylistScreen(
 
     val state = rememberLazyListState()
 
-    val isRefreshing by viewModel.isRefreshing.collectAsState()
+    val isRefreshing by viewModel.isRefreshing.collectAsStateWithLifecycle()
     val pullRefreshState = rememberPullToRefreshState()
     val canRefresh = playlistType == PlaylistType.LIKE || playlistType == PlaylistType.UPLOADED
 

@@ -2,6 +2,7 @@
 
 package iad1tya.echo.music.ui.screens
 
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
@@ -43,7 +44,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -88,11 +88,11 @@ fun ChartsScreen(
     val menuState = LocalMenuState.current
     val haptic = LocalHapticFeedback.current
     val playerConnection = LocalPlayerConnection.current ?: return
-    val isPlaying by playerConnection.isEffectivelyPlaying.collectAsState()
-    val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
+    val isPlaying by playerConnection.isEffectivelyPlaying.collectAsStateWithLifecycle()
+    val mediaMetadata by playerConnection.mediaMetadata.collectAsStateWithLifecycle()
 
-    val chartsPage by viewModel.chartsPage.collectAsState()
-    val isLoading by viewModel.isLoading.collectAsState()
+    val chartsPage by viewModel.chartsPage.collectAsStateWithLifecycle()
+    val isLoading by viewModel.isLoading.collectAsStateWithLifecycle()
 
     val lazyListState = rememberLazyListState()
     val coroutineScope = rememberCoroutineScope()

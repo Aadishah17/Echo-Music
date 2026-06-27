@@ -2,6 +2,7 @@
 
 package iad1tya.echo.music.ui.player
 
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateFloat
@@ -44,7 +45,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -264,11 +264,11 @@ fun Thumbnail(
     val layoutDirection = LocalLayoutDirection.current
 
     
-    val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
-    val error by playerConnection.error.collectAsState()
-    val queueTitle by playerConnection.queueTitle.collectAsState()
-    val canSkipPrevious by playerConnection.canSkipPrevious.collectAsState()
-    val canSkipNext by playerConnection.canSkipNext.collectAsState()
+    val mediaMetadata by playerConnection.mediaMetadata.collectAsStateWithLifecycle()
+    val error by playerConnection.error.collectAsStateWithLifecycle()
+    val queueTitle by playerConnection.queueTitle.collectAsStateWithLifecycle()
+    val canSkipPrevious by playerConnection.canSkipPrevious.collectAsStateWithLifecycle()
+    val canSkipNext by playerConnection.canSkipNext.collectAsStateWithLifecycle()
 
     
     
@@ -511,7 +511,7 @@ private fun ThumbnailHeader(
     modifier: Modifier = Modifier
 ) {
     val listenTogetherManager = LocalListenTogetherManager.current
-    val listenTogetherRoleState = listenTogetherManager?.role?.collectAsState(initial = RoomRole.NONE)
+    val listenTogetherRoleState = listenTogetherManager?.role?.collectAsStateWithLifecycle(initialValue = RoomRole.NONE)
     val isListenTogetherGuest = listenTogetherRoleState?.value == RoomRole.GUEST
     Box(
         modifier = modifier
@@ -582,7 +582,7 @@ private fun ThumbnailItem(
     modifier: Modifier = Modifier,
 ) {
     val rotatingThumbnail by rememberPreference(RotatingThumbnailKey, defaultValue = false)
-    val isPlaying by playerConnection.isPlaying.collectAsState()
+    val isPlaying by playerConnection.isPlaying.collectAsStateWithLifecycle()
     val isCurrentItem = item.mediaId == currentMediaId
     
     val infiniteTransition = rememberInfiniteTransition(label = "ThumbnailRotation")

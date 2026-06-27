@@ -2,6 +2,7 @@
 
 package iad1tya.echo.music.ui.screens
 
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.animation.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
@@ -48,9 +49,9 @@ import java.util.*
 @Composable
 fun CommentTogetherScreen(navController: NavController) {
     val manager = LocalListenTogetherManager.current ?: return
-    val messages by manager.chatMessages.collectAsState()
-    val userId by manager.userId.collectAsState()
-    val roomState by manager.roomState.collectAsState()
+    val messages by manager.chatMessages.collectAsStateWithLifecycle()
+    val userId by manager.userId.collectAsStateWithLifecycle()
+    val roomState by manager.roomState.collectAsStateWithLifecycle()
     val windowInsets = LocalPlayerAwareWindowInsets.current
     
     var textInput by remember { mutableStateOf("") }

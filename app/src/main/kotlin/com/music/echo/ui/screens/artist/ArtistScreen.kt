@@ -2,6 +2,7 @@
 
 package iad1tya.echo.music.ui.screens.artist
 
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -53,7 +54,6 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -159,14 +159,14 @@ fun ArtistScreen(
     val playerConnection = LocalPlayerConnection.current ?: return
     val listenTogetherManager = LocalListenTogetherManager.current
     val isGuest = listenTogetherManager?.isInRoom == true && !listenTogetherManager.isHost
-    val isPlaying by playerConnection.isEffectivelyPlaying.collectAsState()
-    val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
+    val isPlaying by playerConnection.isEffectivelyPlaying.collectAsStateWithLifecycle()
+    val mediaMetadata by playerConnection.mediaMetadata.collectAsStateWithLifecycle()
     val artistPage = viewModel.artistPage
-    val libraryArtist by viewModel.libraryArtist.collectAsState()
-    val librarySongs by viewModel.librarySongs.collectAsState()
-    val libraryAlbums by viewModel.libraryAlbums.collectAsState()
-    val artistVideoUrl by viewModel.artistVideoUrl.collectAsState()
-    val artistVideoSong by viewModel.artistVideoSong.collectAsState()
+    val libraryArtist by viewModel.libraryArtist.collectAsStateWithLifecycle()
+    val librarySongs by viewModel.librarySongs.collectAsStateWithLifecycle()
+    val libraryAlbums by viewModel.libraryAlbums.collectAsStateWithLifecycle()
+    val artistVideoUrl by viewModel.artistVideoUrl.collectAsStateWithLifecycle()
+    val artistVideoSong by viewModel.artistVideoSong.collectAsStateWithLifecycle()
     val hideExplicit by rememberPreference(key = HideExplicitKey, defaultValue = false)
     val showArtistDescription by rememberPreference(key = ShowArtistDescriptionKey, defaultValue = true)
     val showArtistSubscriberCount by rememberPreference(key = ShowArtistSubscriberCountKey, defaultValue = true)
