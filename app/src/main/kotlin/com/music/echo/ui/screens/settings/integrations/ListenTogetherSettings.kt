@@ -2,6 +2,7 @@
 
 package iad1tya.echo.music.ui.screens.settings.integrations
 
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -42,7 +43,6 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -94,14 +94,14 @@ highlightKey: String? = null) {
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
     
-    val connectionState by viewModel.connectionState.collectAsState()
-    val roomState by viewModel.roomState.collectAsState()
-    val role by viewModel.role.collectAsState()
-    val pendingJoinRequests by viewModel.pendingJoinRequests.collectAsState()
-    val logs by viewModel.logs.collectAsState()
-    val blockedUsernames by viewModel.blockedUsernames.collectAsState()
+    val connectionState by viewModel.connectionState.collectAsStateWithLifecycle()
+    val roomState by viewModel.roomState.collectAsStateWithLifecycle()
+    val role by viewModel.role.collectAsStateWithLifecycle()
+    val pendingJoinRequests by viewModel.pendingJoinRequests.collectAsStateWithLifecycle()
+    val logs by viewModel.logs.collectAsStateWithLifecycle()
+    val blockedUsernames by viewModel.blockedUsernames.collectAsStateWithLifecycle()
     
-    val servers by ListenTogetherServers.serversFlow.collectAsState()
+    val servers by ListenTogetherServers.serversFlow.collectAsStateWithLifecycle()
     var serverUrl by rememberPreference(ListenTogetherServerUrlKey, ListenTogetherServers.defaultServerUrl)
     var username by rememberPreference(ListenTogetherUsernameKey, "")
     var autoApproval by rememberPreference(ListenTogetherAutoApprovalKey, false)

@@ -2,6 +2,7 @@
 
 package iad1tya.echo.music.ui.screens.search.suggestions
 
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
@@ -17,7 +18,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -64,12 +64,12 @@ fun SuggestionsTabContent(
     viewModel: SuggestionsViewModel = hiltViewModel(),
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ) {
-    val suggestionTracks by viewModel.suggestionTracks.collectAsState()
-    val suggestionArtists by viewModel.suggestionArtists.collectAsState()
-    val suggestionAlbums by viewModel.suggestionAlbums.collectAsState()
-    val suggestionVideos by viewModel.suggestionVideos.collectAsState()
-    val isLoading by viewModel.isLoading.collectAsState()
-    val isManualLoading by viewModel.isManualLoading.collectAsState()
+    val suggestionTracks by viewModel.suggestionTracks.collectAsStateWithLifecycle()
+    val suggestionArtists by viewModel.suggestionArtists.collectAsStateWithLifecycle()
+    val suggestionAlbums by viewModel.suggestionAlbums.collectAsStateWithLifecycle()
+    val suggestionVideos by viewModel.suggestionVideos.collectAsStateWithLifecycle()
+    val isLoading by viewModel.isLoading.collectAsStateWithLifecycle()
+    val isManualLoading by viewModel.isManualLoading.collectAsStateWithLifecycle()
     val uriHandler = androidx.compose.ui.platform.LocalUriHandler.current
     val playerConnection = iad1tya.echo.music.LocalPlayerConnection.current
     val context = LocalContext.current
