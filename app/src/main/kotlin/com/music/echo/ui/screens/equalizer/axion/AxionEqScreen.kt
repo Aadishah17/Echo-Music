@@ -36,6 +36,7 @@ import iad1tya.echo.music.ui.component.Material3SettingsItem
 import iad1tya.echo.music.ui.utils.backToMain
 import kotlin.math.abs
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
@@ -43,9 +44,9 @@ fun AxionEqScreen(
     onBackClick: () -> Unit,
     viewModel: AxionEqViewModel = hiltViewModel()
 ) {
-    val enabled by viewModel.enabled.collectAsState()
-    val bandGains by viewModel.bandGains.collectAsState()
-    val mode by viewModel.mode.collectAsState()
+    val enabled by viewModel.enabled.collectAsStateWithLifecycle()
+    val bandGains by viewModel.bandGains.collectAsStateWithLifecycle()
+    val mode by viewModel.mode.collectAsStateWithLifecycle()
 
     Scaffold(
         topBar = {
@@ -128,7 +129,7 @@ fun AxionEqScreen(
                 },
                 label = "eqMode",
             ) { currentMode ->
-                val isDirty by viewModel.isDirty.collectAsState()
+                val isDirty by viewModel.isDirty.collectAsStateWithLifecycle()
                 var showSaveDialog by remember { mutableStateOf(false) }
 
                 if (showSaveDialog) {
@@ -239,7 +240,7 @@ private fun SimpleEqMode(
         R.string.eq_preset_dirac_game to floatArrayOf(150f, 250f, 200f, 0f, 80f, 150f, 300f, 450f, 400f, 280f),
     )
 
-    val customProfiles by viewModel.customProfiles.collectAsState()
+    val customProfiles by viewModel.customProfiles.collectAsStateWithLifecycle()
     var showManageDialog by remember { mutableStateOf(false) }
 
     if (showManageDialog) {

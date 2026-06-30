@@ -43,14 +43,15 @@ import android.widget.Toast
 import androidx.compose.ui.platform.LocalContext
 import java.text.SimpleDateFormat
 import java.util.*
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CommentTogetherScreen(navController: NavController) {
     val manager = LocalListenTogetherManager.current ?: return
-    val messages by manager.chatMessages.collectAsState()
-    val userId by manager.userId.collectAsState()
-    val roomState by manager.roomState.collectAsState()
+    val messages by manager.chatMessages.collectAsStateWithLifecycle()
+    val userId by manager.userId.collectAsStateWithLifecycle()
+    val roomState by manager.roomState.collectAsStateWithLifecycle()
     val windowInsets = LocalPlayerAwareWindowInsets.current
     
     var textInput by remember { mutableStateOf("") }

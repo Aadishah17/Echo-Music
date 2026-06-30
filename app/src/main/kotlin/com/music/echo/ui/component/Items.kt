@@ -46,7 +46,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
@@ -125,6 +124,7 @@ import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlin.math.roundToInt
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 const val ActiveBoxAlpha = 0.6f
 
@@ -432,7 +432,7 @@ fun SongListItem(
         }
         if (showDownloadIcon) {
             val download by LocalDownloadUtil.current.getDownload(song.id)
-                .collectAsState(initial = null)
+                .collectAsStateWithLifecycle(initialValue = null)
             Icon.Download(download?.state)
         }
     },
@@ -509,7 +509,7 @@ fun SongGridItem(
             Icon.Library()
         }
         if (showDownloadIcon) {
-            val download by LocalDownloadUtil.current.getDownload(song.id).collectAsState(initial = null)
+            val download by LocalDownloadUtil.current.getDownload(song.id).collectAsStateWithLifecycle(initialValue = null)
             Icon.Download(download?.state)
         }
     },
@@ -652,7 +652,7 @@ fun AlbumListItem(
             }
         }
 
-        val allDownloads by downloadUtil.downloads.collectAsState()
+        val allDownloads by downloadUtil.downloads.collectAsStateWithLifecycle()
 
         val downloadState by remember(songs, allDownloads) {
             androidx.compose.runtime.mutableIntStateOf(
@@ -717,7 +717,7 @@ fun AlbumGridItem(
             }
         }
 
-        val allDownloads by downloadUtil.downloads.collectAsState()
+        val allDownloads by downloadUtil.downloads.collectAsStateWithLifecycle()
 
         val downloadState by remember(songs, allDownloads) {
             androidx.compose.runtime.mutableIntStateOf(
@@ -811,7 +811,7 @@ fun PlaylistListItem(
             }
         }
 
-        val allDownloads by downloadUtil.downloads.collectAsState()
+        val allDownloads by downloadUtil.downloads.collectAsStateWithLifecycle()
 
         val downloadState by remember(songs, allDownloads) {
             androidx.compose.runtime.mutableIntStateOf(
@@ -903,7 +903,7 @@ fun PlaylistGridItem(
             }
         }
 
-        val allDownloads by downloadUtil.downloads.collectAsState()
+        val allDownloads by downloadUtil.downloads.collectAsStateWithLifecycle()
 
         val downloadState by remember(songs, allDownloads) {
             mutableIntStateOf(
@@ -1087,7 +1087,7 @@ fun YouTubeListItem(
         if (item.explicit) Icon.Explicit()
         
         if (item is SongItem) {
-            val download by LocalDownloadUtil.current.getDownload(item.id).collectAsState(null)
+            val download by LocalDownloadUtil.current.getDownload(item.id).collectAsStateWithLifecycle(initialValue = null)
             Icon.Download(download?.state)
         }
     },
@@ -1160,7 +1160,7 @@ fun YouTubeGridItem(
         if (item.explicit) Icon.Explicit()
         
         if (item is SongItem) {
-            val download by LocalDownloadUtil.current.getDownload(item.id).collectAsState(null)
+            val download by LocalDownloadUtil.current.getDownload(item.id).collectAsStateWithLifecycle(initialValue = null)
             Icon.Download(download?.state)
         }
     },
