@@ -162,6 +162,7 @@
     <string name="lyrics_thumbnail_play_pause">Show play/pause on thumbnail</string>
     <string name="lyrics_thumbnail_play_pause_desc">Show a play/pause button overlay on the song thumbnail in full-screen lyrics</string>
 
+    <string name="picker_not_available">Document picker is not available on this device. Using app\'s default export directory.</string>
     <string name="edit_song">Edit song</string>
     <string name="song_title">Song title</string>
     <string name="song_artists">Song artists</string>
@@ -413,6 +414,11 @@
     <string name="spotify_connect">Connect Spotify</string>
     <string name="spotify_refresh">Refresh Spotify library</string>
     <string name="spotify_select_sources">Select Spotify playlists</string>
+    <string name="spotify_import_by_link">Import playlist by link</string>
+    <string name="spotify_import_by_link_desc">Paste a Spotify playlist link to import it — even playlists you don\'t own</string>
+    <string name="spotify_import_by_link_hint">https://open.spotify.com/playlist/…</string>
+    <string name="spotify_add">Add</string>
+    <string name="spotify_invalid_playlist_link">That doesn\'t look like a Spotify playlist link. Use a link like https://open.spotify.com/playlist/…</string>
     <string name="spotify_import_selected">Import selected</string>
     <string name="spotify_selected_count">%1$d selected</string>
     <string name="spotify_available_count">%1$d sources available</string>
@@ -478,7 +484,7 @@
     <string name="echo_brain_import_failed_invalid_file">Import failed — invalid file</string>
     <string name="listenbrainz_scrobbling">ListenBrainz scrobbling</string>
     <string name="listenbrainz_scrobbling_description">Automatically submit your listened tracks to ListenBrainz</string>
+    <string name="export_directory_unavailable">Unable to access an export directory on this device. Please set one manually.</string>
     <string name="set_listenbrainz_token">Set ListenBrainz Token</string>
-    <string name="edit_listenbrainz_token">Edit ListenBrainz Token</string>
-    
+
 </resources>

@@ -35,6 +35,7 @@ import iad1tya.echo.music.utils.reportException
 import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -74,9 +75,19 @@ class App : Application(), SingletonImageLoader.Factory {
             Timber.plant(Timber.DebugTree())
         }
 
-        
+        applicationScope.launch(Dispatchers.IO) {
+            cachedCoilCacheSize = dataStore.data.map { it[MaxImageCacheSizeKey] ?: 512 }.first()
+        }
+
         applicationScope.launch {
             initializeSettings()
+            
+            // Warm the cipher WebView off the first-play critical path
+            launch(Dispatchers.IO) {
+                delay(1500)
+                CipherDeobfuscator.prewarm()
+            }
+            
             observeSettingsChanges()
         }
     }
@@ -156,6 +167,11 @@ class App : Application(), SingletonImageLoader.Factory {
                 }
         }
 
+        com.music.echo.utils.lastfm.LastFM.initialize(
+            apiKey = BuildConfig.LASTFM_API_KEY.takeIf { it.isNotEmpty() } ?: "",
+            secret = BuildConfig.LASTFM_SECRET.takeIf { it.isNotEmpty() } ?: "",
+        )
+
         applicationScope.launch(Dispatchers.IO) {
             dataStore.data
                 .map { it[DataSyncIdKey] }
@@ -219,8 +235,11 @@ class App : Application(), SingletonImageLoader.Factory {
         }
     }
 
+    @Volatile
+    private var cachedCoilCacheSize: Int? = null
+
     override fun newImageLoader(context: PlatformContext): ImageLoader {
-        val cacheSize = runBlocking {
+        val cacheSize = cachedCoilCacheSize ?: runBlocking {
             dataStore.data.map { it[MaxImageCacheSizeKey] ?: 512 }.first()
         }
         return ImageLoader.Builder(this).apply {

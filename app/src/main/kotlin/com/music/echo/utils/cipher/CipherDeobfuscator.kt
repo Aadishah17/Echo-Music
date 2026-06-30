@@ -19,6 +19,14 @@ object CipherDeobfuscator {
     private var cipherWebView: CipherWebView? = null
     private var currentPlayerHash: String? = null
 
+    suspend fun prewarm() {
+        try {
+            getOrCreateWebView(forceRefresh = false)
+        } catch (e: Exception) {
+            Timber.tag(TAG).e(e, "Cipher WebView prewarm failed")
+        }
+    }
+
     suspend fun deobfuscateStreamUrl(signatureCipher: String, videoId: String): String? {
         return try {
             deobfuscateInternal(signatureCipher, videoId, isRetry = false)
