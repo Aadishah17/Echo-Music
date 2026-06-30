@@ -9,7 +9,6 @@ import iad1tya.echo.music.ui.component.RingtoneProgressDialog
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 
 import android.Manifest
@@ -79,7 +78,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -225,6 +223,7 @@ import java.net.URLDecoder
 import java.net.URLEncoder
 import java.util.Locale
 import javax.inject.Inject
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @Suppress("DEPRECATION", "ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE")
 @AndroidEntryPoint
@@ -541,7 +540,7 @@ class MainActivity : ComponentActivity() {
 
                 val navController = rememberNavController()
                 val homeViewModel: HomeViewModel = hiltViewModel()
-                val accountImageUrl by homeViewModel.accountImageUrl.collectAsState()
+                val accountImageUrl by homeViewModel.accountImageUrl.collectAsStateWithLifecycle()
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
                 val (previousTab, setPreviousTab) = rememberSaveable { mutableStateOf("home") }
 
@@ -826,7 +825,7 @@ class MainActivity : ComponentActivity() {
 
 
                 val pauseListenHistory by rememberPreference(PauseListenHistoryKey, defaultValue = false)
-                val eventCount by database.eventCount().collectAsState(initial = 0)
+                val eventCount by database.eventCount().collectAsStateWithLifecycle(initialValue = 0)
                 val showHistoryButton = remember(pauseListenHistory, eventCount) {
                     !(pauseListenHistory && eventCount == 0)
                 }
@@ -834,7 +833,7 @@ class MainActivity : ComponentActivity() {
                 val baseBg = if (pureBlack) Color.Black else MaterialTheme.colorScheme.surfaceContainer
 
                 val ringtoneViewModel: RingtoneViewModel = viewModel()
-                val ringtoneUiState by ringtoneViewModel.uiState.collectAsState()
+                val ringtoneUiState by ringtoneViewModel.uiState.collectAsStateWithLifecycle()
 
                 CompositionLocalProvider(
                     LocalRingtoneViewModel provides ringtoneViewModel,
@@ -1209,7 +1208,7 @@ class MainActivity : ComponentActivity() {
                         }
                     }
 
-                    val ringtoneUiState by ringtoneViewModel.uiState.collectAsState()
+                    val ringtoneUiState by ringtoneViewModel.uiState.collectAsStateWithLifecycle()
                     RingtoneTrimmerDialog(
                         isVisible = ringtoneUiState.showTrimmer,
                         songId = ringtoneUiState.targetSongId,

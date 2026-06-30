@@ -21,7 +21,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -62,6 +61,7 @@ import iad1tya.echo.music.utils.makeTimeString
 import iad1tya.echo.music.viewmodels.StatsViewModel
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
@@ -72,29 +72,29 @@ fun StatsScreen(
     val menuState = LocalMenuState.current
     val haptic = LocalHapticFeedback.current
     val playerConnection = LocalPlayerConnection.current ?: return
-    val isPlaying by playerConnection.isEffectivelyPlaying.collectAsState()
-    val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
+    val isPlaying by playerConnection.isEffectivelyPlaying.collectAsStateWithLifecycle()
+    val mediaMetadata by playerConnection.mediaMetadata.collectAsStateWithLifecycle()
     val context = LocalContext.current
 
-    val indexChips by viewModel.indexChips.collectAsState()
-    val mostPlayedSongs by viewModel.mostPlayedSongs.collectAsState()
-    val mostPlayedSongsStats by viewModel.mostPlayedSongsStats.collectAsState()
-    val mostPlayedArtists by viewModel.mostPlayedArtists.collectAsState()
-    val mostPlayedAlbums by viewModel.mostPlayedAlbums.collectAsState()
-    val firstEvent by viewModel.firstEvent.collectAsState()
+    val indexChips by viewModel.indexChips.collectAsStateWithLifecycle()
+    val mostPlayedSongs by viewModel.mostPlayedSongs.collectAsStateWithLifecycle()
+    val mostPlayedSongsStats by viewModel.mostPlayedSongsStats.collectAsStateWithLifecycle()
+    val mostPlayedArtists by viewModel.mostPlayedArtists.collectAsStateWithLifecycle()
+    val mostPlayedAlbums by viewModel.mostPlayedAlbums.collectAsStateWithLifecycle()
+    val firstEvent by viewModel.firstEvent.collectAsStateWithLifecycle()
     val currentDate = LocalDateTime.now()
 
-    val totalPlayTime by viewModel.totalPlayTime.collectAsState()
-    val allTimePlayTime by viewModel.allTimePlayTime.collectAsState()
-    val uniqueSongsCount by viewModel.uniqueSongsCount.collectAsState()
-    val uniqueArtistsCount by viewModel.uniqueArtistsCount.collectAsState()
-    val uniqueAlbumsCount by viewModel.uniqueAlbumsCount.collectAsState()
+    val totalPlayTime by viewModel.totalPlayTime.collectAsStateWithLifecycle()
+    val allTimePlayTime by viewModel.allTimePlayTime.collectAsStateWithLifecycle()
+    val uniqueSongsCount by viewModel.uniqueSongsCount.collectAsStateWithLifecycle()
+    val uniqueArtistsCount by viewModel.uniqueArtistsCount.collectAsStateWithLifecycle()
+    val uniqueAlbumsCount by viewModel.uniqueAlbumsCount.collectAsStateWithLifecycle()
 
     var showHistorySheet by remember { mutableStateOf(false) }
 
     val coroutineScope = rememberCoroutineScope()
     val lazyListState = rememberLazyListState()
-    val selectedOption by viewModel.selectedOption.collectAsState()
+    val selectedOption by viewModel.selectedOption.collectAsStateWithLifecycle()
 
     val weeklyDates =
         if (currentDate != null && firstEvent != null) {
