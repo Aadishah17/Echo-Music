@@ -1794,7 +1794,8 @@ class MusicService :
     ) {
         
         if (reason == Player.MEDIA_ITEM_TRANSITION_REASON_AUTO) {
-            val repeatMode = runBlocking { dataStore.get(RepeatModeKey, REPEAT_MODE_OFF) }
+            // ⚡ Bolt Optimization: Replace synchronous DataStore read on main thread with cached player property
+            val repeatMode = player.repeatMode
             if (repeatMode == REPEAT_MODE_ONE &&
                 previousMediaItemIndex != C.INDEX_UNSET &&
                 previousMediaItemIndex != player.currentMediaItemIndex) {
@@ -1876,7 +1877,8 @@ class MusicService :
     ) {
         
         if (playbackState == Player.STATE_ENDED) {
-            val repeatMode = runBlocking { dataStore.get(RepeatModeKey, REPEAT_MODE_OFF) }
+            // ⚡ Bolt Optimization: Replace synchronous DataStore read on main thread with cached player property
+            val repeatMode = player.repeatMode
             if (repeatMode == REPEAT_MODE_ALL && player.mediaItemCount > 0) {
                 player.seekTo(0, 0)
                 player.prepare()
