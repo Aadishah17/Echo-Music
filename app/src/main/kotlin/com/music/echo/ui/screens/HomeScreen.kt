@@ -588,7 +588,7 @@ fun HomeScreen(
     val speedDialItems by viewModel.speedDialItems.collectAsStateWithLifecycle()
     val selectedChip by viewModel.selectedChip.collectAsStateWithLifecycle()
 
-    val isLoading: Boolean by viewModel.isLoading.collectAsState()
+    val isLoading: Boolean by viewModel.isLoading.collectAsStateWithLifecycle()
     val isMoodAndGenresLoading = isLoading && explorePage?.moodAndGenres == null
     val isRefreshing by viewModel.isRefreshing.collectAsStateWithLifecycle()
     val isRandomizing by viewModel.isRandomizing.collectAsStateWithLifecycle()
