@@ -375,7 +375,10 @@ fun OnlinePlaylistScreen(
                                     .fillMaxWidth()
                                     .animateItem()
                             ) {
-                                items(relatedItems) { item ->
+                                items(
+                                    items = relatedItems,
+                                    key = { it.id }
+                                ) { item ->
                                     YouTubeGridItem(
                                         item = item,
                                         modifier = Modifier

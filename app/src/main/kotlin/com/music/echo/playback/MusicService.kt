@@ -1794,7 +1794,7 @@ class MusicService :
     ) {
         
         if (reason == Player.MEDIA_ITEM_TRANSITION_REASON_AUTO) {
-            val repeatMode = runBlocking { dataStore.get(RepeatModeKey, REPEAT_MODE_OFF) }
+            val repeatMode = player.repeatMode
             if (repeatMode == REPEAT_MODE_ONE &&
                 previousMediaItemIndex != C.INDEX_UNSET &&
                 previousMediaItemIndex != player.currentMediaItemIndex) {
@@ -1876,7 +1876,7 @@ class MusicService :
     ) {
         
         if (playbackState == Player.STATE_ENDED) {
-            val repeatMode = runBlocking { dataStore.get(RepeatModeKey, REPEAT_MODE_OFF) }
+            val repeatMode = player.repeatMode
             if (repeatMode == REPEAT_MODE_ALL && player.mediaItemCount > 0) {
                 player.seekTo(0, 0)
                 player.prepare()
@@ -3221,8 +3221,8 @@ class MusicService :
 
         
         
-        val savedRepeatMode = runBlocking { dataStore.get(RepeatModeKey, REPEAT_MODE_OFF) }
-        val savedShuffleEnabled = runBlocking { dataStore.get(ShuffleModeKey, false) }
+        val savedRepeatMode = player.repeatMode
+        val savedShuffleEnabled = player.shuffleModeEnabled
 
         
         val targetIndex = if (savedRepeatMode == REPEAT_MODE_ONE) {
@@ -3385,25 +3385,32 @@ class MusicService :
     private var preloadJob: kotlinx.coroutines.Job? = null
 
     private fun preloadUpcomingItems() {
-        val preloadEnabled = kotlinx.coroutines.runBlocking { dataStore.get(iad1tya.echo.music.constants.PreloadNextSongEnabledKey, true) }
-        if (!preloadEnabled) return
-
-        val preloadLimit = kotlinx.coroutines.runBlocking { dataStore.get(iad1tya.echo.music.constants.PreloadNextSongLimitKey, 1) }
-        val preloadLyrics = kotlinx.coroutines.runBlocking { dataStore.get(iad1tya.echo.music.constants.PreloadLyricsEnabledKey, true) }
-
         val currentIndex = player.currentMediaItemIndex
         if (currentIndex == androidx.media3.common.C.INDEX_UNSET) return
 
-        val limit = kotlin.math.min(preloadLimit, player.mediaItemCount - currentIndex - 1)
-        if (limit <= 0) return
-
-        val upcomingMediaIds = mutableListOf<String>()
-        for (i in 1..limit) {
-            upcomingMediaIds.add(player.getMediaItemAt(currentIndex + i).mediaId)
-        }
-
         preloadJob?.cancel()
         preloadJob = scope.launch(kotlinx.coroutines.Dispatchers.IO) {
+            val preloadEnabled = dataStore.get(iad1tya.echo.music.constants.PreloadNextSongEnabledKey, true)
+            if (!preloadEnabled) return@launch
+
+            val preloadLimit = dataStore.get(iad1tya.echo.music.constants.PreloadNextSongLimitKey, 1)
+            val preloadLyrics = dataStore.get(iad1tya.echo.music.constants.PreloadLyricsEnabledKey, true)
+
+            // Switch back to main thread safely to read player state
+            val upcomingMediaIds = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Main) {
+                if (player.currentMediaItemIndex != currentIndex) return@withContext emptyList<String>()
+
+                val limit = kotlin.math.min(preloadLimit, player.mediaItemCount - currentIndex - 1)
+                if (limit <= 0) return@withContext emptyList<String>()
+
+                val ids = mutableListOf<String>()
+                for (i in 1..limit) {
+                    ids.add(player.getMediaItemAt(currentIndex + i).mediaId)
+                }
+                ids
+            }
+
+            if (upcomingMediaIds.isEmpty()) return@launch
             for (mediaId in upcomingMediaIds) {
 
                 val isFullyDownloaded = downloadCache.getCachedSpans(mediaId).isNotEmpty()
