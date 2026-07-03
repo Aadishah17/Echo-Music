@@ -112,8 +112,8 @@ import iad1tya.echo.music.ui.component.DraggableLyricsProviderList
 import androidx.compose.runtime.mutableStateListOf
 import iad1tya.echo.music.utils.PlaybackLogManager
 import iad1tya.echo.music.ui.component.PlaybackLogsDialog
-import androidx.compose.runtime.collectAsState
 import java.net.Proxy
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -171,7 +171,7 @@ highlightKey: String? = null) {
 
     var showPlaybackLogsDialog by rememberSaveable { mutableStateOf(false) }
     var showSuggestionSheet by rememberSaveable { mutableStateOf(false) }
-    val playbackLogs by PlaybackLogManager.logs.collectAsState()
+    val playbackLogs by PlaybackLogManager.logs.collectAsStateWithLifecycle()
 
     var showProxyConfigurationDialog by rememberSaveable {
         mutableStateOf(false)

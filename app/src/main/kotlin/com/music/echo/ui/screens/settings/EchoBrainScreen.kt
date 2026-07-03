@@ -37,6 +37,7 @@ import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -51,7 +52,7 @@ fun EchoBrainScreen(
     var userBrain by remember { mutableStateOf<UserBrain?>(null) }
     var persona by remember { mutableStateOf<EchoBrainPersona?>(null) }
     var isLoaded by remember { mutableStateOf(false) }
-    val isEnabled by engine.isEnabled.collectAsState()
+    val isEnabled by engine.isEnabled.collectAsStateWithLifecycle()
 
     LaunchedEffect(Unit) {
         userBrain = engine.getBrainSnapshot()

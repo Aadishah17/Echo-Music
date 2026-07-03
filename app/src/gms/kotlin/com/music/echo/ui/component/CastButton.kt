@@ -16,7 +16,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -39,6 +38,7 @@ import iad1tya.echo.music.R
 import iad1tya.echo.music.constants.EnableGoogleCastKey
 import iad1tya.echo.music.utils.rememberPreference
 import timber.log.Timber
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 /**
  * A Composable Cast button that shows available Cast devices.
@@ -66,12 +66,12 @@ fun CastButton(
     
     // Get cast state from service
     val castHandler = playerConnection?.service?.castConnectionHandler
-    val isCasting by castHandler?.isCasting?.collectAsState() ?: remember { mutableStateOf(false) }
-    val isConnecting by castHandler?.isConnecting?.collectAsState() ?: remember { mutableStateOf(false) }
-    val castDeviceName by castHandler?.castDeviceName?.collectAsState() ?: remember { mutableStateOf(null) }
+    val isCasting by castHandler?.isCasting?.collectAsStateWithLifecycle() ?: remember { mutableStateOf(false) }
+    val isConnecting by castHandler?.isConnecting?.collectAsStateWithLifecycle() ?: remember { mutableStateOf(false) }
+    val castDeviceName by castHandler?.castDeviceName?.collectAsStateWithLifecycle() ?: remember { mutableStateOf(null) }
     
     // Get current media metadata
-    val currentMetadata by playerConnection?.mediaMetadata?.collectAsState() ?: remember { mutableStateOf(null) }
+    val currentMetadata by playerConnection?.mediaMetadata?.collectAsStateWithLifecycle() ?: remember { mutableStateOf(null) }
 
     // Check if Cast is available and disconnect if disabled while casting
     LaunchedEffect(enableGoogleCast) {
