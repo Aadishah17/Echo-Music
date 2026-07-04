@@ -35,7 +35,6 @@ import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -70,6 +69,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
@@ -80,7 +80,7 @@ fun RecognitionHistoryScreen(
     val menuState = LocalMenuState.current
     val coroutineScope = rememberCoroutineScope()
 
-    val historyItems by database.recognitionHistory().collectAsState(initial = emptyList())
+    val historyItems by database.recognitionHistory().collectAsStateWithLifecycle(initialValue = emptyList())
     var showClearDialog by remember { mutableStateOf(false) }
     var itemToDelete by remember { mutableStateOf<RecognitionHistory?>(null) }
 

@@ -93,7 +93,6 @@ import iad1tya.echo.music.ui.screens.search.suggestions.SuggestionsTabContent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.net.URLEncoder
-import androidx.compose.runtime.collectAsState
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.lazy.items
@@ -113,6 +112,7 @@ import iad1tya.echo.music.ui.menu.YouTubeAlbumMenu
 import iad1tya.echo.music.constants.GridThumbnailHeight
 import iad1tya.echo.music.constants.GridItemsSizeKey
 import iad1tya.echo.music.constants.GridItemSize
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -454,7 +454,7 @@ fun ExploreTabContent(
     viewModel: MoodAndGenresViewModel = hiltViewModel(),
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ) {
-    val moodAndGenresList by viewModel.moodAndGenres.collectAsState()
+    val moodAndGenresList by viewModel.moodAndGenres.collectAsStateWithLifecycle()
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -530,11 +530,11 @@ fun AlbumsTabContent(
     val menuState = LocalMenuState.current
     val haptic = LocalHapticFeedback.current
     val playerConnection = LocalPlayerConnection.current
-    val mediaMetadata by (playerConnection?.mediaMetadata?.collectAsState() ?: remember { mutableStateOf(null) })
-    val isPlaying by (playerConnection?.isEffectivelyPlaying?.collectAsState() ?: remember { mutableStateOf(false) })
+    val mediaMetadata by (playerConnection?.mediaMetadata?.collectAsStateWithLifecycle() ?: remember { mutableStateOf(null) })
+    val isPlaying by (playerConnection?.isEffectivelyPlaying?.collectAsStateWithLifecycle() ?: remember { mutableStateOf(false) })
     val coroutineScope = rememberCoroutineScope()
     
-    val explorePage by viewModel.explorePage.collectAsState()
+    val explorePage by viewModel.explorePage.collectAsStateWithLifecycle()
     val newReleaseAlbums = explorePage?.newReleaseAlbums
 
     val gridItemSize by rememberEnumPreference(GridItemsSizeKey, GridItemSize.BIG)

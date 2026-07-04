@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -36,6 +35,7 @@ import iad1tya.echo.music.lyrics.LyricsEntry
 import iad1tya.echo.music.lyrics.WordTimestamp
 import kotlin.math.PI
 import kotlin.math.sin
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -108,7 +108,7 @@ fun LyricsLineV2(
 
     
     if (showTranslated) {
-        val translatedText by entry.translatedTextFlow.collectAsState()
+        val translatedText by entry.translatedTextFlow.collectAsStateWithLifecycle()
         translatedText?.let { translated ->
             Text(
                 text = translated,

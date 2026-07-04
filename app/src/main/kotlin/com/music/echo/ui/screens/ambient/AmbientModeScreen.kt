@@ -19,7 +19,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -40,12 +39,13 @@ import iad1tya.echo.music.LocalPlayerConnection
 import iad1tya.echo.music.extensions.togglePlayPause
 import iad1tya.echo.music.ui.player.InlineLyricsView
 import kotlin.math.abs
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @Composable
 fun AmbientModeScreen(navController: NavController) {
     val context = LocalContext.current
     val playerConnection = LocalPlayerConnection.current ?: return
-    val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
+    val mediaMetadata by playerConnection.mediaMetadata.collectAsStateWithLifecycle()
 
     DisposableEffect(Unit) {
         val activity = context as? Activity
