@@ -1,1 +1,5 @@
 ## 2024-05-18 - Compose Performance Optimization\n**Learning:** When collecting state flows in Jetpack Compose, using `collectAsState` without lifecycle awareness means flows will continue emitting updates even when the app is in the background, consuming CPU and battery. \n**Action:** Use `collectAsStateWithLifecycle()` from `androidx.lifecycle.compose` to ensure flow collection stops when the screen is hidden, making backgrounding the app much more efficient.
+
+## 2024-05-18 - Avoiding runBlocking in Main Thread
+**Learning:** Using `runBlocking` to synchronously read DataStore within ExoPlayer's main-thread callbacks (like `onMediaItemTransition` and `onPlaybackStateChanged`) blocks the main thread, leading to UI stutters, jank, and potential Application Not Responding (ANR) errors.
+**Action:** Instead of `runBlocking`, read directly from cached player properties (e.g., `player.repeatMode`, `player.shuffleModeEnabled`) which are kept in sync with the DataStore state, or launch asynchronous operations in a coroutine scope.
