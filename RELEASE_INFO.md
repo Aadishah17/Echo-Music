@@ -7,6 +7,7 @@ Echo Music v5.2.5
 - **Auto-Fetch Mechanism**: Echo Extractor automatically fetches updates randomly once every 24 hours on app startup.
 - **Refined UI**: Removed unnecessary extractor toggle cards and redundant text to ensure the settings page matches Echo Music's sleek aesthetics.
 - **AutoMix (Beta)**: Added DJ-style, beat-matched crossfades that analyze BPM and beat grid to tempo-match and align transitions, with automatic fallback to a regular crossfade when analysis is unclear (#770 by @barathsuresh).
+- **Lossless Funding Tracker**: Added a sleek "Lossless Music Funding Tracker" to the Player Settings to transparently display server costs and goals for Qobuz integration.
 - **Playlist Migration Crash Fix**: Fixed a crash on app open caused by the database migration trying to re-add an already-existing `isAutoSync` column (#755 by @jester-sys).
 - **Localization Update**: Updated Spanish translations to 100% coverage, including new strings for playlist export, listening history, Spotify import, and Echo Brain (#760 by @weblate).
 

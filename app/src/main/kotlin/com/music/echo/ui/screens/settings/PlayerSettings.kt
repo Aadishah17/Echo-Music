@@ -393,6 +393,8 @@ highlightKey: String? = null) {
             )
         )
 
+        iad1tya.echo.music.ui.component.FundingProgressCard()
+
         Material3SettingsGroup(scrollState = scrollState, 
             title = stringResource(R.string.player),
             items = buildList {
