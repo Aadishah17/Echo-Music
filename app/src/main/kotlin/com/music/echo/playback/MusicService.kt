@@ -1794,7 +1794,8 @@ class MusicService :
     ) {
         
         if (reason == Player.MEDIA_ITEM_TRANSITION_REASON_AUTO) {
-            val repeatMode = runBlocking { dataStore.get(RepeatModeKey, REPEAT_MODE_OFF) }
+            // ⚡ Bolt Optimization: Read cached repeatMode directly from player instead of synchronously querying DataStore to avoid main-thread blocking.
+            val repeatMode = player.repeatMode
             if (repeatMode == REPEAT_MODE_ONE &&
                 previousMediaItemIndex != C.INDEX_UNSET &&
                 previousMediaItemIndex != player.currentMediaItemIndex) {
@@ -1876,7 +1877,8 @@ class MusicService :
     ) {
         
         if (playbackState == Player.STATE_ENDED) {
-            val repeatMode = runBlocking { dataStore.get(RepeatModeKey, REPEAT_MODE_OFF) }
+            // ⚡ Bolt Optimization: Read cached repeatMode directly from player instead of synchronously querying DataStore to avoid main-thread blocking.
+            val repeatMode = player.repeatMode
             if (repeatMode == REPEAT_MODE_ALL && player.mediaItemCount > 0) {
                 player.seekTo(0, 0)
                 player.prepare()
@@ -3220,9 +3222,9 @@ class MusicService :
         if (isCrossfading) return
 
         
-        
-        val savedRepeatMode = runBlocking { dataStore.get(RepeatModeKey, REPEAT_MODE_OFF) }
-        val savedShuffleEnabled = runBlocking { dataStore.get(ShuffleModeKey, false) }
+        // ⚡ Bolt Optimization: Read cached repeatMode and shuffleModeEnabled directly from player instead of synchronously querying DataStore to avoid main-thread blocking.
+        val savedRepeatMode = player.repeatMode
+        val savedShuffleEnabled = player.shuffleModeEnabled
 
         
         val targetIndex = if (savedRepeatMode == REPEAT_MODE_ONE) {
