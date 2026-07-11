@@ -202,45 +202,92 @@ class EchoBrainEngine @Inject constructor(
                 }
             }
             
+            // 4. Existing upcoming Echo Brain tracks
+            val upcomingBrainMetadatas = mutableListOf<MediaMetadata>()
+            kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Main) {
+                val player = conn.player
+                for (i in player.currentMediaItemIndex + 1 until player.mediaItemCount) {
+                    val item = player.getMediaItemAt(i)
+                    if (item.metadata?.source == QueueItemSource.ECHO_BRAIN) {
+                        item.metadata?.let { upcomingBrainMetadatas.add(it) }
+                    }
+                }
+            }
+            
             // Await all sources
             val anchorCandidates = anchorDeferred.await()
             val momentumCandidates = momentumDeferred.await()
             val vaultCandidates = vaultDeferred.await()
             
-            val allCandidates = (anchorCandidates + momentumCandidates + vaultCandidates).distinctBy { it.id }
+            val allCandidates = (anchorCandidates + momentumCandidates + vaultCandidates + upcomingBrainMetadatas).distinctBy { it.id }
             
             if (allCandidates.isNotEmpty()) {
-            val recentSongs = buildSet {
-                for (i in 0 until conn.player.mediaItemCount) {
-                    conn.player.getMediaItemAt(i).metadata?.id?.let { add(it) }
-                }
-            }
-            
-            val ranked = neuroEngine.rank(allCandidates, recentSongs)
-            // Take top 3 for the "Runway"
-            val topCandidates = ranked.take(3)
-            
-            val itemsToInject = topCandidates.map { it ->
-                    val newMeta = MediaMetadata(
-                        id = it.id,
-                        title = it.title,
-                        artists = it.artists,
-                        duration = it.duration,
-                        album = it.album,
-                        source = QueueItemSource.ECHO_BRAIN,
-                        suggestedBy = "Echo Brain",
-                        thumbnailUrl = it.thumbnailUrl
-                    )
-                    newMeta.toMediaItem()
+                val recentSongs = buildSet {
+                    kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Main) {
+                        for (i in 0..conn.player.currentMediaItemIndex) {
+                            conn.player.getMediaItemAt(i).metadata?.id?.let { add(it) }
+                        }
+                    }
                 }
                 
-                if (itemsToInject.isNotEmpty()) {
-                    // Inject the runway batch with a delay to prevent Media3 PlaybackStatsListener crash
-                    kotlinx.coroutines.delay(1500)
-                    kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Main) {
-                        conn.player.addMediaItems(conn.player.currentMediaItemIndex + 1, itemsToInject)
+                val ranked = neuroEngine.rank(allCandidates, recentSongs)
+                // Take top 15 for the dynamic queue
+                val topCandidates = ranked.take(15)
+                val topIds = topCandidates.map { it.id }.toSet()
+                
+                // Apply queue modifications on the Main thread
+                kotlinx.coroutines.delay(1500) // Delay to prevent Media3 PlaybackStatsListener crash
+                kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Main) {
+                    val player = conn.player
+                    if (player.currentMediaItem?.mediaId != trackId) {
+                        repository.logActivity("Skipped", "Ignored stale Echo Brain runway for $trackId")
+                        return@withContext
                     }
-                    repository.logActivity("Queued", "Added ${itemsToInject.size} tracks to runway queue")
+
+                    val currentIndex = player.currentMediaItemIndex
+                    val indicesToRemove = mutableListOf<Int>()
+                    val existingUpcomingIds = mutableSetOf<String>()
+                    for (i in currentIndex + 1 until player.mediaItemCount) {
+                        val item = player.getMediaItemAt(i)
+                        val metadata = item.metadata ?: continue
+                        existingUpcomingIds.add(metadata.id)
+                        if (metadata.source == QueueItemSource.ECHO_BRAIN && metadata.id !in topIds) {
+                            indicesToRemove.add(i)
+                        }
+                    }
+
+                    // Identify completely new tracks to inject, excluding anything already
+                    // upcoming in the queue regardless of who queued it (user or Echo Brain).
+                    val itemsToInject = topCandidates
+                        .filter { it.id !in existingUpcomingIds }
+                        .shuffled()
+                        .map { item ->
+                            MediaMetadata(
+                                id = item.id,
+                                title = item.title,
+                                artists = item.artists,
+                                duration = item.duration,
+                                album = item.album,
+                                source = QueueItemSource.ECHO_BRAIN,
+                                suggestedBy = "Echo Brain",
+                                thumbnailUrl = item.thumbnailUrl
+                            ).toMediaItem()
+                        }
+                    
+                    // Remove irrelevant tracks (reverse order to maintain index integrity)
+                    indicesToRemove.reversed().forEach { index ->
+                        if (index < player.mediaItemCount) {
+                            player.removeMediaItem(index)
+                        }
+                    }
+                    
+                    // Inject new relevant tracks
+                    if (itemsToInject.isNotEmpty()) {
+                        player.addMediaItems(player.currentMediaItemIndex + 1, itemsToInject)
+                        repository.logActivity("Queued", "Pruned ${indicesToRemove.size} irrelevant tracks, added ${itemsToInject.size} new random tracks to runway")
+                    } else if (indicesToRemove.isNotEmpty()) {
+                        repository.logActivity("Pruned", "Pruned ${indicesToRemove.size} irrelevant tracks to maintain flow")
+                    }
                 }
             }
         }

@@ -303,10 +303,17 @@
     <string name="keep_screen_on_when_player_is_expanded">Keep screen on when player is expanded</string>
 
     <string name="crossfade">Crossfade</string>
+    <string name="crossfading">Crossfading</string>
     <string name="crossfade_desc">Crossfade between songs</string>
     <string name="crossfade_duration">Crossfade duration</string>
     <string name="crossfade_gapless">Disable for gapless albums</string>
     <string name="crossfade_gapless_desc">Don\'t crossfade if the album is gapless</string>
+    <string name="automix">Automix (Beta)</string>
+    <string name="automixing">Automixing</string>
+    <string name="automix_debug">Automix debug overlay</string>
+    <string name="automix_debug_desc">Show live beat analysis and transition plan on the player</string>
+    <string name="automix_desc">Beat-matched transitions: align downbeats and tempo of songs during the crossfade</string>
+    <string name="automix_mix_in">MIX IN %1$d</string>
     <string name="crossfade_beta_title">Beta Feature</string>
     <string name="crossfade_beta_message">Crossfade is a new feature and may have bugs. If you experience any issues, please report them.\n\nThis feature disables audio offload due to technical limitations.</string>
 
@@ -406,7 +413,7 @@
     <string name="export_channel_name">Music export</string>
     <string name="filter_exported">Exported</string>
     <string name="add_to_playlist_desc">Add to one of your playlists</string>
-    <string name="refetch_desc">Fetch the latest metadata from YouTube Music</string>
+    <string name="refetch_desc">Refetching the stream from YouTube Music</string>
     <string name="share_desc">Share a link to this item</string>
     <string name="delete_desc">Permanently remove this item</string>
     <string name="advanced_desc">Change the song\'s tempo and pitch</string>
@@ -624,6 +631,9 @@
     <string name="listen_together_no_logs">No logs yet</string>
     <string name="listen_together_auto_approval">Auto-approve join requests</string>
     <string name="listen_together_auto_approval_desc">Automatically approve join requests instead of reviewing them manually</string>
+    <string name="listen_together_allow_participant_control">Allow participants to control music</string>
+    <string name="listen_together_allow_participant_control_desc">Let guests play, pause, skip, and change the queue</string>
+    <string name="listen_together_participant_control_enabled">Participants can control music</string>
     <string name="listen_together_sync_volume">Sync host volume</string>
     <string name="listen_together_sync_volume_desc">Guests follow the host volume level</string>
     <string name="listen_together_in_top_bar">Listen Together in top bar</string>

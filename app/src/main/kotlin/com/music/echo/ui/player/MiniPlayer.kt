@@ -121,6 +121,10 @@ import iad1tya.echo.music.models.MediaMetadata
 import iad1tya.echo.music.playback.CastConnectionHandler
 import iad1tya.echo.music.playback.PlayerConnection
 import iad1tya.echo.music.ui.screens.settings.DarkMode
+import iad1tya.echo.music.ui.component.GlassComponent
+import iad1tya.echo.music.ui.component.LocalGlassEffectConfig
+import iad1tya.echo.music.ui.component.isGlassSupported
+import iad1tya.echo.music.ui.component.liquidGlass
 import iad1tya.echo.music.ui.theme.PlayerColorExtractor
 import iad1tya.echo.music.utils.rememberEnumPreference
 import iad1tya.echo.music.utils.rememberPreference
@@ -267,7 +271,7 @@ private fun NewMiniPlayer(
     
     
     val listenTogetherManager = LocalListenTogetherManager.current
-    val isListenTogetherGuest = listenTogetherManager?.let { it.isInRoom && !it.isHost } ?: false
+    val isListenTogetherGuest = listenTogetherManager?.let { it.isGuestPlaybackRestricted } ?: false
     val swipeThumbnail = swipeThumbnailPref && !isListenTogetherGuest
     
     val layoutDirection = LocalLayoutDirection.current
@@ -301,12 +305,20 @@ private fun NewMiniPlayer(
     
     
     val isDynamicBackground = miniPlayerBackground != PlayerBackgroundStyle.DEFAULT
-    val backgroundColor = if (pureBlack && useDarkTheme) Color.Black else MaterialTheme.colorScheme.surfaceContainer
     
-    val primaryColor = if (isDynamicBackground) Color.White else MaterialTheme.colorScheme.primary
+    val glassConfig = LocalGlassEffectConfig.current
+    val backgroundColor = if (miniPlayerBackground == PlayerBackgroundStyle.LIQUID_GLASS && glassConfig.isEnabledFor(GlassComponent.MINI_PLAYER) && isGlassSupported()) {
+        Color.Transparent
+    } else if (pureBlack && useDarkTheme) {
+        Color.Black
+    } else {
+        MaterialTheme.colorScheme.surfaceContainer
+    }
+    
+    val primaryColor = if (miniPlayerBackground == PlayerBackgroundStyle.LIQUID_GLASS && glassConfig.isEnabledFor(GlassComponent.MINI_PLAYER) && isGlassSupported()) glassConfig.textColor else if (isDynamicBackground) Color.White else MaterialTheme.colorScheme.primary
     val onPrimaryColor = if (isDynamicBackground) Color.Black else MaterialTheme.colorScheme.onPrimary
-    val outlineColor = if (isDynamicBackground) Color.White.copy(alpha = 0.5f) else MaterialTheme.colorScheme.outline
-    val onSurfaceColor = if (isDynamicBackground) Color.White else MaterialTheme.colorScheme.onSurface
+    val outlineColor = if (miniPlayerBackground == PlayerBackgroundStyle.LIQUID_GLASS && glassConfig.isEnabledFor(GlassComponent.MINI_PLAYER) && isGlassSupported()) glassConfig.textColor.copy(alpha = 0.5f) else if (isDynamicBackground) Color.White.copy(alpha = 0.5f) else MaterialTheme.colorScheme.outline
+    val onSurfaceColor = if (miniPlayerBackground == PlayerBackgroundStyle.LIQUID_GLASS && glassConfig.isEnabledFor(GlassComponent.MINI_PLAYER) && isGlassSupported()) glassConfig.textColor else if (isDynamicBackground) Color.White else MaterialTheme.colorScheme.onSurface
     val errorColor = MaterialTheme.colorScheme.error
 
     Box(
@@ -603,7 +615,7 @@ private fun LegacyMiniPlayer(
     
     
     val listenTogetherManager = LocalListenTogetherManager.current
-    val isListenTogetherGuest = listenTogetherManager?.let { it.isInRoom && !it.isHost } ?: false
+    val isListenTogetherGuest = listenTogetherManager?.let { it.isGuestPlaybackRestricted } ?: false
     val swipeThumbnail = swipeThumbnailPref && !isListenTogetherGuest
 
     val layoutDirection = LocalLayoutDirection.current
@@ -777,7 +789,7 @@ private fun LegacyPlayPauseButton(
     val isPlaying by playerConnection.isPlaying.collectAsState()
     val castIsPlaying by castHandler?.castIsPlaying?.collectAsState() ?: remember { mutableStateOf(false) }
     val effectiveIsPlaying = if (isCasting) castIsPlaying else isPlaying
-    val isListenTogetherGuest = listenTogetherManager?.let { it.isInRoom && !it.isHost } ?: false
+    val isListenTogetherGuest = listenTogetherManager?.let { it.isGuestPlaybackRestricted } ?: false
     val isMuted by playerConnection.isMuted.collectAsState()
 
 
@@ -1132,6 +1144,23 @@ private fun MiniPlayerBackgroundLayer(
                 Box(modifier = Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.3f)))
             }
         }
+        PlayerBackgroundStyle.LIQUID_GLASS -> {
+            val glassConfig = LocalGlassEffectConfig.current
+            if (glassConfig.isEnabledFor(GlassComponent.MINI_PLAYER) && isGlassSupported()) {
+                Box(
+                    Modifier
+                        .fillMaxSize()
+                        .liquidGlass(config = glassConfig)
+                )
+            } else if (gradientColors.isNotEmpty()) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Brush.verticalGradient(gradientColors))
+                        .background(Color.Black.copy(alpha = 0.2f))
+                )
+            }
+        }
         else -> {}
     }
 }
@@ -1149,7 +1178,7 @@ private fun MiniPlayerControls(
     primaryColor: Color,
     onPrimaryColor: Color
 ) {
-    val isListenTogetherGuest = listenTogetherManager?.let { it.isInRoom && !it.isHost } ?: false
+    val isListenTogetherGuest = listenTogetherManager?.let { it.isGuestPlaybackRestricted } ?: false
     val isPlaying by playerConnection.isPlaying.collectAsState()
     val castIsPlaying by castHandler?.castIsPlaying?.collectAsState() ?: remember { mutableStateOf(false) }
     val effectiveIsPlaying = if (isCasting) castIsPlaying else isPlaying

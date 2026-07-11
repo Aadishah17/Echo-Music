@@ -83,6 +83,7 @@ val EnableYouLyPlusKey = booleanPreferencesKey("enableYouLyPlus")
 val EnablePaxsenixKey = booleanPreferencesKey("enablePaxsenix")
 val EchoBrainEnabledKey = booleanPreferencesKey("echo_brain_enabled")
 val HideExplicitKey = booleanPreferencesKey("hideExplicit")
+val SponsorBlockEnabledKey = booleanPreferencesKey("sponsor_block_enabled")
 val HideVideoSongsKey = booleanPreferencesKey("hideVideoSongs")
 val HideYoutubeShortsKey = booleanPreferencesKey("hideYoutubeShorts")
 val ShowArtistDescriptionKey = booleanPreferencesKey("showArtistDescription")
@@ -138,6 +139,8 @@ val PreventDuplicateTracksInQueueKey = booleanPreferencesKey("preventDuplicateTr
 val CrossfadeEnabledKey = booleanPreferencesKey("crossfadeEnabled")
 val CrossfadeDurationKey = floatPreferencesKey("crossfadeDuration")
 val CrossfadeGaplessKey = booleanPreferencesKey("crossfadeGapless")
+val AutomixCrossfadeKey = booleanPreferencesKey("automixCrossfade")
+val AutomixDebugOverlayKey = booleanPreferencesKey("automixDebugOverlay")
 
 
 val MaxImageCacheSizeKey = intPreferencesKey("maxImageCacheSize")
@@ -436,6 +439,7 @@ enum class PlayerBackgroundStyle {
     GLOW_ANIMATED,
     APPLE_MUSIC,
     LIVE_MESH,
+    LIQUID_GLASS,
 }
 
 val TopSize = stringPreferencesKey("topSize")
@@ -777,3 +781,22 @@ val YouTubeSubtitleLyricsEnabledKey = booleanPreferencesKey("youtube_subtitle_ly
 val PreloadNextSongEnabledKey = booleanPreferencesKey("preload_next_song_enabled")
 val PreloadNextSongLimitKey = intPreferencesKey("preload_next_song_limit")
 val PreloadLyricsEnabledKey = booleanPreferencesKey("preload_lyrics_enabled")
+
+val CipherLastUpdatedKey = longPreferencesKey("CipherLastUpdatedKey")
+val CipherManualUpdate1Key = longPreferencesKey("CipherManualUpdate1Key")
+val CipherManualUpdate2Key = longPreferencesKey("CipherManualUpdate2Key")
+val CipherManualUpdate3Key = longPreferencesKey("CipherManualUpdate3Key")
+val LiquidGlassGlobalEnabledKey = booleanPreferencesKey("liquidGlassGlobalEnabled")
+val LiquidGlassTextColorKey = intPreferencesKey("liquidGlassTextColor")
+val LiquidGlassSurfaceTintColorKey = intPreferencesKey("liquidGlassSurfaceTintColor")
+val LiquidGlassSurfaceOpacityKey = floatPreferencesKey("liquidGlassSurfaceOpacity")
+val LiquidGlassVibrancyKey = floatPreferencesKey("liquidGlassVibrancy")
+val LiquidGlassBlurRadiusKey = floatPreferencesKey("liquidGlassBlurRadius")
+val LiquidGlassLensHeightKey = floatPreferencesKey("liquidGlassLensHeight")
+val LiquidGlassLensAmountKey = floatPreferencesKey("liquidGlassLensAmount")
+val LiquidGlassChromaticAberrationKey = booleanPreferencesKey("liquidGlassChromaticAberration")
+val LiquidGlassDepthEffectKey = booleanPreferencesKey("liquidGlassDepthEffect")
+val LiquidGlassPlayerEnabledKey = booleanPreferencesKey("liquidGlassPlayerEnabled")
+val LiquidGlassMiniPlayerEnabledKey = booleanPreferencesKey("liquidGlassMiniPlayerEnabled")
+val LiquidGlassNavBarEnabledKey = booleanPreferencesKey("liquidGlassNavBarEnabled")
+val UseFloatingNavBarKey = booleanPreferencesKey("useFloatingNavBar")

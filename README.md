@@ -11,7 +11,7 @@
   [![License](https://img.shields.io/github/license/iad1tya/Echo-Music?style=for-the-badge&color=28a745)](LICENSE)
   [![Telegram](https://img.shields.io/badge/Telegram-Join-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/EchoMusicApp)
   [![Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/EcfV3AxH5c)
-
+  [![Weblate](https://img.shields.io/weblate/progress/echo-music?server=https%3A%2F%2Fhosted.weblate.org&style=for-the-badge)](https://hosted.weblate.org/projects/echo-music/)
   
   <a href="https://trendshift.io/repositories/20485" target="_blank">
     <img src="https://trendshift.io/api/badge/repositories/20485" alt="EchoMusicApp%2FEcho-Music | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/>
@@ -51,6 +51,7 @@ Echo Music delivers a seamless, premium listening experience by leveraging YouTu
 - [Installation & Setup](#installation--setup)
   - [Android Installation](#android-installation)
   - [Building from Source](#building-from-source)
+- [Translations](#translations)
 - [Community & Support](#community--support)
 - [Support the Project](#support-the-project)
   - [Cryptocurrency](#cryptocurrency)
@@ -183,18 +184,23 @@ Download the latest pre-compiled APK from the [Releases Page](https://github.com
 
 ---
 
+## Translations
+
+<h3>We use Weblate to translate Echo Music. <a href="https://hosted.weblate.org/projects/echo-music/">Help us bring Echo Music to more people!</a></h3>
+
+<a href="https://hosted.weblate.org/projects/echo-music/">
+  <img src="https://hosted.weblate.org/widgets/echo-music/-/horizontal-auto.svg" alt="Translation status" />
+</a>
+
+---
+
 ## Community & Support
 
 Join the community for updates, discussions, and help.
 
 <div align="center">
-  <a href="https://discord.gg/EcfV3AxH5c">
-    <img src="assets/discord.png" alt="Discord Logo" width="140"/>
-  </a>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://t.me/EchoMusicApp">
-    <img src="assets/telegram.png" alt="Telegram Logo" width="130"/>
-  </a>
+  <a href="https://discord.gg/EcfV3AxH5c" style="text-decoration:none;"><img src="assets/discord.png" alt="Discord Logo" width="140" style="margin: 0 10px;"/></a>
+  <a href="https://t.me/EchoMusicApp" style="text-decoration:none;"><img src="assets/telegram.png" alt="Telegram Logo" width="130" style="margin: 0 10px;"/></a>
 </div>
 
 ---
@@ -204,17 +210,9 @@ Join the community for updates, discussions, and help.
 If Echo Music has been useful to you, consider supporting its development.
 
 <div align="center">
-  <a href="https://buymeacoffee.com/iad1tya">
-    <img src="assets/bmac.png" alt="Buy Me A Coffee Logo" width="140"/>
-  </a>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://intradeus.github.io/http-protocol-redirector/?r=upi://pay?pa=iad1tya@upi&pn=Aditya%20Yadav&am=&tn=Thank%20You">
-    <img src="assets/upi.svg" alt="UPI Logo" width="100"/>
-  </a>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://www.patreon.com/cw/iad1tya">
-    <img src="assets/patreon3.png" alt="Patreon Logo" width="100"/>
-  </a>
+  <a href="https://buymeacoffee.com/iad1tya" style="text-decoration:none;"><img src="assets/bmac.png" alt="Buy Me A Coffee Logo" width="140" style="margin: 0 10px;"/></a>
+  <a href="https://intradeus.github.io/http-protocol-redirector/?r=upi://pay?pa=iad1tya@upi&pn=Aditya%20Yadav&am=&tn=Thank%20You" style="text-decoration:none;"><img src="assets/upi.svg" alt="UPI Logo" width="100" style="margin: 0 10px;"/></a>
+  <a href="https://www.patreon.com/cw/iad1tya" style="text-decoration:none;"><img src="assets/patreon3.png" alt="Patreon Logo" width="100" style="margin: 0 10px;"/></a>
 </div>
 
 ### Cryptocurrency
@@ -239,6 +237,7 @@ Echo Music stands on the shoulders of several excellent open-source projects. Si
 | [SimpMusic](https://github.com/maxrave-dev/SimpMusic) | Lyrics implementation reference |
 | [Music Recognizer](https://github.com/aleksey-saenko/MusicRecognizer) | Audio recognition (Echo Find) |
 | [Flow](https://github.com/a-edev/Flow) | AI queue generation engine (Echo Brain) |
+| [zemer-cipher](hhttps://github.com/ZemerTeam/zemer-cipher) | YouTube cipher deobfuscation and PoToken generation |
 
 ---
 

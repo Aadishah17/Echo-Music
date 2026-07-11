@@ -61,7 +61,11 @@ class App : Application(), SingletonImageLoader.Factory {
         super.onCreate()
 
         com.music.jiosaavn.DeviceRouter.init(this)
-        timber.log.Timber.d("Device ID: ${com.music.jiosaavn.DeviceRouter.getDeviceId()} | Assigned JioSaavn Server: ${com.music.jiosaavn.DeviceRouter.getCurrentServer()}")
+        try {
+            timber.log.Timber.d("Device ID: ${com.music.jiosaavn.DeviceRouter.getDeviceId()} | Assigned JioSaavn Server: ${com.music.jiosaavn.DeviceRouter.getCurrentServer()}")
+        } catch (e: Exception) {
+            timber.log.Timber.d("Device ID: ${com.music.jiosaavn.DeviceRouter.getDeviceId()} | Assigned JioSaavn Server: Awaiting Remote Config")
+        }
 
         // Removed destructive database deletion to preserve user data
 
@@ -96,6 +100,20 @@ class App : Application(), SingletonImageLoader.Factory {
         val settings = dataStore.data.first()
         val locale = Locale.getDefault()
         val languageTag = locale.language
+
+        val currentAudioQuality = settings[AudioQualityKey]?.toEnum(defaultValue = AudioQuality.OPUS) ?: AudioQuality.OPUS
+        if (currentAudioQuality == AudioQuality.SAAVN || currentAudioQuality == AudioQuality.LOSSLESS) {
+            dataStore.edit { prefs ->
+                prefs[AudioQualityKey] = AudioQuality.OPUS.name
+            }
+        }
+
+        val currentDownloadQuality = settings[DownloadQualityKey]?.toEnum(defaultValue = DownloadQuality.YOUTUBE) ?: DownloadQuality.YOUTUBE
+        if (currentDownloadQuality == DownloadQuality.SAAVN || currentDownloadQuality == DownloadQuality.LOSSLESS) {
+            dataStore.edit { prefs ->
+                prefs[DownloadQualityKey] = DownloadQuality.YOUTUBE.name
+            }
+        }
 
         YouTube.locale = YouTubeLocale(
             gl = settings[ContentCountryKey]?.takeIf { it != SYSTEM_DEFAULT }

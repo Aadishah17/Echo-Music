@@ -174,6 +174,13 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import iad1tya.echo.music.viewmodels.DailyDiscoverItem
 
+private fun NavController.navigateToPlaylistItem(playlist: PlaylistItem) {
+    when (val playlistId = playlist.id.removePrefix("VL")) {
+        "LM" -> navigate("auto_playlist/liked")
+        "SE" -> navigate("auto_playlist/downloaded")
+        else -> navigate("online_playlist/$playlistId")
+    }
+}
 
 sealed class HomeSection(val id: String, val baseWeight: Int) {
     data object SpeedDial : HomeSection("speed_dial", 100)
@@ -764,7 +771,7 @@ fun HomeScreen(
 
                             is AlbumItem -> navController.navigate("album/${item.id}")
                             is ArtistItem -> navController.navigate("artist/${item.id}")
-                            is PlaylistItem -> navController.navigate("online_playlist/${item.id}")
+                            is PlaylistItem -> navController.navigateToPlaylistItem(item)
                         }
                     },
                     onLongClick = {
@@ -810,6 +817,7 @@ fun HomeScreen(
         accountPlaylists,
         forgottenFavorites,
         communityPlaylists,
+        echoBrainPlaylists,
         similarRecommendations,
         homePage?.sections,
         explorePage?.moodAndGenres
@@ -818,6 +826,7 @@ fun HomeScreen(
 
         if (showSpeedDial && speedDialItems.isNotEmpty()) list.add(HomeSection.SpeedDial)
         if (quickPicks?.isNotEmpty() == true) list.add(HomeSection.QuickPicks)
+        if (echoBrainPlaylists?.isNotEmpty() == true) list.add(HomeSection.EchoBrainPlaylists)
         if (communityPlaylists?.isNotEmpty() == true) list.add(HomeSection.FromTheCommunity)
         if (dailyDiscover?.isNotEmpty() == true) list.add(HomeSection.DailyDiscover)
         if (keepListening?.isNotEmpty() == true) list.add(HomeSection.KeepListening)
@@ -851,6 +860,7 @@ fun HomeScreen(
                     HomeSection.KeepListening,
                     HomeSection.AccountPlaylists,
                     HomeSection.ForgottenFavorites,
+                    HomeSection.EchoBrainPlaylists,
                     HomeSection.FromTheCommunity -> 300 
 
                     else -> 100 
@@ -869,6 +879,7 @@ fun HomeScreen(
                     HomeSection.KeepListening,
                     HomeSection.AccountPlaylists,
                     HomeSection.ForgottenFavorites,
+                    HomeSection.EchoBrainPlaylists,
                     HomeSection.FromTheCommunity -> sectionRandom.nextInt(-100, 400)
 
                     
@@ -880,6 +891,7 @@ fun HomeScreen(
             val defaultOrder = mapOf(
                 HomeSection.QuickPicks to 1000,
                 HomeSection.SpeedDial to 100,
+                HomeSection.EchoBrainPlaylists to 85,
                 HomeSection.FromTheCommunity to 80,
                 HomeSection.DailyDiscover to 70,
                 HomeSection.KeepListening to 60,
@@ -1054,7 +1066,7 @@ fun HomeScreen(
                                                                                             )
                                                                                             is AlbumItem -> navController.navigate("album/${randomItem.id}")
                                                                                             is ArtistItem -> navController.navigate("artist/${randomItem.id}")
-                                                                                            is PlaylistItem -> navController.navigate("online_playlist/${randomItem.id}") 
+                                                                                            is PlaylistItem -> navController.navigateToPlaylistItem(randomItem)
                                                                                         }
                                                                                     }
                                                                                 }
@@ -1091,7 +1103,7 @@ fun HomeScreen(
                                                                                         is AlbumItem -> navController.navigate("album/${item.id}")
                                                                                         is ArtistItem -> navController.navigate("artist/${item.id}")
 
-                                                                                        is PlaylistItem -> navController.navigate("online_playlist/${item.id}") 
+                                                                                        is PlaylistItem -> navController.navigateToPlaylistItem(item)
                                                                                     }
                                                                                 },
                                                                                 onLongClick = {
@@ -1357,7 +1369,7 @@ fun HomeScreen(
                                             CommunityPlaylistCard(
                                                 item = item,
                                                 onClick = {
-                                                    navController.navigate("online_playlist/${item.playlist.id.removePrefix("VL")}")
+                                                    navController.navigateToPlaylistItem(item.playlist)
                                                 },
                                                 onSongClick = { song ->
                                                     playerConnection.playQueue(

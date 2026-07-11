@@ -208,7 +208,7 @@ fun Lyrics(
     val context = LocalContext.current
     val configuration = LocalWindowInfo.current
     val listenTogetherManager = LocalListenTogetherManager.current
-    val isGuest = listenTogetherManager?.isInRoom == true && !listenTogetherManager.isHost
+    val isGuest = listenTogetherManager?.isGuestPlaybackRestricted == true
 
     val lyricsTextPosition by rememberEnumPreference(LyricsTextPositionKey, LyricsPosition.LEFT)
     val changeLyrics by rememberPreference(LyricsClickKey, true)
@@ -508,7 +508,7 @@ fun Lyrics(
     
     val expressiveAccent = when (playerBackground) {
         PlayerBackgroundStyle.DEFAULT -> MaterialTheme.colorScheme.primary
-        PlayerBackgroundStyle.BLUR, PlayerBackgroundStyle.GRADIENT, PlayerBackgroundStyle.GLOW_ANIMATED, PlayerBackgroundStyle.APPLE_MUSIC, PlayerBackgroundStyle.LIVE_MESH -> {
+        PlayerBackgroundStyle.BLUR, PlayerBackgroundStyle.GRADIENT, PlayerBackgroundStyle.GLOW_ANIMATED, PlayerBackgroundStyle.APPLE_MUSIC, PlayerBackgroundStyle.LIVE_MESH, PlayerBackgroundStyle.LIQUID_GLASS -> {
             
             Color.White
         }
@@ -1033,6 +1033,8 @@ fun Lyrics(
                             isSelectionModeActive = isSelectionModeActive,
                             isSelected = isSelected,
                             expressiveAccent = expressiveAccent,
+                            lyricsTextSize = lyricsTextSize,
+                            lyricsLineSpacing = lyricsLineSpacing,
                             onClick = {
                                 if (isSelectionModeActive) {
                                     if (isSelected) {
