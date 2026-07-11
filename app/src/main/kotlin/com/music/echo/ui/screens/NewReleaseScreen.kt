@@ -16,6 +16,7 @@ import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
@@ -59,12 +60,15 @@ fun NewReleaseScreen(
     val coroutineScope = rememberCoroutineScope()
     val gridItemSize by rememberEnumPreference(GridItemsSizeKey, GridItemSize.BIG)
 
+    // ⚡ Bolt: Memoize distinct list to avoid O(N) recomputation on every Lazy grid composition
+    val distinctAlbums = remember(newReleaseAlbums) { newReleaseAlbums.distinctBy { it.id } }
+
     LazyVerticalGrid(
         columns = GridCells.Adaptive(minSize = GridThumbnailHeight + if (gridItemSize == GridItemSize.BIG) 24.dp else (-24).dp),
         contentPadding = LocalPlayerAwareWindowInsets.current.asPaddingValues(),
     ) {
         items(
-            items = newReleaseAlbums.distinctBy { it.id },
+            items = distinctAlbums,
             key = { it.id },
         ) { album ->
             YouTubeGridItem(
