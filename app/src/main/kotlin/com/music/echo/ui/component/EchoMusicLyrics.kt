@@ -2,6 +2,7 @@
 
 package iad1tya.echo.music.ui.component
 
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -18,7 +19,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -275,7 +275,7 @@ fun echomusicLyricsLine(
 
         
         if (showRomanized) {
-            val romanizedText by entry.romanizedTextFlow.collectAsState()
+            val romanizedText by entry.romanizedTextFlow.collectAsStateWithLifecycle()
             romanizedText?.let { romanized ->
                 Text(
                     text = romanized,
@@ -292,7 +292,7 @@ fun echomusicLyricsLine(
 
         
         if (showTranslated) {
-            val translatedText by entry.translatedTextFlow.collectAsState()
+            val translatedText by entry.translatedTextFlow.collectAsStateWithLifecycle()
             translatedText?.let { translated ->
                 Text(
                     text = translated,
