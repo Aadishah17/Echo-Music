@@ -34,8 +34,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalHapticFeedback
@@ -134,13 +136,14 @@ fun LibraryArtistsScreen(
         }
     }
 
-    val artists by viewModel.allArtists.collectAsState()
+    // ⚡ Bolt Optimization: Use collectAsStateWithLifecycle to pause flow collection when the screen is in the background.
+    val artists by viewModel.allArtists.collectAsStateWithLifecycle()
 
     val lazyListState = rememberLazyListState()
     val lazyGridState = rememberLazyGridState()
     val backStackEntry by navController.currentBackStackEntryAsState()
     val scrollToTop =
-        backStackEntry?.savedStateHandle?.getStateFlow("scrollToTop", false)?.collectAsState()
+        backStackEntry?.savedStateHandle?.getStateFlow("scrollToTop", false)?.collectAsStateWithLifecycle()
 
     LaunchedEffect(scrollToTop?.value) {
         if (scrollToTop?.value == true) {
@@ -215,6 +218,9 @@ fun LibraryArtistsScreen(
         }
     }
 
+    // ⚡ Bolt Optimization: Use remember to prevent distinctBy recomputation on every recomposition.
+    val uniqueArtists = remember(artists) { artists.distinctBy { it.id } }
+
     Box(
         modifier = Modifier.fillMaxSize(),
     ) {
@@ -238,30 +244,28 @@ fun LibraryArtistsScreen(
                         headerContent()
                     }
 
-                    artists.let { artists ->
-                        if (artists.isEmpty()) {
-                            item(key = "empty_placeholder") {
-                                EmptyPlaceholder(
-                                    icon = R.drawable.artist,
-                                    text = stringResource(R.string.library_artist_empty),
-                                    modifier = Modifier.animateItem()
-                                )
-                            }
-                        }
-
-                        items(
-                            items = artists.distinctBy { it.id },
-                            key = { it.id },
-                            contentType = { CONTENT_TYPE_ARTIST },
-                        ) { artist ->
-                            LibraryArtistListItem(
-                                navController = navController,
-                                menuState = menuState,
-                                coroutineScope = coroutineScope,
-                                modifier = Modifier.animateItem(),
-                                artist = artist
+                    if (uniqueArtists.isEmpty()) {
+                        item(key = "empty_placeholder") {
+                            EmptyPlaceholder(
+                                icon = R.drawable.artist,
+                                text = stringResource(R.string.library_artist_empty),
+                                modifier = Modifier.animateItem()
                             )
                         }
+                    }
+
+                    items(
+                        items = uniqueArtists,
+                        key = { it.id },
+                        contentType = { CONTENT_TYPE_ARTIST },
+                    ) { artist ->
+                        LibraryArtistListItem(
+                            navController = navController,
+                            menuState = menuState,
+                            coroutineScope = coroutineScope,
+                            modifier = Modifier.animateItem(),
+                            artist = artist
+                        )
                     }
                 }
 
@@ -290,30 +294,28 @@ fun LibraryArtistsScreen(
                         headerContent()
                     }
 
-                    artists.let { artists ->
-                        if (artists.isEmpty()) {
-                            item(span = { GridItemSpan(maxLineSpan) }) {
-                                EmptyPlaceholder(
-                                    icon = R.drawable.artist,
-                                    text = stringResource(R.string.library_artist_empty),
-                                    modifier = Modifier.animateItem()
-                                )
-                            }
-                        }
-
-                        items(
-                            items = artists.distinctBy { it.id },
-                            key = { it.id },
-                            contentType = { CONTENT_TYPE_ARTIST },
-                        ) { artist ->
-                            LibraryArtistGridItem(
-                                navController = navController,
-                                menuState = menuState,
-                                coroutineScope = coroutineScope,
-                                modifier = Modifier.animateItem(),
-                                artist = artist
+                    if (uniqueArtists.isEmpty()) {
+                        item(span = { GridItemSpan(maxLineSpan) }) {
+                            EmptyPlaceholder(
+                                icon = R.drawable.artist,
+                                text = stringResource(R.string.library_artist_empty),
+                                modifier = Modifier.animateItem()
                             )
                         }
+                    }
+
+                    items(
+                        items = uniqueArtists,
+                        key = { it.id },
+                        contentType = { CONTENT_TYPE_ARTIST },
+                    ) { artist ->
+                        LibraryArtistGridItem(
+                            navController = navController,
+                            menuState = menuState,
+                            coroutineScope = coroutineScope,
+                            modifier = Modifier.animateItem(),
+                            artist = artist
+                        )
                     }
                 }
         }
