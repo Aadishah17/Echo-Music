@@ -1176,7 +1176,8 @@ fun HomeScreen(
 
 
                                 item(key = "quick_picks_list") {
-                                    val distinctQuickPicks = quickPicks.distinctBy { it.id }
+                                    // ⚡ Bolt Optimization: Memoize list transformation to prevent recomputation on every composition
+                                    val distinctQuickPicks = remember(quickPicks) { quickPicks.distinctBy { it.id } }
                                     HorizontalCenteredHeroCarousel(
                                         state = rememberCarouselState { distinctQuickPicks.size },
                                         maxItemWidth = 250.dp,
@@ -1518,6 +1519,8 @@ fun HomeScreen(
                                 }
 
                                 item(key = "account_playlists_list") {
+                                    // ⚡ Bolt Optimization: Memoize list transformation to prevent recomputation on every composition
+                                    val distinctAccountPlaylists = remember(accountPlaylists) { accountPlaylists.distinctBy { it.id } }
                                     LazyRow(
                                         contentPadding = WindowInsets.systemBars
                                             .only(WindowInsetsSides.Horizontal)
@@ -1525,7 +1528,7 @@ fun HomeScreen(
                                         modifier = Modifier.animateItem()
                                     ) {
                                         items(
-                                            items = accountPlaylists.distinctBy { it.id },
+                                            items = distinctAccountPlaylists,
                                             key = { it.id },
                                         ) { item ->
                                             ytGridItem(item)
@@ -1553,7 +1556,8 @@ fun HomeScreen(
                                 }
 
                                 item(key = "forgotten_favorites_list") {
-                                    
+                                    // ⚡ Bolt Optimization: Memoize list transformation to prevent recomputation on every composition
+                                    val distinctForgottenFavorites = remember(forgottenFavorites) { forgottenFavorites.distinctBy { it.id } }
                                     val rows = min(4, forgottenFavorites.size)
                                     LazyHorizontalGrid(
                                         state = forgottenFavoritesLazyGridState,
@@ -1569,7 +1573,7 @@ fun HomeScreen(
                                             .animateItem()
                                     ) {
                                         itemsIndexed(
-                                            items = forgottenFavorites.distinctBy { it.id },
+                                            items = distinctForgottenFavorites,
                                             key = { _, it -> it.id }
                                         ) { index, originalSong ->
                                             val song by database.song(originalSong.id)
@@ -1738,6 +1742,8 @@ fun HomeScreen(
                                 if (isSongsOnlySection) {
                                     
                                     item(key = "home_section_list_${section.index}") {
+                                        // ⚡ Bolt Optimization: Memoize list transformation to prevent recomputation on every composition
+                                        val distinctSectionSongs = remember(sectionSongs) { sectionSongs.distinctBy { it.id } }
                                         LazyHorizontalGrid(
                                             state = rememberLazyGridState(),
                                             rows = GridCells.Fixed(4),
@@ -1750,7 +1756,7 @@ fun HomeScreen(
                                                 .animateItem()
                                         ) {
                                             itemsIndexed(
-                                                items = sectionSongs.distinctBy { it.id },
+                                                items = distinctSectionSongs,
                                                 key = { _, it -> it.id }
                                             ) { index, song ->
                                                 YouTubeListItem(
@@ -1833,6 +1839,8 @@ fun HomeScreen(
                                     )
                                 }
                                 item(key = "mood_and_genres_list") {
+                                    // ⚡ Bolt Optimization: Memoize list transformation to prevent recomputation on every composition
+                                    val distinctMoodAndGenres = remember(moodAndGenres) { moodAndGenres.distinctBy { it.title } }
                                     LazyHorizontalGrid(
                                         rows = GridCells.Fixed(4),
                                         contentPadding = PaddingValues(6.dp),
@@ -1840,7 +1848,7 @@ fun HomeScreen(
                                             .height((MoodAndGenresButtonHeight + 12.dp) * 4 + 12.dp)
                                             .animateItem()
                                     ) {
-                                        items(moodAndGenres.distinctBy { it.title }, key = { it.title }) {
+                                        items(distinctMoodAndGenres, key = { it.title }) {
                                             MoodAndGenresButton(
                                                 title = it.title,
                                                 onClick = {
