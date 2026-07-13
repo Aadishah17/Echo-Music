@@ -3,3 +3,7 @@
 ## 2026-07-13 - Compose Lists Performance Optimization
 **Learning:** In Jetpack Compose UIs, computing values inside `items()` blocks of Lazy columns/grids (like `.distinctBy { it.id }`) causes recomputation on every composition.
 **Action:** Wrap these list transformations in `remember(items) { ... }` so they only recalculate when the original list changes, significantly reducing overhead during scroll and rendering.
+
+## 2026-07-13 - Compose Lists Performance Optimization
+**Learning:** In Jetpack Compose UIs, computing values inside `items()` blocks of Lazy columns/grids (like `.distinctBy { it.id }`) causes recomputation on every composition.
+**Action:** Wrap these list transformations in `remember(items) { ... }` so they only recalculate when the original list changes, significantly reducing overhead during scroll and rendering.
