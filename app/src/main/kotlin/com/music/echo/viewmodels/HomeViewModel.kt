@@ -12,6 +12,8 @@ import com.music.innertube.models.Artist
 import com.music.innertube.models.PlaylistItem
 import com.music.innertube.models.SongItem
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
 import com.music.innertube.models.WatchEndpoint
 import com.music.innertube.models.BrowseEndpoint
 import com.music.innertube.models.YTItem
@@ -93,6 +95,19 @@ class HomeViewModel @Inject constructor(
     val communityPlaylists = MutableStateFlow<List<CommunityPlaylistItem>?>(null)
     val selectedChip = MutableStateFlow<HomePage.Chip?>(null)
     private val previousHomePage = MutableStateFlow<HomePage?>(null)
+
+    val aiRecommendedPlaylist = database.playlistsByNameAsc()
+        .map { playlists -> playlists.find { it.playlist.name == "Recommended by AI" } }
+        .flatMapLatest { playlist -> 
+            if (playlist != null && playlist.songCount > 0) {
+                database.playlistSongs(playlist.playlist.id).map { playlistSongs -> 
+                    playlist to playlistSongs.map { it.song }
+                }
+            } else {
+                flowOf(null)
+            }
+        }
+        .stateIn(viewModelScope, SharingStarted.Lazily, null)
 
     val allLocalItems = MutableStateFlow<List<LocalItem>>(emptyList())
     val allYtItems = MutableStateFlow<List<YTItem>>(emptyList())

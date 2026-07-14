@@ -183,6 +183,7 @@ private fun NavController.navigateToPlaylistItem(playlist: PlaylistItem) {
 
 sealed class HomeSection(val id: String, val baseWeight: Int) {
     data object SpeedDial : HomeSection("speed_dial", 100)
+    data object AiRecommendations : HomeSection("ai_recommendations", 95)
     data object QuickPicks : HomeSection("quick_picks", 90)
     data object DailyDiscover : HomeSection("daily_discover", 80)
     data object KeepListening : HomeSection("keep_listening", 50)
@@ -576,6 +577,7 @@ fun HomeScreen(
     val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
 
     val quickPicks by viewModel.quickPicks.collectAsState()
+    val aiRecommendedPlaylist by viewModel.aiRecommendedPlaylist.collectAsState()
     val forgottenFavorites by viewModel.forgottenFavorites.collectAsState()
     val keepListening by viewModel.keepListening.collectAsState()
     val similarRecommendations by viewModel.similarRecommendations.collectAsState()
@@ -814,11 +816,13 @@ fun HomeScreen(
         communityPlaylists,
         similarRecommendations,
         homePage?.sections,
-        explorePage?.moodAndGenres
+        explorePage?.moodAndGenres,
+        aiRecommendedPlaylist
     ) {
         val list = mutableListOf<HomeSection>()
 
         if (showSpeedDial && speedDialItems.isNotEmpty()) list.add(HomeSection.SpeedDial)
+        if (aiRecommendedPlaylist != null && aiRecommendedPlaylist!!.second.isNotEmpty()) list.add(HomeSection.AiRecommendations)
         if (quickPicks?.isNotEmpty() == true) list.add(HomeSection.QuickPicks)
         if (communityPlaylists?.isNotEmpty() == true) list.add(HomeSection.FromTheCommunity)
         if (dailyDiscover?.isNotEmpty() == true) list.add(HomeSection.DailyDiscover)
@@ -1156,6 +1160,31 @@ fun HomeScreen(
                                                     )
                                                 }
                                             }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        HomeSection.AiRecommendations -> {
+                            aiRecommendedPlaylist?.let { pair ->
+                                val (playlist, songs) = pair
+                                item(key = "ai_recommendation_title") {
+                                    NavigationTitle(
+                                        title = playlist.title,
+                                        onClick = {
+                                            navController.navigate("local_playlist/${playlist.id}")
+                                        },
+                                        modifier = Modifier.animateItem()
+                                    )
+                                }
+                                item(key = "ai_recommendation_list") {
+                                    LazyRow(
+                                        contentPadding = PaddingValues(horizontal = 16.dp),
+                                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                        modifier = Modifier.animateItem()
+                                    ) {
+                                        items(items = songs, key = { it.id }) { songObj ->
+                                            localGridItem(songObj)
                                         }
                                     }
                                 }

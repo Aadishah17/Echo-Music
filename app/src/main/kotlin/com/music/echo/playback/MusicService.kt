@@ -108,7 +108,7 @@ import iad1tya.echo.music.constants.PauseListenHistoryKey
 import iad1tya.echo.music.constants.PauseOnMute
 import iad1tya.echo.music.constants.PersistentQueueKey
 import iad1tya.echo.music.constants.PersistentShuffleAcrossQueuesKey
-import iad1tya.echo.music.constants.PlayerVolumeKey
+
 import iad1tya.echo.music.constants.RememberShuffleAndRepeatKey
 import iad1tya.echo.music.constants.RepeatModeKey
 import iad1tya.echo.music.constants.ResumeOnBluetoothConnectKey
@@ -248,6 +248,11 @@ class MusicService :
     
 
     private lateinit var audioManager: AudioManager
+    // Wi-Fi Lock: Prevents modern Wi-Fi 6/7 routers from putting the Wi-Fi chip into
+    // low-power sleep mode while music is actively streaming in the background.
+    // Without this, the router's power-saving protocol (Target Wake Time) causes
+    // packet delays, leading to audio buffering or playback stopping after the screen turns off.
+    private var wifiLock: android.net.wifi.WifiManager.WifiLock? = null
     private var audioFocusRequest: AudioFocusRequest? = null
     private var lastAudioFocusState = AudioManager.AUDIOFOCUS_NONE
     private var wasPlayingBeforeAudioFocusLoss = false
@@ -646,8 +651,8 @@ class MusicService :
         audioManager.registerAudioDeviceCallback(audioDeviceCallback, null)
 
         audioQuality = dataStore.get(AudioQualityKey).toEnum(iad1tya.echo.music.constants.AudioQuality.OPUS)
-        ipVersion = dataStore.get(IpVersionKey).toEnum(IpVersion.AUTO)
-        playerVolume = MutableStateFlow(dataStore.get(PlayerVolumeKey, 1f).coerceIn(0f, 1f))
+        ipVersion = dataStore.get(IpVersionKey).toEnum(IpVersion.IPV4)
+        playerVolume = MutableStateFlow(1f)
 
         
         initializeCast()
@@ -745,7 +750,7 @@ class MusicService :
         
         scope.launch {
             dataStore.data
-                .map { it[IpVersionKey]?.toEnum(IpVersion.AUTO) ?: IpVersion.AUTO }
+                .map { it[IpVersionKey]?.toEnum(IpVersion.IPV4) ?: IpVersion.IPV4 }
                 .distinctUntilChanged()
                 .collect { newIpVersion ->
                     val oldIpVersion = ipVersion
@@ -780,11 +785,7 @@ class MusicService :
             player.volume = it
         }
 
-        playerVolume.debounce(1000).collect(scope) { volume ->
-            dataStore.edit { settings ->
-                settings[PlayerVolumeKey] = volume
-            }
-        }
+
 
         currentSong.debounce(1000).collect(scope) { song ->
             updateNotification()
@@ -1001,7 +1002,6 @@ class MusicService :
                         
                         
                         
-                        playerVolume.value = playerState.volume
 
                         
                         if (playerState.currentMediaItemIndex < player.mediaItemCount) {
@@ -1182,6 +1182,40 @@ class MusicService :
                 audioManager.abandonAudioFocusRequest(request)
                 hasAudioFocus = false
             }
+        }
+    }
+
+    /**
+     * Acquires a high-performance Wi-Fi lock when playback starts.
+     *
+     * WIFI_MODE_FULL_HIGH_PERF tells the system to keep the Wi-Fi chip fully
+     * active with minimal latency — disabling power-saving sleep cycles.
+     * This is called every time [player.isPlaying] becomes true.
+     */
+    private fun acquireWifiLock() {
+        if (wifiLock == null) {
+            val wifiManager = applicationContext.getSystemService(android.net.wifi.WifiManager::class.java)
+            wifiLock = wifiManager?.createWifiLock(
+                android.net.wifi.WifiManager.WIFI_MODE_FULL_HIGH_PERF,
+                "echo_music:wifi_lock"
+            )
+        }
+        if (wifiLock?.isHeld == false) {
+            wifiLock?.acquire()
+            Timber.tag(TAG).d("Wi-Fi lock acquired")
+        }
+    }
+
+    /**
+     * Releases the Wi-Fi lock when playback is paused, stopped, or the service is destroyed.
+     *
+     * Releasing the lock allows the device to return to normal Wi-Fi power-saving
+     * behaviour, preserving battery when music is not playing.
+     */
+    private fun releaseWifiLock() {
+        if (wifiLock?.isHeld == true) {
+            wifiLock?.release()
+            Timber.tag(TAG).d("Wi-Fi lock released")
         }
     }
 
@@ -2095,8 +2129,10 @@ class MusicService :
             updateWidgetUI(player.isPlaying)
             if (player.isPlaying) {
                 startWidgetUpdates()
+                acquireWifiLock()
             } else {
                 stopWidgetUpdates()
+                releaseWifiLock()
             }
             if (!player.isPlaying && !events.containsAny(Player.EVENT_POSITION_DISCONTINUITY, Player.EVENT_MEDIA_ITEM_TRANSITION)) {
                 scope.launch {
@@ -2829,22 +2865,16 @@ class MusicService :
             
             var shouldBypassCache = bypassCacheForQualityChange.contains(mediaId)
             
-            val isCurrentlyPlaying = runBlocking(Dispatchers.Main) { player.currentMediaItem?.mediaId == mediaId }
             val dbFormat = runBlocking(Dispatchers.IO) { database.format(mediaId).firstOrNull() }
             
             val cachedLength = androidx.media3.datasource.cache.ContentMetadata.getContentLength(downloadCache.getContentMetadata(mediaId))
                 .takeIf { it != androidx.media3.common.C.LENGTH_UNSET.toLong() } ?: dbFormat?.contentLength ?: -1L
             val isFullyDownloaded = cachedLength > 0 && downloadCache.isCached(mediaId, 0, cachedLength)
-            
-            val lockedQuality = if (isCurrentlyPlaying && dbFormat != null) {
-                when {
-                    dbFormat.mimeType.contains("flac", ignoreCase = true) -> iad1tya.echo.music.constants.AudioQuality.LOSSLESS
-                    dbFormat.mimeType.contains("mp4", ignoreCase = true) || dbFormat.mimeType.contains("m4a", ignoreCase = true) -> iad1tya.echo.music.constants.AudioQuality.SAAVN
-                    else -> iad1tya.echo.music.constants.AudioQuality.OPUS
-                }
-            } else {
-                audioQuality
+
+            val activeQualityInCache = songUrlCache.keys.find { it.startsWith("${mediaId}_") }?.substringAfter("_")?.let {
+                runCatching { iad1tya.echo.music.constants.AudioQuality.valueOf(it) }.getOrNull()
             }
+            val lockedQuality = activeQualityInCache ?: audioQuality
 
             if (!shouldBypassCache && !isFullyDownloaded && dbFormat != null) {
                 val isLosslessCache = dbFormat.codecs == "flac"
@@ -2962,7 +2992,7 @@ class MusicService :
                         Timber.tag(TAG).w("Format fallback detected AFTER fetch. Clearing playerCache to prevent mismatch crash.")
                         playerCache.removeResource(mediaId)
                         
-                        if (isCurrentlyPlaying) {
+                        if (activeQualityInCache != null) {
                             Timber.tag(TAG).e("Format changed mid-stream for $mediaId. Throwing to force player restart.")
                             runBlocking(Dispatchers.IO) { database.query { deleteFormat(mediaId) } }
                             throw PlaybackException(
@@ -3190,6 +3220,7 @@ class MusicService :
         }
         DiscordPresenceManager.stop()
         connectivityObserver.unregister()
+        releaseWifiLock()
         abandonAudioFocus()
         releaseLoudnessEnhancer()
         mediaSession.release()

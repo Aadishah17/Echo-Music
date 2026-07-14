@@ -142,6 +142,27 @@ highlightKey: String? = null) {
                 )
             }
 
+            if (aiLyricsText.lowercase().contains(searchLower)) {
+                add(
+                    Material3SettingsItem(
+                        isHighlighted = (highlightKey == aiLyricsText),
+                        customIcon = {
+                            Text(
+                                text = "Ai",
+                                style = MaterialTheme.typography.titleMedium,
+                                fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
+                                color = if (highlightKey == aiLyricsText)
+                                    MaterialTheme.colorScheme.primary
+                                else
+                                    MaterialTheme.colorScheme.primary.copy(alpha = 0.9f)
+                            )
+                        },
+                        title = { Text(aiLyricsText) },
+                        onClick = { navController.navigate("settings/ai") }
+                    )
+                )
+            }
+
             if (appearanceText.lowercase().contains(searchLower)) {
                 add(
                     Material3SettingsItem(
@@ -183,16 +204,6 @@ highlightKey: String? = null) {
                 )
             }
 
-            if (aiLyricsText.lowercase().contains(searchLower)) {
-                add(
-                    Material3SettingsItem(
-    isHighlighted = (highlightKey == aiLyricsText),
-                        icon = painterResource(R.drawable.translate),
-                        title = { Text(aiLyricsText) },
-                        onClick = { navController.navigate("settings/ai") }
-                    )
-                )
-            }
             if (privacyText.lowercase().contains(searchLower)) {
                 add(
                     Material3SettingsItem(

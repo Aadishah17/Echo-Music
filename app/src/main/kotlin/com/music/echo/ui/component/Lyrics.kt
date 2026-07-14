@@ -759,7 +759,7 @@ fun Lyrics(
                                 color = MaterialTheme.colorScheme.onPrimaryContainer
                             )
                             Text(
-                                text = stringResource(R.string.ai_translating_lyrics),
+                                text = if (status.logs.isNotEmpty()) status.logs.last() else stringResource(R.string.ai_translating_lyrics),
                                 style = MaterialTheme.typography.labelMedium,
                                 color = MaterialTheme.colorScheme.onPrimaryContainer
                             )

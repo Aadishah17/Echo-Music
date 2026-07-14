@@ -45,6 +45,7 @@ import iad1tya.echo.music.constants.OpenRouterModelKey
 import iad1tya.echo.music.constants.TranslateLanguageKey
 import iad1tya.echo.music.constants.TranslateModeKey
 import iad1tya.echo.music.constants.AutoTranslateKey
+import iad1tya.echo.music.constants.AiRecommendationsKey
 import iad1tya.echo.music.ui.component.EnumDialog
 import iad1tya.echo.music.ui.component.Material3SettingsGroup
 import iad1tya.echo.music.ui.component.Material3SettingsItem
@@ -57,6 +58,7 @@ fun AiSettings(
     navController: NavController,
     scrollBehavior: TopAppBarScrollBehavior,
 highlightKey: String? = null) {
+    val context = androidx.compose.ui.platform.LocalContext.current
     val scrollState = androidx.compose.foundation.rememberScrollState()
 
     var aiProvider by rememberPreference(AiProviderKey, "OpenRouter")
@@ -66,6 +68,7 @@ highlightKey: String? = null) {
     var translateLanguage by rememberPreference(TranslateLanguageKey, "en")
     var translateMode by rememberPreference(TranslateModeKey, "Literal")
     var autoTranslate by rememberPreference(AutoTranslateKey, false)
+    var aiRecommendations by rememberPreference(AiRecommendationsKey, false)
     var deeplApiKey by rememberPreference(DeeplApiKey, "")
     var deeplFormality by rememberPreference(DeeplFormalityKey, "default")
 
@@ -176,6 +179,8 @@ highlightKey: String? = null) {
     var showProviderHelpDialog by rememberSaveable { mutableStateOf(false) }
     var showTranslateModeDialog by rememberSaveable { mutableStateOf(false) }
     var showTranslateModeHelpDialog by rememberSaveable { mutableStateOf(false) }
+    var showApiHelpDialog by rememberSaveable { mutableStateOf(false) }
+    var showRefreshDialog by rememberSaveable { mutableStateOf(false) }
     var showLanguageDialog by rememberSaveable { mutableStateOf(false) }
     var showApiKeyDialog by rememberSaveable { mutableStateOf(false) }
     var showDeeplApiKeyDialog by rememberSaveable { mutableStateOf(false) }
@@ -582,6 +587,47 @@ highlightKey: String? = null) {
                 )
             }
         )
+
+        Spacer(modifier = Modifier.height(27.dp))
+
+        Material3SettingsGroup(
+            title = stringResource(R.string.ai_recommendations),
+            items = buildList {
+                add(
+                    Material3SettingsItem(
+                        isHighlighted = (highlightKey == stringResource(R.string.ai_recommendations)),
+                        icon = painterResource(R.drawable.sparks),
+                        title = { Text(stringResource(R.string.ai_recommendations)) },
+                        description = { Text(stringResource(R.string.ai_recommendations_desc)) },
+                        trailingContent = {
+                            Switch(
+                                checked = aiRecommendations,
+                                onCheckedChange = { aiRecommendations = it }
+                            )
+                        },
+                        onClick = { aiRecommendations = !aiRecommendations }
+                    )
+                )
+                if (aiRecommendations) {
+                    add(
+                        Material3SettingsItem(
+                            isHighlighted = false,
+                            icon = painterResource(R.drawable.sync),
+                            title = { Text(stringResource(R.string.ai_recommendations_refresh)) },
+                            onClick = {
+                                showRefreshDialog = true
+                            }
+                        )
+                    )
+                }
+            }
+        )
+
+        if (showRefreshDialog) {
+            iad1tya.echo.music.ui.component.RefreshAiRecommendationDialog(
+                onDismiss = { showRefreshDialog = false }
+            )
+        }
 
         Spacer(modifier = Modifier.height(16.dp))
     

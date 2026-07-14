@@ -146,6 +146,7 @@ import com.music.innertube.YouTube
 import com.music.innertube.models.SongItem
 import com.music.innertube.models.WatchEndpoint
 import iad1tya.echo.music.constants.AppBarHeight
+import iad1tya.echo.music.constants.AiRecommendationsKey
 import iad1tya.echo.music.constants.AppLanguageKey
 import iad1tya.echo.music.constants.DarkModeKey
 import iad1tya.echo.music.constants.DefaultOpenTabKey
@@ -362,6 +363,27 @@ class MainActivity : ComponentActivity() {
                         )
                     } else {
                         window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+                    }
+                }
+        }
+        
+        lifecycleScope.launch {
+            dataStore.data
+                .map { it[AiRecommendationsKey] ?: false }
+                .distinctUntilChanged()
+                .collectLatest { enabled ->
+                    val workManager = androidx.work.WorkManager.getInstance(this@MainActivity)
+                    if (enabled) {
+                        val request = androidx.work.PeriodicWorkRequestBuilder<iad1tya.echo.music.ai.AiRecommendationWorker>(1, java.util.concurrent.TimeUnit.DAYS)
+                            .setConstraints(androidx.work.Constraints.Builder().setRequiredNetworkType(androidx.work.NetworkType.CONNECTED).build())
+                            .build()
+                        workManager.enqueueUniquePeriodicWork(
+                            "AiRecommendationWorker",
+                            androidx.work.ExistingPeriodicWorkPolicy.KEEP,
+                            request
+                        )
+                    } else {
+                        workManager.cancelUniqueWork("AiRecommendationWorker")
                     }
                 }
         }

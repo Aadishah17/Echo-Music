@@ -518,4 +518,7 @@
     <string name="ai_auto_translate">Auto Translate</string>
     <string name="ai_auto_translate_desc">Automatically translate lyrics when available</string>
     <string name="lyrics_translation_menu">Lyrics Translation</string>
+    <string name="ai_recommendations">AI Recommendations</string>
+    <string name="ai_recommendations_desc">Daily update of a custom playlist based on your taste</string>
+    <string name="ai_recommendations_refresh">Refresh Recommendations</string>
 </resources>
