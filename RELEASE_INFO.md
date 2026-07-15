@@ -1,5 +1,10 @@
 # Echo Music v5.2.6
 
+- Added a "Contribute in Lossless" option in the Account Dialog (below AI Lyrics Translation) that appears only when the music quality is set to Lossless.
+- Added "Lossless" music provider to the Service Uptime screen.
+- Added a new "Our Services" section to the About screen with links to Echo Canvas, Echo Lossless, and Echo Charts.
+- Grouped the "Backup and restore" options into a single unified card to better match the app's Material 3 aesthetics.
+- Fixed a compilation error caused by a missing bracket in PlayerSettings and a missing Intent import in App.kt.
 - Added a global haptics option in Appearance settings for providing haptic feedback during interactions and scrolling.
 - Fixed an issue where the app's internal volume could get permanently stuck in a lowered state after restoring playback state.
 - Audio quality switches (e.g. standard to Lossless) now apply immediately rather than persisting an old cached stream format.

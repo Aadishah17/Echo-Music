@@ -53,6 +53,7 @@ highlightKey: String? = null) {
     val musicServices = remember {
         mutableStateListOf(
             ServiceStatus("YouTube Music", { "https://music.youtube.com" }),
+            ServiceStatus("Lossless", { "https://lossless.echomusic.fun" }),
             ServiceStatus(
                 "JioSaavn",
                 { if (com.music.jiosaavn.DeviceRouter.hasServers()) com.music.jiosaavn.DeviceRouter.getCurrentServer() else "unconfigured" },
