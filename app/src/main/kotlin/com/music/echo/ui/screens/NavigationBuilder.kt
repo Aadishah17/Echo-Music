@@ -38,6 +38,8 @@ import iad1tya.echo.music.ui.screens.search.OnlineSearchResult
 import iad1tya.echo.music.ui.screens.search.SearchScreen
 import iad1tya.echo.music.ui.screens.settings.AboutScreen
 import iad1tya.echo.music.ui.screens.settings.AppearanceSettings
+import iad1tya.echo.music.ui.screens.settings.FontsBrowseScreen
+import iad1tya.echo.music.ui.screens.settings.FontsSettings
 import iad1tya.echo.music.ui.screens.settings.GlassEffectSettings
 import iad1tya.echo.music.ui.screens.settings.BackupAndRestore
 import iad1tya.echo.music.ui.screens.settings.ContentSettings
@@ -366,6 +368,14 @@ fun NavGraphBuilder.navigationBuilder(
 
     composable("settings/appearance/liquidglass") {
         GlassEffectSettings(navController, scrollBehavior)
+    }
+
+    composable("settings/appearance/fonts") {
+        FontsSettings(navController, scrollBehavior, snackbarHostState)
+    }
+
+    composable("settings/appearance/fonts/browse") {
+        FontsBrowseScreen(navController, scrollBehavior, snackbarHostState)
     }
 
     composable(
