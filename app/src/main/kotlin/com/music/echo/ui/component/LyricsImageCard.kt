@@ -48,6 +48,7 @@ import androidx.compose.ui.unit.sp
 import coil3.compose.rememberAsyncImagePainter
 import coil3.request.ImageRequest
 import coil3.request.crossfade
+import iad1tya.echo.music.fonts.LocalLyricsFontFamily
 import iad1tya.echo.music.R
 import iad1tya.echo.music.models.MediaMetadata
 
@@ -356,6 +357,7 @@ fun LyricsImageCard(
                     val availableHeight = maxHeight
                     val textStyle = TextStyle(
                         color = mainTextColor,
+                        fontFamily = LocalLyricsFontFamily.current,
                         fontWeight = FontWeight.Bold,
                         textAlign = textAlign,
                         letterSpacing = 0.005.em,
