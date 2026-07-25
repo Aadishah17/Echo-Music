@@ -138,7 +138,9 @@ object GoogleFontsApi {
                 ?.toList()
                 .orEmpty()
 
-            AppFont(
+            val popularity = item.optInt("popularity", Int.MAX_VALUE)
+
+            popularity to AppFont(
                 id = family.toFontId(),
                 name = family,
                 provider = FontProvider.GOOGLE_FONTS,
@@ -146,6 +148,10 @@ object GoogleFontsApi {
                 variants = variants.ifEmpty { listOf(FontVariant.Regular) },
             )
         }
+            // The endpoint answers in alphabetical order, which buries the families anyone is
+            // actually looking for. Rank 1 is the most popular; anything unranked sinks.
+            .sortedBy { it.first }
+            .map { it.second }
     }
 
     /** `"regular"`, `"italic"`, `"700"`, `"700italic"` -> [FontVariant]. */
