@@ -53,6 +53,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -234,8 +235,9 @@ fun FontsSettings(
                     style = MaterialTheme.typography.titleMedium,
                 )
                 Text(
-                    text = stringResource(
-                        R.string.fonts_storage_used_value,
+                    text = pluralStringResource(
+                        R.plurals.fonts_storage_used_value,
+                        installedFonts.size,
                         installedFonts.size,
                         storageLabel(context, storageUsed),
                     ),
@@ -375,8 +377,9 @@ private fun FontPreviewSubtitle(font: AppFont, sizeLabel: String) {
             overflow = TextOverflow.Ellipsis,
         )
         Text(
-            text = stringResource(
-                R.string.fonts_variant_summary,
+            text = pluralStringResource(
+                R.plurals.fonts_variant_summary,
+                font.variants.size,
                 font.variants.size,
                 sizeLabel,
             ),

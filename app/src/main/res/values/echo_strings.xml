@@ -1041,8 +1041,14 @@
     <string name="fonts_search_placeholder">Search fonts…</string>
     <string name="fonts_no_results">No fonts found</string>
     <string name="fonts_storage_used">Storage</string>
-    <string name="fonts_storage_used_value">%1$d installed · %2$s used</string>
-    <string name="fonts_variant_summary">%1$d weights · %2$s</string>
+    <plurals name="fonts_storage_used_value">
+        <item quantity="one">%1$d font installed · %2$s used</item>
+        <item quantity="other">%1$d fonts installed · %2$s used</item>
+    </plurals>
+    <plurals name="fonts_variant_summary">
+        <item quantity="one">%1$d weight · %2$s</item>
+        <item quantity="other">%1$d weights · %2$s</item>
+    </plurals>
     <string name="fonts_apply_to_title">Apply to</string>
     <string name="fonts_target_app">App</string>
     <string name="fonts_target_lyrics">Lyrics</string>
