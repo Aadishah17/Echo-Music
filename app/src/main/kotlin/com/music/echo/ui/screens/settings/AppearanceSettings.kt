@@ -1051,7 +1051,7 @@ highlightKey: String? = null) {
                 )
                 add(
                     Material3SettingsItem(
-    isHighlighted = (highlightKey == stringResource(R.string.fonts_title)),
+    isHighlighted = highlightKey == stringResource(R.string.fonts_title),
                         customIcon = { SettingsIcon(Icons.Rounded.TextFields) },
                         title = { Text(stringResource(R.string.fonts_title)) },
                         description = { Text(stringResource(R.string.fonts_desc)) },

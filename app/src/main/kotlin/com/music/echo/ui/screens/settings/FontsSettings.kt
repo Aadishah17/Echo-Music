@@ -71,6 +71,9 @@ import iad1tya.echo.music.ui.component.Material3SettingsItem
 import iad1tya.echo.music.ui.utils.backToMain
 import iad1tya.echo.music.utils.rememberPreference
 
+internal const val FONTS_SETTINGS_ROUTE = "settings/appearance/fonts"
+internal const val FONTS_BROWSE_ROUTE = "settings/appearance/fonts/browse"
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FontsSettings(
@@ -159,7 +162,7 @@ fun FontsSettings(
                     customIcon = { SettingsIcon(Icons.Rounded.FontDownload) },
                     title = { Text(stringResource(R.string.fonts_browse_google_fonts)) },
                     description = { Text(stringResource(R.string.fonts_browse_google_fonts_desc)) },
-                    onClick = { navController.navigate("settings/appearance/fonts/browse") },
+                    onClick = { navController.navigate(FONTS_BROWSE_ROUTE) },
                 ),
                 Material3SettingsItem(
                     customIcon = { SettingsIcon(Icons.Rounded.Upload) },

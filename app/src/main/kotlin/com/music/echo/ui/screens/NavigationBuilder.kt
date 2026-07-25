@@ -38,6 +38,8 @@ import iad1tya.echo.music.ui.screens.search.OnlineSearchResult
 import iad1tya.echo.music.ui.screens.search.SearchScreen
 import iad1tya.echo.music.ui.screens.settings.AboutScreen
 import iad1tya.echo.music.ui.screens.settings.AppearanceSettings
+import iad1tya.echo.music.ui.screens.settings.FONTS_BROWSE_ROUTE
+import iad1tya.echo.music.ui.screens.settings.FONTS_SETTINGS_ROUTE
 import iad1tya.echo.music.ui.screens.settings.FontsBrowseScreen
 import iad1tya.echo.music.ui.screens.settings.FontsSettings
 import iad1tya.echo.music.ui.screens.settings.GlassEffectSettings
@@ -370,11 +372,11 @@ fun NavGraphBuilder.navigationBuilder(
         GlassEffectSettings(navController, scrollBehavior)
     }
 
-    composable("settings/appearance/fonts") {
+    composable(FONTS_SETTINGS_ROUTE) {
         FontsSettings(navController, scrollBehavior, snackbarHostState)
     }
 
-    composable("settings/appearance/fonts/browse") {
+    composable(FONTS_BROWSE_ROUTE) {
         FontsBrowseScreen(navController, scrollBehavior, snackbarHostState)
     }
 

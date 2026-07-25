@@ -67,7 +67,7 @@ fun FontsBrowseScreen(
     navController: NavController,
     scrollBehavior: TopAppBarScrollBehavior,
     snackbarHostState: SnackbarHostState? = null,
-    viewModel: FontsViewModel = hiltViewModel(),
+    viewModel: FontsViewModel = rememberFontsViewModel(navController),
 ) {
     val context = LocalContext.current
     val catalog by viewModel.catalog.collectAsState()
@@ -240,4 +240,19 @@ private fun CatalogFontRow(
             }
         }
     }
+}
+
+/**
+ * View model shared by both fonts screens, scoped to the settings entry rather than to this one.
+ *
+ * Scoped to this screen it would be cleared the moment the user navigates back, cancelling any
+ * download still in flight and leaving a half-installed family behind. Hanging it off the parent
+ * entry also means the installed list on the settings screen reflects a download as it lands.
+ */
+@Composable
+private fun rememberFontsViewModel(navController: NavController): FontsViewModel {
+    val parentEntry = remember(navController) {
+        runCatching { navController.getBackStackEntry(FONTS_SETTINGS_ROUTE) }.getOrNull()
+    }
+    return if (parentEntry != null) hiltViewModel(parentEntry) else hiltViewModel()
 }

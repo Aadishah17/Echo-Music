@@ -10,6 +10,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import timber.log.Timber
+import kotlin.math.abs
 
 /**
  * Turns installed font files into Compose [FontFamily] instances, cached per family.
@@ -50,11 +51,14 @@ object FontManager {
         }
 
         val typeface = try {
-            // Lowest weight first, so the regular face is the base the caller derives bold from.
-            FontStorage.variantFiles(context, fontId)
-                .minByOrNull { it.key }
-                ?.value
-                ?.let { Typeface.createFromFile(it) }
+            // Callers derive bold and italic from whatever comes back, so this has to be the
+            // regular face. Falling back to the lowest weight would hand them a light or thin
+            // one and let Android synthesise everything else on top of it.
+            val files = FontStorage.variantFiles(context, fontId)
+            val upright = files.filterKeys { !it.italic }.ifEmpty { files }
+            val base = upright[FontVariant.Regular]
+                ?: upright.entries.minByOrNull { abs(it.key.weight - FontVariant.Regular.weight) }?.value
+            base?.let { Typeface.createFromFile(it) }
         } catch (e: Exception) {
             Timber.w(e, "Could not load typeface $fontId")
             null
