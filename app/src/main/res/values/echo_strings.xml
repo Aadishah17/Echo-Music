@@ -1025,4 +1025,12 @@
     <string name="lossless_audio_warning">Lossless audio requires a fast connection. It may consume more data and battery. Continue?</string>
     <string name="legacy_icon">Legacy Icon</string>
     <string name="legacy_icon_desc">Revert the app icon back to the original legacy design</string>
+
+    <!-- Fonts -->
+    <string name="fonts_error_no_files">No font files available for %1$s</string>
+    <string name="fonts_error_download">Could not download %1$s</string>
+    <string name="fonts_error_already_installed">%1$s is already installed</string>
+    <string name="fonts_error_unreadable">Could not read the selected file</string>
+    <string name="fonts_error_not_a_font">%1$s is not a TTF or OTF font</string>
+    <string name="fonts_error_not_installed">That font is not installed</string>
 </resources>
