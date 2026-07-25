@@ -1027,8 +1027,15 @@
     <string name="legacy_icon_desc">Revert the app icon back to the original legacy design</string>
 
     <!-- Fonts -->
+    <string name="fonts_msg_installed">%1$s installed</string>
+    <string name="fonts_msg_imported">%1$s imported</string>
+    <string name="fonts_msg_removed">%1$s removed</string>
+    <string name="fonts_error_catalog">Could not load the font catalog</string>
     <string name="fonts_error_no_files">No font files available for %1$s</string>
     <string name="fonts_error_download">Could not download %1$s</string>
+    <string name="fonts_error_download_generic">Download failed</string>
+    <string name="fonts_error_import_generic">Import failed</string>
+    <string name="fonts_error_remove_generic">Could not remove the font</string>
     <string name="fonts_error_already_installed">%1$s is already installed</string>
     <string name="fonts_error_unreadable">Could not read the selected file</string>
     <string name="fonts_error_not_a_font">%1$s is not a TTF or OTF font</string>
