@@ -25,6 +25,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
@@ -115,11 +116,16 @@ fun CastDevicePickerSheet(
                 discoveredRoutes.add(route)
             }
         }
-        isScanning = false
 
         onDispose {
             router.removeCallback(callback)
         }
+    }
+
+    // Keep scanning for a discovery window before showing empty state
+    LaunchedEffect(Unit) {
+        kotlinx.coroutines.delay(5000L)
+        isScanning = false
     }
 
     Column(

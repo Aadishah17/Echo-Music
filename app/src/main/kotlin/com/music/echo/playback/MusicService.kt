@@ -3437,7 +3437,8 @@ class MusicService :
         if (dataStore.get(iad1tya.echo.music.constants.EnableGoogleCastKey, true)) {
             try {
                 castConnectionHandler = CastConnectionHandler(this, scope, this)
-                if (!castConnectionHandler?.initialize()!!) {
+                if (castConnectionHandler?.initialize() != true) {
+                    castConnectionHandler?.release()
                     castConnectionHandler = null
                     timber.log.Timber.w("Google Cast not available on this device")
                 } else {

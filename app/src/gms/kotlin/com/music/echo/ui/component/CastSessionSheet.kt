@@ -18,12 +18,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -46,12 +46,11 @@ fun CastSessionSheet(
     onDismiss: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val context = LocalContext.current
     val playerConnection = LocalPlayerConnection.current
     val castHandler = playerConnection?.service?.castConnectionHandler
 
     if (castHandler == null) {
-        onDismiss()
+        LaunchedEffect(Unit) { onDismiss() }
         return
     }
 
@@ -64,7 +63,7 @@ fun CastSessionSheet(
 
     // Auto-dismiss if disconnected
     if (!isCasting) {
-        onDismiss()
+        LaunchedEffect(Unit) { onDismiss() }
         return
     }
 

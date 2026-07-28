@@ -30,7 +30,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 
@@ -103,9 +102,6 @@ class CastConnectionHandler(
         private set
 
     private var pendingSyncOperation: kotlinx.coroutines.CompletableDeferred<Unit>? = null
-
-    /** Mutex to serialise queue operations (load, extend, edit, etc.). */
-    private val queueMutex = Mutex()
 
     // ── Retry state ──────────────────────────────────────────────────────
     private val maxQueueLoadRetries = 2
@@ -241,6 +237,7 @@ class CastConnectionHandler(
                 _isConnecting.value = false
                 _autoReconnecting.value = false
                 _castDeviceName.value = session.castDevice?.friendlyName
+                castSession = session
 
                 remoteMediaClient = session.remoteMediaClient
                 remoteMediaClient?.registerCallback(remoteMediaClientCallback)
@@ -286,6 +283,7 @@ class CastConnectionHandler(
             sessionManager?.currentCastSession?.let { session ->
                 _isCasting.value = true
                 _castDeviceName.value = session.castDevice?.friendlyName
+                castSession = session
                 remoteMediaClient = session.remoteMediaClient
                 remoteMediaClient?.registerCallback(remoteMediaClientCallback)
                 _castVolume.value = session.volume.toFloat()
@@ -680,6 +678,7 @@ class CastConnectionHandler(
                     if (currentMediaInfo == null) {
                         Timber.e("Failed to get stream URL for Cast")
                         _castIsBuffering.value = false
+                        isReloadingQueue = false
                         return@launch
                     }
                     queueItems.add(MediaQueueItem.Builder(currentMediaInfo).build())
@@ -725,13 +724,14 @@ class CastConnectionHandler(
                     Timber.e(e, "Failed to load media on Cast (attempt $retries/$maxQueueLoadRetries)")
                     if (retries > maxQueueLoadRetries) {
                         _castIsBuffering.value = false
+                        isReloadingQueue = false
                         handleCastLoadFailure()
                     }
                 } finally {
                     if (success) {
                         delay(1500)
-                        isReloadingQueue = false
                     }
+                    isReloadingQueue = false
                 }
             }
         }

@@ -106,6 +106,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -228,12 +229,15 @@ fun AudioDeviceBottomSheet(onDismiss: () -> Unit, modifier: Modifier = Modifier)
         }, onError = {})
     }
 
+    // Keep a stable reference for BroadcastReceiver inside DisposableEffect
+    val isCastingUpdated by rememberUpdatedState(isCasting)
+
     DisposableEffect(Unit) {
         val volumeChangeReceiver = object : BroadcastReceiver() {
             override fun onReceive(context: Context, intent: Intent) {
                 if (intent.action == "android.media.VOLUME_CHANGED_ACTION") {
                     val streamType = intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1)
-                    if (streamType == AudioManager.STREAM_MUSIC && !isUserDragging) {
+                    if (streamType == AudioManager.STREAM_MUSIC && !isUserDragging && !isCastingUpdated) {
                         currentVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC).toFloat()
                     }
                 }
@@ -395,15 +399,15 @@ fun AudioDeviceBottomSheet(onDismiss: () -> Unit, modifier: Modifier = Modifier)
                 }
 
                 else -> {
-                    // Add Cast device as active when casting
+                    // Add Cast device as active when casting, keep all local devices
                     val effectiveDevices = if (isCasting) {
                         val castDevice = AudioDevice(
-                            name = castDeviceName ?: "Google Cast",
+                            name = castDeviceName ?: stringResource(R.string.volume),
                             type = AudioDeviceType.CHROMECAST,
                             isConnected = true,
                             isActive = true
                         )
-                        listOf(castDevice) + audioDevices.filter { it.isActive.not() }
+                        listOf(castDevice) + audioDevices.map { it.copy(isActive = false) }
                     } else {
                         audioDevices
                     }
