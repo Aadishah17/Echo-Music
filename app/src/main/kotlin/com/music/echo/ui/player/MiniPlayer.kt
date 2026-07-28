@@ -259,6 +259,7 @@ private fun NewMiniPlayer(
         }
     }
     val isCasting by castHandler?.isCasting?.collectAsState() ?: remember { mutableStateOf(false) }
+    val castDeviceName by castHandler?.castDeviceName?.collectAsState() ?: remember { mutableStateOf(null) }
 
     
     val context = LocalContext.current
@@ -433,10 +434,19 @@ private fun NewMiniPlayer(
                 if (isCasting) {
                     Icon(
                         painter = painterResource(R.drawable.cast_connected),
-                        contentDescription = "Casting",
+                        contentDescription = "Casting to ${castDeviceName ?: "device"}",
                         tint = primaryColor,
                         modifier = Modifier.size(20.dp)
                     )
+                    if (castDeviceName != null) {
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text(
+                            text = castDeviceName!!,
+                            style = MaterialTheme.typography.labelSmall,
+                            color = primaryColor,
+                            maxLines = 1
+                        )
+                    }
                     Spacer(modifier = Modifier.width(8.dp))
                 }
 
