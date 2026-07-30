@@ -5,6 +5,7 @@ package iad1tya.echo.music.ui.component
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import android.text.Layout
 import android.view.WindowManager
 import android.widget.Toast
@@ -1263,7 +1264,7 @@ private fun LyricsContent(
                             this.alpha = if (item.isBackground) alpha * 0.8f else alpha
                             this.scaleX = scale * bgScale
                             this.scaleY = scale * bgScale
-                            if (blurRadius > 0f) {
+                            if (blurRadius > 0f && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                                 this.renderEffect = android.graphics.RenderEffect.createBlurEffect(
                                     blurRadius * density.density,
                                     blurRadius * density.density,
