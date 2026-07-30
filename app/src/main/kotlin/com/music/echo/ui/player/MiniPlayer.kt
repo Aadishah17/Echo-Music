@@ -239,20 +239,23 @@ fun MiniPlayer(
                 contentColor = contentColor,
                 onClick = onClick,
                 modifier = Modifier
+                    .widthIn(max = 540.dp)
                     .fillMaxWidth()
                     .then(tabBarContentModifier)
             )
         }
     } else if (useNewMiniPlayerDesign) {
-        NewMiniPlayer(
-            progressState = progressState,
-            modifier = modifier
-        )
+        Box(modifier = modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+            NewMiniPlayer(
+                progressState = progressState,
+                modifier = Modifier.widthIn(max = 540.dp)
+            )
+        }
     } else {
-        Box(modifier = modifier.fillMaxWidth()) {
+        Box(modifier = modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
             LegacyMiniPlayer(
                 progressState = progressState,
-                modifier = Modifier.align(Alignment.Center)
+                modifier = Modifier.widthIn(max = 540.dp)
             )
         }
     }

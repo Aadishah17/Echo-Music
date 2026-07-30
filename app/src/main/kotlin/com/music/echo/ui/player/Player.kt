@@ -19,6 +19,7 @@ import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.animateDpAsState
@@ -1438,14 +1439,19 @@ fun BottomSheetPlayer(
                     targetState = showInlineLyrics,
                     label = "ThumbnailAnimation"
                 ) { showLyrics ->
-                    if (showLyrics) {
+                    val isTablet = LocalConfiguration.current.smallestScreenWidthDp >= 600
+                    val isLandscape = LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
+                    if (showLyrics && !(isTablet && isLandscape)) {
                         Row {
                             if (hidePlayerThumbnail) {
                                 Box(
                                     modifier = Modifier
                                         .size(56.dp)
                                         .clip(RoundedCornerShape(ThumbnailCornerRadius))
-                                        .background(MaterialTheme.colorScheme.surfaceVariant),
+                                        .background(MaterialTheme.colorScheme.surfaceVariant)
+                                        .clickable(enabled = isFullScreen) {
+                                            showInlineLyrics = false
+                                        },
                                     contentAlignment = Alignment.Center
                                 ) {
                                     Icon(
@@ -1462,8 +1468,12 @@ fun BottomSheetPlayer(
                                     modifier = Modifier
                                         .size(56.dp)
                                         .clip(RoundedCornerShape(ThumbnailCornerRadius))
-                                        .clickable(enabled = isFullScreen && enableLyricsThumbnailPlayPause) {
-                                            playerConnection.togglePlayPause()
+                                        .clickable(enabled = isFullScreen) {
+                                            if (enableLyricsThumbnailPlayPause) {
+                                                playerConnection.togglePlayPause()
+                                            } else {
+                                                showInlineLyrics = false
+                                            }
                                         }
                                 ) {
                                     AsyncImage(
@@ -2752,84 +2762,153 @@ fun BottomSheetPlayer(
             }
         }
 
-        when (LocalConfiguration.current.orientation) {
-            Configuration.ORIENTATION_LANDSCAPE -> {
-                
-                val density = LocalDensity.current
-                val verticalPadding = max(
-                    WindowInsets.systemBars.getTop(density),
-                    WindowInsets.systemBars.getBottom(density)
-                )
-                val verticalPaddingDp = with(density) { verticalPadding.toDp() }
-                val verticalWindowInsets = WindowInsets(left = 0.dp, top = verticalPaddingDp, right = 0.dp, bottom = verticalPaddingDp)
-                
-                Row(
+        val isLandscape = LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
+        val isTablet = LocalConfiguration.current.smallestScreenWidthDp >= 600
+
+        if (isTablet && isLandscape) {
+            val bottomPadding by animateDpAsState(
+                targetValue = if (isFullScreen) 0.dp else queueSheetState.collapsedBound,
+                label = "bottomPadding"
+            )
+            Row(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .windowInsetsPadding(WindowInsets.systemBars.only(WindowInsetsSides.Horizontal))
+                    .padding(bottom = bottomPadding),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                Column(
                     modifier = Modifier
-                        .windowInsetsPadding(
-                            WindowInsets.systemBars.only(WindowInsetsSides.Horizontal).add(verticalWindowInsets)
-                        )
-                        .padding(bottom = 24.dp)
-                        .fillMaxSize()
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .animateContentSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Box(
-                        contentAlignment = Alignment.Center,
-                        modifier = Modifier
-                            .weight(1f)
-                            .nestedScroll(state.preUpPostDownNestedScrollConnection)
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.BottomCenter
                     ) {
-                        val currentSliderPosition by rememberUpdatedState(sliderPosition)
-                        val sliderPositionProvider = remember { { currentSliderPosition } }
-                        val isExpandedProvider = remember(state) { { state.isExpanded } }
-                        AnimatedContent(
-                            targetState = showInlineLyrics,
-                            label = "Lyrics",
-                            transitionSpec = { fadeIn() togetherWith fadeOut() }
-                        ) { showLyrics ->
-                            if (showLyrics) {
-                                InlineLyricsView(
-                                    mediaMetadata = mediaMetadata,
-                                    showLyrics = showLyrics,
-                                    positionProvider = { effectivePosition }
-                                )
-                            } else {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            modifier = Modifier
+                                .widthIn(max = 540.dp)
+                                .fillMaxHeight()
+                        ) {
+                            Box(
+                                contentAlignment = Alignment.TopCenter,
+                                modifier = Modifier.weight(1f),
+                            ) {
+                                val currentSliderPosition by rememberUpdatedState(sliderPosition)
+                                val sliderPositionProvider = remember { { currentSliderPosition } }
+                                val isExpandedProvider = remember(state) { { state.isExpanded } }
                                 Thumbnail(
                                     sliderPositionProvider = sliderPositionProvider,
-                                    modifier = Modifier.animateContentSize(),
+                                    modifier = Modifier.nestedScroll(state.preUpPostDownNestedScrollConnection),
                                     isPlayerExpanded = isExpandedProvider,
-                                    isLandscape = true,
                                     isListenTogetherGuest = isListenTogetherGuest
                                 )
                             }
+    
+                            mediaMetadata?.let {
+                                controlsContent(it)
+                            }
+                            Spacer(Modifier.height(if (useNewPlayerDesign) 30.dp else 8.dp))
                         }
-                    }
-
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier
-                            .weight(if (showInlineLyrics) 0.65f else 1f, false)
-                            .animateContentSize()
-                            .windowInsetsPadding(WindowInsets.systemBars.only(WindowInsetsSides.Top))
-                    ) {
-                        Spacer(Modifier.weight(1f))
-
-                        mediaMetadata?.let {
-                            controlsContent(it)
-                        }
-
-                        Spacer(Modifier.weight(1f))
                     }
                 }
+                
+                AnimatedVisibility(
+                    visible = showInlineLyrics,
+                    modifier = Modifier.weight(1f).fillMaxHeight()
+                ) {
+                    val currentSliderPosition by rememberUpdatedState(sliderPosition)
+                    InlineLyricsView(
+                        mediaMetadata = mediaMetadata,
+                        showLyrics = showInlineLyrics,
+                        positionProvider = { effectivePosition }
+                    )
+                }
             }
+        } else if (isLandscape) {
+            val density = LocalDensity.current
+            val verticalPadding = max(
+                WindowInsets.systemBars.getTop(density),
+                WindowInsets.systemBars.getBottom(density)
+            )
+            val verticalPaddingDp = with(density) { verticalPadding.toDp() }
+            val verticalWindowInsets = WindowInsets(left = 0.dp, top = verticalPaddingDp, right = 0.dp, bottom = verticalPaddingDp)
+            
+            Row(
+                modifier = Modifier
+                    .windowInsetsPadding(
+                        WindowInsets.systemBars.only(WindowInsetsSides.Horizontal).add(verticalWindowInsets)
+                    )
+                    .padding(bottom = 24.dp)
+                    .fillMaxSize()
+            ) {
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier
+                        .weight(1f)
+                        .nestedScroll(state.preUpPostDownNestedScrollConnection)
+                ) {
+                    val currentSliderPosition by rememberUpdatedState(sliderPosition)
+                    val sliderPositionProvider = remember { { currentSliderPosition } }
+                    val isExpandedProvider = remember(state) { { state.isExpanded } }
+                    AnimatedContent(
+                        targetState = showInlineLyrics,
+                        label = "Lyrics",
+                        transitionSpec = { fadeIn() togetherWith fadeOut() }
+                    ) { showLyrics ->
+                        if (showLyrics) {
+                            InlineLyricsView(
+                                mediaMetadata = mediaMetadata,
+                                showLyrics = showLyrics,
+                                positionProvider = { effectivePosition }
+                            )
+                        } else {
+                            Thumbnail(
+                                sliderPositionProvider = sliderPositionProvider,
+                                modifier = Modifier.animateContentSize(),
+                                isPlayerExpanded = isExpandedProvider,
+                                isLandscape = true,
+                                isListenTogetherGuest = isListenTogetherGuest
+                            )
+                        }
+                    }
+                }
 
-            else -> {
-                val bottomPadding by animateDpAsState(
-                    targetValue = if (isFullScreen) 0.dp else queueSheetState.collapsedBound,
-                    label = "bottomPadding"
-                )
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier
+                        .weight(if (showInlineLyrics) 0.65f else 1f, false)
+                        .animateContentSize()
+                        .windowInsetsPadding(WindowInsets.systemBars.only(WindowInsetsSides.Top))
+                ) {
+                    Spacer(Modifier.weight(1f))
+
+                    mediaMetadata?.let {
+                        controlsContent(it)
+                    }
+
+                    Spacer(Modifier.weight(1f))
+                }
+            }
+        } else {
+            val bottomPadding by animateDpAsState(
+                targetValue = if (isFullScreen) 0.dp else queueSheetState.collapsedBound,
+                label = "bottomPadding"
+            )
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.BottomCenter
+            ) {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier =
                     Modifier
+                        .widthIn(max = 540.dp)
+                        .fillMaxHeight()
                         .windowInsetsPadding(WindowInsets.systemBars.only(WindowInsetsSides.Horizontal))
                         .padding(bottom = bottomPadding)
                         .animateContentSize(),
