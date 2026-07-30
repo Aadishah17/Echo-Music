@@ -1162,13 +1162,6 @@ highlightKey: String? = null) {
                     },
                     onClick = { onEnableExportAsMp3Change(!enableExportAsMp3) }
                 ),
-                Material3SettingsItem(
-                    isHighlighted = (highlightKey == stringResource(R.string.youtube_decryption_settings)),
-                    icon = painterResource(R.drawable.settings),
-                    title = { Text(stringResource(R.string.youtube_decryption_settings)) },
-                    description = { Text(stringResource(R.string.youtube_decryption_desc)) },
-                    onClick = { navController.navigate("settings/echo_extractor") }
-                )
             )
         )
         Spacer(modifier = Modifier.height(16.dp))

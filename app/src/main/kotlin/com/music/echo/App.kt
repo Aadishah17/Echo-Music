@@ -29,7 +29,6 @@ import iad1tya.echo.music.di.ApplicationScope
 import iad1tya.echo.music.extensions.toEnum
 import iad1tya.echo.music.extensions.toInetSocketAddress
 import iad1tya.echo.music.utils.CrashHandler
-import iad1tya.echo.music.utils.cipher.CipherDeobfuscator
 import iad1tya.echo.music.utils.dataStore
 import iad1tya.echo.music.utils.reportException
 import dagger.hilt.android.HiltAndroidApp
@@ -73,18 +72,18 @@ class App : Application(), SingletonImageLoader.Factory {
 
     override fun onCreate() {
         super.onCreate()
+        appContext = this.applicationContext
 
         // Removed destructive database deletion to preserve user data
 
         
         CrashHandler.install(this)
 
-        
-        CipherDeobfuscator.initialize(this)
-
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
+
+        com.music.echo.utils.cipher.CipherDeobfuscator.initialize(this)
 
         applicationScope.launch(Dispatchers.IO) {
             cachedCoilCacheSize = dataStore.data.map { it[MaxImageCacheSizeKey] ?: 512 }.first()
@@ -93,13 +92,11 @@ class App : Application(), SingletonImageLoader.Factory {
         applicationScope.launch {
             initializeSettings()
             
-            // Warm the cipher WebView off the first-play critical path
-            launch(Dispatchers.IO) {
-                delay(1500)
-                CipherDeobfuscator.prewarm()
-            }
-            
             observeSettingsChanges()
+            
+            launch(Dispatchers.Main) {
+                runCatching { com.music.echo.utils.cipher.CipherDeobfuscator.prewarm() }
+            }
         }
     }
 
@@ -278,6 +275,9 @@ class App : Application(), SingletonImageLoader.Factory {
     }
 
     companion object {
+        lateinit var appContext: Context
+            private set
+
         suspend fun forgetAccount(context: Context) {
             Timber.d("forgetAccount: Starting logout process")
 
