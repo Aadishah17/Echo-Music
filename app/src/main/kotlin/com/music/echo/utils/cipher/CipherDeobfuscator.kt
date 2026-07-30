@@ -25,6 +25,7 @@ object CipherDeobfuscator {
     fun initialize(context: Context) {
         Timber.tag(TAG).d("CipherDeobfuscator initializing...")
         appContext = context.applicationContext
+        CipherHistoryStore.initialize(appContext)
         // Load the player-config table (bundled asset + last-good cached remote overlay) so
         // configs exist before any lookup, then kick a non-blocking TTL-gated refresh against
         // the remote config file. Order is load-bearing: synchronous load first, async refresh after.

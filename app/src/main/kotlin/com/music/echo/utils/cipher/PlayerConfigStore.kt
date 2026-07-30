@@ -15,6 +15,9 @@ import okhttp3.Request
 import timber.log.Timber
 import java.io.File
 import java.nio.charset.StandardCharsets
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
 /**
  * Owns the player-config table at runtime: bundled asset as the offline default, overlaid
@@ -26,11 +29,11 @@ import java.nio.charset.StandardCharsets
  * refreshes swap wholesale.
  */
 object PlayerConfigStore {
-    private const val TAG = "Metrolist_CipherConfig"
+    private const val TAG = "EchoMusic_CipherConfig"
     private const val ASSET_NAME = "player_configs.json"
 
     private val REMOTE_URL by lazy {
-        val encoded = "aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL01ldHJvbGlzdEdyb3VwL01ldHJvbGlzdC9tYWluL2FwcC9zcmMvbWFpbi9hc3NldHMvcGxheWVyX2NvbmZpZ3MuanNvbg=="
+        val encoded = "aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0VjaG9NdXNpY0FwcC9FY2hvLU11c2ljL21haW4vYXBwL3NyYy9tYWluL2Fzc2V0cy9wbGF5ZXJfY29uZmlncy5qc29u"
         String(Base64.decode(encoded, Base64.DEFAULT), StandardCharsets.UTF_8)
     }
 
@@ -73,6 +76,9 @@ object PlayerConfigStore {
     // forceRefresh self-heal, or vice versa. They still serialize on refreshMutex (single-flight).
     @Volatile
     private var lastRejectionAttemptMs = 0L
+
+    private val _lastFetchTimeMs = MutableStateFlow<Long?>(null)
+    val lastFetchTimeMs: StateFlow<Long?> = _lastFetchTimeMs.asStateFlow()
 
     // The two cooldown gates read DIFFERENT stamps on purpose (see above). Routed through these
     // functions — which forceRefresh / refreshAfterStreamRejection actually call — so a unit test
@@ -147,10 +153,12 @@ object PlayerConfigStore {
         val cached = parseSource("cached remote copy") { cacheFile()?.takeIf { it.exists() }?.readText() }
         mergedConfigs = if (cached != null) {
             Timber.tag(TAG).d("Overlaying cached remote configs (${cached.size} hashes)")
+            _lastFetchTimeMs.value = readMeta()?.second
             PlayerConfigParser.merge(bundledConfigs, cached)
         } else {
             cacheFile()?.delete()
             metaFile()?.delete()
+            _lastFetchTimeMs.value = null
             bundledConfigs
         }
     }
@@ -226,6 +234,17 @@ object PlayerConfigStore {
             }
             lastRejectionAttemptMs = now
             fetchAndApplyResetting { lastRejectionAttemptMs = 0L }
+        }
+    }
+
+    /**
+     * Manual user-triggered refresh from Settings. Bypasses all TTLs and cooldowns.
+     * Returns true if the fetch succeeded and reached the server (even if 304).
+     */
+    suspend fun forceManualRefresh(): Boolean = withContext(Dispatchers.IO) {
+        refreshMutex.withLock {
+            fetchAndApply()
+            lastAttemptReachedServer
         }
     }
 
@@ -323,7 +342,10 @@ object PlayerConfigStore {
         val merged = PlayerConfigParser.merge(bundledConfigs, remote)
         val changed = merged != mergedConfigs
         mergedConfigs = merged
-        if (changed) configEpoch++
+        if (changed) {
+            configEpoch++
+            CipherHistoryStore.recordUpdate(System.currentTimeMillis())
+        }
         Timber.tag(TAG).d("Remote configs applied (${remote.size} hashes, merged=${merged.size}, changed=$changed, epoch=$configEpoch)")
 
         try {
@@ -391,6 +413,7 @@ object PlayerConfigStore {
     private fun writeMeta(etag: String, lastFetchMs: Long) {
         try {
             metaFile()?.let { writeAtomic(it, "$etag\n$lastFetchMs") }
+            _lastFetchTimeMs.value = lastFetchMs
         } catch (e: Exception) {
             Timber.tag(TAG).w(e, "Could not write config meta: ${e.message}")
         }

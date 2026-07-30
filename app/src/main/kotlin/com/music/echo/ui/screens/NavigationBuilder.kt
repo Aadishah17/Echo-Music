@@ -61,6 +61,7 @@ import iad1tya.echo.music.utils.rememberEnumPreference
 import iad1tya.echo.music.utils.rememberPreference
 import iad1tya.echo.music.echomusic.changelog.ChangelogScreen
 import iad1tya.echo.music.echomusic.commitscreen.CommitScreen
+import com.music.echo.ui.screens.settings.EchoExtractorScreen
 import iad1tya.echo.music.ui.screens.equalizer.axion.AxionEqScreen
 import iad1tya.echo.music.ui.screens.ambient.AmbientModeScreen
 
@@ -480,5 +481,9 @@ fun NavGraphBuilder.navigationBuilder(
     }
     composable("settings/commits") {
         CommitScreen(navController, scrollBehavior)
+    }
+    
+    composable("settings/echo_extractor") {
+        EchoExtractorScreen(navController)
     }
 }
