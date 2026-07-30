@@ -9,8 +9,6 @@
 -keepclassmembers class iad1tya.echo.music.utils.sabr.EjsNTransformSolver$SolverWebView {
     @android.webkit.JavascriptInterface public *;
 }
-    @android.webkit.JavascriptInterface public *;
-}
 -keepclassmembers class iad1tya.echo.music.utils.potoken.PoTokenWebView {
     @android.webkit.JavascriptInterface public *;
 }

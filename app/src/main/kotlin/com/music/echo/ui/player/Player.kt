@@ -1413,7 +1413,8 @@ fun BottomSheetPlayer(
         collapsedContent = {
             MiniPlayer(
                 positionState = positionState,
-                durationState = durationState
+                durationState = durationState,
+                onClick = { state.expandSoft() }
             )
         },
     ) {
