@@ -1027,7 +1027,7 @@
     <string name="legacy_icon_desc">Revert the app icon back to the original legacy design</string>
 
     <!-- Fonts -->
-    <string name="fonts_title">Fonts</string>
+    <string name="fonts_title">Fonts (Beta)</string>
     <string name="fonts_desc">Download fonts from Google Fonts or import your own</string>
     <string name="fonts_add_title">Add fonts</string>
     <string name="fonts_browse_google_fonts">Google Fonts</string>
