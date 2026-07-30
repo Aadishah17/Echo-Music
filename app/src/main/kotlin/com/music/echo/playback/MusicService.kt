@@ -3436,10 +3436,21 @@ class MusicService :
         if (dataStore.get(iad1tya.echo.music.constants.EnableGoogleCastKey, true)) {
             try {
                 castConnectionHandler = CastConnectionHandler(this, scope, this)
-                castConnectionHandler?.initialize()
-                timber.log.Timber.d("Google Cast initialized")
+                if (castConnectionHandler?.initialize() != true) {
+                    castConnectionHandler?.release()
+                    castConnectionHandler = null
+                    timber.log.Timber.w("Google Cast not available on this device")
+                } else {
+                    timber.log.Timber.d("Google Cast initialized")
+                }
+            } catch (e: RuntimeException) {
+                timber.log.Timber.e(e, "Google Play Services not available for Cast")
+                castConnectionHandler?.release()
+                castConnectionHandler = null
             } catch (e: Exception) {
                 timber.log.Timber.e(e, "Failed to initialize Google Cast")
+                castConnectionHandler?.release()
+                castConnectionHandler = null
             }
         }
     }
