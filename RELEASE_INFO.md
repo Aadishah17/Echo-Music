@@ -1,4 +1,5 @@
 # Echo Music v5.2.84
+- Redesigned the automated Telegram release notification to feature a professional layout, using blockquotes for the changelog and improved formatting.
 - Constrained the width of the Settings dialog and the Mini Player on tablets for a cleaner layout.
 - Removed the redundant mini album art on the tablet landscape player.
 - Clicking the mini album art next to the song title now toggles lyrics off (when available).

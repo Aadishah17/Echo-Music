@@ -122,35 +122,24 @@ jobs:
           fi
           
           # Construct HTML formatted message (Telegram supports HTML tags)
-          if echo "$BODY" | grep -q "Support the Project"; then
-            MESSAGE="hello everyone,
+          MESSAGE="🆕 <b>New Release: ${RELEASE_TITLE}</b>
 
-          <b>$RELEASE_TITLE</b>
+📋 <b>Changelog:</b>
+<blockquote>${SAFE_BODY}</blockquote>
 
-          $SAFE_BODY
+⚠️ <b>Note:</b>
+<i>If you encounter an 'App not installed' error during installation, please uninstall the previous version before installing this update.</i>"
 
-          Note: If you encounter an 'App not installed' error during installation, please uninstall the previous version before installing this update."
-          else
-            MESSAGE="hello everyone,
+          if ! echo "$BODY" | grep -q "Support the Project"; then
+            MESSAGE="$MESSAGE
 
-          <b>$RELEASE_TITLE</b>
+🤝 <b>Support Echo Music</b>
+If you'd like to support ongoing development, you can do so here:
+☕ <a href=\"https://buymeacoffee.com/iad1tya\">Buy Me a Coffee</a>
+⭐ <a href=\"https://github.com/sponsors/iad1tya\">GitHub Sponsors</a>
+🌐 <a href=\"https://support.iad1tya.cyou/\">Support Page</a>
 
-          $SAFE_BODY
-
-          Note: If you encounter an 'App not installed' error during installation, please uninstall the previous version before installing this update.
-
-          Thank you for your continued support. If you encounter any issues, please report them through the usual channels.
-
-          <b>Support the Project</b>
-          If you'd like to support ongoing development, you can do so through any of the following:
-
-          • Buy Me a Coffee: https://buymeacoffee.com/iad1tya
-          • GitHub Sponsors: https://github.com/sponsors/iad1tya
-          • Support Page: https://support.iad1tya.cyou/
-
-          Every contribution helps support continued development, maintenance, and future improvements.
-
-          Thank you for your support, and enjoy the update!"
+<i>Thank you for your continued support.</i>"
           fi
 
           # Create JSON payload securely using jq
