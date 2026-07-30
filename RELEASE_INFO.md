@@ -6,4 +6,7 @@
 - Removed Third party fallback logic completely.
 - Optimized liquid glass styling for light mode by making the text color adaptive by default.
 - Fixed an issue where the liquid glass floating mini player would revert to the standard mini player design on album and playlist screens by making the bottom navigation bar persistent across these detail screens.
-
+- Redesigned the font settings interface as "Fonts (Beta)" to better match the app's aesthetics and removed the cancel button from the font selection window.
+- Fixed a ProGuard syntax error that caused GitHub Actions release builds to fail.
+- Fixed a background crash (`ForegroundServiceStartNotAllowedException`) on Android 12+ that could occur when connecting or disconnecting from Google Cast sessions while the app was minimized.
+- Fixed a crash (`Using WebView from more than one process at once`) that prevented the crash reporter from launching successfully on Android 9+ devices.
