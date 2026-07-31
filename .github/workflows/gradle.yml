@@ -122,10 +122,10 @@ jobs:
           fi
           
           # Construct HTML formatted message (Telegram supports HTML tags)
-          MESSAGE="🆕 <b>New Release: ${RELEASE_TITLE}</b>\n\n📋 <b>Changelog:</b>\n<blockquote>${SAFE_BODY}</blockquote>\n\n⚠️ <b>Note:</b>\n<i>If you encounter an 'App not installed' error during installation, please uninstall the previous version before installing this update.</i>"
+          printf -v MESSAGE "🆕 <b>New Release: %s</b>\n\n📋 <b>Changelog:</b>\n<blockquote>%s</blockquote>\n\n⚠️ <b>Note:</b>\n<i>If you encounter an 'App not installed' error during installation, please uninstall the previous version before installing this update.</i>" "${RELEASE_TITLE}" "${SAFE_BODY}"
 
           if ! echo "$BODY" | grep -q "Support the Project"; then
-            MESSAGE="$MESSAGE\n\n🤝 <b>Support Echo Music</b>\nIf you'd like to support ongoing development, you can do so here:\n☕ <a href=\"https://buymeacoffee.com/iad1tya\">Buy Me a Coffee</a>\n⭐ <a href=\"https://github.com/sponsors/iad1tya\">GitHub Sponsors</a>\n🌐 <a href=\"https://support.iad1tya.cyou/\">Support Page</a>\n\n<i>Thank you for your continued support.</i>"
+            printf -v MESSAGE "%s\n\n🤝 <b>Support Echo Music</b>\nIf you'd like to support ongoing development, you can do so here:\n☕ <a href=\"https://buymeacoffee.com/iad1tya\">Buy Me a Coffee</a>\n⭐ <a href=\"https://github.com/sponsors/iad1tya\">GitHub Sponsors</a>\n🌐 <a href=\"https://support.iad1tya.cyou/\">Support Page</a>\n\n<i>Thank you for your continued support.</i>" "$MESSAGE"
           fi
 
           # Create JSON payload securely using jq
