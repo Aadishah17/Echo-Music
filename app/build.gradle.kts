@@ -34,7 +34,7 @@ android {
         minSdk = 26
         targetSdk = 36
         versionCode = 526
-        versionName = "5.2.84"
+        versionName = "5.2.85"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
@@ -45,11 +45,6 @@ android {
 
         buildConfigField("String", "LASTFM_API_KEY", "\"$lastFmKey\"")
         buildConfigField("String", "LASTFM_SECRET", "\"$lastFmSecret\"")
-
-        // Google Fonts Web Fonts Developer API key (optional).
-        // Without it the app falls back to the public, key-free Google Fonts metadata endpoint.
-        val googleFontsKey = localProperties.getProperty("GOOGLE_FONTS_API_KEY") ?: System.getenv("GOOGLE_FONTS_API_KEY") ?: ""
-        buildConfigField("String", "GOOGLE_FONTS_API_KEY", "\"$googleFontsKey\"")
 
         // GitHub OAuth keys
         val githubClientId = localProperties.getProperty("GH_CLIENT_ID") ?: System.getenv("GH_CLIENT_ID") ?: ""
@@ -303,6 +298,7 @@ dependencies {
     implementation(libs.media3.okhttp)
 
     // Google Cast - only included in GMS flavor (not available in F-Droid/FOSS builds)
+    "gmsImplementation"(libs.media3.cast)
     "gmsImplementation"(libs.mediarouter)
     "gmsImplementation"(libs.cast.framework)
 
