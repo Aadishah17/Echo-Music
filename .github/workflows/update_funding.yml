@@ -22,7 +22,6 @@ jobs:
       - name: Run Funding Script
         env:
           BMC_TOKEN: ${{ secrets.BMC_TOKEN }}
-          BMC_START_DATE: '2026-07-07' # Adjust this to your exact start date
         run: python scripts/fetch_bmc_funding.py
 
       - name: Commit to funding-data branch
