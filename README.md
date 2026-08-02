@@ -47,6 +47,7 @@ Echo Music delivers a seamless, premium listening experience by leveraging YouTu
 - [Translations](#translations)
 - [Community & Support](#community--support)
 - [Support the Project](#support-the-project)
+- [Contributors](#contributors)
 - [Special Thanks](#special-thanks)
 
 ---
@@ -279,6 +280,18 @@ If Echo Music has been useful to you, consider supporting its development.
 | **Solana** | `9wjca3EQnEiqzqgy7N5iqS1JGXJiknMQv6zHgL96t94S` |
 
 </details>
+
+---
+
+## Contributors
+
+A huge thank you to everyone who has helped improve Echo Music! Whether you've fixed bugs, added new features, or updated translations, your contributions are greatly appreciated.
+
+<div align="center">
+  <a href="https://github.com/iad1tya/Echo-Music/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=iad1tya/Echo-Music" alt="Contributors" />
+  </a>
+</div>
 
 ---
 
