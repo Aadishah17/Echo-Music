@@ -6,31 +6,25 @@
   <p><b>A modern Android music app with ad-free streaming, synced lyrics, offline playback, and an intuitive user experience.</b></p>
   
   <p>
-    <a href="https://github.com/iad1tya/Echo-Music/releases"><img src="https://img.shields.io/github/v/release/iad1tya/Echo-Music?style=for-the-badge&color=6f42c1" alt="GitHub Release"></a>
-    <a href="https://github.com/iad1tya/Echo-Music/stargazers"><img src="https://img.shields.io/github/stars/iad1tya/Echo-Music?style=for-the-badge&color=e3b341" alt="GitHub Stars"></a>
-    <a href="LICENSE"><img src="https://img.shields.io/github/license/iad1tya/Echo-Music?style=for-the-badge&color=28a745" alt="License"></a>
+    <a href="https://github.com/iad1tya/Echo-Music/releases" style="text-decoration:none;"><img src="https://img.shields.io/github/v/release/iad1tya/Echo-Music?style=for-the-badge&color=6f42c1" alt="GitHub Release"></a>
+    <a href="https://github.com/iad1tya/Echo-Music/stargazers" style="text-decoration:none;"><img src="https://img.shields.io/github/stars/iad1tya/Echo-Music?style=for-the-badge&color=e3b341" alt="GitHub Stars"></a>
+    <a href="LICENSE" style="text-decoration:none;"><img src="https://img.shields.io/github/license/iad1tya/Echo-Music?style=for-the-badge&color=28a745" alt="License"></a>
   </p>
   <p>
-    <a href="https://t.me/EchoMusicApp"><img src="https://img.shields.io/badge/Telegram-Join-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"></a>
-    <a href="https://discord.gg/EcfV3AxH5c"><img src="https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
-    <a href="https://hosted.weblate.org/projects/echo-music/"><img src="https://img.shields.io/weblate/progress/echo-music?server=https%3A%2F%2Fhosted.weblate.org&style=for-the-badge" alt="Weblate"></a>
+    <a href="https://t.me/EchoMusicApp" style="text-decoration:none;"><img src="https://img.shields.io/badge/Telegram-Join-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"></a>
+    <a href="https://discord.gg/EcfV3AxH5c" style="text-decoration:none;"><img src="https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
+    <a href="https://hosted.weblate.org/projects/echo-music/" style="text-decoration:none;"><img src="https://img.shields.io/weblate/progress/echo-music?server=https%3A%2F%2Fhosted.weblate.org&style=for-the-badge" alt="Weblate"></a>
   </p>
   
   <br>
 
-  <a href="https://trendshift.io/repositories/20485" target="_blank">
-    <img src="https://trendshift.io/api/badge/repositories/20485" alt="EchoMusicApp/Echo-Music | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/>
-  </a>
+  <a href="https://trendshift.io/repositories/20485" target="_blank" style="text-decoration:none;"><img src="https://trendshift.io/api/badge/repositories/20485" alt="EchoMusicApp/Echo-Music | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
   <br><br>
 
-  <a href="https://echomusic.fun/download">
-    <img src="assets/download.png" alt="Download" width="180"/>
-  </a>
+  <a href="https://echomusic.fun/download" style="text-decoration:none;"><img src="assets/download.png" alt="Download" width="180"/></a>
   &nbsp;&nbsp;
-  <a href="https://echomusic.fun/obtainium">
-    <img src="assets/obtainium.png" alt="Get it on Obtainium" width="180"/>
-  </a>
+  <a href="https://echomusic.fun/obtainium" style="text-decoration:none;"><img src="assets/obtainium.png" alt="Get it on Obtainium" width="180"/></a>
 </div>
 
 ---
@@ -225,9 +219,7 @@ Download the latest pre-compiled APK from the [Releases Page](https://github.com
 <h3>We use Weblate to translate Echo Music. <a href="https://hosted.weblate.org/projects/echo-music/">Help us bring Echo Music to more people!</a></h3>
 
 <div align="center">
-  <a href="https://hosted.weblate.org/projects/echo-music/">
-    <img src="https://hosted.weblate.org/widgets/echo-music/-/horizontal-auto.svg" alt="Translation status" />
-  </a>
+  <a href="https://hosted.weblate.org/projects/echo-music/" style="text-decoration:none;"><img src="https://hosted.weblate.org/widgets/echo-music/-/horizontal-auto.svg" alt="Translation status" /></a>
 </div>
 
 ---
@@ -237,12 +229,8 @@ Download the latest pre-compiled APK from the [Releases Page](https://github.com
 Join the community for updates, discussions, and help.
 
 <div align="center">
-  <a href="https://discord.gg/EcfV3AxH5c" style="text-decoration:none;">
-    <img src="assets/discord.png" alt="Discord Logo" width="140" style="margin: 0 10px;"/>
-  </a>
-  <a href="https://t.me/EchoMusicApp" style="text-decoration:none;">
-    <img src="assets/telegram.png" alt="Telegram Logo" width="130" style="margin: 0 10px;"/>
-  </a>
+  <a href="https://discord.gg/EcfV3AxH5c" style="text-decoration:none;"><img src="assets/discord.png" alt="Discord Logo" width="140" style="margin: 0 10px;"/></a>
+  <a href="https://t.me/EchoMusicApp" style="text-decoration:none;"><img src="assets/telegram.png" alt="Telegram Logo" width="130" style="margin: 0 10px;"/></a>
 </div>
 
 ---
@@ -252,15 +240,9 @@ Join the community for updates, discussions, and help.
 If Echo Music has been useful to you, consider supporting its development.
 
 <div align="center">
-  <a href="https://buymeacoffee.com/iad1tya" style="text-decoration:none;">
-    <img src="assets/bmac.png" alt="Buy Me A Coffee Logo" width="140" style="margin: 0 10px;"/>
-  </a>
-  <a href="https://intradeus.github.io/http-protocol-redirector/?r=upi://pay?pa=iad1tya@upi&pn=Aditya%20Yadav&am=&tn=Thank%20You" style="text-decoration:none;">
-    <img src="assets/upi.svg" alt="UPI Logo" width="100" style="margin: 0 10px;"/>
-  </a>
-  <a href="https://www.patreon.com/cw/iad1tya" style="text-decoration:none;">
-    <img src="assets/patreon3.png" alt="Patreon Logo" width="100" style="margin: 0 10px;"/>
-  </a>
+  <a href="https://buymeacoffee.com/iad1tya" style="text-decoration:none;"><img src="assets/bmac.png" alt="Buy Me A Coffee Logo" width="140" style="margin: 0 10px;"/></a>
+  <a href="https://intradeus.github.io/http-protocol-redirector/?r=upi://pay?pa=iad1tya@upi&pn=Aditya%20Yadav&am=&tn=Thank%20You" style="text-decoration:none;"><img src="assets/upi.svg" alt="UPI Logo" width="100" style="margin: 0 10px;"/></a>
+  <a href="https://www.patreon.com/cw/iad1tya" style="text-decoration:none;"><img src="assets/patreon3.png" alt="Patreon Logo" width="100" style="margin: 0 10px;"/></a>
 </div>
 
 <br>
