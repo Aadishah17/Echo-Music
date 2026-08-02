@@ -36,20 +36,16 @@ import timber.log.Timber
 /**
  * Manages Google Cast connections and media playback on Cast devices.
  *
- * ## Connection model (Google-recommended)
+ * ## Connection model
  *
- * The app does **not** call `MediaRouter.selectRoute()` directly. Instead:
- * 1. The UI uses AndroidX [MediaRouteButton] which shows the system
- *    [MediaRouteChooserDialog] — the dialog handles route selection internally.
- * 2. Once a route is selected, [SessionManager] automatically starts a Cast
- *    session and fires the [SessionManagerListener] callbacks below.
- * 3. [CastContext] handles device discovery via MediaRouter; the app only
- *    needs to register the [SessionManagerListener] and react to session
- *    events.
+ * The app uses AndroidX [MediaRouteButton] to show the system Cast dialog
+ * for route discovery, and [MediaRouter.selectRoute] from
+ * [CastDevicePickerSheet] for custom device selection. Once a route is
+ * selected, [SessionManager] automatically starts a Cast session and fires
+ * the [SessionManagerListener] callbacks below.
  *
- * This avoids the "Ignoring attempt to select removed route" crash that
- * occurs on some OEM MediaRouter implementations (e.g. Xiaomi) when
- * `selectRoute()` is called manually.
+ * [CastContext] handles device discovery via MediaRouter; the app registers
+ * the [SessionManagerListener] and reacts to session events.
  */
 class CastConnectionHandler(
     private val context: Context,

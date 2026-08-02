@@ -104,6 +104,7 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberUpdatedState
@@ -187,6 +188,7 @@ fun AudioDeviceBottomSheet(onDismiss: () -> Unit, modifier: Modifier = Modifier)
     }
     var isUserDragging by remember { mutableStateOf(false) }
     var maxVolume by remember { mutableStateOf(effectiveMaxVolume) }
+    var lastCastVolumeSend by remember { mutableLongStateOf(0L) }
 
     // Sync maxVolume when casting state changes
     LaunchedEffect(isCasting) {
@@ -598,7 +600,13 @@ fun AudioDeviceBottomSheet(onDismiss: () -> Unit, modifier: Modifier = Modifier)
                         onVolumeChange = { newVolume ->
                             currentVolume = newVolume
                             if (isCasting) {
-                                castHandler?.setVolume(newVolume / 100f)
+                                // Throttle Cast volume RPCs to avoid flooding the device
+                                // during slider drag. Final value is sent on onDragEnd.
+                                val now = System.currentTimeMillis()
+                                if (now - lastCastVolumeSend > 200L) {
+                                    castHandler?.setVolume(newVolume / 100f)
+                                    lastCastVolumeSend = now
+                                }
                             } else {
                                 audioManager.setStreamVolume(
                                     AudioManager.STREAM_MUSIC,
@@ -608,7 +616,14 @@ fun AudioDeviceBottomSheet(onDismiss: () -> Unit, modifier: Modifier = Modifier)
                             }
                         },
                         onDragStart = { isUserDragging = true },
-                        onDragEnd = { isUserDragging = false }
+                        onDragEnd = {
+                            isUserDragging = false
+                            // Always send the final volume on drag end
+                            if (isCasting) {
+                                castHandler?.setVolume(currentVolume / 100f)
+                                lastCastVolumeSend = System.currentTimeMillis()
+                            }
+                        }
                     )
 
                     Spacer(modifier = Modifier.height(24.dp))
