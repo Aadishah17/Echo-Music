@@ -602,7 +602,7 @@ fun AudioDeviceBottomSheet(onDismiss: () -> Unit, modifier: Modifier = Modifier)
                             if (isCasting) {
                                 // Throttle Cast volume RPCs to avoid flooding the device
                                 // during slider drag. Final value is sent on onDragEnd.
-                                val now = System.currentTimeMillis()
+val now = android.os.SystemClock.elapsedRealtime()
                                 if (now - lastCastVolumeSend > 200L) {
                                     castHandler?.setVolume(newVolume / 100f)
                                     lastCastVolumeSend = now
