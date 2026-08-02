@@ -182,12 +182,15 @@ private fun NowPlayingCard(
             .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f))
             .padding(horizontal = 16.dp, vertical = 14.dp)
     ) {
-        // Track thumbnail
+        // Track thumbnail — show placeholder when no URL, while loading, or on error
+        val musicNotePlaceholder = painterResource(R.drawable.music_note)
         if (metadata.thumbnailUrl != null) {
             AsyncImage(
                 model = metadata.thumbnailUrl,
                 contentDescription = metadata.title,
                 contentScale = ContentScale.Crop,
+                placeholder = musicNotePlaceholder,
+                error = musicNotePlaceholder,
                 modifier = Modifier
                     .size(48.dp)
                     .clip(RoundedCornerShape(8.dp))
@@ -201,7 +204,7 @@ private fun NowPlayingCard(
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
-                    painter = painterResource(R.drawable.music_note),
+                    painter = musicNotePlaceholder,
                     contentDescription = null,
                     modifier = Modifier.size(24.dp),
                     tint = MaterialTheme.colorScheme.onSurfaceVariant

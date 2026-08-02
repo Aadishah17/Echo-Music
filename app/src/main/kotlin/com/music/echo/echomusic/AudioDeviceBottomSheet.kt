@@ -16,6 +16,7 @@ import android.media.AudioManager
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
+import android.os.SystemClock
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -600,12 +601,17 @@ fun AudioDeviceBottomSheet(onDismiss: () -> Unit, modifier: Modifier = Modifier)
                         onVolumeChange = { newVolume ->
                             currentVolume = newVolume
                             if (isCasting) {
-                                // Throttle Cast volume RPCs to avoid flooding the device
-                                // during slider drag. Final value is sent on onDragEnd.
-val now = android.os.SystemClock.elapsedRealtime()
-                                if (now - lastCastVolumeSend > 200L) {
+                                if (isUserDragging) {
+                                    // Throttle Cast volume RPCs to avoid flooding the device
+                                    // during slider drag. Final value is sent on onDragEnd.
+                                    val now = SystemClock.elapsedRealtime()
+                                    if (now - lastCastVolumeSend > 200L) {
+                                        castHandler?.setVolume(newVolume / 100f)
+                                        lastCastVolumeSend = now
+                                    }
+                                } else {
+                                    // Tap update — send immediately
                                     castHandler?.setVolume(newVolume / 100f)
-                                    lastCastVolumeSend = now
                                 }
                             } else {
                                 audioManager.setStreamVolume(
@@ -621,7 +627,7 @@ val now = android.os.SystemClock.elapsedRealtime()
                             // Always send the final volume on drag end
                             if (isCasting) {
                                 castHandler?.setVolume(currentVolume / 100f)
-                                lastCastVolumeSend = System.currentTimeMillis()
+                                lastCastVolumeSend = SystemClock.elapsedRealtime()
                             }
                         }
                     )
