@@ -36,20 +36,16 @@ import timber.log.Timber
 /**
  * Manages Google Cast connections and media playback on Cast devices.
  *
- * ## Connection model (Google-recommended)
+ * ## Connection model
  *
- * The app does **not** call `MediaRouter.selectRoute()` directly. Instead:
- * 1. The UI uses AndroidX [MediaRouteButton] which shows the system
- *    [MediaRouteChooserDialog] — the dialog handles route selection internally.
- * 2. Once a route is selected, [SessionManager] automatically starts a Cast
- *    session and fires the [SessionManagerListener] callbacks below.
- * 3. [CastContext] handles device discovery via MediaRouter; the app only
- *    needs to register the [SessionManagerListener] and react to session
- *    events.
+ * The app uses AndroidX [MediaRouteButton] to show the system Cast dialog
+ * for route discovery, and [MediaRouter.selectRoute] from
+ * [CastDevicePickerSheet] for custom device selection. Once a route is
+ * selected, [SessionManager] automatically starts a Cast session and fires
+ * the [SessionManagerListener] callbacks below.
  *
- * This avoids the "Ignoring attempt to select removed route" crash that
- * occurs on some OEM MediaRouter implementations (e.g. Xiaomi) when
- * `selectRoute()` is called manually.
+ * [CastContext] handles device discovery via MediaRouter; the app registers
+ * the [SessionManagerListener] and reacts to session events.
  */
 class CastConnectionHandler(
     private val context: Context,
@@ -522,8 +518,16 @@ class CastConnectionHandler(
     /** Handle when Cast changes to a different item (user pressed next/prev on Cast widget). */
     private fun handleCastItemChanged(mediaStatus: MediaStatus) {
         val queueItems = mediaStatus.queueItems
-        if (queueItems.isEmpty()) return
         val currentItemId = mediaStatus.currentItemId
+
+        // Queue exhausted: Cast has no current item (itemId=0) or queue is empty
+        if (currentItemId == 0 || queueItems.isEmpty()) {
+            Timber.d("Cast queue exhausted or empty (currentItemId=$currentItemId, queueSize=${queueItems.size})")
+            // Don't leave the app stuck in isCasting=true, isPlaying=false
+            // Let the player reflect Cast's stopped state
+            return
+        }
+
         val currentIndex = queueItems.indexOfFirst { it.itemId == currentItemId }
         if (currentIndex < 0) return
 
@@ -568,37 +572,45 @@ class CastConnectionHandler(
     ) {
         if (isReloadingQueue) return
         val client = remoteMediaClient ?: return
-        val currentCastIndex = currentCastQueue.indexOfFirst {
+
+        // Read the fresh queue directly from the Cast device, not the stale callback data
+        val freshQueue = client.mediaStatus?.queueItems ?: return
+        if (freshQueue.isEmpty()) return
+
+        // Find the current item in the fresh queue by mediaId
+        val freshCastIndex = freshQueue.indexOfFirst {
             it.media?.customData?.optString("mediaId") == currentMediaId
         }
-        if (currentCastIndex < 0) return
+        if (freshCastIndex < 0) return
 
         isReloadingQueue = true
         try {
-            val itemsAhead = currentCastQueue.size - 1 - currentCastIndex
+            val itemsAhead = freshQueue.size - 1 - freshCastIndex
             if (itemsAhead < 2) {
-                val lastCastItem = currentCastQueue.lastOrNull()
-                val lastMediaId = lastCastItem?.media?.customData?.optString("mediaId")
-                var lastLocalIndex = -1
-                for (i in 0 until playerItemCount) {
-                    if (musicService.player.getMediaItemAt(i).mediaId == lastMediaId) {
-                        lastLocalIndex = i
-                        break
-                    }
-                }
-                if (lastLocalIndex >= 0 && lastLocalIndex < playerItemCount - 1) {
-                    val addCount = minOf(2, playerItemCount - lastLocalIndex - 1)
-                    for (i in 1..addCount) {
-                        val nextItem = musicService.player.getMediaItemAt(lastLocalIndex + i)
+                // Find the current item's index in the local player
+                val currentLocalIndex = localPlayerIndex
+                // Extend after the current local item, not after the last stale queue item
+                val existingMediaIds = freshQueue.mapNotNull {
+                    it.media?.customData?.optString("mediaId")
+                }.toSet()
+                var addedCount = 0
+                var nextLocalIndex = currentLocalIndex + 1
+                while (addedCount < 2 && nextLocalIndex < playerItemCount) {
+                    val nextItem = musicService.player.getMediaItemAt(nextLocalIndex)
+                    val nextMediaId = nextItem.mediaId
+                    // Skip items already in the Cast queue to avoid duplicates
+                    if (nextMediaId !in existingMediaIds) {
                         nextItem.metadata?.let { metadata ->
                             buildMediaInfo(metadata)?.let { mediaInfo ->
                                 val queueItem = MediaQueueItem.Builder(mediaInfo).build()
                                 withContext(Dispatchers.Main) {
                                     client.queueAppendItem(queueItem, null)
                                 }
+                                addedCount++
                             }
                         }
                     }
+                    nextLocalIndex++
                 }
             }
         } catch (e: Exception) {
