@@ -1,4 +1,4 @@
-# Echo Music v5.1.9
+# Echo Music v5.2.86
 
 ### New Features & Improvements
 - **Settings Overhaul**: Redesigned the Account and Settings overflow menu into a modern Material You 3 bottom sheet for a more expressive look.
