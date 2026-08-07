@@ -58,10 +58,10 @@ internal enum class CastDeviceType(val icon: Int, val connectedIcon: Int) {
     companion object {
         private val TV_KEYWORDS = listOf(
             "tv", "bravia", "webos", "tizen", "fire tv", "android tv",
-            "shield", "chromecast with google tv", "smart tv", "display",
+            "google tv", "smart tv", "display", "shield",
             "monitor", "hisense", "tcl", "samsung tv", "lg tv", "sony tv",
             "vizio", "insignia", "toshiba tv", "jvc", "philips tv",
-            "androidtv", "chromecast%google%tv"
+            "androidtv"
         )
         private val SPEAKER_KEYWORDS = listOf(
             "home", "nest", "speaker", "audio", "max", "mini",
@@ -77,8 +77,10 @@ internal enum class CastDeviceType(val icon: Int, val connectedIcon: Int) {
         fun fromName(name: String, description: String?): CastDeviceType {
             val text = "$name ${description ?: ""}".lowercase()
             return when {
-                CHROMECAST_KEYWORDS.any { text.contains(it) } -> CHROMECAST
+                // Check the specific "Chromecast with Google TV" phrasing before the
+                // generic Chromecast match so it classifies as a TV.
                 TV_KEYWORDS.any { text.contains(it) } -> TV
+                CHROMECAST_KEYWORDS.any { text.contains(it) } -> CHROMECAST
                 SPEAKER_KEYWORDS.any { text.contains(it) } -> SPEAKER
                 else -> UNKNOWN
             }

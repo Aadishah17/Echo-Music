@@ -59,7 +59,15 @@ class CastConnectionHandler(
     fun removeItemFromQueue(itemId: Int) {}
     fun moveItemInQueue(itemId: Int, newIndex: Int) {}
     fun clearQueue() {}
-    suspend fun insertItemsAfterCurrent(items: List<androidx.media3.common.MediaItem>) {}
-    suspend fun appendItemsToCastQueue(items: List<androidx.media3.common.MediaItem>) {}
+    /**
+     * No-op stub for F-Droid builds (Cast requires Google Play Services).
+     * Kept in sync with the GMS implementation signature.
+     */
+    suspend fun insertItemsAfterCurrent(items: List<androidx.media3.common.MediaItem>) = Unit
+    /**
+     * No-op stub for F-Droid builds (Cast requires Google Play Services).
+     * Kept in sync with the GMS implementation signature.
+     */
+    suspend fun appendItemsToCastQueue(items: List<androidx.media3.common.MediaItem>) = Unit
     fun release() {}
 }
