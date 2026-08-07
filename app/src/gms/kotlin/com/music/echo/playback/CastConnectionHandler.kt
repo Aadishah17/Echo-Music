@@ -222,10 +222,10 @@ class CastConnectionHandler(
                 _isCasting.value = false
                 _isConnecting.value = false
                 _castDeviceName.value = null
-                castSession = null
 
                 remoteMediaClient?.unregisterCallback(remoteMediaClientCallback)
                 remoteMediaClient = null
+                castSession = null
                 castQueueMediaIds.clear()
 
                 stopPositionUpdates()
@@ -235,6 +235,7 @@ class CastConnectionHandler(
 
             override fun onSessionResuming(session: CastSession, sessionId: String) {
                 _isConnecting.value = true
+                _castDeviceName.value = session.castDevice?.friendlyName
             }
 
             override fun onSessionResumed(session: CastSession, wasSuspended: Boolean) {
@@ -250,6 +251,14 @@ class CastConnectionHandler(
 
                 startPositionUpdates()
 
+                // Re-sync Cast queue with local player after resume
+                if (wasSuspended) {
+                    scope.launch {
+                        delay(1000L)
+                        loadCurrentMedia()
+                    }
+                }
+
                 scope.launch {
                     delay(2000L)
                     castSession?.let { s ->
@@ -263,10 +272,20 @@ class CastConnectionHandler(
             }
 
             override fun onSessionResumeFailed(session: CastSession, error: Int) {
+                Timber.d("Cast session resume failed: error=$error")
+                _isCasting.value = false
                 _isConnecting.value = false
+                _autoReconnecting.value = false
             }
 
-            override fun onSessionSuspended(session: CastSession, reason: Int) {}
+            override fun onSessionSuspended(session: CastSession, reason: Int) {
+                // Session suspended (e.g., app went to background).
+                // Don't clean up state — the SDK may auto-resume.
+                // Cast device continues playing independently.
+                Timber.d("Cast session suspended: reason=$reason")
+                // Note: do NOT set _isConnecting here — the session is suspended, not connecting.
+                // The SDK will call onSessionResuming → onSessionResumed if it reconnects.
+            }
         }
 
     // ═════════════════════════════════════════════════════════════════════
@@ -321,12 +340,93 @@ class CastConnectionHandler(
     }
 
     fun loadCurrentMedia() {
-        val metadata = musicService.currentMediaMetadata.value ?: return
+        val metadata = musicService.currentMediaMetadata.value
+        Timber.d("CastFlow.loadCurrentMedia: metadata=${metadata?.id}, isCasting=${isCasting.value}")
+        if (metadata == null) { Timber.w("CastFlow.loadCurrentMedia: no current metadata"); return }
         loadMediaWithQueue(metadata)
     }
 
     fun loadMedia(metadata: AppMediaMetadata) {
         loadMediaWithQueue(metadata)
+    }
+
+    /**
+     * Insert items into the Cast queue immediately after the currently playing item.
+     * Used by MusicService.playNext() to sync "play next" actions to Cast.
+     *
+     * Cast's queueInsertItems(items, insertBeforeItemId) inserts BEFORE the given ID,
+     * so we find the item AFTER current and insert before it. If there's no next item,
+     * we append to the end.
+     */
+    suspend fun insertItemsAfterCurrent(items: List<androidx.media3.common.MediaItem>) {
+        Timber.d("CastFlow.insertItemsAfterCurrent: items=${items.size}, isCasting=${isCasting.value}")
+        if (!isCasting.value) return
+        val client = remoteMediaClient
+        if (client == null) { Timber.w("CastFlow.insertItemsAfterCurrent: remoteMediaClient is null"); return }
+        val mediaStatus = client.mediaStatus
+        if (mediaStatus == null) { Timber.w("CastFlow.insertItemsAfterCurrent: mediaStatus is null"); return }
+        val currentItemId = mediaStatus.currentItemId
+        val queueItems = mediaStatus.queueItems
+        Timber.d("CastFlow.insertItemsAfterCurrent: currentItemId=$currentItemId, queueSize=${queueItems.size}")
+
+        // Find the next item's ID after current
+        val currentIndex = queueItems.indexOfFirst { it.itemId == currentItemId }
+        val nextItemId = if (currentIndex in 0 until queueItems.size - 1) {
+            queueItems[currentIndex + 1].itemId
+        } else {
+            0 // No next item — will use append
+        }
+        Timber.d("CastFlow.insertItemsAfterCurrent: currentIndex=$currentIndex, nextItemId=$nextItemId")
+
+        for ((idx, item) in items.withIndex()) {
+            val metadata = item.metadata
+            if (metadata == null) { Timber.w("CastFlow.insertItemsAfterCurrent: item[$idx] metadata is null, skipping"); continue }
+            Timber.d("CastFlow.insertItemsAfterCurrent: building MediaInfo for item[$idx] mediaId=${item.mediaId}")
+            val mediaInfo = buildMediaInfo(metadata)
+            if (mediaInfo == null) { Timber.w("CastFlow.insertItemsAfterCurrent: buildMediaInfo returned null for ${item.mediaId}"); continue }
+            val queueItem = MediaQueueItem.Builder(mediaInfo).build()
+            withContext(Dispatchers.Main) {
+                if (nextItemId != 0) {
+                    Timber.d("CastFlow.insertItemsAfterCurrent: queueInsertItems before nextItemId=$nextItemId")
+                    client.queueInsertItems(
+                        arrayOf(queueItem),
+                        nextItemId,
+                        org.json.JSONObject()
+                    )
+                } else {
+                    Timber.d("CastFlow.insertItemsAfterCurrent: queueAppendItem (no next item)")
+                    client.queueAppendItem(queueItem, org.json.JSONObject())
+                }
+            }
+            castQueueMediaIds.add(item.mediaId)
+            Timber.d("CastFlow.insertItemsAfterCurrent: SUCCESS mediaId=${item.mediaId}, tracked=${castQueueMediaIds.size}")
+        }
+    }
+
+    /**
+     * Append items to the end of the Cast queue.
+     * Used by MusicService.addToQueue() to sync "add to queue" actions to Cast.
+     */
+    suspend fun appendItemsToCastQueue(items: List<androidx.media3.common.MediaItem>) {
+        Timber.d("CastFlow.appendItemsToCastQueue: items=${items.size}, isCasting=${isCasting.value}")
+        if (!isCasting.value) return
+        val client = remoteMediaClient
+        if (client == null) { Timber.w("CastFlow.appendItemsToCastQueue: remoteMediaClient is null"); return }
+
+        for ((idx, item) in items.withIndex()) {
+            val metadata = item.metadata
+            if (metadata == null) { Timber.w("CastFlow.appendItemsToCastQueue: item[$idx] metadata is null, skipping"); continue }
+            Timber.d("CastFlow.appendItemsToCastQueue: building MediaInfo for item[$idx] mediaId=${item.mediaId}")
+            val mediaInfo = buildMediaInfo(metadata)
+            if (mediaInfo == null) { Timber.w("CastFlow.appendItemsToCastQueue: buildMediaInfo returned null for ${item.mediaId}"); continue }
+            val queueItem = MediaQueueItem.Builder(mediaInfo).build()
+            withContext(Dispatchers.Main) {
+                Timber.d("CastFlow.appendItemsToCastQueue: queueAppendItem mediaId=${item.mediaId}")
+                client.queueAppendItem(queueItem, null)
+            }
+            castQueueMediaIds.add(item.mediaId)
+            Timber.d("CastFlow.appendItemsToCastQueue: SUCCESS mediaId=${item.mediaId}, tracked=${castQueueMediaIds.size}")
+        }
     }
 
     // ── Playback controls ────────────────────────────────────────────────
@@ -483,6 +583,7 @@ class CastConnectionHandler(
                     val itemIds = mediaStatus.queueItems.map { it.itemId }.toIntArray()
                     client.queueRemoveItems(itemIds, org.json.JSONObject())
                 }
+                castQueueMediaIds.clear()
                 Timber.d("Cleared Cast queue")
             } catch (e: Exception) {
                 Timber.e(e, "Failed to clear Cast queue")
@@ -575,9 +676,11 @@ class CastConnectionHandler(
         localPlayerIndex: Int,
         playerItemCount: Int
     ) {
-        if (isReloadingQueue) return
-        val client = remoteMediaClient ?: return
-        if (castQueueMediaIds.isEmpty()) return
+        Timber.d("CastFlow.extendQueueIfNeeded: localPlayerIndex=$localPlayerIndex, playerItemCount=$playerItemCount, isReloadingQueue=$isReloadingQueue, tracked=${castQueueMediaIds.size}")
+        if (isReloadingQueue) { Timber.d("CastFlow.extendQueueIfNeeded: skipped (isReloadingQueue)"); return }
+        val client = remoteMediaClient
+        if (client == null) { Timber.d("CastFlow.extendQueueIfNeeded: skipped (no client)"); return }
+        if (castQueueMediaIds.isEmpty()) { Timber.d("CastFlow.extendQueueIfNeeded: skipped (no tracked items)"); return }
 
         isReloadingQueue = true
         try {
@@ -681,7 +784,12 @@ class CastConnectionHandler(
      * Load media with queue context. Implements retry with backoff on failure.
      */
     private fun loadMediaWithQueue(metadata: AppMediaMetadata) {
+        Timber.d("CastFlow.loadMediaWithQueue: mediaId=${metadata.id}, title=${metadata.title}, isCasting=${_isCasting.value}")
         if (!_isCasting.value) return
+        if (isReloadingQueue) {
+            Timber.d("CastFlow.loadMediaWithQueue: skipped, already reloading")
+            return
+        }
         isReloadingQueue = true
         scope.launch {
             var retries = 0
@@ -781,6 +889,8 @@ class CastConnectionHandler(
                     }
                 } finally {
                     if (success) {
+                        _castIsBuffering.value = false
+                        mediaErrorRetryCount = 0
                         delay(1500)
                     }
                     isReloadingQueue = false

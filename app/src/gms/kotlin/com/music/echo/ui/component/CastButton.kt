@@ -15,6 +15,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -66,8 +67,8 @@ fun CastButton(
 
     // Cast state from the service
     val castHandler = playerConnection?.service?.castConnectionHandler
-    val isCasting by castHandler?.isCasting?.collectAsState() ?: remember { mutableStateOf(false) }
-    val castDeviceName by castHandler?.castDeviceName?.collectAsState() ?: remember { mutableStateOf(null) }
+    val isCasting by castHandler?.isCasting?.collectAsStateWithLifecycle() ?: remember { mutableStateOf(false) }
+    val castDeviceName by castHandler?.castDeviceName?.collectAsStateWithLifecycle() ?: remember { mutableStateOf(null) }
 
     val showPicker: () -> Unit = {
         menuState.show {
@@ -99,9 +100,12 @@ fun CastButton(
                 .padding(horizontal = 16.dp, vertical = 12.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
+            val deviceType = remember(castDeviceName) {
+                CastDeviceType.fromName(castDeviceName ?: "", null)
+            }
             Image(
                 painter = painterResource(
-                    if (isCasting) R.drawable.cast_connected else R.drawable.cast
+                    if (isCasting) deviceType.connectedIcon else R.drawable.cast
                 ),
                 contentDescription = null,
                 modifier = Modifier.size(24.dp),
@@ -153,9 +157,12 @@ fun CastButton(
                         }
                     }
             ) {
+                val deviceType = remember(castDeviceName) {
+                    CastDeviceType.fromName(castDeviceName ?: "", null)
+                }
                 Image(
                     painter = painterResource(
-                        if (isCasting) R.drawable.cast_connected else R.drawable.cast
+                        if (isCasting) deviceType.connectedIcon else R.drawable.cast
                     ),
                     contentDescription = if (isCasting) "Stop casting" else "Cast",
                     colorFilter = ColorFilter.tint(

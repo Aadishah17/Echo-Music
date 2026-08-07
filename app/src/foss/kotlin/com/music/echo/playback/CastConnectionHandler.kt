@@ -59,5 +59,7 @@ class CastConnectionHandler(
     fun removeItemFromQueue(itemId: Int) {}
     fun moveItemInQueue(itemId: Int, newIndex: Int) {}
     fun clearQueue() {}
+    suspend fun insertItemsAfterCurrent(items: List<androidx.media3.common.MediaItem>) {}
+    suspend fun appendItemsToCastQueue(items: List<androidx.media3.common.MediaItem>) {}
     fun release() {}
 }
