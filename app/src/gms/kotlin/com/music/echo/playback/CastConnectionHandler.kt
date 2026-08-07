@@ -790,77 +790,8 @@ class CastConnectionHandler(
 
         isReloadingQueue = true
         try {
-            // Number of occurrences of [mediaId] present in the local player up to [index].
-            fun localOccurrencesUpTo(mediaId: String, index: Int): Int {
-                var count = 0
-                for (i in 0..index) {
-                    if (musicService.player.getMediaItemAt(i).mediaId == mediaId) count++
-                }
-                return count
-            }
-
-            var forwardCount = 0
-
-            // Extend forward: append items after the current position
-            var nextLocalIndex = localPlayerIndex + 1
-            while (forwardCount < 2 && nextLocalIndex < playerItemCount) {
-                if (mirroredTotal() >= playerItemCount) break
-
-                val nextItem = musicService.player.getMediaItemAt(nextLocalIndex)
-                val nextMediaId = nextItem.mediaId
-                if (mirroredOccurrences(nextMediaId) < localOccurrencesUpTo(nextMediaId, nextLocalIndex)) {
-                    nextItem.metadata?.let { metadata ->
-                        buildMediaInfo(metadata)?.let { mediaInfo ->
-                            val queueItem = MediaQueueItem.Builder(mediaInfo).build()
-                            val success = runQueueOperation("extendQueue forward $nextMediaId") { c ->
-                                c.queueAppendItem(queueItem, null)
-                            }
-                            if (success) {
-                                markOccurrenceMirrored(nextMediaId)
-                                forwardCount++
-                            }
-                        }
-                    }
-                }
-                nextLocalIndex++
-            }
-
-            // Extend backward: insert items before the first Cast queue item.
-            // Collect items first, then insert from lowest local index to highest
-            // so the final order matches the local player queue.
-            var backwardCount = 0
-            if (localPlayerIndex > 0) {
-                val freshQueue = client.mediaStatus?.queueItems
-                val firstCastItemId = freshQueue?.firstOrNull()?.itemId ?: 0
-                if (firstCastItemId != 0) {
-                    val toInsert = mutableListOf<Pair<MediaQueueItem, String>>()
-                    var prevLocalIndex = localPlayerIndex - 1
-                    while (toInsert.size < 2 && prevLocalIndex >= 0) {
-                        val prevItem = musicService.player.getMediaItemAt(prevLocalIndex)
-                        val prevMediaId = prevItem.mediaId
-                        if (mirroredOccurrences(prevMediaId) < localOccurrencesUpTo(prevMediaId, prevLocalIndex)) {
-                            prevItem.metadata?.let { metadata ->
-                                buildMediaInfo(metadata)?.let { mediaInfo ->
-                                    toInsert.add(MediaQueueItem.Builder(mediaInfo).build() to prevMediaId)
-                                }
-                            }
-                        }
-                        prevLocalIndex--
-                    }
-                    // Insert from lowest index first; each call places the new item
-                    // immediately before firstCastItemId, pushing prior inserts right.
-                    for ((queueItem, mediaId) in toInsert.asReversed()) {
-                        val success = runQueueOperation("extendQueue backward $mediaId") { ctx ->
-                            ctx.queueInsertItems(arrayOf(queueItem), firstCastItemId, org.json.JSONObject())
-                        }
-                        if (success) {
-                            markOccurrenceMirrored(mediaId)
-                            backwardCount++
-                        }
-                    }
-                }
-            }
-
+            val forwardCount = extendQueueForward(localPlayerIndex, playerItemCount)
+            val backwardCount = extendQueueBackward(client, localPlayerIndex)
             val totalAdded = forwardCount + backwardCount
             if (totalAdded > 0) {
                 Timber.d("Cast queue extended: +$forwardCount fwd, +$backwardCount bwd, mirrored=${mirroredTotal()}")
@@ -871,6 +802,98 @@ class CastConnectionHandler(
             delay(500)
             isReloadingQueue = false
         }
+    }
+
+    /**
+     * Number of occurrences of [mediaId] present in the local player queue up to [index],
+     * inclusive. Used to decide whether a given occurrence still needs mirroring to Cast.
+     */
+    private fun localOccurrencesUpTo(mediaId: String, index: Int): Int {
+        var count = 0
+        for (i in 0..index) {
+            if (musicService.player.getMediaItemAt(i).mediaId == mediaId) count++
+        }
+        return count
+    }
+
+    /**
+     * Extend the Cast queue forward: append up to 2 items after the current local
+     * position that haven't been mirrored yet. Returns the number of items appended.
+     */
+    private suspend fun extendQueueForward(
+        localPlayerIndex: Int,
+        playerItemCount: Int
+    ): Int {
+        var count = 0
+        var nextLocalIndex = localPlayerIndex + 1
+        while (count < 2 && nextLocalIndex < playerItemCount) {
+            if (mirroredTotal() >= playerItemCount) break
+            val nextItem = musicService.player.getMediaItemAt(nextLocalIndex)
+            val nextMediaId = nextItem.mediaId
+            if (mirroredOccurrences(nextMediaId) < localOccurrencesUpTo(nextMediaId, nextLocalIndex)) {
+                count += appendTrackForward(nextItem, nextMediaId)
+            }
+            nextLocalIndex++
+        }
+        return count
+    }
+
+    /** Append a single track to the Cast queue, marking it mirrored on success. */
+    private suspend fun appendTrackForward(
+        item: androidx.media3.common.MediaItem,
+        mediaId: String
+    ): Int {
+        val metadata = item.metadata ?: return 0
+        val mediaInfo = buildMediaInfo(metadata) ?: return 0
+        val queueItem = MediaQueueItem.Builder(mediaInfo).build()
+        val ok = runQueueOperation("extendQueue forward $mediaId") { c ->
+            c.queueAppendItem(queueItem, null)
+        }
+        if (ok) markOccurrenceMirrored(mediaId)
+        return if (ok) 1 else 0
+    }
+
+    /**
+     * Extend the Cast queue backward: insert up to 2 unmirrored items before the
+     * first Cast queue item, lowest local index first so final order matches the
+     * local queue. Returns the number of items inserted.
+     */
+    private suspend fun extendQueueBackward(
+        client: RemoteMediaClient,
+        localPlayerIndex: Int
+    ): Int {
+        if (localPlayerIndex <= 0) return 0
+        val firstCastItemId = client.mediaStatus?.queueItems?.firstOrNull()?.itemId ?: 0
+        if (firstCastItemId == 0) return 0
+
+        val toInsert = mutableListOf<Pair<MediaQueueItem, String>>()
+        var prevLocalIndex = localPlayerIndex - 1
+        while (toInsert.size < 2 && prevLocalIndex >= 0) {
+            val prevItem = musicService.player.getMediaItemAt(prevLocalIndex)
+            val prevMediaId = prevItem.mediaId
+            if (mirroredOccurrences(prevMediaId) < localOccurrencesUpTo(prevMediaId, prevLocalIndex)) {
+                prevItem.metadata?.let { metadata ->
+                    buildMediaInfo(metadata)?.let { mediaInfo ->
+                        toInsert.add(MediaQueueItem.Builder(mediaInfo).build() to prevMediaId)
+                    }
+                }
+            }
+            prevLocalIndex--
+        }
+
+        // Insert from lowest index first; each call places the new item immediately
+        // before firstCastItemId, pushing prior inserts to the right.
+        var count = 0
+        for ((queueItem, mediaId) in toInsert.asReversed()) {
+            val success = runQueueOperation("extendQueue backward $mediaId") { ctx ->
+                ctx.queueInsertItems(arrayOf(queueItem), firstCastItemId, org.json.JSONObject())
+            }
+            if (success) {
+                markOccurrenceMirrored(mediaId)
+                count++
+            }
+        }
+        return count
     }
 
     /**
