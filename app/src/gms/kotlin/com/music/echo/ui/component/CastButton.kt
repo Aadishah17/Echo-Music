@@ -69,6 +69,7 @@ fun CastButton(
     val castHandler = playerConnection?.service?.castConnectionHandler
     val isCasting by castHandler?.isCasting?.collectAsStateWithLifecycle() ?: remember { mutableStateOf(false) }
     val castDeviceName by castHandler?.castDeviceName?.collectAsStateWithLifecycle() ?: remember { mutableStateOf(null) }
+    val deviceType by castHandler?.deviceType?.collectAsStateWithLifecycle() ?: remember { mutableStateOf(CastDeviceType.UNKNOWN) }
 
     val showPicker: () -> Unit = {
         menuState.show {
@@ -87,23 +88,20 @@ fun CastButton(
     }
 
     if (asMenuItem) {
-        Row(
-            modifier = modifier
-                .fillMaxWidth()
-                .clickable {
-                    if (isCasting) {
-                        showSession()
-                    } else {
-                        showPicker()
+            Row(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .clickable {
+                        if (isCasting) {
+                            showSession()
+                        } else {
+                            showPicker()
+                        }
                     }
-                }
-                .padding(horizontal = 16.dp, vertical = 12.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            val deviceType = remember(castDeviceName) {
-                CastDeviceType.fromName(castDeviceName ?: "", null)
-            }
-            Image(
+                    .padding(horizontal = 16.dp, vertical = 12.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Image(
                 painter = painterResource(
                     if (isCasting) deviceType.connectedIcon else R.drawable.cast
                 ),
@@ -157,9 +155,6 @@ fun CastButton(
                         }
                     }
             ) {
-                val deviceType = remember(castDeviceName) {
-                    CastDeviceType.fromName(castDeviceName ?: "", null)
-                }
                 Image(
                     painter = painterResource(
                         if (isCasting) deviceType.connectedIcon else R.drawable.cast

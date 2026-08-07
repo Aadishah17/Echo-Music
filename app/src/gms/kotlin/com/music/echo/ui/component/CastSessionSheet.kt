@@ -61,6 +61,7 @@ fun CastSessionSheet(
     // Cast state
     val isCasting by castHandler.isCasting.collectAsStateWithLifecycle()
     val castDeviceName by castHandler.castDeviceName.collectAsStateWithLifecycle()
+    val deviceType by castHandler.deviceType.collectAsStateWithLifecycle()
 
     // Current media metadata
     val currentMetadata by playerConnection.mediaMetadata.collectAsStateWithLifecycle()
@@ -77,15 +78,12 @@ fun CastSessionSheet(
             .padding(bottom = 24.dp)
     ) {
         // ── Header ──────────────────────────────────────────────────
-        val headerDeviceType = remember(castDeviceName) {
-            CastDeviceType.fromName(castDeviceName ?: "", null)
-        }
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(horizontal = 4.dp)
         ) {
             Icon(
-                painter = painterResource(headerDeviceType.connectedIcon),
+                painter = painterResource(deviceType.connectedIcon),
                 contentDescription = null,
                 modifier = Modifier.size(28.dp),
                 tint = MaterialTheme.colorScheme.primary
@@ -117,7 +115,7 @@ fun CastSessionSheet(
                 contentAlignment = Alignment.Center
             ) {
                 Image(
-                    painter = painterResource(headerDeviceType.connectedIcon),
+                    painter = painterResource(deviceType.connectedIcon),
                     contentDescription = null,
                     modifier = Modifier.size(26.dp)
                 )
@@ -159,7 +157,7 @@ fun CastSessionSheet(
             shape = RoundedCornerShape(12.dp)
         ) {
             Icon(
-                painter = painterResource(headerDeviceType.connectedIcon),
+                painter = painterResource(deviceType.connectedIcon),
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
                 tint = MaterialTheme.colorScheme.error

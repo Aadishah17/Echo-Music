@@ -17,9 +17,12 @@ import com.google.android.gms.cast.framework.CastSession
 import com.google.android.gms.cast.framework.SessionManager
 import com.google.android.gms.cast.framework.SessionManagerListener
 import com.google.android.gms.cast.framework.media.RemoteMediaClient
+import com.google.android.gms.cast.framework.media.RemoteMediaClient.MediaChannelResult
+import com.google.android.gms.common.api.PendingResult
 import com.google.android.gms.common.images.WebImage
 import iad1tya.echo.music.extensions.metadata
 import iad1tya.echo.music.models.MediaMetadata as AppMediaMetadata
+import iad1tya.echo.music.ui.component.CastDeviceType
 import iad1tya.echo.music.ui.utils.resize
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -30,6 +33,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 
@@ -68,6 +74,16 @@ class CastConnectionHandler(
     private val _castDeviceName = MutableStateFlow<String?>(null)
     val castDeviceName: StateFlow<String?> = _castDeviceName.asStateFlow()
 
+    /**
+     * Resolved [CastDeviceType] for the connected device.
+     *
+     * Resolved from the device's friendly name and model name so the UI surfaces
+     * (button, session sheet) classify the device from a single source, matching
+     * what the picker derives from the route's name + description.
+     */
+    private val _deviceType: MutableStateFlow<CastDeviceType> = MutableStateFlow(CastDeviceType.UNKNOWN)
+    internal val deviceType: StateFlow<CastDeviceType> = _deviceType.asStateFlow()
+
     private val _castPosition = MutableStateFlow(0L)
     val castPosition: StateFlow<Long> = _castPosition.asStateFlow()
 
@@ -94,11 +110,46 @@ class CastConnectionHandler(
     private var isReloadingQueue: Boolean = false
 
     /**
-     * Tracks mediaIds that we've loaded/appended to the Cast queue.
-     * Needed because Cast SDK's mediaStatus.queueItems only reports ~3 items
-     * regardless of actual queue size, so we can't rely on it for extension.
+     * Mirrors which local queue entries have been pushed to the Cast queue.
+     *
+     * Cast SDK's mediaStatus.queueItems only reports ~3 items regardless of the
+     * actual queue size, so we keep our own mirror to drive [extendQueueIfNeeded].
+     *
+     * Entries are tracked per occurrence (map of mediaId -> number of occurrences
+     * mirrored) rather than as a bare set of mediaIds, so repeated occurrences of
+     * the same track are not collapsed into a single entry.
      */
-    private val castQueueMediaIds: MutableSet<String> = java.util.concurrent.ConcurrentHashMap.newKeySet()
+    private val mirroredQueueCounts: MutableMap<String, Int> = java.util.concurrent.ConcurrentHashMap()
+
+    /** Serializes Cast queue mutations so they can't interleave or double-apply. */
+    private val queueMutationMutex = Mutex()
+
+    /** Returns how many occurrences of [mediaId] are mirrored on Cast. */
+    private fun mirroredOccurrences(mediaId: String): Int = mirroredQueueCounts[mediaId] ?: 0
+
+    /** Records one mirrored occurrence of [mediaId]. */
+    private fun markOccurrenceMirrored(mediaId: String) {
+        mirroredQueueCounts[mediaId] = mirroredOccurrences(mediaId) + 1
+    }
+
+    /** How many mirror entries are tracked overall. */
+    private fun mirroredTotal(): Int = mirroredQueueCounts.values.sum()
+
+    /**
+     * Publish the connected device's name and resolved [CastDeviceType].
+     *
+     * Uses both the friendly name and the model name (which maps to the route
+     * "description" the picker classifies from), so every Cast surface derives
+     * the device type from one resolved value instead of re-deriving it from the
+     * bare name.
+     */
+    private fun applyCastDevice(session: CastSession) {
+        val device = session.castDevice
+        _castDeviceName.value = device?.friendlyName
+        _deviceType.value = device?.let {
+            CastDeviceType.fromName(it.friendlyName, it.modelName)
+        } ?: CastDeviceType.UNKNOWN
+    }
 
     /** Flag to prevent reverse sync when Cast triggers local player update. */
     @Volatile
@@ -176,7 +227,7 @@ class CastConnectionHandler(
                 _isCasting.value = true
                 _isConnecting.value = false
                 _autoReconnecting.value = false
-                _castDeviceName.value = session.castDevice?.friendlyName
+                applyCastDevice(session)
                 castSession = session
                 remoteMediaClient = session.remoteMediaClient
                 remoteMediaClient?.registerCallback(remoteMediaClientCallback)
@@ -226,7 +277,8 @@ class CastConnectionHandler(
                 remoteMediaClient?.unregisterCallback(remoteMediaClientCallback)
                 remoteMediaClient = null
                 castSession = null
-                castQueueMediaIds.clear()
+                mirroredQueueCounts.clear()
+                _deviceType.value = CastDeviceType.UNKNOWN
 
                 stopPositionUpdates()
 
@@ -235,14 +287,14 @@ class CastConnectionHandler(
 
             override fun onSessionResuming(session: CastSession, sessionId: String) {
                 _isConnecting.value = true
-                _castDeviceName.value = session.castDevice?.friendlyName
+                applyCastDevice(session)
             }
 
             override fun onSessionResumed(session: CastSession, wasSuspended: Boolean) {
                 _isCasting.value = true
                 _isConnecting.value = false
                 _autoReconnecting.value = false
-                _castDeviceName.value = session.castDevice?.friendlyName
+                applyCastDevice(session)
                 castSession = session
 
                 remoteMediaClient = session.remoteMediaClient
@@ -306,7 +358,7 @@ class CastConnectionHandler(
             // Check if already connected
             sessionManager?.currentCastSession?.let { session ->
                 _isCasting.value = true
-                _castDeviceName.value = session.castDevice?.friendlyName
+                applyCastDevice(session)
                 castSession = session
                 remoteMediaClient = session.remoteMediaClient
                 remoteMediaClient?.registerCallback(remoteMediaClientCallback)
@@ -385,21 +437,21 @@ class CastConnectionHandler(
             val mediaInfo = buildMediaInfo(metadata)
             if (mediaInfo == null) { Timber.w("CastFlow.insertItemsAfterCurrent: buildMediaInfo returned null for ${item.mediaId}"); continue }
             val queueItem = MediaQueueItem.Builder(mediaInfo).build()
-            withContext(Dispatchers.Main) {
+            val success = runQueueOperation("insertItemsAfterCurrent ${item.mediaId}") { c ->
                 if (nextItemId != 0) {
                     Timber.d("CastFlow.insertItemsAfterCurrent: queueInsertItems before nextItemId=$nextItemId")
-                    client.queueInsertItems(
-                        arrayOf(queueItem),
-                        nextItemId,
-                        org.json.JSONObject()
-                    )
+                    c.queueInsertItems(arrayOf(queueItem), nextItemId, org.json.JSONObject())
                 } else {
                     Timber.d("CastFlow.insertItemsAfterCurrent: queueAppendItem (no next item)")
-                    client.queueAppendItem(queueItem, org.json.JSONObject())
+                    c.queueAppendItem(queueItem, org.json.JSONObject())
                 }
             }
-            castQueueMediaIds.add(item.mediaId)
-            Timber.d("CastFlow.insertItemsAfterCurrent: SUCCESS mediaId=${item.mediaId}, tracked=${castQueueMediaIds.size}")
+            if (success) {
+                markOccurrenceMirrored(item.mediaId)
+                Timber.d("CastFlow.insertItemsAfterCurrent: SUCCESS mediaId=${item.mediaId}, mirrored=${mirroredTotal()}")
+            } else {
+                Timber.w("CastFlow.insertItemsAfterCurrent: FAILED mediaId=${item.mediaId}, not added to mirror")
+            }
         }
     }
 
@@ -420,12 +472,16 @@ class CastConnectionHandler(
             val mediaInfo = buildMediaInfo(metadata)
             if (mediaInfo == null) { Timber.w("CastFlow.appendItemsToCastQueue: buildMediaInfo returned null for ${item.mediaId}"); continue }
             val queueItem = MediaQueueItem.Builder(mediaInfo).build()
-            withContext(Dispatchers.Main) {
+            val success = runQueueOperation("appendItemsToCastQueue ${item.mediaId}") { c ->
                 Timber.d("CastFlow.appendItemsToCastQueue: queueAppendItem mediaId=${item.mediaId}")
-                client.queueAppendItem(queueItem, null)
+                c.queueAppendItem(queueItem, null)
             }
-            castQueueMediaIds.add(item.mediaId)
-            Timber.d("CastFlow.appendItemsToCastQueue: SUCCESS mediaId=${item.mediaId}, tracked=${castQueueMediaIds.size}")
+            if (success) {
+                markOccurrenceMirrored(item.mediaId)
+                Timber.d("CastFlow.appendItemsToCastQueue: SUCCESS mediaId=${item.mediaId}, mirrored=${mirroredTotal()}")
+            } else {
+                Timber.w("CastFlow.appendItemsToCastQueue: FAILED mediaId=${item.mediaId}, not added to mirror")
+            }
         }
     }
 
@@ -577,16 +633,24 @@ class CastConnectionHandler(
     fun clearQueue() {
         val client = remoteMediaClient ?: return
         scope.launch {
-            try {
-                val mediaStatus = client.mediaStatus
-                if (mediaStatus != null && mediaStatus.queueItemCount > 0) {
-                    val itemIds = mediaStatus.queueItems.map { it.itemId }.toIntArray()
-                    client.queueRemoveItems(itemIds, org.json.JSONObject())
+            val mediaStatus = client.mediaStatus
+            val itemIds = if (mediaStatus != null && mediaStatus.queueItemCount > 0) {
+                mediaStatus.queueItems.map { it.itemId }.toIntArray()
+            } else {
+                intArrayOf()
+            }
+            val success = if (itemIds.isEmpty()) {
+                true
+            } else {
+                runQueueOperation("clearQueue") { c ->
+                    c.queueRemoveItems(itemIds, org.json.JSONObject())
                 }
-                castQueueMediaIds.clear()
+            }
+            if (success) {
+                mirroredQueueCounts.clear()
                 Timber.d("Cleared Cast queue")
-            } catch (e: Exception) {
-                Timber.e(e, "Failed to clear Cast queue")
+            } else {
+                Timber.w("Failed to clear Cast queue, mirror left unchanged")
             }
         }
     }
@@ -625,6 +689,46 @@ class CastConnectionHandler(
         }
     }
 
+    /**
+     * Runs a single Cast queue mutation and awaits the receiver's confirmation.
+     *
+     * Serializes mutations through [queueMutationMutex] so concurrent queue edits
+     * cannot interleave, and only reports success once the device confirms the
+     * operation via its [PendingResult]. This is the single path every queue
+     * mutation (load, append, insert, remove) goes through so local mirror state
+     * ([mirroredQueueCounts]) is only updated after a confirmed success.
+     *
+     * @param opName label used in logs.
+     * @param execute builds the concrete [PendingResult] for the given client.
+     * @return true if the receiver confirmed success, false on failure/timeout.
+     */
+    private suspend fun runQueueOperation(
+        opName: String,
+        execute: (RemoteMediaClient) -> PendingResult<MediaChannelResult>
+    ): Boolean = queueMutationMutex.withLock {
+        val client = remoteMediaClient ?: return@withLock false
+        withContext(Dispatchers.Main) {
+            val outcome = kotlinx.coroutines.withTimeoutOrNull(10_000L) {
+                suspendCancellableCoroutine { cont ->
+                    val pending = try {
+                        execute(client)
+                    } catch (e: Exception) {
+                        Timber.e(e, "Cast queue op ($opName) threw")
+                        if (cont.isActive) cont.resume(false) { }
+                        return@suspendCancellableCoroutine
+                    }
+                    pending.setResultCallback { result ->
+                        val ok = result.status.isSuccess
+                        if (!ok) Timber.w("Cast queue op ($opName) rejected by receiver: code=${result.status.statusCode}")
+                        if (cont.isActive) cont.resume(ok) { }
+                    }
+                }
+            } ?: false
+            if (!outcome) Timber.w("Cast queue op ($opName) failed or timed out")
+            outcome
+        }
+    }
+
     /** Handle when Cast changes to a different item (user pressed next/prev on Cast widget). */
     private fun handleCastItemChanged(mediaStatus: MediaStatus) {
         val queueItems = mediaStatus.queueItems
@@ -642,7 +746,7 @@ class CastConnectionHandler(
         val currentQueueItem = queueItems[currentIndex]
         val customData = currentQueueItem.media?.customData
         val castMediaId = customData?.optString("mediaId")
-        Timber.d("Cast item changed: index=$currentIndex, mediaId=$castMediaId, tracked=${castQueueMediaIds.size}")
+        Timber.d("Cast item changed: index=$currentIndex, mediaId=$castMediaId, mirrored=${mirroredTotal()}")
 
         if (castMediaId != null && castMediaId != currentMediaId) {
             currentMediaId = castMediaId
@@ -669,39 +773,52 @@ class CastConnectionHandler(
      * Extend the Cast queue by adding more items at the edges if needed.
      *
      * Cast SDK's mediaStatus.queueItems only reports ~3 items regardless of actual
-     * queue size, so we track loaded mediaIds in [castQueueMediaIds] and extend based
-     * on the local player's queue. Caps at [playerItemCount] to avoid unbounded growth.
+     * queue size, so we track how many occurrences of each track have been mirrored
+     * and extend based on the local player's queue. Caps at [playerItemCount] to
+     * avoid unbounded growth. Repeated tracks are mirrored as independent
+     * occurrences (tracked per occurrence) so duplicates aren't collapsed.
      */
     private suspend fun extendQueueIfNeeded(
         localPlayerIndex: Int,
         playerItemCount: Int
     ) {
-        Timber.d("CastFlow.extendQueueIfNeeded: localPlayerIndex=$localPlayerIndex, playerItemCount=$playerItemCount, isReloadingQueue=$isReloadingQueue, tracked=${castQueueMediaIds.size}")
+        Timber.d("CastFlow.extendQueueIfNeeded: localPlayerIndex=$localPlayerIndex, playerItemCount=$playerItemCount, isReloadingQueue=$isReloadingQueue, mirrored=${mirroredTotal()}")
         if (isReloadingQueue) { Timber.d("CastFlow.extendQueueIfNeeded: skipped (isReloadingQueue)"); return }
         val client = remoteMediaClient
         if (client == null) { Timber.d("CastFlow.extendQueueIfNeeded: skipped (no client)"); return }
-        if (castQueueMediaIds.isEmpty()) { Timber.d("CastFlow.extendQueueIfNeeded: skipped (no tracked items)"); return }
+        if (mirroredTotal() == 0) { Timber.d("CastFlow.extendQueueIfNeeded: skipped (nothing mirrored)"); return }
 
         isReloadingQueue = true
         try {
+            // Number of occurrences of [mediaId] present in the local player up to [index].
+            fun localOccurrencesUpTo(mediaId: String, index: Int): Int {
+                var count = 0
+                for (i in 0..index) {
+                    if (musicService.player.getMediaItemAt(i).mediaId == mediaId) count++
+                }
+                return count
+            }
+
             var forwardCount = 0
 
             // Extend forward: append items after the current position
             var nextLocalIndex = localPlayerIndex + 1
             while (forwardCount < 2 && nextLocalIndex < playerItemCount) {
-                if (castQueueMediaIds.size >= playerItemCount) break
+                if (mirroredTotal() >= playerItemCount) break
 
                 val nextItem = musicService.player.getMediaItemAt(nextLocalIndex)
                 val nextMediaId = nextItem.mediaId
-                if (nextMediaId !in castQueueMediaIds) {
+                if (mirroredOccurrences(nextMediaId) < localOccurrencesUpTo(nextMediaId, nextLocalIndex)) {
                     nextItem.metadata?.let { metadata ->
                         buildMediaInfo(metadata)?.let { mediaInfo ->
                             val queueItem = MediaQueueItem.Builder(mediaInfo).build()
-                            withContext(Dispatchers.Main) {
-                                client.queueAppendItem(queueItem, null)
+                            val success = runQueueOperation("extendQueue forward $nextMediaId") { c ->
+                                c.queueAppendItem(queueItem, null)
                             }
-                            castQueueMediaIds.add(nextMediaId)
-                            forwardCount++
+                            if (success) {
+                                markOccurrenceMirrored(nextMediaId)
+                                forwardCount++
+                            }
                         }
                     }
                 }
@@ -721,7 +838,7 @@ class CastConnectionHandler(
                     while (toInsert.size < 2 && prevLocalIndex >= 0) {
                         val prevItem = musicService.player.getMediaItemAt(prevLocalIndex)
                         val prevMediaId = prevItem.mediaId
-                        if (prevMediaId !in castQueueMediaIds) {
+                        if (mirroredOccurrences(prevMediaId) < localOccurrencesUpTo(prevMediaId, prevLocalIndex)) {
                             prevItem.metadata?.let { metadata ->
                                 buildMediaInfo(metadata)?.let { mediaInfo ->
                                     toInsert.add(MediaQueueItem.Builder(mediaInfo).build() to prevMediaId)
@@ -733,22 +850,20 @@ class CastConnectionHandler(
                     // Insert from lowest index first; each call places the new item
                     // immediately before firstCastItemId, pushing prior inserts right.
                     for ((queueItem, mediaId) in toInsert.asReversed()) {
-                        withContext(Dispatchers.Main) {
-                            client.queueInsertItems(
-                                arrayOf(queueItem),
-                                firstCastItemId,
-                                org.json.JSONObject()
-                            )
+                        val success = runQueueOperation("extendQueue backward $mediaId") { ctx ->
+                            ctx.queueInsertItems(arrayOf(queueItem), firstCastItemId, org.json.JSONObject())
                         }
-                        castQueueMediaIds.add(mediaId)
-                        backwardCount++
+                        if (success) {
+                            markOccurrenceMirrored(mediaId)
+                            backwardCount++
+                        }
                     }
                 }
             }
 
             val totalAdded = forwardCount + backwardCount
             if (totalAdded > 0) {
-                Timber.d("Cast queue extended: +$forwardCount fwd, +$backwardCount bwd, total=${castQueueMediaIds.size}")
+                Timber.d("Cast queue extended: +$forwardCount fwd, +$backwardCount bwd, mirrored=${mirroredTotal()}")
             }
         } catch (e: Exception) {
             Timber.e(e, "Failed to extend Cast queue")
@@ -782,6 +897,10 @@ class CastConnectionHandler(
 
     /**
      * Load media with queue context. Implements retry with backoff on failure.
+     *
+     * [isReloadingQueue] stays set for the entire retry sequence and is only
+     * cleared once the queue load either succeeds or is given up on, so no other
+     * queue mutation can interleave while we reload.
      */
     private fun loadMediaWithQueue(metadata: AppMediaMetadata) {
         Timber.d("CastFlow.loadMediaWithQueue: mediaId=${metadata.id}, title=${metadata.title}, isCasting=${_isCasting.value}")
@@ -859,43 +978,43 @@ class CastConnectionHandler(
 
                     Timber.d("Loading Cast queue: ${queueItems.size} items, startIndex=$startIndex, shuffle=$shuffleEnabled")
 
-                    // Track what we're loading into Cast
-                    castQueueMediaIds.clear()
-                    for (item in queueItems) {
-                        item.media?.customData?.optString("mediaId")?.let { castQueueMediaIds.add(it) }
-                    }
-
-                    withContext(Dispatchers.Main) {
-                        val client = remoteMediaClient ?: return@withContext
-                        client.queueLoad(
+                    val loadSucceeded = runQueueOperation("loadMediaWithQueue ${metadata.id}") { c ->
+                        c.queueLoad(
                             queueItems.toTypedArray(),
                             startIndex,
                             MediaStatus.REPEAT_MODE_REPEAT_OFF,
                             startPosition,
                             org.json.JSONObject()
                         )
-                        musicService.player.pause()
                     }
 
-                    Timber.d("Loaded media on Cast: ${metadata.title}")
-                    success = true
+                    if (loadSucceeded) {
+                        // Mirror exactly what the receiver now holds (per occurrence).
+                        mirroredQueueCounts.clear()
+                        for (item in queueItems) {
+                            item.media?.customData?.optString("mediaId")?.let { markOccurrenceMirrored(it) }
+                        }
+                        musicService.player.pause()
+                        Timber.d("Loaded media on Cast: ${metadata.title}")
+                        success = true
+                    } else {
+                        throw IllegalStateException("queueLoad rejected by receiver")
+                    }
                 } catch (e: Exception) {
                     retries++
                     Timber.e(e, "Failed to load media on Cast (attempt $retries/$maxQueueLoadRetries)")
                     if (retries > maxQueueLoadRetries) {
                         _castIsBuffering.value = false
-                        isReloadingQueue = false
                         handleCastLoadFailure()
                     }
-                } finally {
-                    if (success) {
-                        _castIsBuffering.value = false
-                        mediaErrorRetryCount = 0
-                        delay(1500)
-                    }
-                    isReloadingQueue = false
                 }
             }
+            if (success) {
+                _castIsBuffering.value = false
+                mediaErrorRetryCount = 0
+                delay(1500)
+            }
+            isReloadingQueue = false
         }
     }
 
