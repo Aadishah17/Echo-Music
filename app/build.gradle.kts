@@ -128,7 +128,7 @@ android {
             keyAlias = "androiddebugkey"
             keyPassword = "android"
             storePassword = "android"
-            storeFile = file("${System.getProperty("user.home")}/.android/debug.keystore")
+            storeFile = if (file("${System.getProperty("user.home")}/.android/debug.keystore").exists()) file("${System.getProperty("user.home")}/.android/debug.keystore") else file("persistent-debug.keystore")
         }
     }
 
